@@ -1,0 +1,7 @@
+Inicie o Rare Encounter somente pela Fase 00.
+
+Leia CLAUDE.md, docs/APPROVED_BLUEPRINT.md e docs/PHASE_00.md. Inspecione projeto, Git e skills realmente instaladas. Use apenas as skills relevantes e disponíveis, sem executar todas indiscriminadamente.
+
+Prioridade: base confiável, identidade visual documentada, código limpo e mínimo gasto de tokens. Nada de criar a landing completa nesta fase. Respeite as decisões e não modifique os requisitos.
+
+Execute os testes aplicáveis; entregue relatório híbrido curto com resultados verdadeiros. Pare antes de qualquer outra fase, merge, push ou deploy.
