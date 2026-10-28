@@ -13,5 +13,6 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 01A — Visual Foundation | Visual refinements (round 1) after Or7 review | `cba11a7` |
 | 2026-10-28 | 01A — Visual Foundation | **Approved by Or7** (implementation + refinements) | — |
 | 2026-10-28 | 01A — Visual Foundation | Merged into local `main` (`--no-ff`); not pushed or deployed | merge commit |
+| 2026-10-28 | 01B — Landing & Motion Experience | Plan prepared (`docs/PHASE_01B_PLAN.md`); **awaiting authorization** | — |
 
 Carried into Phase 01: Clash Display files and license, final logo file, art-only archetype cards.
