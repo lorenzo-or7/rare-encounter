@@ -21,12 +21,11 @@ export function LandingPage() {
 
   return (
     <SiteLayout sections={LANDING_SECTIONS.map((s) => ({ id: s.id, label: t(s.nav) }))}>
-      <Hero ctaTarget="begin" />
+      <Hero ctaTarget="begin" after={<ResumeBanner />} />
       <Beyond />
       <Discovery />
       <Connection />
       <Begin />
-      <ResumeBanner />
     </SiteLayout>
   );
 }

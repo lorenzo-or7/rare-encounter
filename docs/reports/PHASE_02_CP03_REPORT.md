@@ -1,6 +1,7 @@
 # Phase 02, Checkpoint 03: Control, Persistence and Recovery
 
 Branch `phase/02-quiz-experience`. Not merged, not pushed. **Stopped for Or7 review.**
+Updated after `d3221fe` with the banner fix and the final validation (section at the end, which replaces the earlier test results).
 Questions remain the labelled preview set. There is no question bank, no Pokémon profiles, no matching, no scores and no results. Checkpoint 04 was not started.
 
 ## What changed
@@ -15,7 +16,7 @@ Questions remain the labelled preview set. There is no question bank, no Pokémo
 - **Closing the tab:** the browser asks for confirmation only while an answer isn't stored yet (saving, failed, or an edit waiting for confirmation). Every other answer is already committed.
 
 **2. Resuming**
-- **Landing banner**, floating over the bottom so the approved layout doesn't change:
+- **Landing banner**, in the page flow directly under the hero CTA (updated in the fix below):
   - "Your encounter is waiting · The Journey: 3 of 60 answered" with **Continue the encounter**, which runs the Liquid Flow straight into the question where the person stopped;
   - or "A saved encounter needs your attention" (recovery);
   - or "Your saved progress cannot be reached right now".
@@ -133,6 +134,77 @@ The double click and the language switch during a session are covered by the CP0
 - **Editing with dependencies** is proven by contract (fixtures, unit and component tests). In the browser the preview has no dependencies, so the "N answers will be cleared" dialog only appears once a source with `reconcile` exists (Phase 04).
 - **Blocked IndexedDB:** without the localStorage fallback (Or7: IndexedDB stays the source of truth), the encounter doesn't start and says so. Nothing is promised and nothing is lost, but there is no offline mode in that case.
 - **Last result:** the banner priority is implemented and tested, but no result exists until Phase 05.
-- **Mobile banner:** it floats over the bottom of the hero (its supporting text) until closed or scrolled past. This is for Or7 to judge visually.
+- ~~**Mobile banner**: it floats over the bottom of the hero.~~ **Resolved** in the fix below: the banner is in the page flow on every size.
 - **Closing the tab** only warns while an answer isn't stored yet; it doesn't warn during a fully saved session, because nothing would be lost.
 - **Marker only as a pointer:** if IndexedDB holds a session but the marker was never written, the landing banner doesn't show. `/encounter` still finds and offers the session.
+
+## Banner fix and final validation (after `d3221fe`)
+**Problem:** the resume banner was fixed to the bottom of the screen.
+- **Phones:** it covered the hero CTA entirely (60 px of overlap at 320, 375 and 390 px) and part of the supporting text (14–16 px).
+- **Desktop:** no overlap at first view (1024–1440 px), but while scrolling at 1366×657 it passed over **25 elements** of the following sections (headings, paragraphs, lists).
+
+The floating presentation therefore didn't hold on any size.
+
+**Fix (Or7 direction: integrated below the hero, in the page flow):**
+- **Placement:** the banner is now part of the hero's copy column, **48 px under the CTA**, on every size.
+  - It's visible without scrolling on desktop and placed right after the CTA on phones.
+  - Content, colors, typography and material are unchanged; only the positioning moved from `fixed` to the flow.
+  - 48 px clears the light of the original Star Border, which reaches 48 px past the button.
+- **The Hero gained an optional `after` slot.** Without a saved session it renders nothing, and the landing is identical to Phase 01B (`desktop-landing-without-banner`).
+- **Opening and closing** animate the height, so the content below moves instead of jumping. Under reduced motion the change is instant.
+- **Behavior is unchanged:**
+  - continue where you stopped;
+  - closing deletes nothing and applies to this tab only;
+  - an unfinished session takes priority;
+  - the recovery and unreachable-storage states.
+
+  IndexedDB, persistence, questions and logic were not touched.
+
+**Two pre-existing landing problems at 320 px**, found during validation (neither caused by the banner: both show up without it):
+- **The headline was cut off:** the unbreakable "your Pokémon." (about 7.3 em) was wider than the column at the `clamp()` minimum, and the hero (`overflow: hidden`) cut it at the screen edge. Fix: `font-size: 2.4rem` **below 360 px only** (`Hero.css`).
+- **5 px of horizontal scroll:** the light of the closing section's Star Border (original, unchanged) reached past the screen edge. Fix: `overflow-x: clip` on `.begin` **below 360 px only** (`Begin.css`). It clips only what was already off screen and creates no scroll container.
+
+From 360 px up the landing is unchanged.
+
+**Responsive validation**, measured in Chromium at 320, 360, 375 and 390 px, tablet (768, 1024) and desktop (1280×720, 1366×657, 1440×900), in three states (with banner, without banner, after closing):
+- horizontal scroll: **0 px in every case**;
+- overlap between the banner and page content: **none**;
+- text clipped in the banner: **none**;
+- smallest touch target: **44 px**;
+- gap between the CTA and the banner: **48 px** everywhere.
+
+The new E2E tests cover the same thing (in the flow, no overlap, no horizontal scroll, before and after closing, and no database created without a session).
+
+**Final validation of this fix:**
+| Check | Result |
+| --- | --- |
+| typecheck / lint | ✅ / ✅ |
+| Production build | ✅ landing JS 138.4 kB gzip (unchanged) |
+| Vitest | ✅ 91/91 (15 files) |
+| **Playwright, full suite, 3 viewports** | ✅ **158 passed, 0 failed, 37 skipped** (viewport-specific, e.g. desktop-only tests on tablet and mobile, and the width sweep only on mobile) |
+| Safety scan / vendor integrity | ✅ / ✅ (10 React Bits originals unchanged) |
+
+**Failures along the way, and the cause of each:**
+- **Full run 1** (153 passed, 5 failed):
+  - **Two screenshot failures, unrelated to this change.** The Chromium protocol error "Unable to capture screenshot" (already seen in 01B) and a timeout in "Every Connection Is Different". Both passed in 2 out of 2 reruns.
+  - **Three width tests (320/360/390) failed consistently.**
+    - Cause: the time limit, with the failure always on the **last screenshot**, after all functional checks had passed.
+    - Measured outside the runner: 16–19 s per flow, of which 4–7 s per screenshot (WebGL in software).
+    - Fix: a 60 s budget for those 4 tests, with the measurement recorded in the code. They then passed 2 out of 2.
+- **Full run 2** (156 passed, 2 failed):
+  - **The same screenshot error.**
+  - **"Closing the banner keeps the encounter" on tablet.** It hit the test's 30 s limit; on its own it takes 25–30 s (two landings, a reload and a second tab, with 4–8 s measured for the banner on the second tab). Given 60 s and the measurement in the code, it passed 3 out of 3.
+- **Full run 3** (final): 158 passed, 0 failed.
+
+No functional assertion was weakened. The only time increases were on whole-test budgets, with the measurement recorded.
+
+**Files in this fix:**
+- `src/features/resume/ResumeBanner.css`
+- `src/features/resume/ResumeBannerContent.tsx`
+- `src/pages/landing/Hero.tsx` (`after` slot)
+- `src/pages/landing/LandingPage.tsx`
+- `src/pages/landing/Hero.css` (below 360 px)
+- `src/pages/landing/sections/Begin.css` (below 360 px)
+- `e2e/recovery.spec.ts` (in-flow banner tests; documented time budgets)
+- this report, `docs/EXECUTION_LOG.md`
+- evidence in `phase-02-cp03/banner-fix/` (before and after, with and without the banner, closed, 320–390 px, tablet, laptop) and the 16 CP03 captures refreshed by the final run.

@@ -131,6 +131,9 @@ test('a reload during the questions resumes at the same place', async ({ page })
 });
 
 test('closing the banner keeps the encounter', async ({ page, context }) => {
+  // Two full landings, a reload and a second tab. Alone on the emulated tablet this test takes
+  // 28-29 s (the second tab's banner: 4-8 s, measured), right at the default 30 s limit.
+  test.setTimeout(60_000);
   await startQuiz(page);
   await answer(page, 0);
   await saveAndLeave(page);
@@ -433,5 +436,90 @@ test.describe('es', () => {
     test.skip(!isDesktop(page), 'One capture is enough');
     await page.waitForTimeout(500);
     await page.screenshot({ path: shot('banner-es') });
+  });
+});
+
+test.describe('resume banner in the page flow', () => {
+  /** Vertical overlap, in px, between the banner and an element (0 when apart). */
+  const overlapWith = (page: Page, selector: string) =>
+    page.evaluate((sel) => {
+      const b = document.querySelector('.resume-banner')?.getBoundingClientRect();
+      const e = document.querySelector(sel)?.getBoundingClientRect();
+      if (!b || !e) return -1;
+      const horizontal = Math.min(b.right, e.right) > Math.max(b.left, e.left);
+      return horizontal ? Math.max(0, Math.min(b.bottom, e.bottom) - Math.max(b.top, e.top)) : 0;
+    }, selector);
+  const sidewaysScroll = (page: Page) =>
+    page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+
+  test('sits under the hero CTA, covering nothing, on desktop', async ({ page }) => {
+    test.skip(!isDesktop(page), 'Desktop layout');
+    await startQuiz(page, 1);
+    await answer(page, 0);
+    await saveAndLeave(page);
+    await slowExpect(banner(page)).toBeVisible();
+    expect(
+      await page.locator('.resume-banner').evaluate((el) => getComputedStyle(el).position),
+    ).toBe('static');
+    for (const sel of ['.hero__cta', '.hero__lead', '.hero__title']) {
+      expect(await overlapWith(page, sel), sel).toBe(0);
+    }
+    const gap = await page.evaluate(() => {
+      const b = document.querySelector('.resume-banner')?.getBoundingClientRect();
+      const c = document.querySelector('.hero__cta')?.getBoundingClientRect();
+      return b && c ? Math.round(b.top - c.bottom) : -1;
+    });
+    expect(gap).toBeGreaterThanOrEqual(48);
+    await page.waitForTimeout(500);
+    await page.screenshot({ path: shot('landing-with-banner') });
+  });
+
+  for (const width of [320, 360, 375, 390]) {
+    test(`at ${String(width)} px: in the flow, no overlap, no sideways scroll, before and after closing`, async ({
+      page,
+    }) => {
+      test.skip(
+        test.info().project.name !== 'mobile',
+        'Width sweep runs once, on the phone project',
+      );
+      // Quiz, landing and two captures in one test. Measured outside the runner: 16-19 s, of
+      // which 4-7 s per screenshot (the landing's WebGL renders in software in headless
+      // Chromium). Every functional check runs before the last capture.
+      test.setTimeout(60_000);
+      await page.setViewportSize({ width, height: 740 });
+      await startQuiz(page);
+      await answer(page, 0);
+      await saveAndLeave(page);
+      await slowExpect(banner(page)).toBeVisible();
+      expect(await sidewaysScroll(page)).toBeLessThanOrEqual(0);
+      for (const sel of ['.hero__cta', '.hero__lead'])
+        expect(await overlapWith(page, sel), sel).toBe(0);
+      await page.locator('.resume-banner').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(500);
+      await page.screenshot({ path: shot(`landing-with-banner-${String(width)}`) });
+
+      await banner(page).getByRole('button', { name: 'Close notice' }).click();
+      await expect(banner(page)).toHaveCount(0);
+      expect(await sidewaysScroll(page)).toBeLessThanOrEqual(0);
+      expect(Object.keys(await answerIds(page))).toHaveLength(1);
+      await page.evaluate(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
+      await page.waitForTimeout(400);
+      await page.screenshot({ path: shot(`landing-closed-${String(width)}`) });
+    });
+  }
+
+  test('without a saved encounter the landing is unchanged and nothing is opened', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    await page.waitForTimeout(2500);
+    await expect(banner(page)).toHaveCount(0);
+    expect(await sidewaysScroll(page)).toBeLessThanOrEqual(0);
+    expect(await page.evaluate(() => indexedDB.databases().then((d) => d.length))).toBe(0);
+    await page.screenshot({ path: shot('landing-without-banner') });
   });
 });

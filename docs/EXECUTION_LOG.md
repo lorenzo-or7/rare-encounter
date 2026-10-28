@@ -34,5 +34,6 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 02 — Checkpoint 02 | **Approved by Or7** (quiz questions and motion, CP01 refinements) | `d799bda` |
 | 2026-10-28 | 02 — Checkpoint 03 | Authorized: pause and navigation, resume banner and recovery, answer editing with dependency contracts (fixtures), persistence and reliability. IndexedDB stays the source of truth; localStorage holds preferences and a light session marker | — |
 | 2026-10-28 | 02 — Checkpoint 03 | Control, persistence and recovery implemented (session schema v2 with validated migration); awaiting Or7 review (`docs/reports/PHASE_02_CP03_REPORT.md`) | — |
+| 2026-10-28 | 02 — Checkpoint 03 | Resume banner moved into the page flow under the hero CTA (Or7); two pre-existing 320 px landing issues fixed below 360 px only; full validation: 158 passed, 0 failed, 37 skipped; awaiting Or7 approval | — |
 
 Carried into Phase 01: Clash Display files and license (resolved: local-only install), final logo file (delivered in the 01B asset pack), art-only archetype cards (delivered; card 02 residue fixed in v2).

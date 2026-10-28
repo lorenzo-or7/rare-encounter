@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useState, type MouseEvent } from 'react';
 import { usePreferences } from '../../app/preferences-context';
 import { ENCOUNTER_PATH, navigate } from '../../app/routing';
@@ -30,7 +30,7 @@ function dismissed(id: string): boolean {
 }
 
 /**
- * Landing banner for a returning visitor (blueprint: an unfinished session first, then the
+ * Landing banner for a returning visitor, shown under the hero CTA (blueprint: an unfinished session first, then the
  * last result; results arrive in Phase 05). It only opens IndexedDB when the localStorage
  * marker says there may be something, so a first visit never creates a database, and it
  * confirms against IndexedDB before offering anything. Closing it hides the notice for
@@ -39,6 +39,8 @@ function dismissed(id: string): boolean {
 export default function ResumeBannerContent() {
   const { t } = usePreferences();
   const transition = useEncounterTransition();
+  // Height moves the content below; under reduced motion it changes at once.
+  const reduceMotion = useReducedMotion() ?? false;
   const [banner, setBanner] = useState<Banner | null>(null);
   const [closed, setClosed] = useState(false);
 
@@ -109,43 +111,49 @@ export default function ResumeBannerContent() {
   return (
     <AnimatePresence>
       {banner && title && !closed && (
-        <motion.aside
-          className="resume-banner"
-          aria-label={t('resume.label')}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 16 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+        // In the page flow: it opens and closes its own height, so the content below moves
+        // smoothly instead of jumping (reduced motion: instant).
+        <motion.div
+          key="resume-banner"
+          className="resume-banner-slot"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="resume-banner__text">
-            <p className="resume-banner__title">{t(title)}</p>
-            <p className="resume-banner__body">
-              {banner.kind === 'session'
-                ? banner.summary
-                : t(
-                    banner.kind === 'recovery' ? 'banner.recovery.body' : 'banner.unreachable.body',
-                  )}
-            </p>
-          </div>
-          <div className="resume-banner__actions">
-            {banner.kind === 'session' && (
-              <Button variant="primary" onClick={resume}>
-                {t('resume.continue')}
-              </Button>
-            )}
-            {banner.kind === 'recovery' && (
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  navigate(ENCOUNTER_PATH);
-                }}
-              >
-                {t('banner.recovery.action')}
-              </Button>
-            )}
-            <IconButton icon="close" label={t('resume.dismiss')} onClick={close} />
-          </div>
-        </motion.aside>
+          <aside className="resume-banner" aria-label={t('resume.label')}>
+            <div className="resume-banner__text">
+              <p className="resume-banner__title">{t(title)}</p>
+              <p className="resume-banner__body">
+                {banner.kind === 'session'
+                  ? banner.summary
+                  : t(
+                      banner.kind === 'recovery'
+                        ? 'banner.recovery.body'
+                        : 'banner.unreachable.body',
+                    )}
+              </p>
+            </div>
+            <div className="resume-banner__actions">
+              {banner.kind === 'session' && (
+                <Button variant="primary" onClick={resume}>
+                  {t('resume.continue')}
+                </Button>
+              )}
+              {banner.kind === 'recovery' && (
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    navigate(ENCOUNTER_PATH);
+                  }}
+                >
+                  {t('banner.recovery.action')}
+                </Button>
+              )}
+              <IconButton icon="close" label={t('resume.dismiss')} onClick={close} />
+            </div>
+          </aside>
+        </motion.div>
       )}
     </AnimatePresence>
   );
