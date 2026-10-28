@@ -2,6 +2,8 @@
   --card-tint: color-mix(in oklab, var(--card-hue) 8%, var(--color-bg-raised));
   --card-edge: color-mix(in oklab, var(--card-hue) 38%, transparent);
 
+  /* Type inside the card scales with the card, like the approved art does */
+  container-type: inline-size;
   perspective: 900px;
   width: 100%;
   max-width: 20rem;
@@ -9,38 +11,8 @@
 
 .archetype-card__body {
   position: relative;
-  display: grid;
   aspect-ratio: 2 / 3;
-  overflow: hidden;
-  border: 1px solid var(--card-edge);
-  border-radius: var(--radius-lg);
-  background: var(--card-tint);
-  box-shadow: var(--shadow-md);
   transform-style: preserve-3d;
-  transition:
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-slow) var(--ease-out);
-}
-
-/* Controlled glow: an offset, hue-tinted shadow, only where hover exists (no sticky touch hover) */
-@media (hover: hover) {
-  .archetype-card:hover .archetype-card__body {
-    border-color: color-mix(in oklab, var(--card-hue) 62%, transparent);
-    box-shadow:
-      var(--shadow-md),
-      0 24px 56px -28px color-mix(in oklab, var(--card-hue) 55%, transparent);
-  }
-}
-
-/* Inner hairline frame, echoing the double border of the approved art */
-.archetype-card__body::before {
-  content: '';
-  position: absolute;
-  inset: var(--space-3);
-  z-index: 1;
-  border: 1px solid color-mix(in oklab, var(--card-hue) 18%, transparent);
-  border-radius: calc(var(--radius-lg) - var(--space-2));
-  pointer-events: none;
 }
 
 .archetype-card__art {
@@ -53,52 +25,52 @@
 .archetype-card__art img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  transition: filter var(--duration-slow) var(--ease-out);
 }
 
-.archetype-card__pending {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  max-width: 80%;
-  text-align: center;
-  margin-block-end: 30%;
-  color: var(--color-text-subtle);
-  font-size: var(--text-sm);
+/* Reflection: masked by the art's own alpha so it lights the card, never the page */
+.archetype-card__glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  mask-image: var(--card-mask, none);
+  mask-size: 100% 100%;
 }
 
-.archetype-card__pending svg {
-  color: var(--card-hue);
+/*
+ * Real text sits in the areas cleared in the approved art: the number between the two
+ * upper stars, the title and action on the lower plate.
+ */
+.archetype-card__number {
+  position: absolute;
+  inset-block-start: 13.7%;
+  inset-inline-start: 50%;
+  translate: -50% -50%;
+  color: color-mix(in oklab, var(--card-hue) 55%, white);
+  font-family: var(--font-card);
+  font-size: max(1rem, 7.4cqi);
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px color-mix(in oklab, var(--card-hue) 60%, transparent);
 }
 
-/* Copy sits in the lower third, where the approved composition places it */
 .archetype-card__content {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  inset: 62.5% 13% 6.5%;
   display: grid;
   justify-items: center;
-  align-content: end;
-  gap: var(--space-2);
-  padding: var(--space-8) var(--space-6) var(--space-8);
+  align-content: center;
+  gap: 2.5cqi;
   text-align: center;
-  background: linear-gradient(
-    to top,
-    color-mix(in oklab, var(--color-bg) 70%, transparent) 0%,
-    transparent 55%
-  );
-}
-
-.archetype-card__number {
-  color: color-mix(in oklab, var(--card-hue) 70%, white);
-  font-family: var(--font-card);
-  font-size: var(--text-lg);
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
 }
 
 .archetype-card__title {
+  color: color-mix(in oklab, var(--color-text) 88%, var(--card-hue));
   font-family: var(--font-card);
-  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.5rem);
+  font-size: max(1.5rem, 11.5cqi);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0;
@@ -107,7 +79,7 @@
 .archetype-card__phrase {
   max-width: 24ch;
   color: var(--color-text);
-  font-size: var(--text-md);
+  font-size: max(0.875rem, 4.6cqi);
   line-height: var(--leading-snug);
 }
 
@@ -117,14 +89,15 @@
   justify-content: center;
   gap: var(--space-2);
   min-height: 2.75rem;
-  margin-block-start: var(--space-3);
-  padding-inline: var(--space-5);
+  margin-block-start: 1.5cqi;
+  padding-inline: var(--space-4);
   border: 1px solid var(--card-edge);
   border-radius: var(--radius-pill);
   background: color-mix(in oklab, var(--color-bg) 55%, transparent);
   color: var(--color-text);
-  font-size: var(--text-sm);
+  font-size: max(0.8125rem, 4.4cqi);
   font-weight: var(--weight-medium);
+  white-space: nowrap;
   cursor: pointer;
   transition:
     background-color var(--duration-fast) var(--ease-out),
@@ -143,4 +116,44 @@
 
 .archetype-card[data-revealed='true'] .archetype-card__action svg {
   transform: rotate(45deg) scale(0.9);
+}
+
+@media (hover: hover) {
+  .archetype-card[data-art='true']:hover .archetype-card__art img {
+    filter: brightness(1.07) saturate(1.05);
+  }
+}
+
+/* ---------- Art pending: the card frame is drawn in CSS until art-only files exist ---------- */
+.archetype-card[data-art='false'] .archetype-card__body {
+  overflow: hidden;
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius-lg);
+  background: var(--card-tint);
+  box-shadow: var(--shadow-md);
+}
+
+.archetype-card[data-art='false'] .archetype-card__body::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-3);
+  z-index: 1;
+  border: 1px solid color-mix(in oklab, var(--card-hue) 18%, transparent);
+  border-radius: calc(var(--radius-lg) - var(--space-2));
+  pointer-events: none;
+}
+
+.archetype-card__pending {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 80%;
+  margin-block-end: 30%;
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.archetype-card__pending svg {
+  color: var(--card-hue);
 }

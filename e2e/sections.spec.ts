@@ -4,7 +4,16 @@ test.use({ locale: 'en-US' });
 
 const shot = (name: string) => `test-results/screens/${test.info().project.name}-${name}.png`;
 const section = (page: Page, id: string) => page.locator(`#${id}`);
+// Floating cards never hold still, so scroll the section itself rather than waiting on a card.
+const scrollTo = (page: Page, id: string) =>
+  section(page, id).evaluate((el) => {
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: 'instant' });
+  });
 const capture = async (page: Page, id: string, name: string) => {
+  // Evidence shows the whole section: grow the viewport height when it is taller.
+  const vp = page.viewportSize();
+  const height = await section(page, id).evaluate((el) => Math.ceil(el.getBoundingClientRect().height));
+  if (vp && height + 48 > vp.height) await page.setViewportSize({ width: vp.width, height: height + 48 });
   // Scroll the section to just under the floating nav and capture the real viewport.
   await section(page, id).evaluate((el) => {
     window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: 'instant' });
@@ -68,6 +77,16 @@ test('Every Connection Is Different: three cards, real text, serif titles, revea
     return document.fonts.check('400 32px "DM Serif Display"');
   });
   expect(loaded).toBe(true);
+  // Approved art-only images load at full quality, keep 2:3, and no baked text is needed.
+  await s.scrollIntoViewIfNeeded();
+  const arts = s.locator('.archetype-card__art img');
+  await expect(arts).toHaveCount(3);
+  for (const img of await arts.all()) {
+    await expect.poll(() => img.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
+    const ratio = await img.evaluate((el) => (el as HTMLImageElement).naturalWidth / (el as HTMLImageElement).naturalHeight);
+    expect(ratio).toBeCloseTo(2 / 3, 2);
+  }
+  await expect(s.locator('.archetype-card__number')).toHaveText(['01', '02', '03']);
   await capture(page, 'connection', 'connection');
 
   const radiant = s.getByRole('article', { name: 'Radiant' });
@@ -91,6 +110,36 @@ test('Begin Your Journey: start control is honest until Preparation exists', asy
   await capture(page, 'begin', 'begin');
 });
 
+test('card reflection follows a mouse and fades when it leaves', async ({ page }) => {
+  await page.goto('/');
+  test.skip((page.viewportSize()?.width ?? 0) < 900, 'Fine-pointer behaviour checked on desktop');
+  await scrollTo(page, 'connection');
+  const card = section(page, 'connection').getByRole('article', { name: 'Ethereal' });
+  const box = await card.boundingBox();
+  if (!box) throw new Error('no card box');
+  await page.mouse.move(box.x + box.width * 0.3, box.y + box.height * 0.3);
+  await page.mouse.move(box.x + box.width * 0.35, box.y + box.height * 0.32, { steps: 4 });
+  const glare = card.locator('.archetype-card__glare');
+  await expect.poll(() => glare.evaluate((el) => Number(getComputedStyle(el).opacity))).toBeGreaterThan(0.5);
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: shot('connection-hover') });
+  await page.mouse.move(5, 5);
+  await expect.poll(() => glare.evaluate((el) => Number(getComputedStyle(el).opacity))).toBeLessThan(0.05);
+});
+
+test.describe('touch', () => {
+  test.use({ hasTouch: true });
+
+  test('tap reveals the phrase', async ({ page }) => {
+    await page.goto('/');
+    await scrollTo(page, 'connection');
+    const card = section(page, 'connection').getByRole('article', { name: 'Instinctive' });
+    await card.hover({ force: true });
+    await card.getByRole('button', { name: 'Tap to discover' }).tap();
+    await expect(card.getByText('Your intuition finds its own direction.')).toBeVisible();
+  });
+});
+
 test.describe('reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
 
@@ -102,6 +151,7 @@ test.describe('reduced motion', () => {
       .locator('.connection__float')
       .evaluateAll((els) => els.map((e) => getComputedStyle(e).transform));
     expect(transforms.every((t) => t === 'none')).toBe(true);
+    await expect(s.locator('.archetype-card__glare')).toHaveCount(0);
   });
 });
 

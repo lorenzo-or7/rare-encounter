@@ -21,6 +21,12 @@ test('hero: exact headline, single gradient phrase, Star Border CTA, no overflow
   await expect(h1).toHaveCount(1);
   await expect(h1).toHaveText(HEADLINE);
 
+  const logo = page.getByRole('banner').getByRole('link', { name: 'Rare Encounter' }).locator('visible=true').locator('img');
+  await expect.poll(() => logo.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
+  for (const icon of ['/favicon-32.png', '/apple-touch-icon.png', '/site.webmanifest']) {
+    expect((await page.request.get(icon)).ok()).toBe(true);
+  }
+
   const gradients = h1.locator('.gradient-text');
   await expect(gradients).toHaveCount(1);
   await expect(gradients).toHaveText('your Pokémon');

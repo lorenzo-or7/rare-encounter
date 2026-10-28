@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event';
 import { MESSAGES } from '../../i18n/messages';
 import { LOCALES } from '../../i18n/locales';
 import { ArchetypeCard } from './ArchetypeCard';
-import { ARCHETYPES } from './archetypes';
+import { ARCHETYPES, type CardArt } from './archetypes';
 
 const [ethereal] = ARCHETYPES;
 if (!ethereal) throw new Error('Missing archetypes');
 
-const renderCard = (art: string | null = null) =>
+const renderCard = (art: CardArt | null = null) =>
   render(
     <ArchetypeCard
       archetype={{ ...ethereal, art }}
@@ -42,9 +42,16 @@ describe('ArchetypeCard', () => {
   });
 
   it('treats supplied art as decoration', () => {
-    const { container } = renderCard('/art.png');
+    const { container } = renderCard({ src: '/art-640.webp', srcSet: '/art-640.webp 640w' });
     expect(container.querySelector('img')).toHaveAttribute('alt', '');
+    expect(container.querySelector('img')).toHaveAttribute('srcset', '/art-640.webp 640w');
     expect(screen.queryByText('Art-only version pending')).not.toBeInTheDocument();
+  });
+
+  it('ships art-only images for all three approved cards', () => {
+    for (const a of ARCHETYPES) {
+      expect(a.art?.srcSet).toMatch(/480w.*640w.*960w/);
+    }
   });
 
   it('defines the three approved archetypes, all translated', () => {

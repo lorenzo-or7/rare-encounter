@@ -33,9 +33,6 @@
   border-radius: var(--radius-pill);
 }
 
-.top-bar .logo__text {
-  font-size: var(--text-md);
-}
 
 .top-bar__action {
   color: var(--color-text);
@@ -91,9 +88,6 @@
     padding-inline: var(--space-3) var(--space-4);
   }
 
-  .liquid-nav .logo__text {
-    font-size: 1.0625rem;
-  }
 }
 
 .liquid-nav__list {

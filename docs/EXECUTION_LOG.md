@@ -20,5 +20,6 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 01B — Checkpoint 01 | **Approved by Or7** (hero + refinements) | `efb98c5` |
 | 2026-10-28 | 01B — Checkpoint 02 | Authorized: four sections, Stepper, Archetype Cards, copy, finish | — |
 | 2026-10-28 | 01B — Checkpoint 02 | Implemented; awaiting Or7 review (`docs/reports/PHASE_01B_CP02_REPORT.md`) | — |
+| 2026-10-28 | 01B — Asset pack | Logo, symbol and art-only cards inspected, optimized and integrated; awaiting Or7 visual review (`docs/reports/PHASE_01B_ASSETS_REPORT.md`) | — |
 
-Carried into Phase 01: Clash Display files and license, final logo file, art-only archetype cards.
+Carried into Phase 01: Clash Display files and license (resolved: local-only install), final logo file (delivered in the 01B asset pack), art-only archetype cards (delivered; card 02 needs a clean re-export of its number area).

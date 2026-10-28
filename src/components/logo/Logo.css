@@ -4,19 +4,16 @@
   min-height: 2.75rem;
   padding-inline: var(--space-2);
   border-radius: var(--radius-pill);
-  color: var(--color-text);
   text-decoration: none;
 }
 
+/* The logotype file carries its own transparent margin, so 40px renders a ~31px mark */
 .logo__image {
-  height: 1.75rem;
+  display: block;
   width: auto;
+  height: 2.5rem;
 }
 
-.logo__text {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-medium);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
+.logo[data-variant='symbol'] .logo__image {
+  height: 2rem;
 }
