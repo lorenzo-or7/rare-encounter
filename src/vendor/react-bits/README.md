@@ -12,5 +12,9 @@ from ESLint so the originals stay byte-for-byte. Adapt behaviour through props o
 | GradientText | GradientText/GradientText.css | 9ff55e744f20f542 |
 | StarBorder | StarBorder/StarBorder.tsx | 3da1c1856f3b41fb |
 | StarBorder | StarBorder/StarBorder.css | 128fe0068b2d7964 |
+| Stepper | Stepper/Stepper.tsx | d61797e756561115 |
+| Stepper | Stepper/Stepper.css | 417223c9c56157b2 |
+
+Stepper requires `@hugeicons/react` and `@hugeicons/core-free-icons` (MIT), installed as the registry declares.
 
 License: MIT + Commons Clause (see `THIRD_PARTY_NOTICES.md` at the repository root).

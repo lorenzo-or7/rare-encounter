@@ -45,8 +45,39 @@ export const ptBR: Messages = {
   'landing.hero.lead':
     'Responda 30, 60 ou 90 perguntas sobre quem você é e sobre o que te atrai. Todas as espécies são comparadas em pé de igualdade, e você vê por que combinam com você.',
   'landing.hero.cta': 'Comece sua jornada',
-  'landing.section.beyond': 'Além do Óbvio',
-  'landing.section.discovery': 'Como a Descoberta Funciona',
-  'landing.section.connection': 'Cada Conexão É Diferente',
-  'landing.section.begin': 'Comece Sua Jornada',
+  'landing.section.beyond': 'Além do óbvio',
+  'landing.section.discovery': 'Como a descoberta funciona',
+  'landing.section.connection': 'Cada conexão é diferente',
+  'landing.section.begin': 'Comece sua jornada',
+  'landing.beyond.statement':
+    'Força, raridade e fama não entram na comparação. O que conta é como um Pokémon se move pelo mundo, e se isso parece com você.',
+  'landing.beyond.p1.title': 'A Pokédex inteira está em jogo',
+  'landing.beyond.p1.body':
+    'Toda espécie elegível é candidata, dos lendários que todo mundo conhece aos que quase ninguém nota.',
+  'landing.beyond.p2.title': 'Seis lados de você',
+  'landing.beyond.p2.body':
+    'Personalidade, estética, valores, ambientes, energia e instinto moldam o resultado.',
+  'landing.beyond.p3.title': 'Motivos que você pode ler',
+  'landing.beyond.p3.body':
+    'Cada combinação mostra as respostas que a formaram. A afinidade mede o quanto vocês se alinham; não é uma probabilidade.',
+  'landing.discovery.intro': 'Três etapas, no seu ritmo.',
+  'landing.discovery.step1.title': 'Descubra-se',
+  'landing.discovery.step1.body':
+    'Escolha Um Vislumbre (30 perguntas), A Jornada (60) ou Conexão Profunda (90) e responda uma pergunta por vez. Seu progresso é salvo a cada resposta.',
+  'landing.discovery.step2.title': 'Encontre sua conexão',
+  'landing.discovery.step2.body':
+    'Suas respostas são comparadas com todas as espécies elegíveis em seis dimensões, em pé de igualdade.',
+  'landing.discovery.step3.title': 'Revele seu encontro',
+  'landing.discovery.step3.body':
+    'Conheça primeiro sua Soul Match e depois suas combinações Hidden e Alternative, cada uma com os motivos da conexão.',
+  'landing.connection.intro':
+    'Etéreo, Instintivo e Radiante descrevem estados que uma conexão pode ter; seu resultado é sempre uma espécie. Toque em uma carta para ler.',
+  'landing.begin.statement':
+    'Comece com 30 perguntas ou vá mais fundo com 90. Você pode pausar quando quiser, e suas respostas ficam guardadas.',
+  'landing.mode.glimpse': 'Um Vislumbre',
+  'landing.mode.journey': 'A Jornada',
+  'landing.mode.deep': 'Conexão Profunda',
+  'landing.mode.questions': '{n} perguntas',
+  'landing.begin.cta': 'Comece sua jornada',
+  'landing.begin.unavailable': 'O encontro abre em breve.',
 };

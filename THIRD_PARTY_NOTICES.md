@@ -40,7 +40,12 @@ SOFTWARE.
 
 ```
 
+## Hugeicons (@hugeicons/react, @hugeicons/core-free-icons)
+
+MIT License. Required by the React Bits Stepper.
+
 ## Fonts
 
 - Inter (via @fontsource-variable/inter): SIL Open Font License 1.1.
+- DM Serif Display (via @fontsource/dm-serif-display): SIL Open Font License 1.1. Archetype card titles.
 - Clash Display (Indian Type Foundry, Fontshare): ITF Free Font License v2.0. Not included in this repository; installed locally with `npm run fonts:setup`.

@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react';
 import { lazy, Suspense } from 'react';
+import { EncounterTransitionProvider } from '../features/encounter-transition/EncounterTransition';
 import { LandingPage } from '../pages/landing/LandingPage';
 import { PreferencesProvider } from './PreferencesProvider';
 
@@ -20,7 +21,9 @@ export function App() {
             <FoundationPage />
           </Suspense>
         ) : (
-          <LandingPage />
+          <EncounterTransitionProvider>
+            <LandingPage />
+          </EncounterTransitionProvider>
         )}
       </PreferencesProvider>
     </MotionConfig>

@@ -4,7 +4,7 @@
 
 **A Pokémon personality and aesthetics discovery, by Or7.**
 
-`Phase 01B · Landing (checkpoint 01)` · React 19 · TypeScript (strict) · Vite 8
+`Phase 01B · Landing (checkpoint 02)` · React 19 · TypeScript (strict) · Vite 8
 
 </div>
 
@@ -19,7 +19,7 @@ This repository is in **Phase 00 — Foundation**. It contains the architecture,
 | Phase | Scope | State |
 | --- | --- | --- |
 | 00 | Foundation | Approved, merged |
-| 01 | Visual identity and landing | 01A approved; 01B checkpoint 01 in review |
+| 01 | Visual identity and landing | 01A approved; 01B checkpoint 01 approved, checkpoint 02 in review |
 | 02 | Quiz UX | Not started |
 | 03 | Catalog and profiles | Not started |
 | 04 | Question bank, engine and coverage | Not started |
@@ -60,6 +60,7 @@ npm run dev
 src/
   app/          Providers and app-level context (preferences, i18n access)
   components/   UI: layout, nav, sheet, settings, buttons, icons, logo slot, archetype card
+  features/     Cross-page features (Liquid Flow encounter transition)
   pages/        Landing (production) and Visual Foundation (dev-only, /foundation)
   vendor/       Original React Bits components, unmodified (see THIRD_PARTY_NOTICES.md)
   domain/       React-free types and approved config: categories, modes, catalog,

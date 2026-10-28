@@ -47,6 +47,37 @@ export const en = {
   'landing.section.discovery': 'How Discovery Works',
   'landing.section.connection': 'Every Connection Is Different',
   'landing.section.begin': 'Begin Your Journey',
+  'landing.beyond.statement':
+    'Strength, rarity and fame play no part in the comparison. It looks at how a Pokémon moves through the world, and whether that feels like you.',
+  'landing.beyond.p1.title': 'The whole Pokédex is in play',
+  'landing.beyond.p1.body':
+    'Every eligible species is a candidate, from the legends everyone knows to the ones most people walk past.',
+  'landing.beyond.p2.title': 'Six sides of you',
+  'landing.beyond.p2.body':
+    'Personality, aesthetics, values, environments, energy and instinct all shape the result.',
+  'landing.beyond.p3.title': 'Reasons you can read',
+  'landing.beyond.p3.body':
+    "Each match lists the answers that shaped it. Affinity measures how closely you align; it isn't a probability.",
+  'landing.discovery.intro': 'Three steps, at your own pace.',
+  'landing.discovery.step1.title': 'Discover Yourself',
+  'landing.discovery.step1.body':
+    'Pick A Glimpse (30 questions), The Journey (60) or Deep Connection (90), then answer one question at a time. Your progress is saved after every answer.',
+  'landing.discovery.step2.title': 'Find Your Connection',
+  'landing.discovery.step2.body':
+    'Your answers are compared with every eligible species across six dimensions, on equal terms.',
+  'landing.discovery.step3.title': 'Reveal Your Encounter',
+  'landing.discovery.step3.body':
+    'Meet your Soul Match first, then your Hidden and Alternative Matches, each with the reasons behind it.',
+  'landing.connection.intro':
+    'Ethereal, Instinctive and Radiant describe moods a connection can have; your result is always a species. Tap a card to read it.',
+  'landing.begin.statement':
+    'Start with 30 questions or go deeper with 90. You can pause whenever you like, and your answers will be waiting.',
+  'landing.mode.glimpse': 'A Glimpse',
+  'landing.mode.journey': 'The Journey',
+  'landing.mode.deep': 'Deep Connection',
+  'landing.mode.questions': '{n} questions',
+  'landing.begin.cta': 'Begin your journey',
+  'landing.begin.unavailable': 'The encounter opens soon.',
 } as const;
 
 export type MessageKey = keyof typeof en;
