@@ -36,7 +36,8 @@ Branch `feature/visual-polish-lunar-slider`, created from local `main` at `c46fc
   - `index.html`: applies the mode before first paint; `data-mode="dark"` by default.
   - `src/hooks/useThemeColors.ts`: also re-reads on mode changes (signature unchanged).
   - `src/components/settings/{SettingsPanel.tsx, SettingsPanel.css}`: the Appearance group.
-  - `src/components/nav/SiteNav.tsx` and `src/components/layout/SiteLayout.tsx`: compact symbol in light mode (decision below).
+  - `src/components/nav/SiteNav.tsx`, `src/components/layout/SiteLayout.tsx`, `src/components/logo/{Logo.tsx, logo-asset.ts}`: the logotype's light-surface finish in light mode (section below).
+  - `scripts/make-logo-onlight.mjs` (new), `scripts/build-assets.mjs`: the light-surface logotype and its runtime sizes.
   - `src/components/archetype-card/ArchetypeCard.tsx`: local dark scope, since the art is dark glass.
   - `src/components/button/Button.css`: primary hover through a token.
   - `src/pages/landing/{Hero.tsx, sections/Begin.tsx, sections/Discovery.tsx}`: mode passed to the original props.
@@ -73,8 +74,32 @@ Branch `feature/visual-polish-lunar-slider`, created from local `main` at `c46fc
 - **No flash:** the inline script in `index.html` applies `data-mode` (and the `color-scheme` and `theme-color` meta tags) before first paint. The test records the mode at `DOMContentLoaded`, before the app runs.
 - **Untouched:** IndexedDB and journey data.
 
-## Design decision for Or7: the logo in light mode
-The approved logotype's "ENCOUNTER" is white with a thin outline and doesn't read on paper (`light-sections-logo-light.png`). The brand art wasn't recolored or redrawn. In light mode the desktop nav shows the **approved compact symbol**, as already happens on phones and in the condensed nav. Dark mode is unchanged. A light-surface version of the logotype from Or7 would bring the full logotype back.
+## The logotype in light mode (follow-up to `73ac115`)
+**Problem:** the approved logotype's "ENCOUNTER" is a white fill with a thin navy outline. On the night background the outline disappears and the white reads; on paper the white disappears and the letters look hollow (`logo-onlight/before-original-on-light.png`). The first version of this branch fell back to the compact symbol in light mode.
+
+**Fix:** a light-surface variant of the same logotype, made by `scripts/make-logo-onlight.mjs` from the approved raster. The original is never modified; the variant is `design-references/approved/assets-01b/logo-rare-encounter-transparent-onlight.png`.
+- **The band is separable.** The script finds fully transparent rows (573–575) between the "RARE" block and "ENCOUNTER", and stops unless they exist.
+- **What changes:** only the colour of the "ENCOUNTER" lettering (its opaque body and its antialiased edge within 2 px).
+  - It becomes the logo's own outline navy, **`#111636`**: the mean of 3,392 outline pixels already in the logo, not a new colour.
+  - Every pixel keeps its exact alpha, so geometry, antialiasing and spacing are identical.
+- **What doesn't change:** the soft halo around the letters (31,758 px) keeps its original colour, so no dark haze is added. "RARE", the symbol and its gradient are untouched.
+- **Proofs** (the script fails otherwise), confirmed by an independent diff:
+  - 0 px changed above the gap;
+  - 0 alpha differences anywhere;
+  - colour changed only in rows 594–714 (91,099 px), same 1968×799 size.
+- **Runtime:** `logo-onlight-88.webp` and `logo-onlight-132.webp` (273×88 and 409×132, the same crop and resampling as the original), built with `node scripts/build-assets.mjs logo-onlight`. A new optional filter builds only those, so no approved asset was rewritten.
+- **Code:**
+  - `Logo` gains `tone` (`dark` | `light`, the surface it sits on); `full` + `light` uses the light-surface image.
+  - `SiteNav` takes `logoTone` instead of the earlier `fullLogo`, and `SiteLayout` passes the mode.
+  - **Behaviour:** the full logotype shows at the top of the desktop page **in both modes**. The approved compact symbol stays in the condensed nav and on the phone and tablet top bar. Dark mode is identical to before (same image, same box).
+
+**Checked in the browser** (`logo-onlight/`, 3× crops):
+- **The right image in each of the 12 combinations:** `logo-132` in the six dark ones, `logo-onlight-132` in the six light ones.
+- **No shift:** logo box 164.3×44 and nav 781.4×58 in all 12.
+- **Approved compact behaviour kept:** symbol in the condensed nav in both modes, and on the mobile top bar in both modes, with no horizontal overflow.
+- **Also verified:** mode switch, palette switch and reload keep the right finish (E2E).
+
+**Observation for Or7:** "RARE" keeps its original white highlights inside the letters. On paper they read lighter than on the night: legible, but with less weight. They were left untouched because the brief preserves "RARE" and its gradient. A finishing pass on "RARE" for light surfaces, if wanted, would be a separate decision.
 
 ## Verification
 **Automated contrast** (computed colors in the browser, WCAG formula), **132 pairs** across the 12 combinations: **0 below target**.
@@ -108,7 +133,7 @@ Dark mode keeps the approved values (main text 17.35:1). This is an automated ch
 - keyboard and visible focus;
 - a 44 px touch target;
 - with motion (spring) and reduced motion (no intermediate frame);
-- compact symbol in light mode;
+- the full logotype in both modes, with its light-surface finish in light mode, the same box, and the compact symbol kept in the condensed nav and on phones;
 - no **new** horizontal overflow from dark to light at 320, 360, 375, 390, 768, 1024 and 1440 px;
 - settings usable at 320 px;
 - the 12 captures.
@@ -131,8 +156,25 @@ Dark mode keeps the approved values (main text 17.35:1). This is an automated ch
 - light-mode sections: Discovery, Connection, Begin on desktop and mobile;
 - the logo crop in both modes.
 
+**Follow-up run (light-surface logotype):**
+| Check | Result |
+| --- | --- |
+| typecheck / lint / production build | ✅ / ✅ / ✅ (JS 137.66 kB gzip, +0.08 kB; the two light-surface images load only in light mode: 17.5 and 29.5 kB) |
+| Vitest | ✅ 51/51 |
+| Playwright, full suite, 3 viewports | **91 passed, 1 failed, 31 skipped** |
+| Re-run of the failed test alone | ✅ 3/3 |
+| New logo tests (full logotype in both modes, finish follows mode/palette/reload, condensed nav and phone top bar keep the symbol) | ✅ all viewports |
+| 12-combination matrix recaptured | ✅ 14 passed |
+| React Bits integrity / safety scan | ✅ / ✅ |
+
+**The one failure:** the 01B hero test on tablet, "Test timeout of 30000 ms exceeded", with no failed assertion.
+- It runs in the default dark mode, where this follow-up changes nothing (same image, same box).
+- Re-run alone it passed 3/3 (about 15–20 s of test).
+- It's the documented load issue: WebGL in software in headless Chromium, plus a full-page capture.
+- The test was not changed.
+
 ## Known limits
-- **Logo in light mode:** compact symbol until a light version of the logotype exists (decision above).
+- **Logo in light mode:** resolved with a light-surface finish of the same logotype (section above); the "RARE" highlights are untouched (observation for Or7).
 - **Archetype cards:** they stay dark glass in light mode (approved art); they read as dark objects on paper, which is intentional and should get Or7's visual sign-off.
 - **320 px horizontal scroll:** the 5 px from the closing Star Border light are inherited from `main` (fixed in CP03, `fdbb8bb`). The test shows that light mode **adds** no overflow.
 - **Browsers:** only Chromium was run, which is the only one installed here.

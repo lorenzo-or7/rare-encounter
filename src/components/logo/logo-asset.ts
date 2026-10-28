@@ -1,5 +1,7 @@
 import logo88 from '../../assets/brand/logo-88.webp';
 import logo132 from '../../assets/brand/logo-132.webp';
+import logoOnLight88 from '../../assets/brand/logo-onlight-88.webp';
+import logoOnLight132 from '../../assets/brand/logo-onlight-132.webp';
 import symbol72 from '../../assets/brand/symbol-72.webp';
 import symbol108 from '../../assets/brand/symbol-108.webp';
 
@@ -14,8 +16,21 @@ export interface BrandImage {
  * The approved logotype and compact symbol, optimized from the authentic files in
  * design-references/approved/assets-01b with only their transparent margin trimmed
  * (never redrawn; see scripts/build-assets.mjs).
+ *
+ * `fullOnLight` is the same logotype for light surfaces: only the colour of the "ENCOUNTER"
+ * lettering changes (to the logo's own outline navy), with identical alpha and geometry; see
+ * scripts/make-logo-onlight.mjs.
  */
-export const LOGO_ASSET: { readonly full: BrandImage; readonly symbol: BrandImage } = {
+export const LOGO_ASSET: {
+  readonly full: BrandImage;
+  readonly fullOnLight: BrandImage;
+  readonly symbol: BrandImage;
+} = {
   full: { src: logo88, srcSet: `${logo88} 2x, ${logo132} 3x`, ratio: 1831 / 591 },
+  fullOnLight: {
+    src: logoOnLight88,
+    srcSet: `${logoOnLight88} 2x, ${logoOnLight132} 3x`,
+    ratio: 1831 / 591,
+  },
   symbol: { src: symbol72, srcSet: `${symbol72} 2x, ${symbol108} 3x`, ratio: 1061 / 492 },
 };

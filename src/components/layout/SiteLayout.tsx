@@ -34,7 +34,7 @@ export function SiteLayout({ sections, children }: SiteLayoutProps) {
 
       <SiteNav
         brand={t('brand.name')}
-        fullLogo={mode === 'dark'}
+        logoTone={mode}
         label={t('nav.label')}
         items={sections}
         activeId={activeId}

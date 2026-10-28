@@ -11,13 +11,19 @@ interface LogoProps {
    * compact mark) for the condensed nav and phones, where the full lockup would be too small.
    */
   readonly variant?: 'full' | 'symbol';
+  /**
+   * The surface it sits on. On light surfaces the full logotype uses its light-surface
+   * finish ("ENCOUNTER" in the logo's navy); the symbol reads on both and is unchanged.
+   */
+  readonly tone?: 'dark' | 'light';
 }
 
 /** Brand link with the authentic logotype or compact symbol, crossfading between them. */
-export function Logo({ name, href = '#top', variant = 'full' }: LogoProps) {
-  const asset = LOGO_ASSET[variant];
+export function Logo({ name, href = '#top', variant = 'full', tone = 'dark' }: LogoProps) {
+  const asset =
+    variant === 'full' && tone === 'light' ? LOGO_ASSET.fullOnLight : LOGO_ASSET[variant];
   return (
-    <a className="logo" href={href} aria-label={name} data-variant={variant}>
+    <a className="logo" href={href} aria-label={name} data-variant={variant} data-tone={tone}>
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.img
           key={variant}

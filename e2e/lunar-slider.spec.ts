@@ -195,11 +195,55 @@ test.describe('reduced motion', () => {
   });
 });
 
-test('light mode uses the compact symbol in the desktop nav', async ({ page }) => {
+test('the full logotype shows in both modes, with its light-surface finish in light', async ({
+  page,
+}) => {
   test.skip(!isDesktop(page), 'The full logotype only shows on the desktop nav');
   await seed(page, { schemaVersion: 2, data: { locale: null, theme: 'spectrum', mode: 'light' } });
   await page.goto('/');
-  await expect(page.locator('.liquid-nav .logo')).toHaveAttribute('data-variant', 'symbol');
+  const logo = page.locator('.liquid-nav .logo');
+  const image = logo.locator('img');
+  await expect(logo).toHaveAttribute('data-variant', 'full');
+  await expect(logo).toHaveAttribute('data-tone', 'light');
+  await expect(image).toHaveAttribute('src', /logo-onlight-88/);
+  const box = await logo.boundingBox();
+
+  // Switching mode swaps the finish only: same mark, same box, no shift.
+  const dialog = await openSettings(page);
+  await dialog.getByRole('switch', { name: 'Light mode' }).click();
+  await dialog.getByRole('button', { name: 'Close' }).click();
+  await expect(logo).toHaveAttribute('data-tone', 'dark');
+  await expect(image).toHaveAttribute('src', /logo-88/);
+  expect(await logo.boundingBox()).toEqual(box);
+
+  // A palette change keeps the finish of the current mode, also after a reload.
+  await (await openSettings(page)).getByRole('switch', { name: 'Light mode' }).click();
+  await page.getByRole('dialog').getByRole('radio', { name: 'Verdant' }).check();
+  await page.reload();
+  await expect(logo).toHaveAttribute('data-tone', 'light');
+  await expect(image).toHaveAttribute('src', /logo-onlight-88/);
+
+  // The condensed nav keeps the approved compact symbol.
+  await page.evaluate(() => {
+    window.scrollTo({ top: 900, behavior: 'instant' });
+  });
+  await expect(logo).toHaveAttribute('data-variant', 'symbol');
+});
+
+test('phones keep the compact symbol in the top bar, in both modes', async ({ page }) => {
+  test.skip(isDesktop(page), 'Top bar is the phone and tablet chrome');
+  for (const mode of ['dark', 'light'] as const) {
+    await page.goto('/');
+    await page.evaluate(
+      (v) => {
+        localStorage.setItem('rare-encounter:preferences', v);
+      },
+      JSON.stringify({ schemaVersion: 2, data: { locale: null, theme: 'sakura', mode } }),
+    );
+    await page.reload();
+    await expect(root(page)).toHaveAttribute('data-mode', mode);
+    await expect(page.locator('.top-bar .logo')).toHaveAttribute('data-variant', 'symbol');
+  }
 });
 
 test('no new horizontal overflow and no clipped settings in light mode', async ({ page }) => {
