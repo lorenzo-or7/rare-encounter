@@ -3,23 +3,6 @@
  * themes (themes.css) override the accent layer, never the structure.
  */
 :root {
-  color-scheme: dark;
-
-  /* Surfaces: deep violet night, shared by every theme */
-  --color-bg: #0b0816;
-  --color-bg-raised: #110d20;
-  --color-surface: #18132b;
-  --color-surface-hover: #201937;
-  --color-overlay: rgb(6 4 14 / 0.62);
-  --color-line: rgb(214 204 255 / 0.1);
-  --color-line-strong: rgb(214 204 255 / 0.2);
-  --color-highlight: rgb(255 255 255 / 0.06);
-
-  /* Text: AA or better on --color-bg and --color-surface */
-  --color-text: #f2eefb;
-  --color-text-muted: #b9b0d0;
-  --color-text-subtle: #a59bc3;
-
   /* Accent layer (Spectrum = the logotype's violet to cyan). Overridden per theme. */
   --accent: #a78bfa;
   --accent-2: #3dd6e8;
@@ -85,11 +68,6 @@
   --radius-lg: 1.5rem;
   --radius-pill: 999px;
 
-  /* Depth: offset + soft blur, tinted to the night background */
-  --shadow-sm: 0 1px 2px rgb(3 1 10 / 0.5);
-  --shadow-md: 0 10px 30px -12px rgb(3 1 10 / 0.75);
-  --shadow-lg: 0 28px 60px -24px rgb(3 1 10 / 0.9);
-
   /* Motion: interface responses only; authored moments are defined per surface */
   --duration-fast: 140ms;
   --duration-base: 260ms;
@@ -102,10 +80,77 @@
   --z-sheet: 60;
 }
 
+/*
+ * Luminosity (data-mode on <html>), independent of the palette (data-theme).
+ * Surfaces, text, lines and depth live here; the palette's accents live in themes.css.
+ *
+ * Dark: the approved night, unchanged. Also usable as a local scope
+ * (data-mode="dark" on an element) for things that always sit on dark art.
+ */
+:root,
+[data-mode='dark'] {
+  color-scheme: dark;
+
+  /* Surfaces: deep violet night, shared by every theme */
+  --color-bg: #0b0816;
+  --color-bg-raised: #110d20;
+  --color-surface: #18132b;
+  --color-surface-hover: #201937;
+  --color-overlay: rgb(6 4 14 / 0.62);
+  --color-line: rgb(214 204 255 / 0.1);
+  --color-line-strong: rgb(214 204 255 / 0.2);
+  --color-highlight: rgb(255 255 255 / 0.06);
+
+  /* Text: AA or better on --color-bg and --color-surface */
+  --color-text: #f2eefb;
+  --color-text-muted: #b9b0d0;
+  --color-text-subtle: #a59bc3;
+
+  /* Depth: offset + soft blur, tinted to the night background */
+  --shadow-sm: 0 1px 2px rgb(3 1 10 / 0.5);
+  --shadow-md: 0 10px 30px -12px rgb(3 1 10 / 0.75);
+  --shadow-lg: 0 28px 60px -24px rgb(3 1 10 / 0.9);
+
+  /* Interactive states move toward the light: hover brightens an accent fill. */
+  --accent-hover-toward: white;
+}
+
+/*
+ * Light: a calm paper, not an inverted night. Surfaces carry a trace of the palette's
+ * accent so each theme keeps its own temperature; elevation reads as "whiter and lifted"
+ * with soft, tinted shadows. Text is a deep ink with the same trace.
+ */
+[data-mode='light'] {
+  color-scheme: light;
+
+  --color-bg: color-mix(in oklab, var(--accent) 5%, #f6f4f1);
+  --color-bg-raised: color-mix(in oklab, var(--accent) 3%, #fbfaf8);
+  --color-surface: color-mix(in oklab, var(--accent) 3%, #ffffff);
+  --color-surface-hover: color-mix(in oklab, var(--accent) 8%, #ffffff);
+  --color-overlay: rgb(28 22 44 / 0.3);
+  --color-line: rgb(36 28 64 / 0.11);
+  --color-line-strong: rgb(36 28 64 / 0.2);
+  --color-highlight: rgb(255 255 255 / 0.8);
+
+  /* Text: AA or better on --color-bg and --color-surface in every palette (checked) */
+  --color-text: color-mix(in oklab, var(--accent) 8%, #16131e);
+  --color-text-muted: color-mix(in oklab, var(--accent) 10%, #474152);
+  --color-text-subtle: color-mix(in oklab, var(--accent) 10%, #575166);
+
+  --shadow-sm: 0 1px 2px rgb(36 28 64 / 0.08);
+  --shadow-md: 0 12px 28px -14px rgb(36 28 64 / 0.22);
+  --shadow-lg: 0 28px 56px -26px rgb(36 28 64 / 0.28);
+
+  /* Hover deepens an accent fill, so text on it keeps its contrast. */
+  --accent-hover-toward: black;
+}
+
 /* Restrained iridescence, re-derived wherever a theme scope changes the accents */
 :root,
 [data-theme] {
   --iris: linear-gradient(100deg, var(--accent), var(--accent-2));
+  /* Hover for accent fills: toward white in dark mode, toward black in light mode. */
+  --accent-hover: color-mix(in oklab, var(--accent) 86%, var(--accent-hover-toward));
 }
 
 @media (prefers-reduced-motion: reduce) {

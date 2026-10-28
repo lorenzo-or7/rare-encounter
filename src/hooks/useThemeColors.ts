@@ -35,17 +35,29 @@ function read(): ThemeColors {
 
 /**
  * Resolved token values for canvas/WebGL components that cannot consume CSS variables.
- * Re-reads after the theme attribute is applied (parent effects run after children's).
+ * Re-reads after the theme attribute is applied (parent effects run after children's), and
+ * whenever <html> changes palette or light/dark mode, so callers need no extra argument.
  */
 export function useThemeColors(theme: ThemeId): ThemeColors {
   const [colors, setColors] = useState<ThemeColors>(FALLBACK);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
+    let frame = requestAnimationFrame(() => {
       setColors(read());
+    });
+    const observer = new MutationObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        setColors(read());
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'data-mode'],
     });
     return () => {
       cancelAnimationFrame(frame);
+      observer.disconnect();
     };
   }, [theme]);
 

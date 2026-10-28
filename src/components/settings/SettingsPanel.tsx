@@ -3,12 +3,18 @@ import { usePreferences } from '../../app/preferences-context';
 import { LOCALE_NAMES, LOCALES } from '../../i18n/locales';
 import { THEME_IDS, THEME_LABEL_KEYS } from '../../theme/themes';
 import { Icon } from '../icon/Icon';
+import { LunarSlider } from '../lunar-slider/LunarSlider';
 import './SettingsPanel.css';
 
-/** Language and theme choices. Lives inside the settings drawer / bottom sheet. */
+/**
+ * Language, light/dark mode and palette. Lives inside the settings drawer / bottom sheet.
+ * Mode and palette are independent: changing one never resets the other.
+ */
 export function SettingsPanel() {
-  const { locale, theme, setLocale, setTheme, t } = usePreferences();
+  const { locale, theme, mode, setLocale, setTheme, setMode, t } = usePreferences();
   const name = useId();
+  const appearanceId = useId();
+  const lightModeId = useId();
 
   return (
     <div className="settings">
@@ -32,6 +38,18 @@ export function SettingsPanel() {
           ))}
         </div>
       </fieldset>
+
+      <div className="settings__group" role="group" aria-labelledby={appearanceId}>
+        <p id={appearanceId} className="settings__legend">
+          {t('settings.appearance')}
+        </p>
+        <div className="settings__mode">
+          <span id={lightModeId} className="settings__mode-label">
+            {t('settings.lightMode')}
+          </span>
+          <LunarSlider mode={mode} onChange={setMode} labelledBy={lightModeId} />
+        </div>
+      </div>
 
       <fieldset className="settings__group">
         <legend className="settings__legend">{t('settings.theme')}</legend>

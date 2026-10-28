@@ -49,7 +49,7 @@ describe('FoundationPage', () => {
     expect(document.documentElement.lang).toBe('es');
     await userEvent.click(within(dialog).getByRole('radio', { name: 'Verdor', hidden: true }));
     expect(document.documentElement.dataset['theme']).toBe('verdant');
-    expect(loadPreferences()).toEqual({ locale: 'es', theme: 'verdant' });
+    expect(loadPreferences()).toEqual({ locale: 'es', theme: 'verdant', mode: 'dark' });
   });
 
   it('defaults to the Spectrum theme', () => {

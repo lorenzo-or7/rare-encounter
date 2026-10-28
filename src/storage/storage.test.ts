@@ -54,12 +54,12 @@ describe('migrateRecord', () => {
 
 describe('preferences', () => {
   it('round-trips through localStorage with a versioned envelope', () => {
-    expect(savePreferences({ locale: 'pt-BR', theme: 'ember' })).toBe(true);
+    expect(savePreferences({ locale: 'pt-BR', theme: 'ember', mode: 'light' })).toBe(true);
     expect(JSON.parse(localStorage.getItem(PREFERENCES_KEY) ?? '')).toEqual({
-      schemaVersion: 1,
-      data: { locale: 'pt-BR', theme: 'ember' },
+      schemaVersion: 2,
+      data: { locale: 'pt-BR', theme: 'ember', mode: 'light' },
     });
-    expect(loadPreferences()).toEqual({ locale: 'pt-BR', theme: 'ember' });
+    expect(loadPreferences()).toEqual({ locale: 'pt-BR', theme: 'ember', mode: 'light' });
   });
 
   it('falls back to defaults on missing, corrupt or invalid data without erasing it', () => {
@@ -71,8 +71,34 @@ describe('preferences', () => {
     expect(localStorage.getItem(PREFERENCES_KEY)).not.toBeNull();
   });
 
-  it('defaults to Spectrum with no explicit locale', () => {
-    expect(DEFAULT_PREFERENCES).toEqual({ locale: null, theme: 'spectrum' });
+  it('defaults to Spectrum, dark, with no explicit locale', () => {
+    expect(DEFAULT_PREFERENCES).toEqual({ locale: null, theme: 'spectrum', mode: 'dark' });
+  });
+
+  it('migrates v1 preferences (before light mode existed) to the approved dark mode', () => {
+    localStorage.setItem(
+      PREFERENCES_KEY,
+      JSON.stringify({ schemaVersion: 1, data: { locale: 'es', theme: 'sakura' } }),
+    );
+    expect(loadPreferences()).toEqual({ locale: 'es', theme: 'sakura', mode: 'dark' });
+  });
+
+  it('repairs an unreadable mode alone, keeping language and palette', () => {
+    for (const mode of ['sepia', 42, null, undefined]) {
+      localStorage.setItem(
+        PREFERENCES_KEY,
+        JSON.stringify({ schemaVersion: 2, data: { locale: 'pt-BR', theme: 'verdant', mode } }),
+      );
+      expect(loadPreferences()).toEqual({ locale: 'pt-BR', theme: 'verdant', mode: 'dark' });
+    }
+  });
+
+  it('keeps palette and mode independent', () => {
+    savePreferences({ locale: null, theme: 'azure', mode: 'light' });
+    savePreferences({ ...loadPreferences(), theme: 'ember' });
+    expect(loadPreferences()).toMatchObject({ theme: 'ember', mode: 'light' });
+    savePreferences({ ...loadPreferences(), mode: 'dark' });
+    expect(loadPreferences()).toMatchObject({ theme: 'ember', mode: 'dark' });
   });
 
   it('survives unavailable storage', () => {

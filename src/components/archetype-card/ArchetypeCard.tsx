@@ -75,6 +75,8 @@ export function ArchetypeCard({
   return (
     <article
       className="archetype-card"
+      // The approved art is dark glass in every mode, so its text keeps the dark tokens.
+      data-mode="dark"
       aria-labelledby={titleId}
       data-archetype={archetype.id}
       data-art={hasArt}

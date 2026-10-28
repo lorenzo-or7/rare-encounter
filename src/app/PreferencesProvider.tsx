@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import { browserLanguages, resolveLocale, type Locale } from '../i18n/locales';
 import { format, MESSAGES, type MessageKey } from '../i18n/messages';
 import { loadPreferences, savePreferences, type Preferences } from '../storage/preferences';
-import { applyTheme, type ThemeId } from '../theme/themes';
+import { applyMode, applyTheme, type ModeId, type ThemeId } from '../theme/themes';
 import { PreferencesContext, type PreferencesContextValue } from './preferences-context';
 
 interface Props {
@@ -24,6 +24,10 @@ export function PreferencesProvider({ children, initial, languages }: Props) {
     applyTheme(prefs.theme);
   }, [prefs.theme]);
 
+  useEffect(() => {
+    applyMode(prefs.mode);
+  }, [prefs.mode]);
+
   const update = useCallback((patch: Partial<Preferences>) => {
     setPrefs((prev) => {
       const next = { ...prev, ...patch };
@@ -36,15 +40,19 @@ export function PreferencesProvider({ children, initial, languages }: Props) {
     () => ({
       locale,
       theme: prefs.theme,
+      mode: prefs.mode,
       setLocale: (next: Locale) => {
         update({ locale: next });
       },
       setTheme: (next: ThemeId) => {
         update({ theme: next });
       },
+      setMode: (next: ModeId) => {
+        update({ mode: next });
+      },
       t: (key: MessageKey, params) => format(MESSAGES[locale][key], params),
     }),
-    [locale, prefs.theme, update],
+    [locale, prefs.theme, prefs.mode, update],
   );
 
   return <PreferencesContext value={value}>{children}</PreferencesContext>;

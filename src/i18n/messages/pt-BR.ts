@@ -13,6 +13,8 @@ export const ptBR: Messages = {
   'settings.title': 'Configurações',
   'settings.close': 'Fechar',
   'settings.language': 'Idioma',
+  'settings.appearance': 'Aparência',
+  'settings.lightMode': 'Modo claro',
   'settings.theme': 'Tema',
   'settings.themeHint': 'Os temas mudam só as cores. Suas respostas e resultados continuam os mesmos.',
 

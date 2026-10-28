@@ -18,7 +18,7 @@ const STEPS = [
  * navigation (no footer), so every control on screen does exactly what it shows.
  */
 export function Discovery() {
-  const { theme, t } = usePreferences();
+  const { theme, mode, t } = usePreferences();
   const colors = useThemeColors(theme);
   const titleId = useId();
   const stepperRef = useRef<HTMLDivElement>(null);
@@ -39,6 +39,7 @@ export function Discovery() {
       <div ref={stepperRef} className="discovery__stepper">
         <Stepper
           showFooter={false}
+          theme={mode}
           accentColor={colors.accent}
           width="100%"
           radius={24}

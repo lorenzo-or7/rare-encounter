@@ -12,6 +12,12 @@ export interface NavItem {
 
 interface SiteNavProps {
   readonly brand: string;
+  /**
+   * Whether the full logotype may show at the top of the page. False on light surfaces: the
+   * approved logotype's "ENCOUNTER" is drawn for the night and does not read on paper, so the
+   * approved compact symbol is used until a light-surface version of the logotype exists.
+   */
+  readonly fullLogo?: boolean;
   readonly label: string;
   readonly items: readonly NavItem[];
   readonly activeId: string | null;
@@ -31,6 +37,7 @@ const SPRING = { type: 'spring', stiffness: 420, damping: 36, mass: 0.9 } as con
  */
 export function SiteNav({
   brand,
+  fullLogo = true,
   label,
   items,
   activeId,
@@ -45,7 +52,7 @@ export function SiteNav({
   return (
     <header className="site-nav" data-scrolled={scrolled}>
       <motion.div className="liquid-nav" layout transition={SPRING}>
-        <Logo name={brand} variant={scrolled ? 'symbol' : 'full'} />
+        <Logo name={brand} variant={scrolled || !fullLogo ? 'symbol' : 'full'} />
         <nav aria-label={label}>
           <LayoutGroup id="liquid-nav">
             <ul
