@@ -26,5 +26,7 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 01B — Landing & Motion Experience | **Final approval by Or7** (visual and technical finish) | `d93a3e1` |
 | 2026-10-28 | 01B — Landing & Motion Experience | Merged into local `main` (`--no-ff`); not pushed or deployed | merge commit |
 | 2026-10-28 | 02 — Quiz Experience | Planning requested (`docs/PHASE_02_PLAN.md`); implementation **not authorized** | — |
+| 2026-10-28 | 02 — Quiz Experience | Plan reviewed by Or7; **Checkpoint 01 authorized** (route, Liquid Flow, Preparation Screen). Architecture rules set for later checkpoints; E5, E8, E10, E12, E13 to be approved individually | — |
+| 2026-10-28 | 02 — Checkpoint 01 | Entry and Preparation Screen implemented; awaiting Or7 visual review (`docs/reports/PHASE_02_CP01_REPORT.md`) | — |
 
 Carried into Phase 01: Clash Display files and license (resolved: local-only install), final logo file (delivered in the 01B asset pack), art-only archetype cards (delivered; card 02 residue fixed in v2).

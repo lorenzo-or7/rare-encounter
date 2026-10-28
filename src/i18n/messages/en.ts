@@ -79,6 +79,17 @@ export const en = {
   'landing.mode.questions': '{n} questions',
   'landing.begin.cta': 'Begin your journey',
   'landing.begin.unavailable': 'Not available yet. The encounter will start from here once it opens.',
+
+  'preparation.documentTitle': 'Choose your depth | Rare Encounter',
+  'preparation.title': 'Choose your depth',
+  'preparation.lead':
+    'Each depth asks a different number of questions. Once the encounter begins, the depth stays fixed.',
+  'preparation.mix': '{core} core questions and {adaptive} that adapt to your answers',
+  'preparation.confirm': 'Confirm depth',
+  'preparation.needChoice': 'Choose a depth to continue.',
+  'preparation.confirmed': '{mode}: confirmed, {n} questions.',
+  'preparation.unavailable': 'Not available yet. Your questions will start here once they open.',
+  'preparation.change': 'Choose another depth',
 } as const;
 
 export type MessageKey = keyof typeof en;

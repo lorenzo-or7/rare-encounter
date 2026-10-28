@@ -81,4 +81,15 @@ export const ptBR: Messages = {
   'landing.mode.questions': '{n} perguntas',
   'landing.begin.cta': 'Comece sua jornada',
   'landing.begin.unavailable': 'Ainda indisponível. O encontro vai começar por aqui quando abrir.',
+
+  'preparation.documentTitle': 'Escolha a profundidade | Rare Encounter',
+  'preparation.title': 'Escolha a profundidade',
+  'preparation.lead':
+    'Cada profundidade tem um número diferente de perguntas. Depois que o encontro começa, ela não muda mais.',
+  'preparation.mix': '{core} perguntas essenciais e {adaptive} que se adaptam às suas respostas',
+  'preparation.confirm': 'Confirmar profundidade',
+  'preparation.needChoice': 'Escolha uma profundidade para continuar.',
+  'preparation.confirmed': '{mode}: escolha confirmada, {n} perguntas.',
+  'preparation.unavailable': 'Ainda indisponível. Suas perguntas vão começar aqui quando abrirem.',
+  'preparation.change': 'Escolher outra profundidade',
 };

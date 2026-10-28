@@ -81,4 +81,15 @@ export const es: Messages = {
   'landing.mode.questions': '{n} preguntas',
   'landing.begin.cta': 'Comienza tu viaje',
   'landing.begin.unavailable': 'Aún no disponible. El encuentro empezará aquí cuando abra.',
+
+  'preparation.documentTitle': 'Elige la profundidad | Rare Encounter',
+  'preparation.title': 'Elige la profundidad',
+  'preparation.lead':
+    'Cada profundidad tiene un número distinto de preguntas. Una vez que empieza el encuentro, ya no cambia.',
+  'preparation.mix': '{core} preguntas esenciales y {adaptive} que se adaptan a tus respuestas',
+  'preparation.confirm': 'Confirmar profundidad',
+  'preparation.needChoice': 'Elige una profundidad para continuar.',
+  'preparation.confirmed': '{mode}: elección confirmada, {n} preguntas.',
+  'preparation.unavailable': 'Aún no disponible. Tus preguntas empezarán aquí cuando abran.',
+  'preparation.change': 'Elegir otra profundidad',
 };
