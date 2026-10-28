@@ -106,6 +106,17 @@
 :root,
 [data-theme] {
   --iris: linear-gradient(100deg, var(--accent), var(--accent-2));
+
+  /*
+   * Slim Chromatic Scrollbar (styles/scrollbar.css). Derived from the theme's two accents,
+   * so all six themes follow without per-theme values.
+   * - thumb: the iris along the bar's own axis (gradient-capable engines);
+   * - thumb-solid: one colour between both accents, for engines that take colours only;
+   * - track: a whisper above the night background.
+   */
+  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
+  --scrollbar-thumb-solid: color-mix(in oklab, var(--accent) 70%, var(--accent-2));
+  --scrollbar-track: color-mix(in oklab, var(--color-text) 4%, var(--color-bg));
 }
 
 @media (prefers-reduced-motion: reduce) {
