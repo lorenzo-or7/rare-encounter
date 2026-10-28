@@ -4,10 +4,6 @@ export const en = {
   'brand.name': 'Rare Encounter',
 
   'nav.label': 'Sections',
-  'nav.typography': 'Typography',
-  'nav.themes': 'Themes',
-  'nav.components': 'Components',
-  'nav.cards': 'Cards',
   'nav.openSettings': 'Open settings',
   'nav.openMenu': 'Open menu',
   'menu.title': 'Menu',
@@ -25,41 +21,6 @@ export const en = {
   'theme.sakura': 'Sakura',
   'theme.verdant': 'Verdant',
 
-  'foundation.title': 'Visual foundation',
-  'foundation.lead':
-    'The type, color, navigation and components every Rare Encounter screen will share. The landing page is built on top of them next.',
-
-  'type.title': 'Typography',
-  'type.lead': 'Clash Display carries the headlines. Inter carries everything you read and tap.',
-  'type.role.display': 'Display',
-  'type.role.heading': 'Heading',
-  'type.role.title': 'Title',
-  'type.role.body': 'Body',
-  'type.role.small': 'Small',
-  'type.sample.heading': 'Every connection is different',
-  'type.sample.title': 'How discovery works',
-  'type.sample.body':
-    'Answer at your own pace. Your progress is saved after every question, so you can pause and come back.',
-  'type.sample.small': 'Available in English, Português and Español.',
-
-  'themes.title': 'Themes',
-  'themes.lead': 'Six palettes over the same night sky. Choose one in settings.',
-  'themes.current': 'In use',
-
-  'components.title': 'Components',
-  'components.lead': 'Actions are pills. Surfaces get softer corners as they grow.',
-  'components.buttons': 'Buttons',
-  'components.buttonsHint': 'Primary leads, secondary supports, ghost stays out of the way.',
-  'components.iconButtons': 'Icon buttons',
-  'components.iconButtonsHint': 'Always named for screen readers. 44px touch target.',
-  'button.primary': 'Primary',
-  'button.secondary': 'Secondary',
-  'button.ghost': 'Ghost',
-  'button.disabled': 'Unavailable',
-
-  'cards.title': 'Archetype cards',
-  'cards.lead':
-    'The three approved mystery cards. Title, phrase and action are real text, so they translate and work with assistive technology.',
   'cards.artPending': 'Art-only version pending',
 
   'card.discover': 'Tap to discover',
@@ -70,6 +31,21 @@ export const en = {
   'archetype.instinctive.phrase': 'Your intuition finds its own direction.',
   'archetype.radiant.name': 'Radiant',
   'archetype.radiant.phrase': 'You bring warmth wherever you go.',
+
+  'landing.nav.beyond': 'Beyond the obvious',
+  'landing.nav.discovery': 'How it works',
+  'landing.nav.connection': 'Connections',
+  'landing.nav.begin': 'Begin',
+  'landing.hero.before': "Somewhere out there, there's",
+  'landing.hero.highlight': 'your Pokémon',
+  'landing.hero.after': '.',
+  'landing.hero.lead':
+    'Answer 30, 60 or 90 questions about who you are and what draws you in. Every species is compared on equal terms, and you see why you match.',
+  'landing.hero.cta': 'Begin your journey',
+  'landing.section.beyond': 'Beyond the Obvious',
+  'landing.section.discovery': 'How Discovery Works',
+  'landing.section.connection': 'Every Connection Is Different',
+  'landing.section.begin': 'Begin Your Journey',
 } as const;
 
 export type MessageKey = keyof typeof en;

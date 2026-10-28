@@ -1,33 +1,8 @@
-.shell {
-  min-height: 100dvh;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.shell__skip {
-  position: fixed;
-  inset-inline-start: var(--space-4);
-  inset-block-start: var(--space-4);
-  z-index: calc(var(--z-nav) + 1);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-  color: var(--on-accent);
-  font-weight: var(--weight-semibold);
-  text-decoration: none;
-  transform: translateY(-300%);
-}
-
-.shell__skip:focus-visible {
-  transform: none;
-}
-
-.shell__main {
+.foundation {
   width: 100%;
   max-width: var(--content-max);
   margin-inline: auto;
   padding: calc(var(--nav-offset) + var(--space-12)) var(--gutter) var(--space-32);
-  outline: none;
 }
 
 /* ---------- Intro ---------- */
@@ -259,32 +234,4 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   justify-items: center;
   gap: var(--space-8) var(--space-6);
-}
-
-/* ---------- Mobile menu links (inside the sheet) ---------- */
-.sheet-nav {
-  margin-block-end: var(--space-8);
-}
-
-.sheet-nav ul {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sheet-nav a {
-  display: flex;
-  align-items: center;
-  min-height: 3.25rem;
-  border-block-end: 1px solid var(--color-line);
-  color: var(--color-text);
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-medium);
-  text-decoration: none;
-}
-
-.sheet-nav a[aria-current] {
-  color: var(--accent);
 }

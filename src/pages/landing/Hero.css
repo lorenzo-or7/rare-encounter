@@ -1,0 +1,100 @@
+/*
+ * Editorial Split. Copy aligns to the content column's left edge; Ghost Fibers own the
+ * right half and bleed to the viewport edge, fading into the night where they meet the type.
+ * Below 900px the fibers become the upper backdrop and the copy settles at the bottom.
+ */
+.hero {
+  --hero-inline-start: max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter)));
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  min-height: 100svh;
+  padding: calc(var(--nav-offset) + var(--space-8)) var(--gutter) var(--space-16);
+  overflow: hidden;
+}
+
+.hero__fibers {
+  position: absolute;
+  inset: 0 0 32%;
+  z-index: -1;
+  mask-image: linear-gradient(to bottom, #000 40%, transparent);
+}
+
+.hero__copy {
+  display: grid;
+  justify-items: start;
+  max-width: 40rem;
+}
+
+.hero__title {
+  max-width: 11ch;
+  font-size: clamp(2.875rem, 1.25rem + 6.4vw, 6rem);
+  font-weight: var(--weight-semibold);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero__line {
+  display: inline;
+}
+
+/* Keep the highlight and its closing punctuation together on one line */
+.hero__line--highlight {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero__gradient {
+  /* The original component centers its box; inline flow keeps the headline baseline */
+  display: inline-flex;
+  vertical-align: baseline;
+}
+
+.hero__lead {
+  max-width: 44ch;
+  margin-block-start: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+}
+
+.hero__actions {
+  margin-block-start: var(--space-10);
+}
+
+.hero .hero__cta {
+  min-height: 3.5rem;
+  padding-inline: var(--space-8);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+}
+
+.hero .hero__cta:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+@media (min-width: 56.25em) {
+  .hero {
+    align-content: center;
+    padding: calc(var(--nav-offset) + var(--space-8)) var(--gutter) var(--space-16)
+      var(--hero-inline-start);
+  }
+
+  .hero__fibers {
+    inset: 0 0 0 38%;
+    mask-image: linear-gradient(to right, transparent, #000 32%);
+  }
+
+  .hero__copy {
+    max-width: min(46rem, 62%);
+  }
+
+  .hero__lead {
+    margin-block-start: var(--space-8);
+  }
+}

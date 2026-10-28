@@ -4,7 +4,10 @@ const PORT = 4173;
 
 export default defineConfig({
   testDir: './e2e',
-  fullyParallel: true,
+  // Headless Chromium renders Ghost Fibers' WebGL in software (SwiftShader); parallel
+  // workers starve each other's main thread and time out. Run serially.
+  fullyParallel: false,
+  workers: 1,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: [['list']],

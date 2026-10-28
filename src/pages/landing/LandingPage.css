@@ -1,0 +1,16 @@
+/* Structural sections: titles only until checkpoint 02 brings their content. */
+.landing-section {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: clamp(var(--space-16), 10vw, var(--space-32)) var(--gutter);
+  border-block-start: 1px solid var(--color-line);
+}
+
+.landing-section__title {
+  max-width: 16ch;
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-heading);
+}

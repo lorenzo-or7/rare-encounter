@@ -37,3 +37,19 @@ describe('message catalogs', () => {
     expect(format('{missing}', {})).toBe('{missing}');
   });
 });
+
+describe('landing headline', () => {
+  const assemble = (locale: (typeof LOCALES)[number]) => {
+    const m = MESSAGES[locale];
+    return `${m['landing.hero.before']} ${m['landing.hero.highlight']}${m['landing.hero.after']}`;
+  };
+
+  it('reassembles the exact approved English source', () => {
+    expect(assemble('en')).toBe("Somewhere out there, there's your Pokémon.");
+  });
+
+  it.each(LOCALES)('%s keeps a gradient phrase that names Pokémon', (locale) => {
+    expect(MESSAGES[locale]['landing.hero.highlight']).toMatch(/Pokémon$/);
+    expect(assemble(locale)).toMatch(/Pokémon\.$/);
+  });
+});

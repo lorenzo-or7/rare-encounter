@@ -6,10 +6,6 @@ export const es: Messages = {
   'brand.name': 'Rare Encounter',
 
   'nav.label': 'Secciones',
-  'nav.typography': 'Tipografía',
-  'nav.themes': 'Temas',
-  'nav.components': 'Componentes',
-  'nav.cards': 'Cartas',
   'nav.openSettings': 'Abrir ajustes',
   'nav.openMenu': 'Abrir menú',
   'menu.title': 'Menú',
@@ -27,41 +23,6 @@ export const es: Messages = {
   'theme.sakura': 'Sakura',
   'theme.verdant': 'Verdor',
 
-  'foundation.title': 'Base visual',
-  'foundation.lead':
-    'La tipografía, el color, la navegación y los componentes que compartirán todas las pantallas de Rare Encounter. La landing page se construye sobre ellos.',
-
-  'type.title': 'Tipografía',
-  'type.lead': 'Clash Display lleva los titulares. Inter lleva todo lo que lees y tocas.',
-  'type.role.display': 'Display',
-  'type.role.heading': 'Encabezado',
-  'type.role.title': 'Título',
-  'type.role.body': 'Texto',
-  'type.role.small': 'Pequeño',
-  'type.sample.heading': 'Cada conexión es diferente',
-  'type.sample.title': 'Cómo funciona el descubrimiento',
-  'type.sample.body':
-    'Responde a tu ritmo. Tu progreso se guarda después de cada pregunta, así que puedes pausar y volver.',
-  'type.sample.small': 'Disponible en English, Português y Español.',
-
-  'themes.title': 'Temas',
-  'themes.lead': 'Seis paletas sobre el mismo cielo nocturno. Elige una en los ajustes.',
-  'themes.current': 'En uso',
-
-  'components.title': 'Componentes',
-  'components.lead': 'Las acciones son píldoras. Las superficies suavizan sus esquinas a medida que crecen.',
-  'components.buttons': 'Botones',
-  'components.buttonsHint': 'El primario guía, el secundario acompaña y el discreto no compite por la atención.',
-  'components.iconButtons': 'Botones de icono',
-  'components.iconButtonsHint': 'Siempre con nombre para lectores de pantalla. Área táctil de 44px.',
-  'button.primary': 'Primario',
-  'button.secondary': 'Secundario',
-  'button.ghost': 'Discreto',
-  'button.disabled': 'No disponible',
-
-  'cards.title': 'Cartas de arquetipo',
-  'cards.lead':
-    'Las tres cartas de misterio aprobadas. Título, frase y acción son texto real, así que se traducen y funcionan con tecnologías de apoyo.',
   'cards.artPending': 'Versión solo con arte pendiente',
 
   'card.discover': 'Toca para descubrir',
@@ -72,4 +33,19 @@ export const es: Messages = {
   'archetype.instinctive.phrase': 'Tu intuición encuentra su propio rumbo.',
   'archetype.radiant.name': 'Radiante',
   'archetype.radiant.phrase': 'Llevas calidez a donde vas.',
+
+  'landing.nav.beyond': 'Más allá de lo obvio',
+  'landing.nav.discovery': 'Cómo funciona',
+  'landing.nav.connection': 'Conexiones',
+  'landing.nav.begin': 'Comenzar',
+  'landing.hero.before': 'En algún lugar, ahí afuera, está',
+  'landing.hero.highlight': 'tu Pokémon',
+  'landing.hero.after': '.',
+  'landing.hero.lead':
+    'Responde 30, 60 o 90 preguntas sobre quién eres y lo que te atrae. Todas las especies se comparan en igualdad de condiciones, y ves por qué conectas con ellas.',
+  'landing.hero.cta': 'Comienza tu viaje',
+  'landing.section.beyond': 'Más Allá de lo Obvio',
+  'landing.section.discovery': 'Cómo Funciona el Descubrimiento',
+  'landing.section.connection': 'Cada Conexión Es Diferente',
+  'landing.section.begin': 'Comienza Tu Viaje',
 };
