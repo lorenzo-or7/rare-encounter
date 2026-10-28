@@ -23,5 +23,8 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 01B — Asset pack | Logo, symbol and art-only cards inspected, optimized and integrated; awaiting Or7 visual review (`docs/reports/PHASE_01B_ASSETS_REPORT.md`) | — |
 | 2026-10-28 | 01B — Asset pack | Composition and use of the three cards **approved by Or7**; final finish requested | — |
 | 2026-10-28 | 01B — Final finish | Card 02 residue fixed, compact-symbol nav, serif limited to card titles, localized Stepper labels, accessible unavailable CTA, reference sheet untracked; awaiting final Or7 review (`docs/reports/PHASE_01B_FINAL_REPORT.md`) | — |
+| 2026-10-28 | 01B — Landing & Motion Experience | **Final approval by Or7** (visual and technical finish) | `d93a3e1` |
+| 2026-10-28 | 01B — Landing & Motion Experience | Merged into local `main` (`--no-ff`); not pushed or deployed | merge commit |
+| 2026-10-28 | 02 — Quiz Experience | Planning requested (`docs/PHASE_02_PLAN.md`); implementation **not authorized** | — |
 
 Carried into Phase 01: Clash Display files and license (resolved: local-only install), final logo file (delivered in the 01B asset pack), art-only archetype cards (delivered; card 02 residue fixed in v2).
