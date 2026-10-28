@@ -50,6 +50,10 @@ export const ptBR: Messages = {
 
   'components.title': 'Componentes',
   'components.lead': 'Ações têm forma de pílula. Superfícies ganham cantos mais suaves conforme crescem.',
+  'components.buttons': 'Botões',
+  'components.buttonsHint': 'O primário conduz, o secundário apoia e o discreto não disputa atenção.',
+  'components.iconButtons': 'Botões de ícone',
+  'components.iconButtonsHint': 'Sempre nomeados para leitores de tela. Área de toque de 44px.',
   'button.primary': 'Primário',
   'button.secondary': 'Secundário',
   'button.ghost': 'Discreto',

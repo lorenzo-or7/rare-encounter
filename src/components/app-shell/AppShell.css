@@ -52,8 +52,8 @@
 /* ---------- Sections ---------- */
 .section {
   display: grid;
-  gap: var(--space-12);
-  padding-block: var(--space-16) var(--space-24);
+  gap: clamp(var(--space-8), 4vw, var(--space-12));
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16)) clamp(var(--space-16), 9vw, var(--space-24));
   border-block-start: 1px solid var(--color-line);
 }
 
@@ -72,6 +72,13 @@
 .section__lead {
   max-width: 52ch;
   color: var(--color-text-muted);
+  font-size: var(--text-md);
+}
+
+@media (min-width: 56.25em) {
+  .section__lead {
+    font-size: var(--text-lg);
+  }
 }
 
 @media (min-width: 56.25em) {
@@ -91,13 +98,14 @@
 .type-scale__row {
   display: grid;
   gap: var(--space-2);
-  padding-block: var(--space-6);
+  padding-block: var(--space-5) var(--space-6);
   border-block-end: 1px solid var(--color-line);
 }
 
 .type-scale__row dt {
   color: var(--color-text-subtle);
   font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
 }
 
 .type-scale__row dd {
@@ -143,15 +151,15 @@
 }
 
 .type-sample--small {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
 
 /* ---------- Themes ---------- */
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -170,7 +178,7 @@
 
 .theme-tile__band {
   grid-column: 1 / -1;
-  height: 4.5rem;
+  height: clamp(3.5rem, 8vw, 4.5rem);
   border-radius: var(--radius-sm);
   background: var(--iris);
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12);
@@ -183,6 +191,7 @@
 
 .theme-tile__current {
   padding: var(--space-1) var(--space-3);
+  line-height: var(--leading-snug);
   border-radius: var(--radius-pill);
   background: var(--accent-soft);
   color: var(--accent);
@@ -190,12 +199,58 @@
   font-weight: var(--weight-medium);
 }
 
+@media (min-width: 48em) {
+  .theme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
 /* ---------- Components ---------- */
-.component-row {
+.component-groups {
+  display: grid;
+  gap: var(--space-10) var(--space-8);
+}
+
+@media (min-width: 56.25em) {
+  .component-groups {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+
+.component-group {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.component-group__header {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.component-group__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+}
+
+.component-group__hint {
+  max-width: 44ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* A neutral stage so controls are judged on the surface they will sit on */
+.component-stage {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3);
+  padding: clamp(var(--space-4), 3vw, var(--space-6));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-raised);
 }
 
 /* ---------- Cards ---------- */

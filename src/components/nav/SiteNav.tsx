@@ -1,4 +1,5 @@
 import { LayoutGroup, motion } from 'motion/react';
+import { useState } from 'react';
 import { useScrolled } from '../../hooks/useScrolled';
 import { IconButton } from '../button/Button';
 import { Logo } from '../logo/Logo';
@@ -39,6 +40,7 @@ export function SiteNav({
   onOpenSheet,
 }: SiteNavProps) {
   const scrolled = useScrolled();
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
     <header className="site-nav" data-scrolled={scrolled}>
@@ -46,7 +48,12 @@ export function SiteNav({
         <Logo name={brand} />
         <nav aria-label={label}>
           <LayoutGroup id="liquid-nav">
-            <ul className="liquid-nav__list">
+            <ul
+              className="liquid-nav__list"
+              onPointerLeave={() => {
+                setHoveredId(null);
+              }}
+            >
               {items.map((item) => {
                 const active = item.id === activeId;
                 return (
@@ -55,7 +62,21 @@ export function SiteNav({
                       className="liquid-nav__link"
                       href={`#${item.id}`}
                       aria-current={active ? 'location' : undefined}
+                      onPointerEnter={() => {
+                        setHoveredId(item.id);
+                      }}
                     >
+                      {hoveredId === item.id && !active && (
+                        <motion.span
+                          className="liquid-nav__hover"
+                          layoutId="liquid-nav-hover"
+                          transition={SPRING}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          aria-hidden="true"
+                        />
+                      )}
                       {active && (
                         <motion.span
                           className="liquid-nav__indicator"
@@ -72,7 +93,9 @@ export function SiteNav({
             </ul>
           </LayoutGroup>
         </nav>
+        <span className="liquid-nav__divider" aria-hidden="true" />
         <IconButton
+          className="liquid-nav__action"
           icon="settings"
           label={settingsLabel}
           aria-haspopup="dialog"
@@ -84,6 +107,7 @@ export function SiteNav({
       <div className="top-bar">
         <Logo name={brand} />
         <IconButton
+          className="top-bar__action"
           icon="menu"
           label={menuLabel}
           aria-haspopup="dialog"

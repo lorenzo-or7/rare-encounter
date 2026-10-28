@@ -106,24 +106,38 @@ export function AppShell() {
             title={t('components.title')}
             lead={t('components.lead')}
           />
-          <div className="component-row">
-            <Button variant="primary" size="lg" icon="sparkle">
-              {t('button.primary')}
-            </Button>
-            <Button variant="secondary" size="lg">
-              {t('button.secondary')}
-            </Button>
-            <Button variant="ghost" size="lg">
-              {t('button.ghost')}
-            </Button>
-            <Button variant="primary" size="lg" disabled>
-              {t('button.disabled')}
-            </Button>
-          </div>
-          <div className="component-row">
-            <IconButton icon="settings" label={t('nav.openSettings')} />
-            <IconButton icon="menu" label={t('nav.openMenu')} />
-            <IconButton icon="close" label={t('settings.close')} />
+          <div className="component-groups">
+            <div className="component-group">
+              <div className="component-group__header">
+                <h3 className="component-group__title">{t('components.buttons')}</h3>
+                <p className="component-group__hint">{t('components.buttonsHint')}</p>
+              </div>
+              <div className="component-stage">
+                <Button variant="primary" size="lg" icon="sparkle">
+                  {t('button.primary')}
+                </Button>
+                <Button variant="secondary" size="lg">
+                  {t('button.secondary')}
+                </Button>
+                <Button variant="ghost" size="lg">
+                  {t('button.ghost')}
+                </Button>
+                <Button variant="primary" size="lg" disabled>
+                  {t('button.disabled')}
+                </Button>
+              </div>
+            </div>
+            <div className="component-group">
+              <div className="component-group__header">
+                <h3 className="component-group__title">{t('components.iconButtons')}</h3>
+                <p className="component-group__hint">{t('components.iconButtonsHint')}</p>
+              </div>
+              <div className="component-stage">
+                <IconButton icon="settings" label={t('nav.openSettings')} />
+                <IconButton icon="menu" label={t('nav.openMenu')} />
+                <IconButton icon="close" label={t('settings.close')} />
+              </div>
+            </div>
           </div>
         </section>
 

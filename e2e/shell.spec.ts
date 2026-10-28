@@ -52,6 +52,13 @@ test('desktop nav condenses on scroll and tracks the active section', async ({ p
   );
   await page.waitForTimeout(600);
   await page.screenshot({ path: shot('nav-condensed') });
+
+  await page.getByRole('link', { name: 'Themes' }).hover();
+  await expect(page.locator('.liquid-nav__hover')).toBeVisible();
+  await page.waitForTimeout(400);
+  await page.locator('.liquid-nav').screenshot({ path: shot('nav-hover') });
+  await page.mouse.move(640, 500);
+  await expect(page.locator('.liquid-nav__hover')).toHaveCount(0);
 });
 
 test('settings sheet: language and theme persist, Esc returns focus', async ({ page }) => {

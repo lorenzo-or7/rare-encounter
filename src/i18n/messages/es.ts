@@ -50,6 +50,10 @@ export const es: Messages = {
 
   'components.title': 'Componentes',
   'components.lead': 'Las acciones son píldoras. Las superficies suavizan sus esquinas a medida que crecen.',
+  'components.buttons': 'Botones',
+  'components.buttonsHint': 'El primario guía, el secundario acompaña y el discreto no compite por la atención.',
+  'components.iconButtons': 'Botones de icono',
+  'components.iconButtonsHint': 'Siempre con nombre para lectores de pantalla. Área táctil de 44px.',
   'button.primary': 'Primario',
   'button.secondary': 'Secundario',
   'button.ghost': 'Discreto',

@@ -48,6 +48,10 @@ export const en = {
 
   'components.title': 'Components',
   'components.lead': 'Actions are pills. Surfaces get softer corners as they grow.',
+  'components.buttons': 'Buttons',
+  'components.buttonsHint': 'Primary leads, secondary supports, ghost stays out of the way.',
+  'components.iconButtons': 'Icon buttons',
+  'components.iconButtonsHint': 'Always named for screen readers. 44px touch target.',
   'button.primary': 'Primary',
   'button.secondary': 'Secondary',
   'button.ghost': 'Ghost',

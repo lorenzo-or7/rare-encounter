@@ -33,3 +33,11 @@ Branch `phase/01-visual-identity` (from `main` @ `cd684dc`). Not merged, not pus
 4. **Clash Display for deployment:** each environment must run `npm run fonts:setup` (CI/deploy step to be defined with hosting).
 5. **pt-BR/es** card and UI copy are drafts for Or7 editorial approval.
 6. Bundle is 123 kB gzip JS (Motion included). Review `LazyMotion` in the 01B performance pass. No automated axe run yet (no new dependency added); contrast was checked manually.
+
+## C. Or7 visual review — refinements (round 1)
+- **Liquid Nav:** links, logo and action now share one 2.5rem row inside 0.375rem of padding, so the inner pills sit concentric with the outer one. Added a hover pill that flows between links (Motion `layoutId`) and leaves when the pointer exits. The active indicator is quieter: a tinted fill and a short 2px iridescent baseline inside the pill. A hairline divider now separates links from settings. The top state keeps a hairline edge and a transparent body, then turns solid once you scroll. Structure and behavior are unchanged.
+- **Secondary text:** `--color-text-subtle` went from #948ab0 (6.2:1) to #a59bc3 (7.6:1 on bg, 6.8:1 on card tint). The smallest text size went from 12px to 13px. Settings legends now use the primary text color and the hint uses muted. The card phrase went from 14px muted to 16px primary, and the pending label to 14px. The section lead is 18px on desktop.
+- **Foundation hierarchy:** Components are now split into titled groups (Buttons / Icon buttons) on neutral stages, laid out 2:1 on desktop. Section rhythm is fluid. The theme grid has 2 columns on mobile and 3 from tablet up (it was a long single column on mobile). Type-scale labels and rows are tightened.
+- **Cards:** art handling, behavior and composition are preserved. Only text legibility changed.
+- **Checks:** typecheck, lint, Vitest 37/37, Playwright 16 passed and 2 skipped (a new test checks that the hover pill appears and leaves), safety scan, build, and the Impeccable detector (0 findings).
+- **New evidence:** `phase-01a/*` refreshed, plus `desktop-nav-hover.png`.
