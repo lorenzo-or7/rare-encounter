@@ -5,70 +5,111 @@
 :root {
   color-scheme: dark;
 
-  /* Surfaces — deep violet, shared by every theme */
+  /* Surfaces: deep violet night, shared by every theme */
   --color-bg: #0b0816;
-  --color-bg-raised: #120e22;
-  --color-surface: #19142d;
-  --color-surface-hover: #211a3a;
-  --color-line: rgb(214 204 255 / 0.12);
-  --color-line-strong: rgb(214 204 255 / 0.24);
+  --color-bg-raised: #110d20;
+  --color-surface: #18132b;
+  --color-surface-hover: #201937;
+  --color-overlay: rgb(6 4 14 / 0.62);
+  --color-line: rgb(214 204 255 / 0.1);
+  --color-line-strong: rgb(214 204 255 / 0.2);
+  --color-highlight: rgb(255 255 255 / 0.06);
 
-  /* Text (AA or better on --color-bg and --color-surface) */
+  /* Text: AA or better on --color-bg and --color-surface */
   --color-text: #f2eefb;
   --color-text-muted: #b9b0d0;
-  --color-text-subtle: #948ab0;
+  --color-text-subtle: #a59bc3;
 
-  /* Accent layer — overridden per theme */
+  /* Accent layer (Spectrum = the logotype's violet to cyan). Overridden per theme. */
   --accent: #a78bfa;
   --accent-2: #3dd6e8;
   --accent-soft: rgb(167 139 250 / 0.14);
   --on-accent: #120a26;
   --focus-ring: #c9b8ff;
 
-  /* Typography — Clash Display font files are pending license-verified assets */
+  /* Archetype hues: fixed by the approved card art, independent of theme */
+  --archetype-ethereal: #b18cff;
+  --archetype-instinctive: #4fd2f0;
+  --archetype-radiant: #f2b65a;
+
+  /* Typography */
   --font-display: 'Clash Display', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --text-xs: 0.75rem;
+  --text-xs: 0.8125rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
   --text-lg: 1.125rem;
-  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
-  --text-display: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+  --text-xl: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);
+  --text-2xl: clamp(1.625rem, 1.35rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.125rem, 1.6rem + 2.3vw, 3.5rem);
+  --text-display: clamp(2.75rem, 1.7rem + 4.6vw, 5.75rem);
 
-  --leading-tight: 1.05;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --leading-display: 0.98;
+  --leading-tight: 1.1;
   --leading-snug: 1.3;
   --leading-body: 1.6;
-  --tracking-wide: 0.18em;
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.015em;
+  --tracking-label: 0.01em;
+  --measure: 65ch;
 
   /* Spacing (4px base) */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
+  --space-32: 8rem;
 
-  --gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
-  --content-max: 72rem;
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --content-max: 76rem;
+  --nav-offset: 6rem;
 
-  /* Shape */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.875rem;
+  /* Shape: radius grows with the size of the surface */
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
   --radius-pill: 999px;
 
-  /* Motion — final timings are decided per surface in later phases */
-  --duration-fast: 160ms;
-  --duration-base: 280ms;
+  /* Depth: offset + soft blur, tinted to the night background */
+  --shadow-sm: 0 1px 2px rgb(3 1 10 / 0.5);
+  --shadow-md: 0 10px 30px -12px rgb(3 1 10 / 0.75);
+  --shadow-lg: 0 28px 60px -24px rgb(3 1 10 / 0.9);
+
+  /* Motion: interface responses only; authored moments are defined per surface */
+  --duration-fast: 140ms;
+  --duration-base: 260ms;
+  --duration-slow: 420ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Layers */
+  --z-nav: 40;
+  --z-sheet: 60;
+}
+
+/* Restrained iridescence, re-derived wherever a theme scope changes the accents */
+:root,
+[data-theme] {
+  --iris: linear-gradient(100deg, var(--accent), var(--accent-2));
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration-fast: 0ms;
     --duration-base: 0ms;
+    --duration-slow: 0ms;
   }
 }

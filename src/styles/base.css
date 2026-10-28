@@ -7,18 +7,35 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-offset);
+  scrollbar-color: var(--color-line-strong) var(--color-bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  /* One quiet atmosphere: a faint accent bloom above the fold, nothing else */
+  background-image: radial-gradient(
+    120% 60% at 50% -10%,
+    color-mix(in oklab, var(--accent) 9%, transparent),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--text-md);
   line-height: var(--leading-body);
   font-optical-sizing: auto;
+  font-feature-settings: 'cv11', 'ss01';
   -webkit-font-smoothing: antialiased;
+  caret-color: var(--accent);
 }
 
 h1,
@@ -31,11 +48,19 @@ p {
 h1,
 h2,
 h3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
   text-wrap: balance;
 }
 
 p {
   text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
 }
 
 button,
@@ -58,7 +83,7 @@ svg {
 }
 
 ::selection {
-  background: var(--accent-soft);
+  background: color-mix(in oklab, var(--accent) 38%, transparent);
   color: var(--color-text);
 }
 
@@ -81,6 +106,5 @@ svg {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

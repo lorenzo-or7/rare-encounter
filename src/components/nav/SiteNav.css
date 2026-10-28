@@ -1,0 +1,175 @@
+.site-nav {
+  position: fixed;
+  inset: var(--space-3) var(--space-3) auto;
+  z-index: var(--z-nav);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.site-nav > * {
+  pointer-events: auto;
+}
+
+/* Shared floating material: raised night surface, hairline edge, soft depth */
+.liquid-nav,
+.top-bar {
+  border: 1px solid var(--color-line);
+  background: color-mix(in oklab, var(--color-bg-raised) 80%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 var(--color-highlight),
+    var(--shadow-md);
+}
+
+/* ---------- Floating Top Bar (mobile, tablet portrait) ---------- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+}
+
+.top-bar .logo__text {
+  font-size: var(--text-md);
+}
+
+.top-bar__action {
+  color: var(--color-text);
+}
+
+.liquid-nav {
+  display: none;
+}
+
+/* ---------- Floating Liquid Nav (desktop) ---------- */
+@media (min-width: 56.25em) {
+  .site-nav {
+    inset-block-start: var(--space-5);
+  }
+
+  .top-bar {
+    display: none;
+  }
+
+  /*
+   * One height, one rhythm: links, logo and action all sit on a 2.5rem row inside
+   * 0.375rem of pill padding, so every inner pill is concentric with the outer one.
+   */
+  .liquid-nav {
+    --nav-pad: 0.375rem;
+    --nav-row: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--nav-pad);
+    border-radius: var(--radius-pill);
+    transition:
+      background-color var(--duration-slow) var(--ease-out),
+      border-color var(--duration-slow) var(--ease-out),
+      box-shadow var(--duration-slow) var(--ease-out),
+      backdrop-filter var(--duration-slow) var(--ease-out);
+  }
+
+  /* Morph: open at the top of the page (edge only), solid once reading starts */
+  .site-nav[data-scrolled='false'] .liquid-nav {
+    gap: var(--space-4);
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .liquid-nav .logo {
+    min-height: var(--nav-row);
+    padding-inline: var(--space-3) var(--space-4);
+  }
+
+  .liquid-nav .logo__text {
+    font-size: var(--text-md);
+  }
+}
+
+.liquid-nav__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liquid-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--nav-row, 2.5rem);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.liquid-nav__link:hover,
+.liquid-nav__link[aria-current] {
+  color: var(--color-text);
+}
+
+.liquid-nav__link:focus-visible {
+  outline-offset: -2px;
+}
+
+.liquid-nav__text {
+  position: relative;
+}
+
+/* Hover: a quiet pill that flows between links under the pointer */
+.liquid-nav__hover {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-highlight);
+}
+
+/* Active section: the accent lives in a tinted fill and a short iridescent baseline */
+.liquid-nav__indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: color-mix(in oklab, var(--accent) 16%, var(--color-surface));
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--accent) 28%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+.liquid-nav__indicator::after {
+  content: '';
+  position: absolute;
+  inset: auto 38% 0.3125rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--iris);
+  opacity: 0.9;
+}
+
+.liquid-nav__divider {
+  width: 1px;
+  height: 1.25rem;
+  background: var(--color-line-strong);
+}
+
+.liquid-nav .liquid-nav__action {
+  width: var(--nav-row, 2.5rem);
+  height: var(--nav-row, 2.5rem);
+  color: var(--color-text-muted);
+}
+
+.liquid-nav .liquid-nav__action[aria-expanded='true'] {
+  background: var(--color-highlight);
+  color: var(--color-text);
+}

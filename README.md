@@ -4,7 +4,7 @@
 
 **A Pokémon personality and aesthetics discovery, by Or7.**
 
-`Phase 00 · Foundation` · React 19 · TypeScript (strict) · Vite 8
+`Phase 01A · Visual Foundation` · React 19 · TypeScript (strict) · Vite 8
 
 </div>
 
@@ -18,8 +18,8 @@ This repository is in **Phase 00 — Foundation**. It contains the architecture,
 
 | Phase | Scope | State |
 | --- | --- | --- |
-| 00 | Foundation | In review |
-| 01 | Visual identity and landing | Not started |
+| 00 | Foundation | Approved, merged |
+| 01 | Visual identity and landing | 01A in review, 01B not started |
 | 02 | Quiz UX | Not started |
 | 03 | Catalog and profiles | Not started |
 | 04 | Question bank, engine and coverage | Not started |
@@ -34,6 +34,7 @@ Requires Node.js 20.19 or newer.
 
 ```bash
 npm install
+npm run fonts:setup   # fetches Clash Display from Fontshare into public/fonts (never committed)
 npx playwright install chromium
 npm run dev
 ```
@@ -49,6 +50,7 @@ npm run dev
 | `npm run lint` | ESLint with `typescript-eslint` strict type-checked rules |
 | `npm test` | Vitest unit and component tests |
 | `npm run test:e2e` | Playwright (desktop Chrome and Pixel 7), with screenshots in `test-results/` |
+| `npm run fonts:setup` | Downloads the official Clash Display kit and installs the WOFF2 locally (ITF FFL forbids publishing it in the repo) |
 | `npm run check:safety` | Scans publishable files for secrets, env files, video media and files over 5 MB |
 | `npm run check` | Typecheck, lint, unit tests and the safety scan |
 
@@ -57,13 +59,14 @@ npm run dev
 ```
 src/
   app/          Providers and app-level context (preferences, i18n access)
-  components/   UI components (Phase 00: accessible app shell only)
+  components/   UI: nav, sheet, settings, buttons, icons, logo slot, archetype card, shell
   domain/       React-free types and approved config: categories, modes, catalog,
                 traits, questions, sessions, rankings, results
   i18n/         Locales, resolution rules, typed message catalogs (pt-BR, en, es)
   storage/      Versioned migrations, localStorage preferences, IndexedDB store
   styles/       Semantic tokens, six themes, base styles
   theme/        Theme registry and application
+  hooks/        Scroll, active section and media-query hooks
 e2e/            Playwright specs
 scripts/        Repository tooling
 docs/           Blueprint, visual direction, phase specs and reports
