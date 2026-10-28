@@ -95,7 +95,7 @@
 }
 
 .mode-option[data-locked='true'][data-checked='false'] .border-glow-card {
-  opacity: 0.4;
+  opacity: 0.72;
 }
 
 .mode-option__body {
@@ -158,7 +158,7 @@
   font-weight: var(--weight-medium);
 }
 
-.mode-option__mix {
+.mode-option__description {
   color: var(--color-text-subtle);
   font-size: var(--text-sm);
   line-height: var(--leading-snug);
@@ -226,7 +226,7 @@
     font-size: var(--text-md);
   }
 
-  .mode-option__mix {
+  .mode-option__description {
     max-width: 28ch;
   }
 
@@ -271,8 +271,15 @@
   display: none;
 }
 
-.preparation__note {
-  color: var(--color-text-subtle);
+.preparation__error {
+  flex-basis: 100%;
+  max-width: 52ch;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid color-mix(in oklab, var(--color-danger) 45%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-danger) 10%, transparent);
+  color: var(--color-text);
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 29.99em) {

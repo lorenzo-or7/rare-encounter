@@ -20,6 +20,9 @@
   --color-text-muted: #b9b0d0;
   --color-text-subtle: #a59bc3;
 
+  /* Failed saves and storage problems; shared by every theme */
+  --color-danger: #ff8f9a;
+
   /* Accent layer (Spectrum = the logotype's violet to cyan). Overridden per theme. */
   --accent: #a78bfa;
   --accent-2: #3dd6e8;

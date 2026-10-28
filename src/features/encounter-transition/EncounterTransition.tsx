@@ -12,6 +12,10 @@ import { INITIAL_TRANSITION, transitionReducer } from './transition';
 import './EncounterTransition.css';
 
 const EASE: [number, number, number, number] = [0.65, 0, 0.35, 1];
+/** About 1.2 s in all (Or7, E12 B): the liquid covers, then drains away over the new screen. */
+const COVER_S = 0.7;
+const REVEAL_S = 0.5;
+const REDUCED_S = 0.2;
 
 /**
  * Provides the Liquid Flow transition and renders its layer. Phase 01B ships the
@@ -63,8 +67,11 @@ export function EncounterTransitionProvider({ children }: { readonly children: R
             animate={
               reduceMotion ? { opacity: 1 } : { clipPath: `circle(150% at ${at})`, opacity: 1 }
             }
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0.2 : 0.9, ease: EASE }}
+            exit={{
+              opacity: 0,
+              transition: { duration: reduceMotion ? REDUCED_S : REVEAL_S, ease: EASE },
+            }}
+            transition={{ duration: reduceMotion ? REDUCED_S : COVER_S, ease: EASE }}
             onAnimationComplete={() => {
               if (state.phase !== 'covering' || !state.destination) return;
               destinations.current.get(state.destination)?.();

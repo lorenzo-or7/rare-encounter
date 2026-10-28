@@ -28,5 +28,8 @@ Phase gates, approvals and integrations. Each phase stops for explicit Or7 appro
 | 2026-10-28 | 02 — Quiz Experience | Planning requested (`docs/PHASE_02_PLAN.md`); implementation **not authorized** | — |
 | 2026-10-28 | 02 — Quiz Experience | Plan reviewed by Or7; **Checkpoint 01 authorized** (route, Liquid Flow, Preparation Screen). Architecture rules set for later checkpoints; E5, E8, E10, E12, E13 to be approved individually | — |
 | 2026-10-28 | 02 — Checkpoint 01 | Entry and Preparation Screen implemented; awaiting Or7 visual review (`docs/reports/PHASE_02_CP01_REPORT.md`) | — |
+| 2026-10-28 | 02 — Checkpoint 01 | **Approved by Or7** (Preparation Screen structure and behavior). Decisions: E5 A (primary button), E8 A (focused quiz header), E10 A (row from 900 px), E12 B (Liquid Flow about 1.2 s), E13 A (no time estimate until real data). Card copy simplified (core/adaptive split hidden from the UI, still approved internally); lighter dimming of unselected cards | `a100f1a` |
+| 2026-10-28 | 02 — Checkpoint 02 | Authorized: quiz header, three question formats with preview questions, Horizontal Flow, Energy Pulse + Spring Press, auto-advance after a confirmed save, continuous progress, reduced motion | — |
+| 2026-10-28 | 02 — Checkpoint 02 | Quiz questions and motion implemented with labelled preview questions, plus the approved CP01 refinements; awaiting Or7 review (`docs/reports/PHASE_02_CP02_REPORT.md`) | — |
 
 Carried into Phase 01: Clash Display files and license (resolved: local-only install), final logo file (delivered in the 01B asset pack), art-only archetype cards (delivered; card 02 residue fixed in v2).

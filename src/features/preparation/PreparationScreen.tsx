@@ -3,7 +3,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
 import { hasNavigatedInApp } from '../../app/routing';
 import { Button } from '../../components/button/Button';
-import { MODES, MODE_IDS, type ModeId } from '../../domain/modes';
+import { MODE_IDS, type ModeId } from '../../domain/modes';
 import { useThemeColors } from '../../hooks/useThemeColors';
 import type { MessageKey } from '../../i18n/messages';
 import { ModeOption } from './ModeOption';
@@ -16,22 +16,32 @@ const MODE_NAMES: Readonly<Record<ModeId, MessageKey>> = {
   90: 'landing.mode.deep',
 };
 
+/** What each depth offers, in a line. The core/adaptive split stays internal. */
+const MODE_DESCRIPTIONS: Readonly<Record<ModeId, MessageKey>> = {
+  30: 'preparation.desc.glimpse',
+  60: 'preparation.desc.journey',
+  90: 'preparation.desc.deep',
+};
+
+interface PreparationScreenProps {
+  /** Starts the encounter at this depth; rejects when it could not be stored. */
+  readonly onConfirm: (mode: ModeId) => Promise<void>;
+}
+
 /**
  * Preparation: choose 30, 60 or 90 questions, then confirm. Nothing is preselected and the
  * confirm control stays unavailable (focusable, with its reason) until a depth is chosen.
- * The questions do not exist yet, so confirming locks the choice and says so plainly; it
- * creates no session and starts nothing.
+ * Confirming stores a new session before anything starts: the cards lock while it is
+ * written, and if this browser cannot save, the screen says so and the choice stays open.
  */
-export function PreparationScreen() {
+export function PreparationScreen({ onConfirm }: PreparationScreenProps) {
   const { t, theme } = usePreferences();
   const colors = useThemeColors(theme);
   const reduceMotion = useReducedMotion() ?? false;
   const [selected, setSelected] = useState<ModeId | null>(null);
-  const [confirmed, setConfirmed] = useState(false);
+  const [starting, setStarting] = useState(false);
+  const [failed, setFailed] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const changeRef = useRef<HTMLButtonElement>(null);
-  const confirmRef = useRef<HTMLButtonElement>(null);
-  const focusAfter = useRef<'change' | 'confirm' | null>(null);
   const group = useId();
   const titleId = useId();
   const leadId = useId();
@@ -49,30 +59,20 @@ export function PreparationScreen() {
     };
   }, [t]);
 
-  // The confirm and change controls replace each other; keep focus on whichever appears.
-  useEffect(() => {
-    if (focusAfter.current === 'change') changeRef.current?.focus();
-    if (focusAfter.current === 'confirm') confirmRef.current?.focus();
-    focusAfter.current = null;
-  }, [confirmed]);
-
   const confirm = () => {
-    if (selected === null) return;
-    focusAfter.current = 'change';
-    setConfirmed(true);
+    if (selected === null || starting) return;
+    setStarting(true);
+    setFailed(false);
+    onConfirm(selected).catch(() => {
+      setStarting(false);
+      setFailed(true);
+    });
   };
 
-  const change = () => {
-    focusAfter.current = 'confirm';
-    setConfirmed(false);
+  const choose = (mode: ModeId) => {
+    setSelected(mode);
+    setFailed(false);
   };
-
-  const status =
-    confirmed && selected !== null
-      ? t('preparation.confirmed', { mode: t(MODE_NAMES[selected]), n: selected })
-      : selected === null
-        ? t('preparation.needChoice')
-        : '';
 
   return (
     <section className="preparation" aria-labelledby={titleId}>
@@ -97,39 +97,37 @@ export function PreparationScreen() {
             mode={id}
             name={t(MODE_NAMES[id])}
             count={t('landing.mode.questions', { n: id })}
-            mix={t('preparation.mix', { core: MODES[id].fundamental, adaptive: MODES[id].adaptive })}
+            description={t(MODE_DESCRIPTIONS[id])}
             group={group}
             checked={selected === id}
-            locked={confirmed}
+            locked={starting}
             reduceMotion={reduceMotion}
             colors={colors}
-            onSelect={setSelected}
+            onSelect={choose}
           />
         ))}
       </div>
 
       <div className="preparation__action">
-        {confirmed ? (
-          <Button ref={changeRef} variant="secondary" size="lg" onClick={change}>
-            {t('preparation.change')}
-          </Button>
-        ) : (
-          <Button
-            ref={confirmRef}
-            className="preparation__confirm"
-            variant="primary"
-            size="lg"
-            aria-disabled={selected === null}
-            aria-describedby={statusId}
-            onClick={confirm}
-          >
-            {t('preparation.confirm')}
-          </Button>
-        )}
+        <Button
+          className="preparation__confirm"
+          variant="primary"
+          size="lg"
+          aria-disabled={selected === null || starting}
+          aria-busy={starting}
+          aria-describedby={statusId}
+          onClick={confirm}
+        >
+          {t('preparation.confirm')}
+        </Button>
         <div id={statusId} className="preparation__status" role="status">
-          {status && <p>{status}</p>}
-          {confirmed && <p className="preparation__note">{t('preparation.unavailable')}</p>}
+          {selected === null && <p>{t('preparation.needChoice')}</p>}
         </div>
+        {failed && (
+          <p className="preparation__error" role="alert">
+            {t('preparation.storageError')}
+          </p>
+        )}
       </div>
     </section>
   );

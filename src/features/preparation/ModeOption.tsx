@@ -10,8 +10,8 @@ interface ModeOptionProps {
   readonly name: string;
   /** e.g. "30 questions" */
   readonly count: string;
-  /** e.g. "21 core questions and 9 that adapt to your answers" */
-  readonly mix: string;
+  /** One short line on what this depth offers. */
+  readonly description: string;
   readonly group: string;
   readonly checked: boolean;
   readonly locked: boolean;
@@ -32,7 +32,7 @@ export function ModeOption({
   mode,
   name,
   count,
-  mix,
+  description,
   group,
   checked,
   locked,
@@ -42,7 +42,7 @@ export function ModeOption({
 }: ModeOptionProps) {
   const nameId = useId();
   const countId = useId();
-  const mixId = useId();
+  const descriptionId = useId();
   const glowColor = hexToHslTriplet(colors.accent);
 
   // Capture-phase stop: the event never reaches Border Glow's own pointermove handler.
@@ -79,7 +79,7 @@ export function ModeOption({
             checked={checked}
             disabled={locked}
             aria-labelledby={`${nameId} ${countId}`}
-            aria-describedby={mixId}
+            aria-describedby={descriptionId}
             onChange={() => {
               onSelect(mode);
             }}
@@ -94,8 +94,8 @@ export function ModeOption({
             <span id={countId} className="mode-option__count">
               {count}
             </span>
-            <span id={mixId} className="mode-option__mix">
-              {mix}
+            <span id={descriptionId} className="mode-option__description">
+              {description}
             </span>
           </span>
           <span className="mode-option__mark" aria-hidden="true">

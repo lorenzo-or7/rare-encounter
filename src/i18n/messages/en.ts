@@ -84,12 +84,27 @@ export const en = {
   'preparation.title': 'Choose your depth',
   'preparation.lead':
     'Each depth asks a different number of questions. Once the encounter begins, the depth stays fixed.',
-  'preparation.mix': '{core} core questions and {adaptive} that adapt to your answers',
+  'preparation.desc.glimpse': 'A first discovery of who you are.',
+  'preparation.desc.journey': 'Explore your personality in more depth.',
+  'preparation.desc.deep': 'A complete journey through your many sides.',
   'preparation.confirm': 'Confirm depth',
   'preparation.needChoice': 'Choose a depth to continue.',
-  'preparation.confirmed': '{mode}: confirmed, {n} questions.',
-  'preparation.unavailable': 'Not available yet. Your questions will start here once they open.',
-  'preparation.change': 'Choose another depth',
+  'preparation.storageError':
+    "This browser can't save your progress right now, so the encounter can't start. Private browsing or blocked site data can cause this.",
+
+  'quiz.documentTitle': 'Your encounter | Rare Encounter',
+  'quiz.preview': 'Preview: sample questions, not the final question bank. They repeat, and they will not produce a result.',
+  'quiz.progress': 'Progress',
+  'quiz.questionOf': 'Question {n} of {total}',
+  'quiz.pause': 'Pause',
+  'quiz.pauseUnavailable': 'Pause is not available yet.',
+  'quiz.back': 'Previous question',
+  'quiz.next': 'Next question',
+  'quiz.saveFailed': 'This answer was not saved, so the quiz stayed here. Try again to keep it.',
+  'quiz.retry': 'Try again',
+  'quiz.complete.title': 'Your {total} answers are saved',
+  'quiz.complete.body': 'The preview ends here. Sample questions never produce a result.',
+  'quiz.complete.home': 'Back to the start',
 } as const;
 
 export type MessageKey = keyof typeof en;

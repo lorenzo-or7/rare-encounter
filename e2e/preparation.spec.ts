@@ -53,11 +53,17 @@ test('Liquid Flow carries the closing CTA into Preparation', async ({ page }) =>
 test('three depths, nothing preselected, confirm unavailable until a choice', async ({ page }) => {
   await page.goto('/encounter');
   await expect(options(page).getByRole('radio')).toHaveCount(3);
+  // Each depth: its count and one short line; no internal question split is shown.
   await expect(radio(page, /^A Glimpse 30 questions$/)).toHaveAccessibleDescription(
-    '21 core questions and 9 that adapt to your answers',
+    'A first discovery of who you are.',
   );
-  await expect(radio(page, /^The Journey 60 questions$/)).toBeVisible();
-  await expect(radio(page, /^Deep Connection 90 questions$/)).toBeVisible();
+  await expect(radio(page, /^The Journey 60 questions$/)).toHaveAccessibleDescription(
+    'Explore your personality in more depth.',
+  );
+  await expect(radio(page, /^Deep Connection 90 questions$/)).toHaveAccessibleDescription(
+    'A complete journey through your many sides.',
+  );
+  await expect(page.getByText(/core questions|adapt to your answers/)).toHaveCount(0);
   for (const r of await options(page).getByRole('radio').all()) await expect(r).not.toBeChecked();
 
   const button = confirm(page);
@@ -98,7 +104,9 @@ test('keyboard: Tab into the group, arrows choose, focus ring is visible', async
   await expect(confirm(page)).toHaveAttribute('aria-disabled', 'false');
 });
 
-test('pointer selection, confirm, and choosing again', async ({ page }) => {
+test('pointer selection; confirming stores the session and starts the questions', async ({
+  page,
+}) => {
   await page.goto('/encounter');
   await page.locator('.mode-option').nth(1).click();
   await expect(radio(page, /The Journey/)).toBeChecked();
@@ -106,25 +114,29 @@ test('pointer selection, confirm, and choosing again', async ({ page }) => {
   await expect(page.locator('.mode-option__mark').nth(1)).toHaveCSS('opacity', '1');
   await page.waitForTimeout(300);
   await fullShot(page, 'prep-selected');
-
-  await confirm(page).click();
-  await expect(page.getByRole('status')).toContainText('The Journey: confirmed, 60 questions.');
-  await expect(page.getByRole('status')).toContainText(
-    'Not available yet. Your questions will start here once they open.',
-  );
-  // Locked: no depth can change, and focus lands on the control that replaced Confirm.
-  for (const r of await options(page).getByRole('radio').all()) await expect(r).toBeDisabled();
-  const again = page.getByRole('button', { name: 'Choose another depth' });
-  await expect(again).toBeFocused();
-  await page.waitForTimeout(300);
-  await fullShot(page, 'prep-confirmed');
-  // Nothing was started or stored.
+  // Nothing is stored before confirming.
   expect(await page.evaluate(() => indexedDB.databases().then((dbs) => dbs.length))).toBe(0);
 
-  await again.click();
-  await expect(confirm(page)).toBeFocused();
-  await expect(radio(page, /The Journey/)).toBeChecked();
-  await expect(radio(page, /A Glimpse/)).toBeEnabled();
+  await confirm(page).click();
+  await expect(page.locator('.quiz__step')).toHaveText('Question 1 of 60');
+  expect(await page.evaluate(() => indexedDB.databases().then((dbs) => dbs.length))).toBe(1);
+});
+
+test('while the session is written, the cards lock and stay readable', async ({ page }) => {
+  // Storage that never answers: the start stays in progress, so the locked state can be seen.
+  await page.addInitScript(() => {
+    indexedDB.open = () => ({}) as IDBOpenDBRequest;
+  });
+  await page.goto('/encounter');
+  await page.locator('.mode-option').nth(2).click();
+  await confirm(page).click();
+  await expect(confirm(page)).toHaveAttribute('aria-busy', 'true');
+  await expect(confirm(page)).toHaveAttribute('aria-disabled', 'true');
+  for (const r of await options(page).getByRole('radio').all()) await expect(r).toBeDisabled();
+  // Lighter dimming than CP01 (0.4): the other depths stay legible.
+  await expect(page.locator('.mode-option .border-glow-card').nth(0)).toHaveCSS('opacity', '0.72');
+  await page.waitForTimeout(300);
+  await fullShot(page, 'prep-starting');
 });
 
 test('desktop: the original Border Glow follows the pointer near an edge', async ({ page }) => {
@@ -217,9 +229,9 @@ test('mobile: the top bar opens settings only', async ({ page }) => {
   await expect(dialog.getByRole('navigation')).toHaveCount(0);
 });
 
-for (const [locale, title, journey, confirmLabel] of [
-  ['pt-BR', 'Escolha a profundidade', /^A Jornada 60 perguntas$/, 'Confirmar profundidade'],
-  ['es', 'Elige la profundidad', /^El Viaje 60 preguntas$/, 'Confirmar profundidad'],
+for (const [locale, title, journey, confirmLabel, stepLabel] of [
+  ['pt-BR', 'Escolha a profundidade', /^A Jornada 60 perguntas$/, 'Confirmar profundidade', 'Pergunta'],
+  ['es', 'Elige la profundidad', /^El Viaje 60 preguntas$/, 'Confirmar profundidad', 'Pregunta'],
 ] as const) {
   test.describe(locale, () => {
     test.use({ locale });
@@ -234,10 +246,12 @@ for (const [locale, title, journey, confirmLabel] of [
         'aria-disabled',
         'true',
       );
+      await fullShot(page, `prep-${locale}`);
       await group.getByRole('radio', { name: journey }).check({ force: true });
       await page.getByRole('button', { name: confirmLabel }).click();
-      await page.waitForTimeout(300);
-      await fullShot(page, `prep-confirmed-${locale}`);
+      await expect(page.locator('.quiz__step')).toHaveText(new RegExp(`^${stepLabel} 1 `));
+      await page.waitForTimeout(400);
+      await fullShot(page, `quiz-start-${locale}`);
     });
   });
 }
