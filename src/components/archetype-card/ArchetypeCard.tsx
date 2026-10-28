@@ -1,6 +1,7 @@
 import {
   AnimatePresence,
   motion,
+  useMotionTemplate,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -21,12 +22,15 @@ interface ArchetypeCardProps {
 }
 
 const TILT_DEG = 6;
-const SPRING = { stiffness: 260, damping: 24, mass: 0.6 };
+/** Slightly under-damped: the card settles back with one small, controlled overshoot. */
+const SPRING = { stiffness: 220, damping: 17, mass: 0.7 };
+const GLARE_SPRING = { stiffness: 160, damping: 26 };
 
 /**
- * Floating Archetype Card. Art is a decorative layer; number, title, phrase and the
- * discover action are real, localized DOM. Interactive Discovery: tilt + glow on hover
- * (fine pointers only), brief phrase reveal on click/tap, no modal.
+ * Floating Archetype Card. The approved art is a decorative layer; number, title, phrase
+ * and the discover action are real, localized DOM placed in the art's cleared areas.
+ * Interactive Discovery: tilt with a light reflection that follows the pointer (fine
+ * pointers only), phrase reveal on click/tap, no modal.
  */
 export function ArchetypeCard({
   archetype,
@@ -46,32 +50,57 @@ export function ArchetypeCard({
   const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [TILT_DEG, -TILT_DEG]), SPRING);
   const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-TILT_DEG, TILT_DEG]), SPRING);
 
+  // Reflection: a soft highlight that sits where the pointer is, fading in and out.
+  const glareX = useSpring(useTransform(px, [-0.5, 0.5], [0, 100]), GLARE_SPRING);
+  const glareY = useSpring(useTransform(py, [-0.5, 0.5], [0, 100]), GLARE_SPRING);
+  const glareOpacity = useSpring(0, GLARE_SPRING);
+  const glare = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgb(255 255 255 / 0.22), transparent 55%)`;
+
   const onPointerMove = (e: PointerEvent<HTMLElement>) => {
     if (reduceMotion || e.pointerType !== 'mouse') return;
     const rect = e.currentTarget.getBoundingClientRect();
     px.set((e.clientX - rect.left) / rect.width - 0.5);
     py.set((e.clientY - rect.top) / rect.height - 0.5);
+    glareOpacity.set(1);
   };
 
-  const resetTilt = () => {
+  const release = () => {
     px.set(0);
     py.set(0);
+    glareOpacity.set(0);
   };
+
+  const hasArt = archetype.art !== null;
 
   return (
     <article
       className="archetype-card"
       aria-labelledby={titleId}
       data-archetype={archetype.id}
+      data-art={hasArt}
       data-revealed={revealed}
-      style={{ '--card-hue': archetype.hue } as CSSProperties}
+      style={
+        {
+          '--card-hue': archetype.hue,
+          '--card-mask': archetype.art ? `url(${archetype.art.src})` : 'none',
+        } as CSSProperties
+      }
       onPointerMove={onPointerMove}
-      onPointerLeave={resetTilt}
+      onPointerLeave={release}
     >
       <motion.div className="archetype-card__body" style={{ rotateX, rotateY }}>
         <div className="archetype-card__art">
           {archetype.art ? (
-            <img src={archetype.art} alt="" width={1024} height={1536} decoding="async" />
+            <img
+              src={archetype.art.src}
+              srcSet={archetype.art.srcSet}
+              sizes="(min-width: 48em) 20rem, 80vw"
+              alt=""
+              width={1024}
+              height={1536}
+              loading="lazy"
+              decoding="async"
+            />
           ) : (
             <p className="archetype-card__pending">
               <Icon name="sparkle" size={14} />
@@ -80,8 +109,17 @@ export function ArchetypeCard({
           )}
         </div>
 
+        {!reduceMotion && (
+          <motion.div
+            className="archetype-card__glare"
+            style={{ backgroundImage: glare, opacity: glareOpacity }}
+            aria-hidden="true"
+          />
+        )}
+
+        <p className="archetype-card__number">{archetype.number}</p>
+
         <div className="archetype-card__content">
-          <p className="archetype-card__number">{archetype.number}</p>
           <h3 id={titleId} className="archetype-card__title">
             {name}
           </h3>

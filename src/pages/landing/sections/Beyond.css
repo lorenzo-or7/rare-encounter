@@ -1,0 +1,81 @@
+/*
+ * Asymmetric editorial spread: the title sits low on the left, the statement carries the
+ * section in large display type, and the principles run beneath as a quiet three-column
+ * reading row divided by hairlines.
+ */
+.beyond {
+  display: grid;
+  gap: var(--space-10) var(--space-12);
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: clamp(var(--space-16), 11vw, var(--space-32)) var(--gutter);
+}
+
+.beyond__title {
+  color: var(--color-text-muted);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+}
+
+.beyond__statement {
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.15rem + 1.9vw, 2.625rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  word-spacing: 0.05em;
+  text-wrap: balance;
+}
+
+.beyond__principles {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beyond__principle {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--color-line-strong);
+}
+
+.beyond__principle-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.005em;
+}
+
+.beyond__principle-body {
+  max-width: 34ch;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48em) {
+  .beyond__principles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 56.25em) {
+  .beyond {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    row-gap: var(--space-24);
+  }
+
+  .beyond__title {
+    align-self: end;
+    padding-block-end: 0.6rem;
+  }
+
+  .beyond__principles {
+    grid-column: 1 / -1;
+  }
+}

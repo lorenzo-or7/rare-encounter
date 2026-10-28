@@ -1,0 +1,94 @@
+/*
+ * Centered gallery: a short, centered introduction, then the three cards on a staggered
+ * line (the middle card set higher) so they read as floating, not as a grid of tiles.
+ */
+.connection {
+  display: grid;
+  justify-items: center;
+  gap: clamp(var(--space-12), 6vw, var(--space-16));
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: clamp(var(--space-16), 11vw, var(--space-32)) var(--gutter);
+}
+
+.connection__intro {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  max-width: 40rem;
+  text-align: center;
+}
+
+.connection__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-heading);
+  word-spacing: 0.05em;
+}
+
+.connection__lead {
+  max-width: 46ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.connection__cards {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-10);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.connection__slot {
+  width: 100%;
+  max-width: 20rem;
+}
+
+@media (min-width: 48em) {
+  .connection__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(var(--space-4), 2.5vw, var(--space-8));
+  }
+
+  /* The middle card sits highest; the outer two step down beneath it */
+  .connection__slot:nth-child(odd) {
+    margin-block-start: clamp(var(--space-10), 6vw, var(--space-16));
+  }
+}
+
+/*
+ * Floating: a slow CSS drift (lightweight, no JS). It holds still while the pointer or
+ * keyboard focus is on a card, so tilt and reveal happen on a steady target.
+ */
+@keyframes connection-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.connection__float {
+  animation: connection-float var(--float-duration, 7s) ease-in-out var(--float-delay, 0s)
+    infinite;
+}
+
+.connection__float:hover,
+.connection__float:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connection__float {
+    animation: none;
+  }
+}

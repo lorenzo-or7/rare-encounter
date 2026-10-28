@@ -2,12 +2,12 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { PreferencesProvider } from '../../app/PreferencesProvider';
 import { loadPreferences } from '../../storage/preferences';
-import { AppShell } from './AppShell';
+import FoundationPage from './FoundationPage';
 
 const renderShell = (languages: readonly string[] = ['en-US']) =>
   render(
     <PreferencesProvider languages={languages}>
-      <AppShell />
+      <FoundationPage />
     </PreferencesProvider>,
   );
 
@@ -20,7 +20,7 @@ const openSheet = async () => {
   return screen.getByRole('dialog', { hidden: true });
 };
 
-describe('AppShell', () => {
+describe('FoundationPage', () => {
   it('exposes landmarks, one h1, a skip link and section navigation', () => {
     renderShell();
     expect(screen.getByRole('banner')).toBeInTheDocument();

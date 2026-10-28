@@ -1,0 +1,145 @@
+/*
+ * Editorial Split. Copy aligns to the content column's left edge; Ghost Fibers own the
+ * right side and bleed to the viewport edge, fading out before they reach the type.
+ * Phones and tablets stack: fibers form the upper band, copy settles beneath it.
+ */
+.hero {
+  --hero-inline-start: max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter)));
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  min-height: 100svh;
+  padding: calc(var(--nav-offset) + var(--space-8)) var(--gutter) var(--space-12);
+  overflow: hidden;
+}
+
+.hero__fibers {
+  position: absolute;
+  inset: 0 0 46%;
+  z-index: -1;
+  opacity: 0.85;
+  mask-image: linear-gradient(to bottom, #000 45%, transparent);
+}
+
+.hero__copy {
+  display: grid;
+  justify-items: start;
+}
+
+/*
+ * Clash Display's word space is narrow and negative tracking narrows it further, so the
+ * word gap is restored explicitly.
+ */
+.hero__title {
+  font-size: clamp(2.75rem, 1.6rem + 4.9vw, 3.5rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  word-spacing: 0.08em;
+  text-wrap: balance;
+}
+
+.hero__phrase {
+  display: inline;
+}
+
+/* The gradient phrase and its full stop never separate */
+.hero__highlight {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero__gradient {
+  /* The original component centers its box; inline flow keeps the headline baseline */
+  display: inline-flex;
+  vertical-align: baseline;
+}
+
+.hero__lead {
+  max-width: 40ch;
+  margin-block-start: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.hero__actions {
+  margin-block-start: var(--space-8);
+}
+
+.hero .hero__cta {
+  min-height: 3.75rem;
+  padding-inline: var(--space-8);
+  font-size: 1.0625rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.hero .hero__cta:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+/* Tablet and up: one phrase per line, breaking at the comma */
+@media (min-width: 48em) {
+  .hero {
+    min-height: min(100svh, 56rem);
+  }
+
+  .hero__fibers {
+    inset: 0 0 36%;
+  }
+
+  .hero__title {
+    font-size: clamp(3.25rem, 0.6rem + 5.5vw, 4.25rem);
+  }
+
+  .hero__phrase {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero__lead {
+    max-width: 44ch;
+    font-size: var(--text-lg);
+  }
+
+  .hero .hero__cta {
+    min-height: 4rem;
+    padding-inline: var(--space-10);
+  }
+}
+
+/* Desktop: the split */
+@media (min-width: 56.25em) {
+  .hero {
+    /* Headline size drives where the fibers begin, so the two never fight for space */
+    --hero-title-size: clamp(3.5rem, 1.4rem + 3.9vw, 5.75rem);
+
+    align-content: center;
+    min-height: 100svh;
+    padding: calc(var(--nav-offset) + var(--space-6)) var(--gutter) var(--space-16)
+      var(--hero-inline-start);
+  }
+
+  .hero__fibers {
+    inset: 0 0 0 calc(var(--hero-inline-start) + var(--hero-title-size) * 7.5);
+    opacity: 1;
+    mask-image: linear-gradient(to right, transparent, #000 38%);
+  }
+
+  .hero__title {
+    font-size: var(--hero-title-size);
+  }
+
+  .hero__lead {
+    margin-block-start: var(--space-8);
+  }
+
+  .hero__actions {
+    margin-block-start: var(--space-10);
+  }
+}

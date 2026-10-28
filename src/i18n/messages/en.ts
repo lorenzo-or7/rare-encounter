@@ -4,10 +4,6 @@ export const en = {
   'brand.name': 'Rare Encounter',
 
   'nav.label': 'Sections',
-  'nav.typography': 'Typography',
-  'nav.themes': 'Themes',
-  'nav.components': 'Components',
-  'nav.cards': 'Cards',
   'nav.openSettings': 'Open settings',
   'nav.openMenu': 'Open menu',
   'menu.title': 'Menu',
@@ -25,41 +21,6 @@ export const en = {
   'theme.sakura': 'Sakura',
   'theme.verdant': 'Verdant',
 
-  'foundation.title': 'Visual foundation',
-  'foundation.lead':
-    'The type, color, navigation and components every Rare Encounter screen will share. The landing page is built on top of them next.',
-
-  'type.title': 'Typography',
-  'type.lead': 'Clash Display carries the headlines. Inter carries everything you read and tap.',
-  'type.role.display': 'Display',
-  'type.role.heading': 'Heading',
-  'type.role.title': 'Title',
-  'type.role.body': 'Body',
-  'type.role.small': 'Small',
-  'type.sample.heading': 'Every connection is different',
-  'type.sample.title': 'How discovery works',
-  'type.sample.body':
-    'Answer at your own pace. Your progress is saved after every question, so you can pause and come back.',
-  'type.sample.small': 'Available in English, Português and Español.',
-
-  'themes.title': 'Themes',
-  'themes.lead': 'Six palettes over the same night sky. Choose one in settings.',
-  'themes.current': 'In use',
-
-  'components.title': 'Components',
-  'components.lead': 'Actions are pills. Surfaces get softer corners as they grow.',
-  'components.buttons': 'Buttons',
-  'components.buttonsHint': 'Primary leads, secondary supports, ghost stays out of the way.',
-  'components.iconButtons': 'Icon buttons',
-  'components.iconButtonsHint': 'Always named for screen readers. 44px touch target.',
-  'button.primary': 'Primary',
-  'button.secondary': 'Secondary',
-  'button.ghost': 'Ghost',
-  'button.disabled': 'Unavailable',
-
-  'cards.title': 'Archetype cards',
-  'cards.lead':
-    'The three approved mystery cards. Title, phrase and action are real text, so they translate and work with assistive technology.',
   'cards.artPending': 'Art-only version pending',
 
   'card.discover': 'Tap to discover',
@@ -70,6 +31,54 @@ export const en = {
   'archetype.instinctive.phrase': 'Your intuition finds its own direction.',
   'archetype.radiant.name': 'Radiant',
   'archetype.radiant.phrase': 'You bring warmth wherever you go.',
+
+  'landing.nav.beyond': 'Beyond the obvious',
+  'landing.nav.discovery': 'How it works',
+  'landing.nav.connection': 'Connections',
+  'landing.nav.begin': 'Begin',
+  'landing.hero.opening': 'Somewhere out there,',
+  'landing.hero.bridge': "there's",
+  'landing.hero.highlight': 'your Pokémon',
+  'landing.hero.after': '.',
+  'landing.hero.lead':
+    'Answer 30, 60 or 90 questions about who you are and what draws you in. Every species is compared on equal terms, and you see why you match.',
+  'landing.hero.cta': 'Begin your journey',
+  'landing.section.beyond': 'Beyond the Obvious',
+  'landing.section.discovery': 'How Discovery Works',
+  'landing.section.connection': 'Every Connection Is Different',
+  'landing.section.begin': 'Begin Your Journey',
+  'landing.beyond.statement':
+    'Strength, rarity and fame play no part in the comparison. It looks at how a Pokémon moves through the world, and whether that feels like you.',
+  'landing.beyond.p1.title': 'The whole Pokédex is in play',
+  'landing.beyond.p1.body':
+    'Every eligible species is a candidate, from the legends everyone knows to the ones most people walk past.',
+  'landing.beyond.p2.title': 'Six sides of you',
+  'landing.beyond.p2.body':
+    'Personality, aesthetics, values, environments, energy and instinct all shape the result.',
+  'landing.beyond.p3.title': 'Reasons you can read',
+  'landing.beyond.p3.body':
+    "Each match lists the answers that shaped it. Affinity measures how closely you align; it isn't a probability.",
+  'landing.discovery.intro': 'Three steps, at your own pace.',
+  'landing.discovery.stepLabel': 'Step {n}: {title}',
+  'landing.discovery.step1.title': 'Discover Yourself',
+  'landing.discovery.step1.body':
+    'Pick A Glimpse (30 questions), The Journey (60) or Deep Connection (90), then answer one question at a time. Your progress is saved after every answer.',
+  'landing.discovery.step2.title': 'Find Your Connection',
+  'landing.discovery.step2.body':
+    'Your answers are compared with every eligible species across six dimensions, on equal terms.',
+  'landing.discovery.step3.title': 'Reveal Your Encounter',
+  'landing.discovery.step3.body':
+    'Meet your Soul Match first, then your Hidden and Alternative Matches, each with the reasons behind it.',
+  'landing.connection.intro':
+    'Ethereal, Instinctive and Radiant describe moods a connection can have; your result is always a species. Tap a card to read it.',
+  'landing.begin.statement':
+    'Start with 30 questions or go deeper with 90. You can pause whenever you like, and your answers will be waiting.',
+  'landing.mode.glimpse': 'A Glimpse',
+  'landing.mode.journey': 'The Journey',
+  'landing.mode.deep': 'Deep Connection',
+  'landing.mode.questions': '{n} questions',
+  'landing.begin.cta': 'Begin your journey',
+  'landing.begin.unavailable': 'Not available yet. The encounter will start from here once it opens.',
 } as const;
 
 export type MessageKey = keyof typeof en;

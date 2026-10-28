@@ -1,0 +1,62 @@
+/*
+ * A full-bleed band, one step lighter than the night, so the process reads as its own
+ * chapter. Title and lead on the left; the Stepper is the working surface on the right.
+ */
+.discovery {
+  display: grid;
+  gap: var(--space-10);
+  padding: clamp(var(--space-16), 10vw, var(--space-24))
+    max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter)));
+  border-block: 1px solid var(--color-line);
+  background: var(--color-bg-raised);
+}
+
+.discovery__intro {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.discovery__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-heading);
+  word-spacing: 0.05em;
+}
+
+.discovery__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.discovery__stepper {
+  min-width: 0;
+}
+
+/* Step content: written inside the Stepper's own pane */
+.discovery__step-title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.01em;
+}
+
+.discovery__step-body {
+  max-width: 46ch;
+  margin-block-start: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+@media (min-width: 56.25em) {
+  .discovery {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .discovery__title {
+    max-width: 12ch;
+  }
+}

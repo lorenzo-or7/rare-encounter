@@ -1,0 +1,14 @@
+/* Liquid Flow layer: the night itself floods in from the activating control. */
+.liquid-flow {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-sheet) + 10);
+  background:
+    radial-gradient(
+      120% 80% at 50% 0%,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      transparent 60%
+    ),
+    var(--color-bg);
+  pointer-events: none;
+}

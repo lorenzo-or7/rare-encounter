@@ -6,10 +6,6 @@ export const ptBR: Messages = {
   'brand.name': 'Rare Encounter',
 
   'nav.label': 'Seções',
-  'nav.typography': 'Tipografia',
-  'nav.themes': 'Temas',
-  'nav.components': 'Componentes',
-  'nav.cards': 'Cartas',
   'nav.openSettings': 'Abrir configurações',
   'nav.openMenu': 'Abrir menu',
   'menu.title': 'Menu',
@@ -27,41 +23,6 @@ export const ptBR: Messages = {
   'theme.sakura': 'Sakura',
   'theme.verdant': 'Verdejante',
 
-  'foundation.title': 'Base visual',
-  'foundation.lead':
-    'A tipografia, as cores, a navegação e os componentes que todas as telas do Rare Encounter vão compartilhar. A landing page será construída sobre eles.',
-
-  'type.title': 'Tipografia',
-  'type.lead': 'Clash Display conduz os títulos. Inter cuida de tudo o que você lê e toca.',
-  'type.role.display': 'Display',
-  'type.role.heading': 'Título de seção',
-  'type.role.title': 'Subtítulo',
-  'type.role.body': 'Texto',
-  'type.role.small': 'Pequeno',
-  'type.sample.heading': 'Cada conexão é diferente',
-  'type.sample.title': 'Como a descoberta funciona',
-  'type.sample.body':
-    'Responda no seu ritmo. Seu progresso é salvo a cada pergunta, então você pode pausar e voltar depois.',
-  'type.sample.small': 'Disponível em English, Português e Español.',
-
-  'themes.title': 'Temas',
-  'themes.lead': 'Seis paletas sobre o mesmo céu noturno. Escolha uma nas configurações.',
-  'themes.current': 'Em uso',
-
-  'components.title': 'Componentes',
-  'components.lead': 'Ações têm forma de pílula. Superfícies ganham cantos mais suaves conforme crescem.',
-  'components.buttons': 'Botões',
-  'components.buttonsHint': 'O primário conduz, o secundário apoia e o discreto não disputa atenção.',
-  'components.iconButtons': 'Botões de ícone',
-  'components.iconButtonsHint': 'Sempre nomeados para leitores de tela. Área de toque de 44px.',
-  'button.primary': 'Primário',
-  'button.secondary': 'Secundário',
-  'button.ghost': 'Discreto',
-  'button.disabled': 'Indisponível',
-
-  'cards.title': 'Cartas de arquétipo',
-  'cards.lead':
-    'As três cartas de mistério aprovadas. Título, frase e ação são texto real, então podem ser traduzidos e funcionam com tecnologias assistivas.',
   'cards.artPending': 'Versão só com a arte pendente',
 
   'card.discover': 'Toque para descobrir',
@@ -72,4 +33,52 @@ export const ptBR: Messages = {
   'archetype.instinctive.phrase': 'Sua intuição encontra o próprio caminho.',
   'archetype.radiant.name': 'Radiante',
   'archetype.radiant.phrase': 'Você leva calor por onde passa.',
+
+  'landing.nav.beyond': 'Além do óbvio',
+  'landing.nav.discovery': 'Como funciona',
+  'landing.nav.connection': 'Conexões',
+  'landing.nav.begin': 'Começar',
+  'landing.hero.opening': 'Em algum lugar por aí,',
+  'landing.hero.bridge': 'existe',
+  'landing.hero.highlight': 'o seu Pokémon',
+  'landing.hero.after': '.',
+  'landing.hero.lead':
+    'Responda 30, 60 ou 90 perguntas sobre quem você é e sobre o que te atrai. Todas as espécies são comparadas em pé de igualdade, e você vê por que combinam com você.',
+  'landing.hero.cta': 'Comece sua jornada',
+  'landing.section.beyond': 'Além do óbvio',
+  'landing.section.discovery': 'Como a descoberta funciona',
+  'landing.section.connection': 'Cada conexão é diferente',
+  'landing.section.begin': 'Comece sua jornada',
+  'landing.beyond.statement':
+    'Força, raridade e fama não entram na comparação. O que conta é como um Pokémon se move pelo mundo, e se isso parece com você.',
+  'landing.beyond.p1.title': 'A Pokédex inteira está em jogo',
+  'landing.beyond.p1.body':
+    'Toda espécie elegível é candidata, dos lendários que todo mundo conhece aos que quase ninguém nota.',
+  'landing.beyond.p2.title': 'Seis lados de você',
+  'landing.beyond.p2.body':
+    'Personalidade, estética, valores, ambientes, energia e instinto moldam o resultado.',
+  'landing.beyond.p3.title': 'Motivos que você pode ler',
+  'landing.beyond.p3.body':
+    'Cada combinação mostra as respostas que a formaram. A afinidade mede o quanto vocês se alinham; não é uma probabilidade.',
+  'landing.discovery.intro': 'Três etapas, no seu ritmo.',
+  'landing.discovery.stepLabel': 'Etapa {n}: {title}',
+  'landing.discovery.step1.title': 'Descubra-se',
+  'landing.discovery.step1.body':
+    'Escolha Um Vislumbre (30 perguntas), A Jornada (60) ou Conexão Profunda (90) e responda uma pergunta por vez. Seu progresso é salvo a cada resposta.',
+  'landing.discovery.step2.title': 'Encontre sua conexão',
+  'landing.discovery.step2.body':
+    'Suas respostas são comparadas com todas as espécies elegíveis em seis dimensões, em pé de igualdade.',
+  'landing.discovery.step3.title': 'Revele seu encontro',
+  'landing.discovery.step3.body':
+    'Conheça primeiro sua Soul Match e depois suas combinações Hidden e Alternative, cada uma com os motivos da conexão.',
+  'landing.connection.intro':
+    'Etéreo, Instintivo e Radiante descrevem estados que uma conexão pode ter; seu resultado é sempre uma espécie. Toque em uma carta para ler.',
+  'landing.begin.statement':
+    'Comece com 30 perguntas ou vá mais fundo com 90. Você pode pausar quando quiser, e suas respostas ficam guardadas.',
+  'landing.mode.glimpse': 'Um Vislumbre',
+  'landing.mode.journey': 'A Jornada',
+  'landing.mode.deep': 'Conexão Profunda',
+  'landing.mode.questions': '{n} perguntas',
+  'landing.begin.cta': 'Comece sua jornada',
+  'landing.begin.unavailable': 'Ainda indisponível. O encontro vai começar por aqui quando abrir.',
 };
