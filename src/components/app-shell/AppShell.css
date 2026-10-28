@@ -1,0 +1,114 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.shell__skip {
+  position: absolute;
+  inset-inline-start: var(--space-4);
+  inset-block-start: var(--space-4);
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.shell__skip:focus-visible {
+  transform: none;
+}
+
+.shell__header {
+  display: flex;
+  align-items: center;
+  padding: var(--space-6) var(--gutter);
+  border-block-end: 1px solid var(--color-line);
+}
+
+/* Text placeholder until the approved logo file is confirmed (never redrawn). */
+.shell__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.shell__main {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: clamp(var(--space-12), 10vh, var(--space-24)) var(--gutter) var(--space-16);
+  outline: none;
+}
+
+.shell__eyebrow {
+  color: var(--accent);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.shell__title {
+  margin-block-start: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+.shell__lead {
+  max-width: 38ch;
+  margin-block-start: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.shell__prefs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-6);
+  max-width: 34rem;
+  margin-block-start: var(--space-16);
+  padding-block-start: var(--space-8);
+  border-block-start: 1px solid var(--color-line);
+}
+
+.shell__prefs-title {
+  grid-column: 1 / -1;
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.shell__field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.shell__field label {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.shell__field select {
+  min-height: 2.75rem;
+  padding-inline: var(--space-4) var(--space-8);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.shell__field select:hover {
+  border-color: var(--accent);
+}
