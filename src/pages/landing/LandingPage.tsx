@@ -1,5 +1,6 @@
 import { usePreferences } from '../../app/preferences-context';
 import { SiteLayout } from '../../components/layout/SiteLayout';
+import { ResumeBanner } from '../../features/resume/ResumeBanner';
 import type { MessageKey } from '../../i18n/messages';
 import { Hero } from './Hero';
 import { Begin } from './sections/Begin';
@@ -25,6 +26,7 @@ export function LandingPage() {
       <Discovery />
       <Connection />
       <Begin />
+      <ResumeBanner />
     </SiteLayout>
   );
 }

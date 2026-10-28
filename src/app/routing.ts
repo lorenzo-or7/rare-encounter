@@ -25,10 +25,26 @@ export function hasNavigatedInApp(): boolean {
   return navigatedInApp;
 }
 
+/**
+ * What the encounter keeps in its history entries:
+ * - `encounter: 'quiz'` marks an entry where questions were on screen, so a reload resumes them;
+ * - `encounter: 'resume'` asks the encounter to continue the saved session directly;
+ * - `guard` is the one extra entry that lets browser Back open Pause instead of leaving.
+ */
+export interface EncounterHistoryState {
+  readonly encounter?: 'quiz' | 'resume';
+  readonly guard?: boolean;
+}
+
+export function encounterHistoryState(): EncounterHistoryState {
+  const state: unknown = window.history.state;
+  return typeof state === 'object' && state !== null ? state : {};
+}
+
 /** Pushes a new history entry and starts the new screen at the top. */
-export function navigate(path: string): void {
+export function navigate(path: string, state: EncounterHistoryState | null = null): void {
   if (window.location.pathname === path) return;
-  window.history.pushState(null, '', path);
+  window.history.pushState(state, '', path);
   navigatedInApp = true;
   window.scrollTo(0, 0);
   window.dispatchEvent(new Event(CHANGE));

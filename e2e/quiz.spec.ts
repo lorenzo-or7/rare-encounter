@@ -60,9 +60,7 @@ test('header, preview notice and the three formats', async ({ page }) => {
   await expect(page.getByText('Preview: sample questions, not the final question bank.')).toBeVisible();
   await expect(progress(page)).toHaveAttribute('aria-valuenow', '0');
   await expect(progress(page)).toHaveAttribute('aria-valuemax', '30');
-  const pause = page.getByRole('button', { name: 'Pause' });
-  await expect(pause).toHaveAttribute('aria-disabled', 'true');
-  await expect(pause).toHaveAccessibleDescription('Pause is not available yet.');
+  await expect(page.getByRole('button', { name: 'Pause' })).toHaveAttribute('aria-haspopup', 'dialog');
   await expect(page.getByRole('button', { name: 'Previous question' })).toBeDisabled();
   await expect(prompt(page)).toBeFocused();
 

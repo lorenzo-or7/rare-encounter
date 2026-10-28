@@ -7,14 +7,8 @@ import { MODE_IDS, type ModeId } from '../../domain/modes';
 import { useThemeColors } from '../../hooks/useThemeColors';
 import type { MessageKey } from '../../i18n/messages';
 import { ModeOption } from './ModeOption';
+import { MODE_NAMES } from './mode-names';
 import './PreparationScreen.css';
-
-/** Approved depth names, shared with the landing's closing section. */
-const MODE_NAMES: Readonly<Record<ModeId, MessageKey>> = {
-  30: 'landing.mode.glimpse',
-  60: 'landing.mode.journey',
-  90: 'landing.mode.deep',
-};
 
 /** What each depth offers, in a line. The core/adaptive split stays internal. */
 const MODE_DESCRIPTIONS: Readonly<Record<ModeId, MessageKey>> = {
@@ -26,6 +20,8 @@ const MODE_DESCRIPTIONS: Readonly<Record<ModeId, MessageKey>> = {
 interface PreparationScreenProps {
   /** Starts the encounter at this depth; rejects when it could not be stored. */
   readonly onConfirm: (mode: ModeId) => Promise<void>;
+  /** A saved encounter is marked, but storage cannot be opened to reach it right now. */
+  readonly storageUnreachable?: boolean;
 }
 
 /**
@@ -34,7 +30,10 @@ interface PreparationScreenProps {
  * Confirming stores a new session before anything starts: the cards lock while it is
  * written, and if this browser cannot save, the screen says so and the choice stays open.
  */
-export function PreparationScreen({ onConfirm }: PreparationScreenProps) {
+export function PreparationScreen({
+  onConfirm,
+  storageUnreachable = false,
+}: PreparationScreenProps) {
   const { t, theme } = usePreferences();
   const colors = useThemeColors(theme);
   const reduceMotion = useReducedMotion() ?? false;
@@ -83,6 +82,11 @@ export function PreparationScreen({ onConfirm }: PreparationScreenProps) {
         <p id={leadId} className="preparation__lead">
           {t('preparation.lead')}
         </p>
+        {storageUnreachable && (
+          <p className="preparation__notice" role="status">
+            <strong>{t('banner.unreachable.title')}</strong> {t('banner.unreachable.body')}
+          </p>
+        )}
       </header>
 
       <div

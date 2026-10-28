@@ -100,4 +100,53 @@ describe('quiz flow', () => {
     expect(s.status).toBe('complete');
     expect(answeredCount(s.session)).toBe(30);
   });
+
+  it('resumes at the first unanswered question', () => {
+    const base = createSession(30, PREVIEW_SOURCE, 's1', NOW);
+    const ids = base.questionIds;
+    const answers: Record<string, QuizSession['answers'][string]> = {};
+    for (const id of ids.slice(0, 3)) answers[id] = { questionId: id, answerId: answer, answeredAt: NOW };
+    const s = initialQuizState({ ...base, answers, cursor: 1 });
+    expect(s.index).toBe(3);
+    expect(s.status).toBe('answering');
+  });
+
+  it('asks before an edit that clears answers, and can cancel it', () => {
+    let s = quizReducer(start(), { type: 'select', questionId: at(start(), 0), answerId: answer });
+    s = quizReducer(s, { type: 'saved', session: stored(s, answer) });
+    s = quizReducer(s, { type: 'back' });
+    const edit = { answerId: 'plans-new' as AnswerId, next: s.session, invalidated: 2 };
+    s = quizReducer(s, { type: 'edit-requested', questionId: at(s, 0), edit });
+    expect(s.status).toBe('confirm-edit');
+    expect(s.edit?.invalidated).toBe(2);
+    expect(quizReducer(s, { type: 'back' })).toBe(s);
+    const cancelled = quizReducer(s, { type: 'edit-cancel' });
+    expect(cancelled.status).toBe('answering');
+    expect(cancelled.edit).toBeNull();
+    const confirmed = quizReducer(s, { type: 'edit-confirm' });
+    expect(confirmed.status).toBe('saving');
+  });
+
+  it('after an edit opens a gap at the end, the next stop is that gap', () => {
+    let s = start();
+    for (let i = 0; i < 30; i++) {
+      s = quizReducer(s, { type: 'select', questionId: at(s, s.index), answerId: answer });
+      s = quizReducer(s, { type: 'saved', session: stored(s, answer) });
+    }
+    // Back to the last question; saving there with question 5 cleared leads to question 5.
+    s = { ...s, status: 'answering', index: 29 };
+    s = quizReducer(s, { type: 'select', questionId: at(s, 29), answerId: answer });
+    const cleared = at(s, 4);
+    const rest = Object.fromEntries(Object.entries(s.session.answers).filter(([id]) => id !== cleared));
+    s = quizReducer(s, { type: 'saved', session: { ...s.session, answers: rest } });
+    expect(s.status).toBe('answering');
+    expect(s.index).toBe(4);
+  });
+
+  it('a conflict with another tab stops answering until reload', () => {
+    const s = quizReducer(start(), { type: 'conflict' });
+    expect(s.status).toBe('conflict');
+    expect(quizReducer(s, { type: 'select', questionId: at(s, 0), answerId: answer })).toBe(s);
+    expect(quizReducer(s, { type: 'back' })).toBe(s);
+  });
 });

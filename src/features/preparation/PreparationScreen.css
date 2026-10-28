@@ -287,3 +287,19 @@
     width: 100%;
   }
 }
+
+/* A saved encounter exists but storage cannot be opened right now. */
+.preparation__notice {
+  max-width: 52ch;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-surface) 70%, transparent);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.preparation__notice strong {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}

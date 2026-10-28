@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { ENCOUNTER_PATH, navigate } from '../../app/routing';
 import { loadEncounterPage } from '../../pages/encounter/load';
 import { PREPARATION, useEncounterTransition } from '../encounter-transition/context';
+import { takeResumeRequest } from '../resume/intent';
 
 /**
  * Registers the Preparation Screen as the Liquid Flow destination while the landing is
@@ -14,7 +15,8 @@ export function PreparationDestination() {
   useEffect(
     () =>
       register(PREPARATION, () => {
-        navigate(ENCOUNTER_PATH);
+        // From the resume banner the encounter continues the saved session directly.
+        navigate(ENCOUNTER_PATH, takeResumeRequest() ? { encounter: 'resume' } : null);
       }),
     [register],
   );

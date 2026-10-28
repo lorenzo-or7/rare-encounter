@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { useId } from 'react';
 import { IconButton } from '../../components/button/Button';
 import { LOGO_ASSET } from '../../components/logo/logo-asset';
 
@@ -9,7 +8,8 @@ interface QuizHeaderProps {
   readonly total: number;
   readonly progressLabel: string;
   readonly pauseLabel: string;
-  readonly pauseNote: string;
+  readonly pauseOpen: boolean;
+  readonly onPause: () => void;
   readonly settingsLabel: string;
   readonly settingsOpen: boolean;
   readonly onOpenSettings: () => void;
@@ -20,8 +20,7 @@ const FILL = { type: 'spring', stiffness: 140, damping: 26, mass: 0.9 } as const
 /**
  * Focused header for the questions (Or7, E8 A): the compact symbol, one continuous progress
  * bar with its counter, Pause and Settings. The symbol is not a link here: leaving goes
- * through Pause, which opens in the next checkpoint, so it is shown as unavailable with
- * its reason rather than pretending to work.
+ * through Pause, so nobody drops out of a session by accident.
  */
 export function QuizHeader({
   brand,
@@ -29,12 +28,12 @@ export function QuizHeader({
   total,
   progressLabel,
   pauseLabel,
-  pauseNote,
+  pauseOpen,
+  onPause,
   settingsLabel,
   settingsOpen,
   onOpenSettings,
 }: QuizHeaderProps) {
-  const noteId = useId();
   const symbol = LOGO_ASSET.symbol;
 
   return (
@@ -76,12 +75,10 @@ export function QuizHeader({
           className="quiz-header__action"
           icon="pause"
           label={pauseLabel}
-          aria-disabled="true"
-          aria-describedby={noteId}
+          aria-haspopup="dialog"
+          aria-expanded={pauseOpen}
+          onClick={onPause}
         />
-        <span id={noteId} className="visually-hidden">
-          {pauseNote}
-        </span>
         <IconButton
           className="quiz-header__action"
           icon="settings"

@@ -378,3 +378,64 @@
   color: var(--color-text-muted);
   font-size: var(--text-lg);
 }
+
+/* ---- Pause and edit confirmation (inside the shared sheet) ---------------------------- */
+
+.pause {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.pause__summary {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+}
+
+.pause__heading {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+}
+
+.pause__note {
+  color: var(--color-text-muted);
+}
+
+.pause__actions {
+  display: grid;
+  gap: var(--space-3);
+  margin-block-start: var(--space-2);
+}
+
+.pause__actions > .button {
+  width: 100%;
+}
+
+/* Start over is reachable but quieter than Continue and Save and leave. */
+.pause .pause__restart {
+  justify-self: center;
+  width: auto;
+  color: var(--color-danger);
+}
+
+.pause .pause__danger {
+  border-color: var(--color-danger);
+  background: var(--color-danger);
+  color: #2a0a10;
+}
+
+.pause .pause__danger:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--color-danger) 86%, white);
+}
+
+.pause__error {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid color-mix(in oklab, var(--color-danger) 45%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-danger) 10%, transparent);
+  font-size: var(--text-sm);
+}
