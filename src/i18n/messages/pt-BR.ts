@@ -38,7 +38,8 @@ export const ptBR: Messages = {
   'landing.nav.discovery': 'Como funciona',
   'landing.nav.connection': 'Conexões',
   'landing.nav.begin': 'Começar',
-  'landing.hero.before': 'Em algum lugar por aí, existe',
+  'landing.hero.opening': 'Em algum lugar por aí,',
+  'landing.hero.bridge': 'existe',
   'landing.hero.highlight': 'o seu Pokémon',
   'landing.hero.after': '.',
   'landing.hero.lead':

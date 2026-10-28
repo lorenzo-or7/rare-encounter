@@ -38,7 +38,8 @@ export const es: Messages = {
   'landing.nav.discovery': 'Cómo funciona',
   'landing.nav.connection': 'Conexiones',
   'landing.nav.begin': 'Comenzar',
-  'landing.hero.before': 'En algún lugar, ahí afuera, está',
+  'landing.hero.opening': 'En algún lugar, ahí afuera,',
+  'landing.hero.bridge': 'está',
   'landing.hero.highlight': 'tu Pokémon',
   'landing.hero.after': '.',
   'landing.hero.lead':

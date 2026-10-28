@@ -36,7 +36,8 @@ export const en = {
   'landing.nav.discovery': 'How it works',
   'landing.nav.connection': 'Connections',
   'landing.nav.begin': 'Begin',
-  'landing.hero.before': "Somewhere out there, there's",
+  'landing.hero.opening': 'Somewhere out there,',
+  'landing.hero.bridge': "there's",
   'landing.hero.highlight': 'your Pokémon',
   'landing.hero.after': '.',
   'landing.hero.lead':

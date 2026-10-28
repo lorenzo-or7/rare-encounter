@@ -1,7 +1,7 @@
 # React Bits — vendored originals
 
 Copied unmodified from the official registry (`https://reactbits.dev/r/<Name>-TS-CSS.json`) on 2026-10-28.
-Do not edit these files: they are type-checked by `tsconfig.vendor.json` (standard `strict`) and excluded
+Do not edit these files (`npm run check:vendor` verifies them against `manifest.json`): they are type-checked by `tsconfig.vendor.json` (standard `strict`) and excluded
 from ESLint so the originals stay byte-for-byte. Adapt behaviour through props or wrapper components.
 
 | Component | File | SHA-256 (first 16) |

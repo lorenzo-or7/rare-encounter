@@ -41,7 +41,7 @@ describe('message catalogs', () => {
 describe('landing headline', () => {
   const assemble = (locale: (typeof LOCALES)[number]) => {
     const m = MESSAGES[locale];
-    return `${m['landing.hero.before']} ${m['landing.hero.highlight']}${m['landing.hero.after']}`;
+    return `${m['landing.hero.opening']} ${m['landing.hero.bridge']} ${m['landing.hero.highlight']}${m['landing.hero.after']}`;
   };
 
   it('reassembles the exact approved English source', () => {

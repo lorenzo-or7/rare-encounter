@@ -17,8 +17,9 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "check:safety": "node scripts/check-repo-safety.mjs",
-    "check": "npm run typecheck && npm run lint && npm run test && npm run check:safety",
-    "fonts:setup": "node scripts/setup-fonts.mjs"
+    "check": "npm run typecheck && npm run lint && npm run test && npm run check:safety && npm run check:vendor",
+    "fonts:setup": "node scripts/setup-fonts.mjs",
+    "check:vendor": "node scripts/check-vendor.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",

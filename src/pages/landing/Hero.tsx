@@ -10,13 +10,18 @@ import './Hero.css';
 const GhostFibers = lazy(() => import('../../vendor/react-bits/GhostFibers/GhostFibers'));
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+const DURATION = 0.9;
 
-/** Cinematic staged entry: one sequence, played once. Fibers run their own built-in intro. */
+/**
+ * Cinematic staged entry: one sequence, played once, done in about 1.75s.
+ * The two headline phrases land first, then the lead and the CTA. The fibers fade in
+ * through their own built-in intro behind it.
+ */
 const STAGE = {
-  line: 0.15,
-  highlight: 0.45,
-  lead: 0.85,
-  cta: 1.05,
+  opening: 0.1,
+  payoff: 0.32,
+  lead: 0.68,
+  cta: 0.84,
 } as const;
 
 interface HeroProps {
@@ -35,9 +40,9 @@ export function Hero({ ctaTarget }: HeroProps) {
     reduceMotion
       ? { initial: false as const }
       : {
-          initial: { opacity: 0, y: '0.35em', filter: 'blur(10px)' },
+          initial: { opacity: 0, y: '0.25em', filter: 'blur(6px)' },
           animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-          transition: { duration: 1.1, delay, ease: EASE },
+          transition: { duration: DURATION, delay, ease: EASE },
         };
 
   return (
@@ -54,19 +59,23 @@ export function Hero({ ctaTarget }: HeroProps) {
       </div>
 
       <div className="hero__copy">
+        {/* Two phrases: they break at the comma from tablet up, and flow freely on phones */}
         <h1 id={titleId} className="hero__title">
-          <motion.span className="hero__line" {...enter(STAGE.line)}>
-            {t('landing.hero.before')}
+          <motion.span className="hero__phrase" {...enter(STAGE.opening)}>
+            {t('landing.hero.opening')}
           </motion.span>{' '}
-          <motion.span className="hero__line hero__line--highlight" {...enter(STAGE.highlight)}>
-            <GradientText
-              className="hero__gradient"
-              colors={[colors.accent, colors.accent2, colors.accent]}
-              animationSpeed={10}
-            >
-              {t('landing.hero.highlight')}
-            </GradientText>
-            {t('landing.hero.after')}
+          <motion.span className="hero__phrase" {...enter(STAGE.payoff)}>
+            {t('landing.hero.bridge')}{' '}
+            <span className="hero__highlight">
+              <GradientText
+                className="hero__gradient"
+                colors={[colors.accent, colors.accent2, colors.accent]}
+                animationSpeed={10}
+              >
+                {t('landing.hero.highlight')}
+              </GradientText>
+              {t('landing.hero.after')}
+            </span>
           </motion.span>
         </h1>
 
@@ -81,10 +90,10 @@ export function Hero({ ctaTarget }: HeroProps) {
             className="hero__cta"
             color={colors.accent}
             trailColor={colors.accent2}
-            backgroundColor={colors.surface}
+            backgroundColor={`color-mix(in oklab, ${colors.accent} 16%, ${colors.surface})`}
             textColor={colors.text}
-            borderColor={colors.line}
-            radius={28}
+            borderColor={`color-mix(in oklab, ${colors.accent} 42%, transparent)`}
+            radius={30}
           >
             {t('landing.hero.cta')}
           </StarBorder>

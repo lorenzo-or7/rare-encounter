@@ -54,3 +54,46 @@ Branch `phase/01-visual-identity` (from `main` @ `aad7b85`). Not merged, not pus
 
 ## Pending (unchanged)
 D1 final logo (text placeholder) · D2 art-only cards · D3 the card serif will be proposed in checkpoint 02 · D10 Clash Display hosting.
+
+## C. Or7 review — refinements (round 1)
+Measured with a layout probe at 360–1920 px, then verified on the real captures.
+- **Headline:**
+  - On tablet and desktop it breaks at its natural phrase: `Somewhere out there, / there's your Pokémon.` It used to fall into 3–4 lines with the artificial "there, there's" split.
+  - It is still one sentence, 2 lines, no overflow, from 768 to 1920 px. Phones keep natural wrapping (3 lines at 412, 4 at 360).
+  - The text is unchanged: i18n now groups it as `opening / bridge / highlight / after`, and a test reassembles the exact English source.
+  - Word gap restored (`word-spacing: 0.08em`) and tracking eased from -0.035em to -0.025em. Desktop size is fluid from 3.5rem to 5.75rem.
+  - Gradient Text is still only on `your Pokémon`.
+- **Ghost Fibers:** the original component is unchanged (`check:vendor` passes). Only the container changed:
+  - On desktop the fibers start where the headline is about 75% across, scaled to the headline's own size, and fade in over the first 38% of their width. The headline now ends inside that fade at every width (for example text right edge 856 px vs. fibers opaque from about 867 px at 1280).
+  - Mobile and tablet bands are tighter, with opacity 0.85 on small screens.
+- **Star Border CTA:**
+  - Size 60 px (64 px from tablet up), semibold 17 px.
+  - Surface tinted with the accent, a stronger accent track and a soft accent shadow.
+  - The original star effect is unchanged. Still `href="#begin"`.
+- **Liquid Nav:**
+  - Labels go from 14 px muted to 15 px brighter, on a 44 px row.
+  - The top state gets a light veil so labels stay legible over the fibers.
+  - Morphing to solid on scroll is unchanged, and so is the mobile Top Bar.
+- **Responsiveness:**
+  - Tablet hero height is capped at 56 rem, so the next section starts within the first screen and there is no dead band.
+  - On phones the fibers band ends where the headline begins.
+- **Motion:**
+  - The entry finishes in about 1.75 s (it was about 2.15 s).
+  - Each stage takes 0.9 s, with lighter blur (6 px) and a smaller rise.
+  - Stages start at 0.10 / 0.32 / 0.68 / 0.84 s.
+  - No new animations. Reduced motion is unchanged and tested.
+- **Vendor isolation:**
+  - **Errors are not hidden:** a probe file with wrong prop types (`speed="fast"`, `radius="30px"`, `colors="#fff"`) failed `tsc -b` with 3 errors. The app checks every call against the components' real types.
+  - **Originals are protected:** the new `npm run check:vendor` compares SHA-256 against `manifest.json`. A deliberate one-line edit was detected and then reverted. It is now part of `npm run check`.
+
+**Checks:**
+- typecheck ✅
+- lint ✅
+- Vitest 41/41 ✅
+- Playwright 22 passed, 2 skipped (desktop-only nav test) ✅
+- safety ✅
+- vendor integrity ✅
+- build ✅
+- Impeccable detector: 0 findings
+
+**Evidence:** `docs/reports/phase-01b-cp01/` has been refreshed.
