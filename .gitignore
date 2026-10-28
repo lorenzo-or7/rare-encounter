@@ -13,3 +13,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Licensed fonts: self-host only, never publish (ITF FFL v2.0 §02). Run `npm run fonts:setup`.
+public/fonts/

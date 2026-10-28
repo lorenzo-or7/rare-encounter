@@ -2,6 +2,15 @@
  * Six approved themes. Each changes only the accent layer;
  * Spectrum (violet + cyan, from the approved logotype) is the default in tokens.css.
  */
+/* Explicit so a nested [data-theme] scope (e.g. a preview swatch) can return to Spectrum. */
+[data-theme='spectrum'] {
+  --accent: #a78bfa;
+  --accent-2: #3dd6e8;
+  --accent-soft: rgb(167 139 250 / 0.14);
+  --on-accent: #120a26;
+  --focus-ring: #c9b8ff;
+}
+
 [data-theme='amethyst'] {
   --accent: #b794f6;
   --accent-2: #e2c6ff;

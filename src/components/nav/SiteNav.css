@@ -1,0 +1,119 @@
+.site-nav {
+  position: fixed;
+  inset: var(--space-3) var(--space-3) auto;
+  z-index: var(--z-nav);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.site-nav > * {
+  pointer-events: auto;
+}
+
+/* Shared floating material: raised night surface, hairline edge, soft depth */
+.liquid-nav,
+.top-bar {
+  border: 1px solid var(--color-line);
+  background: color-mix(in oklab, var(--color-bg-raised) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 var(--color-highlight),
+    var(--shadow-md);
+}
+
+/* ---------- Floating Top Bar (mobile, tablet portrait) ---------- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 3.5rem;
+  padding-inline: var(--space-2) var(--space-1);
+  border-radius: var(--radius-lg);
+}
+
+.liquid-nav {
+  display: none;
+}
+
+/* ---------- Floating Liquid Nav (desktop) ---------- */
+@media (min-width: 56.25em) {
+  .site-nav {
+    inset-block-start: var(--space-4);
+  }
+
+  .top-bar {
+    display: none;
+  }
+
+  .liquid-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    transition:
+      background-color var(--duration-slow) var(--ease-out),
+      border-color var(--duration-slow) var(--ease-out),
+      box-shadow var(--duration-slow) var(--ease-out);
+  }
+
+  /* Morph: open and airy at the top of the page, condensed once reading starts */
+  .site-nav[data-scrolled='false'] .liquid-nav {
+    gap: var(--space-10);
+    border-color: transparent;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+.liquid-nav__list {
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liquid-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.liquid-nav__link:hover,
+.liquid-nav__link[aria-current] {
+  color: var(--color-text);
+}
+
+.liquid-nav__text {
+  position: relative;
+}
+
+.liquid-nav__indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* Iridescent hairline under the active link: the nav's one accent */
+.liquid-nav__indicator::after {
+  content: '';
+  position: absolute;
+  inset: auto 30% -1px;
+  height: 1px;
+  border-radius: 1px;
+  background: var(--iris);
+}

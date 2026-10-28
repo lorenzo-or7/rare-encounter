@@ -8,7 +8,9 @@ import { readFileSync, statSync } from 'node:fs';
 
 const MAX_BYTES = 5 * 1024 * 1024;
 const VIDEO_EXT = /\.(mp4|webm|mov|m4v|avi|mkv)$/i;
-const ENV_FILE = /(^|\/)\.env(\.(?!example$)[^/]+)?$/;
+// Licensed fonts may be self-hosted but never published through the repo (ITF FFL v2.0 §02).
+const RESTRICTED_FONT = /(^|\/)public\/fonts\/|ClashDisplay[^/]*\.(woff2?|otf|ttf|eot)$/i;
+const ENV_FILE =/(^|\/)\.env(\.(?!example$)[^/]+)?$/;
 const TEXT_EXT = /\.(ts|tsx|js|mjs|cjs|json|md|html|css|txt|ya?ml|toml|env|example)$/i;
 const SECRET_PATTERNS = [
   ['private key', /-----BEGIN [A-Z ]*PRIVATE KEY-----/],
@@ -35,7 +37,8 @@ for (const file of files) {
     continue; // deleted in working tree
   }
   if (ENV_FILE.test(file)) findings.push(`${file}: environment file must not be published`);
-  if (VIDEO_EXT.test(file)) findings.push(`${file}: video media is not approved for this repo`);
+  if (RESTRICTED_FONT.test(file)) findings.push(`${file}: licensed font must not be published`);
+  if (VIDEO_EXT.test(file))findings.push(`${file}: video media is not approved for this repo`);
   if (size > MAX_BYTES) findings.push(`${file}: ${(size / 1048576).toFixed(1)} MB exceeds 5 MB`);
   if (!TEXT_EXT.test(file) || file === 'scripts/check-repo-safety.mjs') continue;
 
