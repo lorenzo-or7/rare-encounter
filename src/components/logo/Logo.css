@@ -7,13 +7,13 @@
   text-decoration: none;
 }
 
-/* The logotype file carries its own transparent margin, so 40px renders a ~31px mark */
+/* Trimmed marks fill their box: the full logotype at 44px, the symbol a little smaller */
 .logo__image {
   display: block;
   width: auto;
-  height: 2.5rem;
+  height: 2.75rem;
 }
 
 .logo[data-variant='symbol'] .logo__image {
-  height: 2rem;
+  height: 2.125rem;
 }

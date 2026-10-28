@@ -59,6 +59,7 @@ export const en = {
   'landing.beyond.p3.body':
     "Each match lists the answers that shaped it. Affinity measures how closely you align; it isn't a probability.",
   'landing.discovery.intro': 'Three steps, at your own pace.',
+  'landing.discovery.stepLabel': 'Step {n}: {title}',
   'landing.discovery.step1.title': 'Discover Yourself',
   'landing.discovery.step1.body':
     'Pick A Glimpse (30 questions), The Journey (60) or Deep Connection (90), then answer one question at a time. Your progress is saved after every answer.',
@@ -77,7 +78,7 @@ export const en = {
   'landing.mode.deep': 'Deep Connection',
   'landing.mode.questions': '{n} questions',
   'landing.begin.cta': 'Begin your journey',
-  'landing.begin.unavailable': 'The encounter opens soon.',
+  'landing.begin.unavailable': 'Not available yet. The encounter will start from here once it opens.',
 } as const;
 
 export type MessageKey = keyof typeof en;

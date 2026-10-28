@@ -45,7 +45,7 @@ export function SiteNav({
   return (
     <header className="site-nav" data-scrolled={scrolled}>
       <motion.div className="liquid-nav" layout transition={SPRING}>
-        <Logo name={brand} />
+        <Logo name={brand} variant={scrolled ? 'symbol' : 'full'} />
         <nav aria-label={label}>
           <LayoutGroup id="liquid-nav">
             <ul
@@ -105,7 +105,7 @@ export function SiteNav({
       </motion.div>
 
       <div className="top-bar">
-        <Logo name={brand} />
+        <Logo name={brand} variant="symbol" />
         <IconButton
           className="top-bar__action"
           icon="menu"

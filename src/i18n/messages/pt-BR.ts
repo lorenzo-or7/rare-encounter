@@ -61,6 +61,7 @@ export const ptBR: Messages = {
   'landing.beyond.p3.body':
     'Cada combinação mostra as respostas que a formaram. A afinidade mede o quanto vocês se alinham; não é uma probabilidade.',
   'landing.discovery.intro': 'Três etapas, no seu ritmo.',
+  'landing.discovery.stepLabel': 'Etapa {n}: {title}',
   'landing.discovery.step1.title': 'Descubra-se',
   'landing.discovery.step1.body':
     'Escolha Um Vislumbre (30 perguntas), A Jornada (60) ou Conexão Profunda (90) e responda uma pergunta por vez. Seu progresso é salvo a cada resposta.',
@@ -79,5 +80,5 @@ export const ptBR: Messages = {
   'landing.mode.deep': 'Conexão Profunda',
   'landing.mode.questions': '{n} perguntas',
   'landing.begin.cta': 'Comece sua jornada',
-  'landing.begin.unavailable': 'O encontro abre em breve.',
+  'landing.begin.unavailable': 'Ainda indisponível. O encontro vai começar por aqui quando abrir.',
 };

@@ -61,6 +61,7 @@ export const es: Messages = {
   'landing.beyond.p3.body':
     'Cada coincidencia muestra las respuestas que la formaron. La afinidad mide cuánto se alinean; no es una probabilidad.',
   'landing.discovery.intro': 'Tres pasos, a tu ritmo.',
+  'landing.discovery.stepLabel': 'Paso {n}: {title}',
   'landing.discovery.step1.title': 'Descúbrete',
   'landing.discovery.step1.body':
     'Elige Un Vistazo (30 preguntas), El Viaje (60) o Conexión Profunda (90) y responde una pregunta a la vez. Tu progreso se guarda después de cada respuesta.',
@@ -79,5 +80,5 @@ export const es: Messages = {
   'landing.mode.deep': 'Conexión Profunda',
   'landing.mode.questions': '{n} preguntas',
   'landing.begin.cta': 'Comienza tu viaje',
-  'landing.begin.unavailable': 'El encuentro abre pronto.',
+  'landing.begin.unavailable': 'Aún no disponible. El encuentro empezará aquí cuando abra.',
 };

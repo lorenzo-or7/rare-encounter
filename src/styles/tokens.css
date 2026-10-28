@@ -35,7 +35,7 @@
   /* Typography */
   --font-display: 'Clash Display', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  /* Archetype card titles and numerals: editorial serif echoing the approved card art */
+  /* Archetype card titles only (approved by Or7): editorial serif echoing the card art */
   --font-card: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 
   --text-xs: 0.8125rem;

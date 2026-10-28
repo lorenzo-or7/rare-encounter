@@ -49,9 +49,10 @@
   inset-inline-start: 50%;
   translate: -50% -50%;
   color: color-mix(in oklab, var(--card-hue) 55%, white);
-  font-family: var(--font-card);
-  font-size: max(1rem, 7.4cqi);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: max(0.9375rem, 6.4cqi);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   text-shadow: 0 0 12px color-mix(in oklab, var(--card-hue) 60%, transparent);

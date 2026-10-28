@@ -72,6 +72,11 @@ test('Every Connection Is Different: three cards, real text, serif titles, revea
     .first()
     .evaluate((el) => getComputedStyle(el).fontFamily);
   expect(titleFont).toContain('DM Serif Display');
+  const numberFont = await s
+    .locator('.archetype-card__number')
+    .first()
+    .evaluate((el) => getComputedStyle(el).fontFamily);
+  expect(numberFont).toContain('Clash Display');
   const loaded = await page.evaluate(async () => {
     await document.fonts.ready;
     return document.fonts.check('400 32px "DM Serif Display"');
@@ -104,8 +109,15 @@ test('Begin Your Journey: start control is honest until Preparation exists', asy
   await expect(s.getByRole('heading', { level: 2, name: 'Begin Your Journey' })).toBeVisible();
   await expect(s.locator('.begin__mode')).toHaveCount(3);
   const cta = s.getByRole('button', { name: 'Begin your journey' });
-  await expect(cta).toBeDisabled();
-  await expect(cta).toHaveAccessibleDescription('The encounter opens soon.');
+  // Unavailable but reachable: focusable, announced as disabled, with a clear reason.
+  await expect(cta).toHaveAttribute('aria-disabled', 'true');
+  await expect(cta).toHaveAccessibleDescription(
+    'Not available yet. The encounter will start from here once it opens.',
+  );
+  await cta.focus();
+  await expect(cta).toBeFocused();
+  // Activating it (Enter on the focused control) starts nothing.
+  await page.keyboard.press('Enter');
   await expect(page.locator('.liquid-flow')).toHaveCount(0);
   await capture(page, 'begin', 'begin');
 });
@@ -165,6 +177,11 @@ test.describe('Portuguese', () => {
     await expect(section(page, 'connection').getByRole('article', { name: 'Etéreo' })).toBeVisible();
     await expect(
       section(page, 'begin').getByRole('button', { name: 'Comece sua jornada' }),
-    ).toBeDisabled();
+    ).toHaveAttribute('aria-disabled', 'true');
+    // Stepper indicators are announced in Portuguese, without changing the original component.
+    await expect(
+      section(page, 'discovery').getByRole('button', { name: 'Etapa 2: Encontre sua conexão' }),
+    ).toHaveCount(1);
+    await expect(section(page, 'discovery').locator('[aria-label^="Step "]')).toHaveCount(0);
   });
 });

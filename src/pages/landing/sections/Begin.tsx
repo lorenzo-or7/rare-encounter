@@ -16,7 +16,8 @@ const MODE_NAMES: Readonly<Record<(typeof MODE_IDS)[number], MessageKey>> = {
 /**
  * Begin Your Journey: closing statement, the three depths, and the start control.
  * The control runs the Liquid Flow transition toward the Preparation Screen. Until that
- * screen registers itself (Phase 02) the control is disabled and says so: it never
+ * screen registers itself (Phase 02) the control is aria-disabled: it stays focusable so
+ * keyboard and screen-reader users reach it and hear why it is unavailable, and it never
  * pretends to start something that does not exist yet.
  */
 export function Begin() {
@@ -28,6 +29,7 @@ export function Begin() {
   const noteId = useId();
 
   const onBegin = (e: MouseEvent<HTMLButtonElement>) => {
+    if (!ready) return;
     const r = e.currentTarget.getBoundingClientRect();
     transition.begin(PREPARATION, { x: r.left + r.width / 2, y: r.top + r.height / 2 });
   };
@@ -58,7 +60,7 @@ export function Begin() {
           textColor={colors.text}
           borderColor={`color-mix(in oklab, ${colors.accent} 42%, transparent)`}
           radius={32}
-          disabled={!ready}
+          aria-disabled={!ready}
           aria-describedby={ready ? undefined : noteId}
           onClick={onBegin}
         >

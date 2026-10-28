@@ -1,5 +1,6 @@
-import { useId } from 'react';
+import { useCallback, useId, useRef } from 'react';
 import { usePreferences } from '../../../app/preferences-context';
+import { useLocalizedStepLabels } from '../../../hooks/useLocalizedStepLabels';
 import { useThemeColors } from '../../../hooks/useThemeColors';
 import type { MessageKey } from '../../../i18n/messages';
 import Stepper, { Step } from '../../../vendor/react-bits/Stepper/Stepper';
@@ -20,6 +21,11 @@ export function Discovery() {
   const { theme, t } = usePreferences();
   const colors = useThemeColors(theme);
   const titleId = useId();
+  const stepperRef = useRef<HTMLDivElement>(null);
+  useLocalizedStepLabels(
+    stepperRef,
+    useCallback((n: string, title: string) => t('landing.discovery.stepLabel', { n, title }), [t]),
+  );
 
   return (
     <section id="discovery" className="discovery" aria-labelledby={titleId}>
@@ -30,7 +36,7 @@ export function Discovery() {
         <p className="discovery__lead">{t('landing.discovery.intro')}</p>
       </div>
 
-      <div className="discovery__stepper">
+      <div ref={stepperRef} className="discovery__stepper">
         <Stepper
           showFooter={false}
           accentColor={colors.accent}

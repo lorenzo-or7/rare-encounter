@@ -23,6 +23,9 @@ test('hero: exact headline, single gradient phrase, Star Border CTA, no overflow
 
   const logo = page.getByRole('banner').getByRole('link', { name: 'Rare Encounter' }).locator('visible=true').locator('img');
   await expect.poll(() => logo.evaluate((el) => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0)).toBe(true);
+  if (!isDesktop(page)) {
+    await expect(page.locator('.top-bar .logo')).toHaveAttribute('data-variant', 'symbol');
+  }
   for (const icon of ['/favicon-32.png', '/apple-touch-icon.png', '/site.webmanifest']) {
     expect((await page.request.get(icon)).ok()).toBe(true);
   }
@@ -73,8 +76,11 @@ test('desktop nav condenses on scroll, tracks the section and shows hover', asyn
   test.skip(!isDesktop(page), 'Liquid Nav is desktop only');
   const nav = page.locator('.site-nav');
   await expect(nav).toHaveAttribute('data-scrolled', 'false');
+  // Full logotype while the nav is open; the compact symbol once it condenses.
+  await expect(page.locator('.liquid-nav .logo')).toHaveAttribute('data-variant', 'full');
   await page.getByRole('link', { name: 'How it works' }).click();
   await expect(nav).toHaveAttribute('data-scrolled', 'true');
+  await expect(page.locator('.liquid-nav .logo')).toHaveAttribute('data-variant', 'symbol');
   await expect(page.getByRole('link', { name: 'How it works' })).toHaveAttribute(
     'aria-current',
     'location',
