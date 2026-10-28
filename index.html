@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" data-theme="spectrum">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0816" />
+    <meta name="robots" content="noindex" />
+    <title>Rare Encounter</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      try {
+        var p = JSON.parse(localStorage.getItem('rare-encounter:preferences') || 'null');
+        if (p && p.data && typeof p.data.theme === 'string') {
+          document.documentElement.dataset.theme = p.data.theme;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

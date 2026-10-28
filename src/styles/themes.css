@@ -1,0 +1,43 @@
+/*
+ * Six approved themes. Each changes only the accent layer;
+ * Spectrum (violet + cyan, from the approved logotype) is the default in tokens.css.
+ */
+[data-theme='amethyst'] {
+  --accent: #b794f6;
+  --accent-2: #e2c6ff;
+  --accent-soft: rgb(183 148 246 / 0.14);
+  --on-accent: #170c2c;
+  --focus-ring: #d8c2ff;
+}
+
+[data-theme='azure'] {
+  --accent: #5cc8f5;
+  --accent-2: #8fb3ff;
+  --accent-soft: rgb(92 200 245 / 0.14);
+  --on-accent: #06141f;
+  --focus-ring: #9adcf8;
+}
+
+[data-theme='ember'] {
+  --accent: #f2b65a;
+  --accent-2: #ff8f63;
+  --accent-soft: rgb(242 182 90 / 0.14);
+  --on-accent: #1f1205;
+  --focus-ring: #f7cf8f;
+}
+
+[data-theme='sakura'] {
+  --accent: #f3a8c8;
+  --accent-2: #ffd0e2;
+  --accent-soft: rgb(243 168 200 / 0.14);
+  --on-accent: #250d19;
+  --focus-ring: #f8c7dc;
+}
+
+[data-theme='verdant'] {
+  --accent: #74dcb0;
+  --accent-2: #b5e48c;
+  --accent-soft: rgb(116 220 176 / 0.14);
+  --on-accent: #06190f;
+  --focus-ring: #a6ebcd;
+}
