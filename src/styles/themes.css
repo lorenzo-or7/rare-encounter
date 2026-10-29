@@ -50,3 +50,65 @@
   --on-accent: #06190f;
   --focus-ring: #a6ebcd;
 }
+
+/*
+ * Light mode accents. The same identity hue as each palette's dark accents, taken deeper so
+ * text, focus rings and accent fills keep their contrast on paper (white text on fills).
+ * The names (--accent, --accent-2, …) are unchanged; only their values follow the mode.
+ * Both selector forms are needed: on <html> itself, and on a nested palette scope such as a
+ * Theme Studio swatch, so a preview shows its palette in the current mode.
+ */
+[data-mode='light'],
+[data-mode='light'][data-theme='spectrum'],
+[data-mode='light'] [data-theme='spectrum'] {
+  --accent: #6a45d8;
+  --accent-2: #0b7f93;
+  --accent-soft: rgb(106 69 216 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #5530c4;
+}
+
+[data-mode='light'][data-theme='amethyst'],
+[data-mode='light'] [data-theme='amethyst'] {
+  --accent: #7a42c4;
+  --accent-2: #9a5ccf;
+  --accent-soft: rgb(122 66 196 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #6531ad;
+}
+
+[data-mode='light'][data-theme='azure'],
+[data-mode='light'] [data-theme='azure'] {
+  --accent: #0c68ad;
+  --accent-2: #3b5bcf;
+  --accent-soft: rgb(12 104 173 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #095890;
+}
+
+[data-mode='light'][data-theme='ember'],
+[data-mode='light'] [data-theme='ember'] {
+  --accent: #9a4c0b;
+  --accent-2: #b8401a;
+  --accent-soft: rgb(154 76 11 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #833f06;
+}
+
+[data-mode='light'][data-theme='sakura'],
+[data-mode='light'] [data-theme='sakura'] {
+  --accent: #ad356c;
+  --accent-2: #c2507d;
+  --accent-soft: rgb(173 53 108 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #952a5b;
+}
+
+[data-mode='light'][data-theme='verdant'],
+[data-mode='light'] [data-theme='verdant'] {
+  --accent: #127256;
+  --accent-2: #4a8019;
+  --accent-soft: rgb(18 114 86 / 0.1);
+  --on-accent: #ffffff;
+  --focus-ring: #0d6047;
+}

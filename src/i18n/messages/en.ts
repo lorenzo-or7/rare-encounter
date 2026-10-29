@@ -11,6 +11,8 @@ export const en = {
   'settings.title': 'Settings',
   'settings.close': 'Close',
   'settings.language': 'Language',
+  'settings.appearance': 'Appearance',
+  'settings.lightMode': 'Light mode',
   'settings.theme': 'Theme',
   'settings.themeHint': 'Themes only change colors. Your answers and results stay the same.',
 

@@ -13,6 +13,8 @@ export const es: Messages = {
   'settings.title': 'Ajustes',
   'settings.close': 'Cerrar',
   'settings.language': 'Idioma',
+  'settings.appearance': 'Apariencia',
+  'settings.lightMode': 'Modo claro',
   'settings.theme': 'Tema',
   'settings.themeHint': 'Los temas solo cambian los colores. Tus respuestas y resultados no cambian.',
 

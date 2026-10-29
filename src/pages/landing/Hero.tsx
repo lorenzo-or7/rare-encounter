@@ -31,7 +31,7 @@ interface HeroProps {
 
 /** The Encounter: Editorial Split hero. */
 export function Hero({ ctaTarget }: HeroProps) {
-  const { theme, t } = usePreferences();
+  const { theme, mode, t } = usePreferences();
   const colors = useThemeColors(theme);
   const reduceMotion = useReducedMotion() ?? false;
   const titleId = useId();
@@ -53,6 +53,8 @@ export function Hero({ ctaTarget }: HeroProps) {
             glowColor={colors.accent}
             secondaryColor={colors.accent2}
             pulseOnClick={false}
+            // Light mode: the original's own ink rendering instead of additive glow.
+            lightMode={mode === 'light'}
             vignette={0.45}
           />
         </Suspense>
@@ -85,6 +87,7 @@ export function Hero({ ctaTarget }: HeroProps) {
 
         <motion.div className="hero__actions" {...enter(STAGE.cta)}>
           <StarBorder
+            theme={mode}
             as="a"
             href={`#${ctaTarget}`}
             className="hero__cta"

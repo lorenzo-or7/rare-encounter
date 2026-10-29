@@ -18,7 +18,7 @@ interface SiteLayoutProps {
  * settings drawer (desktop) / menu bottom sheet (mobile).
  */
 export function SiteLayout({ sections, children }: SiteLayoutProps) {
-  const { t } = usePreferences();
+  const { t, mode } = usePreferences();
   const [sheetOpen, setSheetOpen] = useState(false);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const activeId = useActiveSection(sections.map((s) => s.id));
@@ -34,6 +34,7 @@ export function SiteLayout({ sections, children }: SiteLayoutProps) {
 
       <SiteNav
         brand={t('brand.name')}
+        logoTone={mode}
         label={t('nav.label')}
         items={sections}
         activeId={activeId}

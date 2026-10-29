@@ -6,7 +6,8 @@
  * Uses the Chromium that Playwright already installs (canvas resampling in halving steps,
  * WebP/PNG export), so no image library is added to the project.
  *
- *   node scripts/build-assets.mjs
+ *   node scripts/build-assets.mjs              (every asset)
+ *   node scripts/build-assets.mjs logo-onlight (only outputs whose path contains the word)
  */
 /* global OffscreenCanvas, Image -- used inside page.evaluate, which runs in Chromium */
 import { chromium } from '@playwright/test';
@@ -41,6 +42,9 @@ const JOBS = [
   // Logotype for the expanded desktop nav (44px tall): 2x and 3x.
   { src: 'logo-rare-encounter-transparent.png', crop: LOGO_CROP, out: 'src/assets/brand/logo-88.webp', height: 88, format: 'webp', quality: 0.92 },
   { src: 'logo-rare-encounter-transparent.png', crop: LOGO_CROP, out: 'src/assets/brand/logo-132.webp', height: 132, format: 'webp', quality: 0.92 },
+  // Light-surface variant (scripts/make-logo-onlight.mjs): same crop and sizes as the original.
+  { src: 'logo-rare-encounter-transparent-onlight.png', crop: LOGO_CROP, out: 'src/assets/brand/logo-onlight-88.webp', height: 88, format: 'webp', quality: 0.92 },
+  { src: 'logo-rare-encounter-transparent-onlight.png', crop: LOGO_CROP, out: 'src/assets/brand/logo-onlight-132.webp', height: 132, format: 'webp', quality: 0.92 },
   // Compact symbol for the condensed nav and phones (up to 36px tall): 2x and 3x.
   { src: 'logo-symbol-transparent.png', crop: SYMBOL_CROP, out: 'src/assets/brand/symbol-72.webp', height: 72, format: 'webp', quality: 0.92 },
   { src: 'logo-symbol-transparent.png', crop: SYMBOL_CROP, out: 'src/assets/brand/symbol-108.webp', height: 108, format: 'webp', quality: 0.92 },
@@ -54,7 +58,8 @@ const browser = await chromium.launch();
 const page = await browser.newPage();
 await page.setContent('<body></body>');
 
-for (const job of JOBS) {
+const only = process.argv[2];
+for (const job of only ? JOBS.filter((j) => j.out.includes(only)) : JOBS) {
   const dataUrl = `data:image/png;base64,${readFileSync(`${SRC}/${job.src}`).toString('base64')}`;
   const result = await page.evaluate(
     async ({ dataUrl, job }) => {

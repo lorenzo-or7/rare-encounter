@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="spectrum">
+<html lang="en" data-theme="spectrum" data-mode="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,11 +12,17 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script>
-      // Apply the saved theme before first paint to avoid a flash.
+      // Apply the saved palette and light/dark mode before first paint to avoid a flash.
+      // Dark stays the default; only an explicit saved "light" changes it.
       try {
         var p = JSON.parse(localStorage.getItem('rare-encounter:preferences') || 'null');
         if (p && p.data && typeof p.data.theme === 'string') {
           document.documentElement.dataset.theme = p.data.theme;
+        }
+        if (p && p.data && p.data.mode === 'light') {
+          document.documentElement.dataset.mode = 'light';
+          document.querySelector('meta[name="color-scheme"]').setAttribute('content', 'light');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f4f2f8');
         }
       } catch (e) {}
     </script>

@@ -46,7 +46,7 @@
 }
 
 .button--primary:hover:not(:disabled) {
-  background: color-mix(in oklab, var(--accent) 86%, white);
+  background: var(--accent-hover);
 }
 
 .button--secondary {

@@ -21,7 +21,7 @@ const MODE_NAMES: Readonly<Record<(typeof MODE_IDS)[number], MessageKey>> = {
  * pretends to start something that does not exist yet.
  */
 export function Begin() {
-  const { theme, t } = usePreferences();
+  const { theme, mode, t } = usePreferences();
   const colors = useThemeColors(theme);
   const transition = useEncounterTransition();
   const ready = transition.canBegin(PREPARATION);
@@ -53,6 +53,7 @@ export function Begin() {
 
       <div className="begin__action">
         <StarBorder
+          theme={mode}
           className="begin__cta"
           color={colors.accent}
           trailColor={colors.accent2}

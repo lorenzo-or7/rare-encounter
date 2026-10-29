@@ -12,6 +12,8 @@ export interface NavItem {
 
 interface SiteNavProps {
   readonly brand: string;
+  /** The surface tone the nav sits on: picks the logotype's dark or light-surface finish. */
+  readonly logoTone?: 'dark' | 'light';
   readonly label: string;
   readonly items: readonly NavItem[];
   readonly activeId: string | null;
@@ -31,6 +33,7 @@ const SPRING = { type: 'spring', stiffness: 420, damping: 36, mass: 0.9 } as con
  */
 export function SiteNav({
   brand,
+  logoTone = 'dark',
   label,
   items,
   activeId,
@@ -45,7 +48,7 @@ export function SiteNav({
   return (
     <header className="site-nav" data-scrolled={scrolled}>
       <motion.div className="liquid-nav" layout transition={SPRING}>
-        <Logo name={brand} variant={scrolled ? 'symbol' : 'full'} />
+        <Logo name={brand} tone={logoTone} variant={scrolled ? 'symbol' : 'full'} />
         <nav aria-label={label}>
           <LayoutGroup id="liquid-nav">
             <ul

@@ -1,0 +1,12 @@
+spectrum  dark  gutter 10px  thumb 203px  top #a68cfa bottom #3fd6e9  track #120f1d  accents #a78bfa → #3dd6e8  contrast thumb/track 6.97 / 10.80
+amethyst  dark  gutter 10px  thumb 203px  top #b895f6 bottom #e2c6ff  track #120f1d  accents #b794f6 → #e2c6ff  contrast thumb/track 7.80 / 12.37
+azure     dark  gutter 10px  thumb 203px  top #5dc8f5 bottom #8fb4ff  track #120f1d  accents #5cc8f5 → #8fb3ff  contrast thumb/track 9.94 / 9.12
+ember     dark  gutter 10px  thumb 203px  top #f2b65a bottom #ff9063  track #120f1d  accents #f2b65a → #ff8f63  contrast thumb/track 10.45 / 8.47
+sakura    dark  gutter 10px  thumb 203px  top #f3a9c9 bottom #ffd0e2  track #120f1d  accents #f3a8c8 → #ffd0e2  contrast thumb/track 10.19 / 13.83
+verdant   dark  gutter 10px  thumb 203px  top #75dcb0 bottom #b5e48d  track #120f1d  accents #74dcb0 → #b5e48c  contrast thumb/track 11.35 / 12.99
+spectrum  light gutter 10px  thumb 203px  top #6946d7 bottom #0d7f94  track #e4e2e8  accents #6a45d8 → #0b7f93  contrast thumb/track 4.73 / 3.65
+amethyst  light gutter 10px  thumb 203px  top #7b43c4 bottom #9a5ccf  track #e6e2e7  accents #7a42c4 → #9a5ccf  contrast thumb/track 4.76 / 3.41
+azure     light gutter 10px  thumb 203px  top #0d68ae bottom #3b5ccf  track #e1e3e5  accents #0c68ad → #3b5bcf  contrast thumb/track 4.52 / 4.51
+ember     light gutter 10px  thumb 203px  top #9b4c0b bottom #b8411a  track #e8e2dd  accents #9a4c0b → #b8401a  contrast thumb/track 4.76 / 4.29
+sakura    light gutter 10px  thumb 203px  top #ae366c bottom #c2507d  track #eae1e1  accents #ad356c → #c2507d  contrast thumb/track 4.62 / 3.45
+verdant   light gutter 10px  thumb 203px  top #137256 bottom #4a801a  track #e2e4e0  accents #127256 → #4a8019  contrast thumb/track 4.60 / 3.73
