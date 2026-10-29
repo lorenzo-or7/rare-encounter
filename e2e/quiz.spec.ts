@@ -70,7 +70,7 @@ test('header, preview notice and the three formats', async ({ page }) => {
 
   await answer(page, 0);
   await expect(page.locator('.question')).toHaveAttribute('data-format', 'photo');
-  await expect(page.locator('.answer__image')).toHaveCount(4);
+  await expect(page.locator('.answer-art__image')).toHaveCount(4);
   await expect(progress(page)).toHaveAttribute('aria-valuenow', '1');
   await expect(page.locator('.quiz-header__count')).toHaveText('1/30');
   await page.waitForTimeout(400);
@@ -258,4 +258,81 @@ test.describe('narrow phones', () => {
       await fullShot(page, `quiz-icon-${String(width)}`);
     });
   }
+});
+
+test.describe('Visual Answer Art', () => {
+  /** The first image question is question 2 of every preview session. */
+  async function toImageQuestion(page: Page) {
+    await startQuiz(page);
+    await answer(page, 0);
+    await expect(page.locator('.question')).toHaveAttribute('data-format', 'photo');
+  }
+
+  test('2×2 grid at every phone width, name left and mark right, stable frames', async ({ page }) => {
+    test.skip(test.info().project.name !== 'mobile', 'Width sweep runs once, on the phone project');
+    for (const width of [320, 360, 375, 390]) {
+      await page.setViewportSize({ width, height: 740 });
+      await toImageQuestion(page);
+      const cards = page.locator('.question .answer');
+      await expect(page.locator('.answer-art[data-state="ready"]')).toHaveCount(4);
+      const boxes = await cards.evaluateAll((els) => els.map((e) => e.getBoundingClientRect().toJSON() as DOMRect));
+      // Two columns, two rows.
+      expect(new Set(boxes.map((b) => Math.round(b.top))).size, `rows at ${String(width)}`).toBe(2);
+      expect(new Set(boxes.map((b) => Math.round(b.left))).size, `columns at ${String(width)}`).toBe(2);
+      // Every frame keeps the question's 4:3 ratio.
+      const ratios = await page
+        .locator('.answer-art')
+        .evaluateAll((els) => els.map((e) => e.getBoundingClientRect().width / e.getBoundingClientRect().height));
+      for (const r of ratios) expect(r).toBeCloseTo(4 / 3, 1);
+      // Caption: name on the left, mark on the right; the name is not shrunk below 14 px.
+      const caption = await cards.first().evaluate((card) => {
+        const label = card.querySelector('.answer__label')?.getBoundingClientRect();
+        const mark = card.querySelector('.answer__mark')?.getBoundingClientRect();
+        const size = parseFloat(getComputedStyle(card.querySelector('.answer__label') ?? card).fontSize);
+        return { labelLeft: label?.left ?? 0, markLeft: mark?.left ?? 0, size };
+      });
+      expect(caption.markLeft).toBeGreaterThan(caption.labelLeft);
+      expect(caption.size).toBeGreaterThanOrEqual(14);
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth),
+      ).toBeLessThanOrEqual(0);
+      await fullShot(page, `answer-art-${String(width)}`);
+      await page.evaluate(() => indexedDB.deleteDatabase('rare-encounter'));
+    }
+  });
+
+  test('images that fail show a neutral frame; the answers stay understandable and choosable', async ({ page }) => {
+    // The preview scenes are inlined as data URIs, which routing cannot intercept: point the
+    // image elements at an address that cannot load instead, so the browser really fails.
+    await page.addInitScript(() => {
+      const swap = (v: string) => (v.startsWith('data:image/svg') ? '/missing-scene.png' : v);
+      const proto = Element.prototype;
+      const original = Object.getOwnPropertyDescriptor(proto, 'setAttribute')?.value as (
+        this: Element,
+        name: string,
+        value: string,
+      ) => void;
+      proto.setAttribute = function (this: Element, name: string, value: string) {
+        original.call(this, name, this instanceof HTMLImageElement && name === 'src' ? swap(value) : value);
+      };
+      const desc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+      Object.defineProperty(HTMLImageElement.prototype, 'src', {
+        ...desc,
+        set(this: HTMLImageElement, v: string) {
+          desc?.set?.call(this, swap(v));
+        },
+      });
+    });
+    await toImageQuestion(page);
+    await expect(page.locator('.answer-art[data-state="failed"]')).toHaveCount(4);
+    await expect(page.locator('.answer-art__fallback').first()).toBeVisible();
+    const sizes = await page.locator('.answer-art').evaluateAll((els) =>
+      els.map((e) => Math.round(e.getBoundingClientRect().height)),
+    );
+    expect(new Set(sizes).size).toBe(1);
+    expect(sizes[0]).toBeGreaterThan(40);
+    await fullShot(page, 'answer-art-fallback');
+    await page.getByRole('button', { name: 'Forest' }).click();
+    await expect(step(page)).toHaveText(/^Question 3 of /);
+  });
 });

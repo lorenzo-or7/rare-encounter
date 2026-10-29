@@ -2,7 +2,9 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { motion } from 'motion/react';
 import { useState, type MouseEvent } from 'react';
 import { Icon } from '../../components/icon/Icon';
+import type { ArtRatio } from '../../domain/answer-art';
 import type { QuestionFormat } from '../../domain/questions';
+import { AnswerArt } from './AnswerArt';
 import { optionIcon } from './option-icons';
 
 interface AnswerButtonProps {
@@ -10,6 +12,8 @@ interface AnswerButtonProps {
   readonly label: string;
   /** Image URL (photo) or `icon:<name>` (icon-text). */
   readonly media: string | undefined;
+  /** Image answers: the question's shared art ratio. */
+  readonly artRatio: ArtRatio;
   /** Saved for this question, or currently being saved. */
   readonly selected: boolean;
   /** While an answer saves, presses are ignored (not announced: the lock lasts a moment). */
@@ -35,12 +39,18 @@ export function AnswerButton({
   format,
   label,
   media,
+  artRatio,
   selected,
   disabled,
   onChoose,
 }: AnswerButtonProps) {
   const [pulse, setPulse] = useState<Pulse | null>(null);
   const glyph = format === 'icon-text' && media ? optionIcon(media) : undefined;
+  const mark = (
+    <span className="answer__mark" aria-hidden="true">
+      <Icon name="check" size={14} strokeWidth={2.25} />
+    </span>
+  );
 
   const choose = (e: MouseEvent<HTMLButtonElement>) => {
     if (disabled) return;
@@ -73,19 +83,26 @@ export function AnswerButton({
           aria-hidden="true"
         />
       )}
-      {format === 'photo' && media && (
-        // The visible label names the choice; the illustration adds nothing to announce.
-        <img className="answer__image" src={media} alt="" width={400} height={300} />
+      {format === 'photo' ? (
+        // Visual Answer Art: image above; caption with the name on the left, mark on the right.
+        <>
+          <AnswerArt key={media ?? 'none'} src={media} ratio={artRatio} />
+          <span className="answer__caption">
+            <span className="answer__label">{label}</span>
+            {mark}
+          </span>
+        </>
+      ) : (
+        <>
+          {glyph && (
+            <span className="answer__icon" aria-hidden="true">
+              <HugeiconsIcon icon={glyph} size={24} strokeWidth={1.6} />
+            </span>
+          )}
+          <span className="answer__label">{label}</span>
+          {mark}
+        </>
       )}
-      {glyph && (
-        <span className="answer__icon" aria-hidden="true">
-          <HugeiconsIcon icon={glyph} size={24} strokeWidth={1.6} />
-        </span>
-      )}
-      <span className="answer__label">{label}</span>
-      <span className="answer__mark" aria-hidden="true">
-        <Icon name="check" size={14} strokeWidth={2.25} />
-      </span>
     </motion.button>
   );
 }

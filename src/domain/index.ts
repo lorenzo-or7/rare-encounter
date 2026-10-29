@@ -5,6 +5,7 @@ export * from './catalog';
 export * from './localized';
 export * from './traits';
 export * from './questions';
+export * from './answer-art';
 export * from './results';
 export * from './session';
 export * from './question-source';

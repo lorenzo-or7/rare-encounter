@@ -50,6 +50,7 @@ export function QuestionView({
     <motion.div
       className="question"
       data-format={question.format}
+      data-art-ratio={question.art?.ratio}
       data-direction={direction}
       custom={direction}
       variants={variants}
@@ -70,6 +71,7 @@ export function QuestionView({
             format={question.format}
             label={option.label[locale]}
             media={option.media?.src}
+            artRatio={question.art?.ratio ?? '4:3'}
             selected={chosen === option.id}
             disabled={busy || !present}
             onChoose={() => {

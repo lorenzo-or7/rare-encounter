@@ -1,3 +1,4 @@
+import type { QuestionArt } from '../../../domain/answer-art';
 import type { CatalogVersion } from '../../../domain/catalog';
 import { CATEGORY_IDS, type CategoryId } from '../../../domain/categories';
 import type { LocalizedText } from '../../../domain/localized';
@@ -32,6 +33,7 @@ interface Template {
   readonly key: string;
   readonly category: CategoryId;
   readonly format: QuestionFormat;
+  readonly art?: QuestionArt;
   readonly prompt: LocalizedText;
   readonly options: readonly AnswerOption[];
 }
@@ -44,6 +46,9 @@ const option = (
 
 /** Icon-text options name a Hugeicons glyph as `icon:<name>`; the quiz maps it to the icon. */
 const icon = (name: string, alt: LocalizedText) => ({ src: `icon:${name}`, alt });
+
+/** The preview scenes are distinct places: 4:3, Balanced Variety. */
+const SCENES: QuestionArt = { ratio: '4:3', comparison: 'balanced-variety' };
 
 const TEMPLATES: readonly Template[] = [
   {
@@ -78,6 +83,7 @@ const TEMPLATES: readonly Template[] = [
     key: 'aesthetics-landscape',
     category: 'aesthetics',
     format: 'photo',
+    art: SCENES,
     prompt: L('Which landscape draws you in?', 'Qual paisagem atrai você?', '¿Qué paisaje te atrae?'),
     options: [
       option('land-forest', L('Forest', 'Floresta', 'Bosque'), { src: forest, alt: L('A pine forest under a pale moon', 'Uma floresta de pinheiros sob uma lua pálida', 'Un bosque de pinos bajo una luna pálida') }),
@@ -130,6 +136,7 @@ const TEMPLATES: readonly Template[] = [
     key: 'environments-day',
     category: 'environments',
     format: 'photo',
+    art: SCENES,
     prompt: L(
       'Where would you spend a whole day?',
       'Onde você passaria um dia inteiro?',
@@ -174,6 +181,7 @@ const TEMPLATES: readonly Template[] = [
     key: 'behavior-recharge',
     category: 'behavior',
     format: 'photo',
+    art: SCENES,
     prompt: L('Where do you recharge?', 'Onde você recarrega as energias?', '¿Dónde recargas energía?'),
     options: [
       option('recharge-mountains', L('High up', 'No alto', 'En lo alto'), { src: mountains, alt: L('Snow-capped peaks', 'Picos com neve', 'Picos nevados') }),
@@ -260,6 +268,7 @@ export const PREVIEW_SOURCE: QuestionSource = {
       category: template.category,
       role: 'fundamental',
       format: template.format,
+      ...(template.art ? { art: template.art } : {}),
       prompt: template.prompt,
       options: template.options,
     };

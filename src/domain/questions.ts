@@ -1,3 +1,4 @@
+import type { QuestionArt } from './answer-art';
 import type { Brand } from './brand';
 import type { CategoryId } from './categories';
 import type { LocalizedText } from './localized';
@@ -30,6 +31,8 @@ export interface Question {
   readonly category: CategoryId;
   readonly role: QuestionRole;
   readonly format: QuestionFormat;
+  /** Image questions only: the shared ratio and comparison style of the four images. */
+  readonly art?: QuestionArt;
   readonly prompt: LocalizedText;
   readonly options: readonly AnswerOption[];
 }
