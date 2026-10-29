@@ -41,6 +41,17 @@
   text-wrap: balance;
 }
 
+/*
+ * Below 360 px the unbreakable "your Pokémon." (about 7.3 em) was wider than the column at the
+ * clamp minimum, so the hero (overflow: hidden) cut it off at the screen edge. Only this range
+ * changes; 360 px and up are as approved in Phase 01B.
+ */
+@media (max-width: 22.49em) {
+  .hero__title {
+    font-size: 2.4rem;
+  }
+}
+
 .hero__phrase {
   display: inline;
 }

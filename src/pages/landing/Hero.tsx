@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react';
-import { lazy, Suspense, useId } from 'react';
+import { lazy, Suspense, useId, type ReactNode } from 'react';
 import { usePreferences } from '../../app/preferences-context';
 import { useThemeColors } from '../../hooks/useThemeColors';
 import GradientText from '../../vendor/react-bits/GradientText/GradientText';
@@ -27,10 +27,15 @@ const STAGE = {
 interface HeroProps {
   /** Section the CTA scrolls to until the Preparation Screen exists (Phase 02). */
   readonly ctaTarget: string;
+  /**
+   * Shown under the CTA, in the page flow (the resume banner). Renders nothing when absent,
+   * so the approved hero is unchanged for a first visit.
+   */
+  readonly after?: ReactNode;
 }
 
 /** The Encounter: Editorial Split hero. */
-export function Hero({ ctaTarget }: HeroProps) {
+export function Hero({ ctaTarget, after }: HeroProps) {
   const { theme, mode, t } = usePreferences();
   const colors = useThemeColors(theme);
   const reduceMotion = useReducedMotion() ?? false;
@@ -101,6 +106,7 @@ export function Hero({ ctaTarget }: HeroProps) {
             {t('landing.hero.cta')}
           </StarBorder>
         </motion.div>
+        {after}
       </div>
     </section>
   );

@@ -1,0 +1,57 @@
+/*
+ * In the page flow, directly under the hero's CTA (Or7: integrated below the hero), on every
+ * screen size: it never covers the hero or the sections that follow. Same floating material
+ * as the nav, so it reads as part of the landing rather than an overlay.
+ */
+.resume-banner-slot {
+  width: 100%;
+  max-width: 34rem;
+  /*
+   * 48 px under the CTA on every size: clear of the Star Border light, which reaches 48 px
+   * past the button. The height animates to zero on close; the shadow needs room in the clip.
+   */
+  margin-block-start: var(--space-10);
+  padding: var(--space-2);
+  margin-inline: calc(var(--space-2) * -1);
+  overflow: hidden;
+}
+
+.resume-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  padding: var(--space-4) var(--space-3) var(--space-4) var(--space-5);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklab, var(--color-bg-raised) 88%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 var(--color-highlight),
+    var(--shadow-md);
+}
+
+.resume-banner__text {
+  display: grid;
+  flex: 1 1 14rem;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.resume-banner__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.resume-banner__body {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.resume-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-inline-start: auto;
+}

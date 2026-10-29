@@ -103,23 +103,20 @@ test('Every Connection Is Different: three cards, real text, serif titles, revea
   await page.screenshot({ path: shot('connection-revealed') });
 });
 
-test('Begin Your Journey: start control is honest until Preparation exists', async ({ page }) => {
+test('Begin Your Journey: the start control is live now that Preparation exists', async ({ page }) => {
   await page.goto('/');
   const s = section(page, 'begin');
   await expect(s.getByRole('heading', { level: 2, name: 'Begin Your Journey' })).toBeVisible();
   await expect(s.locator('.begin__mode')).toHaveCount(3);
   const cta = s.getByRole('button', { name: 'Begin your journey' });
-  // Unavailable but reachable: focusable, announced as disabled, with a clear reason.
-  await expect(cta).toHaveAttribute('aria-disabled', 'true');
-  await expect(cta).toHaveAccessibleDescription(
-    'Not available yet. The encounter will start from here once it opens.',
-  );
-  await cta.focus();
-  await expect(cta).toBeFocused();
-  // Activating it (Enter on the focused control) starts nothing.
-  await page.keyboard.press('Enter');
-  await expect(page.locator('.liquid-flow')).toHaveCount(0);
+  await expect(cta).toHaveAttribute('aria-disabled', 'false');
+  await expect(s.locator('.begin__note')).toHaveCount(0);
   await capture(page, 'begin', 'begin');
+  // Activating it from the keyboard runs the Liquid Flow into Preparation.
+  await cta.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/encounter$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Choose your depth' })).toBeFocused();
 });
 
 test('card reflection follows a mouse and fades when it leaves', async ({ page }) => {
@@ -177,7 +174,7 @@ test.describe('Portuguese', () => {
     await expect(section(page, 'connection').getByRole('article', { name: 'Etéreo' })).toBeVisible();
     await expect(
       section(page, 'begin').getByRole('button', { name: 'Comece sua jornada' }),
-    ).toHaveAttribute('aria-disabled', 'true');
+    ).toHaveAttribute('aria-disabled', 'false');
     // Stepper indicators are announced in Portuguese, without changing the original component.
     await expect(
       section(page, 'discovery').getByRole('button', { name: 'Etapa 2: Encontre sua conexão' }),

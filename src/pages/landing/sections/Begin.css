@@ -94,3 +94,14 @@
   color: var(--color-text-subtle);
   font-size: var(--text-sm);
 }
+
+/*
+ * Below 360 px the original Star Border light, which reaches 48 px past the CTA, went beyond
+ * the screen edge and scrolled the page sideways. Clipping it here hides only what was already
+ * off screen; `clip` creates no scroll container. 360 px and up are unchanged.
+ */
+@media (max-width: 22.49em) {
+  .begin {
+    overflow-x: clip;
+  }
+}

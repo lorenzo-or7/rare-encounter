@@ -16,6 +16,11 @@
     transform var(--duration-fast) var(--ease-out);
 }
 
+/* Links styled as buttons (e.g. "Decide later") keep the button look, without the link underline. */
+a.button {
+  text-decoration: none;
+}
+
 .button:active:not(:disabled) {
   transform: scale(0.97);
 }

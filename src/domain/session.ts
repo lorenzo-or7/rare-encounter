@@ -23,4 +23,9 @@ export interface QuizSession {
   readonly answers: Readonly<Record<string, AnswerRecord>>;
   /** Index into questionIds of the question currently shown. */
   readonly cursor: number;
+  /**
+   * Write counter: every stored change increments it. A write that expects an older value
+   * is refused, so two tabs can never silently overwrite each other.
+   */
+  readonly revision: number;
 }

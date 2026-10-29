@@ -1,11 +1,13 @@
 # React Bits — vendored originals
 
-Copied unmodified from the official registry (`https://reactbits.dev/r/<Name>-TS-CSS.json`) on 2026-10-28.
+Copied unmodified from the official registry (`https://reactbits.dev/r/<Name>-TS-CSS.json`) on 2026-10-28 (BorderGlow added in Phase 02, same date).
 Do not edit these files (`npm run check:vendor` verifies them against `manifest.json`): they are type-checked by `tsconfig.vendor.json` (standard `strict`) and excluded
 from ESLint so the originals stay byte-for-byte. Adapt behaviour through props or wrapper components.
 
 | Component | File | SHA-256 (first 16) |
 | --- | --- | --- |
+| BorderGlow | BorderGlow/BorderGlow.tsx | a4f7804d358846d6 |
+| BorderGlow | BorderGlow/BorderGlow.css | c6b645f1ff163046 |
 | GhostFibers | GhostFibers/GhostFibers.tsx | d509609554a756ff |
 | GhostFibers | GhostFibers/GhostFibers.css | 7df10fe8eeaa2554 |
 | GradientText | GradientText/GradientText.tsx | eba84cb82b1d2a92 |

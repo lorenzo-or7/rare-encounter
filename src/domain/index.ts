@@ -7,3 +7,4 @@ export * from './traits';
 export * from './questions';
 export * from './results';
 export * from './session';
+export * from './question-source';

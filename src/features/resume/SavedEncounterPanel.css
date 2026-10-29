@@ -1,0 +1,77 @@
+/* Same column and title scale as Preparation: this panel stands where Preparation would. */
+.saved-panel {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: var(--content-max);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: calc(var(--nav-offset) + clamp(var(--space-4), 4vw, var(--space-12))) var(--gutter)
+    clamp(var(--space-16), 10vw, var(--space-24));
+}
+
+.saved-panel__title {
+  max-width: 18ch;
+  font-size: clamp(2.25rem, 1.5rem + 3.4vw, 4.5rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.saved-panel__title:focus {
+  outline: none;
+}
+
+.saved-panel__summary {
+  margin-block-start: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+}
+
+.saved-panel__body {
+  max-width: 48ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.saved-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  margin-block-start: var(--space-6);
+}
+
+.saved-panel__confirm {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 40rem;
+  margin-block-start: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid color-mix(in oklab, var(--color-danger) 40%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-danger) 7%, var(--color-surface));
+}
+
+.saved-panel__confirm .saved-panel__actions {
+  margin-block-start: var(--space-2);
+}
+
+.saved-panel__warning {
+  color: var(--color-text);
+}
+
+.saved-panel__error {
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 29.99em) {
+  .saved-panel__actions > .button {
+    width: 100%;
+  }
+}

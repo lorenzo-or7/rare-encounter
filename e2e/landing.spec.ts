@@ -49,7 +49,7 @@ test('hero: exact headline, single gradient phrase, Star Border CTA, no overflow
   await page.screenshot({ path: shot('full'), fullPage: true });
 });
 
-test('CTA scrolls to Begin Your Journey (no Preparation Screen yet)', async ({ page }) => {
+test('hero CTA scrolls to Begin Your Journey (D7)', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Begin your journey' }).click();
   await expect(page).toHaveURL(/#begin$/);

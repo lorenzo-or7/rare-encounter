@@ -106,6 +106,10 @@
   --color-text-muted: #b9b0d0;
   --color-text-subtle: #a59bc3;
 
+  /* Failed saves and storage problems; shared by every theme */
+  --color-danger: #ff8f9a;
+  --on-danger: #2a0a10;
+
   /* Depth: offset + soft blur, tinted to the night background */
   --shadow-sm: 0 1px 2px rgb(3 1 10 / 0.5);
   --shadow-md: 0 10px 30px -12px rgb(3 1 10 / 0.75);
@@ -136,6 +140,10 @@
   --color-text: color-mix(in oklab, var(--accent) 8%, #16131e);
   --color-text-muted: color-mix(in oklab, var(--accent) 10%, #474152);
   --color-text-subtle: color-mix(in oklab, var(--accent) 10%, #575166);
+
+  /* The same signal, deepened so it stays readable as text on paper */
+  --color-danger: #b4232f;
+  --on-danger: #ffffff;
 
   --shadow-sm: 0 1px 2px rgb(36 28 64 / 0.08);
   --shadow-md: 0 12px 28px -14px rgb(36 28 64 / 0.22);
