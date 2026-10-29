@@ -1,0 +1,83 @@
+/*
+ * Slim Chromatic Scrollbar.
+ *
+ * The browser's own scrollbar, restyled; nothing is added to the DOM and scrolling itself
+ * (wheel, trackpad, touch, keyboard, smooth-scroll setting) is untouched. It applies to the
+ * page and to the settings sheet's body, the two scroll containers the app owns.
+ *
+ * Only for fine pointers with hover. Touch devices keep the system's own auto-hiding
+ * indicator (styling it there can turn it into a permanent bar), and keep the root rule
+ * in base.css.
+ *
+ * Two engines, two routes, chosen with @supports:
+ * - Blink and WebKit render ::-webkit-scrollbar, which accepts a gradient. In Chromium 121+
+ *   any `scrollbar-color` / `scrollbar-width` on the element overrides those pseudo-elements,
+ *   so this route resets them to `auto`.
+ * - Others (Firefox) take the standard properties: a thin bar in one colour between both
+ *   accents. No gradient is possible there, so none is simulated.
+ *
+ * No transitions: scrollbar pseudo-elements cannot animate, and the hover change is a
+ * width step, so reduced-motion preferences need no special case.
+ */
+@media (hover: hover) and (pointer: fine) {
+  @supports selector(::-webkit-scrollbar) {
+    html,
+    .sheet__body {
+      scrollbar-color: auto;
+      scrollbar-width: auto;
+    }
+
+    /* 10 px of space, a 6 px pill inside it (8 px under the pointer): the width never changes. */
+    :root::-webkit-scrollbar,
+    .sheet__body::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    :root::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
+
+    /* Inside the sheet the bar sits on the sheet's own surface. */
+    .sheet__body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    :root::-webkit-scrollbar-thumb,
+    .sheet__body::-webkit-scrollbar-thumb {
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background: var(--scrollbar-thumb) padding-box;
+    }
+
+    /* A horizontal bar, should one ever appear, runs the iris along its own axis. */
+    :root::-webkit-scrollbar-thumb:horizontal,
+    .sheet__body::-webkit-scrollbar-thumb:horizontal {
+      background: var(--iris) padding-box;
+    }
+
+    :root::-webkit-scrollbar-thumb:hover,
+    :root::-webkit-scrollbar-thumb:active,
+    .sheet__body::-webkit-scrollbar-thumb:hover,
+    .sheet__body::-webkit-scrollbar-thumb:active {
+      border-width: 1px;
+    }
+
+    :root::-webkit-scrollbar-corner,
+    .sheet__body::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    html,
+    .sheet__body {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb-solid) var(--scrollbar-track);
+    }
+
+    .sheet__body {
+      scrollbar-color: var(--scrollbar-thumb-solid) transparent;
+    }
+  }
+}
