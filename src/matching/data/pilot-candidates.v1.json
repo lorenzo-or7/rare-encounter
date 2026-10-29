@@ -1,0 +1,368 @@
+{
+  "version": "pilot-candidates-v1",
+  "status": "candidate_v1_unreviewed",
+  "source": "rare_encounter_claude_companion_pack.zip / species_pilot_candidates.csv (Or7 planning companion pack, 2026-10-28)",
+  "note": "Candidate selection only. No species here is an approved profile.",
+  "candidates": [
+    {
+      "name": "Bulbasaur",
+      "set": "frozen-core",
+      "group": "generation-I",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Arcanine",
+      "set": "frozen-core",
+      "group": "generation-I",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Lapras",
+      "set": "frozen-core",
+      "group": "generation-I",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Snorlax",
+      "set": "frozen-core",
+      "group": "generation-I",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Dragonite",
+      "set": "frozen-core",
+      "group": "generation-I",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Ampharos",
+      "set": "frozen-core",
+      "group": "generation-II",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Espeon",
+      "set": "frozen-core",
+      "group": "generation-II",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Umbreon",
+      "set": "frozen-core",
+      "group": "generation-II",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Heracross",
+      "set": "frozen-core",
+      "group": "generation-II",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Gardevoir",
+      "set": "frozen-core",
+      "group": "generation-III",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Flygon",
+      "set": "frozen-core",
+      "group": "generation-III",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Milotic",
+      "set": "frozen-core",
+      "group": "generation-III",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Torkoal",
+      "set": "frozen-core",
+      "group": "generation-III",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Altaria",
+      "set": "frozen-core",
+      "group": "generation-III",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Lucario",
+      "set": "frozen-core",
+      "group": "generation-IV",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Froslass",
+      "set": "frozen-core",
+      "group": "generation-IV",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Roserade",
+      "set": "frozen-core",
+      "group": "generation-IV",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Gastrodon",
+      "set": "frozen-core",
+      "group": "generation-IV",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Chandelure",
+      "set": "frozen-core",
+      "group": "generation-V",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Galvantula",
+      "set": "frozen-core",
+      "group": "generation-V",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Whimsicott",
+      "set": "frozen-core",
+      "group": "generation-V",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Krookodile",
+      "set": "frozen-core",
+      "group": "generation-V",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Volcarona",
+      "set": "frozen-core",
+      "group": "generation-V",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Aegislash",
+      "set": "frozen-core",
+      "group": "generation-VI",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Sylveon",
+      "set": "frozen-core",
+      "group": "generation-VI",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Noivern",
+      "set": "frozen-core",
+      "group": "generation-VI",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Goodra",
+      "set": "frozen-core",
+      "group": "generation-VI",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Rowlet",
+      "set": "frozen-core",
+      "group": "generation-VII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Lycanroc",
+      "set": "frozen-core",
+      "group": "generation-VII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Toxapex",
+      "set": "frozen-core",
+      "group": "generation-VII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Komala",
+      "set": "frozen-core",
+      "group": "generation-VII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Corviknight",
+      "set": "frozen-core",
+      "group": "generation-VIII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Dragapult",
+      "set": "frozen-core",
+      "group": "generation-VIII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Snom",
+      "set": "frozen-core",
+      "group": "generation-VIII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Appletun",
+      "set": "frozen-core",
+      "group": "generation-VIII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Toxtricity",
+      "set": "frozen-core",
+      "group": "generation-VIII",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Tinkaton",
+      "set": "frozen-core",
+      "group": "generation-IX",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Clodsire",
+      "set": "frozen-core",
+      "group": "generation-IX",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Ceruledge",
+      "set": "frozen-core",
+      "group": "generation-IX",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Farigiraf",
+      "set": "frozen-core",
+      "group": "generation-IX",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Plusle",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Minun",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Solrock",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Lunatone",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Zangoose",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Seviper",
+      "set": "challenge-set",
+      "group": "similar-profiles",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Vulpix",
+      "set": "challenge-set",
+      "group": "forms",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Rotom",
+      "set": "challenge-set",
+      "group": "forms",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Meowth",
+      "set": "challenge-set",
+      "group": "forms",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Zygarde",
+      "set": "challenge-set",
+      "group": "forms",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Unown",
+      "set": "challenge-set",
+      "group": "ambiguity",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Sigilyph",
+      "set": "challenge-set",
+      "group": "ambiguity",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Elgyem",
+      "set": "challenge-set",
+      "group": "ambiguity",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Dhelmise",
+      "set": "challenge-set",
+      "group": "ambiguity",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Darkrai",
+      "set": "challenge-set",
+      "group": "visual-vs-personality",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Mimikyu",
+      "set": "challenge-set",
+      "group": "visual-vs-personality",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Absol",
+      "set": "challenge-set",
+      "group": "visual-vs-personality",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Hatterene",
+      "set": "challenge-set",
+      "group": "visual-vs-personality",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Ditto",
+      "set": "challenge-set",
+      "group": "tie-break",
+      "status": "candidate-unreviewed"
+    },
+    {
+      "name": "Smeargle",
+      "set": "challenge-set",
+      "group": "tie-break",
+      "status": "candidate-unreviewed"
+    }
+  ]
+}

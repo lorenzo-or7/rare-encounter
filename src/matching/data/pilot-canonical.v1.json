@@ -1,0 +1,3184 @@
+{
+  "version": "pilot-canonical-v1",
+  "source": {
+    "name": "PokéAPI",
+    "url": "https://pokeapi.co",
+    "retrievedAt": "2026-10-29T01:17:47.766Z"
+  },
+  "scope": "Structured game data only. No flavour text, artwork or personality claims. Habitat exists only for species introduced up to Generation III.",
+  "records": [
+    {
+      "name": "Bulbasaur",
+      "slug": "bulbasaur",
+      "nationalDex": 1,
+      "generation": "generation-i",
+      "genus": "Seed Pokémon",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "color": "green",
+      "shape": "quadruped",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "bulbasaur",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "bulbasaur"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/bulbasaur",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/1/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arcanine",
+      "slug": "arcanine",
+      "nationalDex": 59,
+      "generation": "generation-i",
+      "genus": "Legendary Pokémon",
+      "types": [
+        "fire"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "arcanine",
+          "isDefault": true
+        },
+        {
+          "name": "arcanine-hisui",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "arcanine"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/arcanine",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/59/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lapras",
+      "slug": "lapras",
+      "nationalDex": 131,
+      "generation": "generation-i",
+      "genus": "Transport Pokémon",
+      "types": [
+        "water",
+        "ice"
+      ],
+      "color": "blue",
+      "shape": "fish",
+      "habitat": "sea",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "lapras",
+          "isDefault": true
+        },
+        {
+          "name": "lapras-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "lapras"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/lapras",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/131/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Snorlax",
+      "slug": "snorlax",
+      "nationalDex": 143,
+      "generation": "generation-i",
+      "genus": "Sleeping Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "black",
+      "shape": "humanoid",
+      "habitat": "mountain",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "snorlax",
+          "isDefault": true
+        },
+        {
+          "name": "snorlax-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "snorlax"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/snorlax",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/143/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dragonite",
+      "slug": "dragonite",
+      "nationalDex": 149,
+      "generation": "generation-i",
+      "genus": "Dragon Pokémon",
+      "types": [
+        "dragon",
+        "flying"
+      ],
+      "color": "brown",
+      "shape": "upright",
+      "habitat": "waters-edge",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "dragonite",
+          "isDefault": true
+        },
+        {
+          "name": "dragonite-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "dragonite"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/dragonite",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/149/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ampharos",
+      "slug": "ampharos",
+      "nationalDex": 181,
+      "generation": "generation-ii",
+      "genus": "Light Pokémon",
+      "types": [
+        "electric"
+      ],
+      "color": "yellow",
+      "shape": "upright",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "ampharos",
+          "isDefault": true
+        },
+        {
+          "name": "ampharos-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "ampharos"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/ampharos",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/181/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Espeon",
+      "slug": "espeon",
+      "nationalDex": 196,
+      "generation": "generation-ii",
+      "genus": "Sun Pokémon",
+      "types": [
+        "psychic"
+      ],
+      "color": "purple",
+      "shape": "quadruped",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "espeon",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "espeon"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/espeon",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/196/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Umbreon",
+      "slug": "umbreon",
+      "nationalDex": 197,
+      "generation": "generation-ii",
+      "genus": "Moonlight Pokémon",
+      "types": [
+        "dark"
+      ],
+      "color": "black",
+      "shape": "quadruped",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "umbreon",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "umbreon"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/umbreon",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/197/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heracross",
+      "slug": "heracross",
+      "nationalDex": 214,
+      "generation": "generation-ii",
+      "genus": "Single Horn Pokémon",
+      "types": [
+        "bug",
+        "fighting"
+      ],
+      "color": "blue",
+      "shape": "humanoid",
+      "habitat": "forest",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "heracross",
+          "isDefault": true
+        },
+        {
+          "name": "heracross-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "heracross"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/heracross",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/214/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gardevoir",
+      "slug": "gardevoir",
+      "nationalDex": 282,
+      "generation": "generation-iii",
+      "genus": "Embrace Pokémon",
+      "types": [
+        "psychic",
+        "fairy"
+      ],
+      "color": "white",
+      "shape": "humanoid",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "gardevoir",
+          "isDefault": true
+        },
+        {
+          "name": "gardevoir-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "gardevoir"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/gardevoir",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/282/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flygon",
+      "slug": "flygon",
+      "nationalDex": 330,
+      "generation": "generation-iii",
+      "genus": "Mystic Pokémon",
+      "types": [
+        "ground",
+        "dragon"
+      ],
+      "color": "green",
+      "shape": "wings",
+      "habitat": "rough-terrain",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "flygon",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "flygon"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/flygon",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/330/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Milotic",
+      "slug": "milotic",
+      "nationalDex": 350,
+      "generation": "generation-iii",
+      "genus": "Tender Pokémon",
+      "types": [
+        "water"
+      ],
+      "color": "pink",
+      "shape": "squiggle",
+      "habitat": "waters-edge",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "milotic",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "milotic"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/milotic",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/350/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Torkoal",
+      "slug": "torkoal",
+      "nationalDex": 324,
+      "generation": "generation-iii",
+      "genus": "Coal Pokémon",
+      "types": [
+        "fire"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": "mountain",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "torkoal",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "torkoal"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/torkoal",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/324/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Altaria",
+      "slug": "altaria",
+      "nationalDex": 334,
+      "generation": "generation-iii",
+      "genus": "Humming Pokémon",
+      "types": [
+        "dragon",
+        "flying"
+      ],
+      "color": "blue",
+      "shape": "wings",
+      "habitat": "forest",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "altaria",
+          "isDefault": true
+        },
+        {
+          "name": "altaria-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "altaria"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/altaria",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/334/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lucario",
+      "slug": "lucario",
+      "nationalDex": 448,
+      "generation": "generation-iv",
+      "genus": "Aura Pokémon",
+      "types": [
+        "fighting",
+        "steel"
+      ],
+      "color": "blue",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "lucario",
+          "isDefault": true
+        },
+        {
+          "name": "lucario-mega",
+          "isDefault": false
+        },
+        {
+          "name": "lucario-mega-z",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "lucario"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/lucario",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/448/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Froslass",
+      "slug": "froslass",
+      "nationalDex": 478,
+      "generation": "generation-iv",
+      "genus": "Snow Land Pokémon",
+      "types": [
+        "ice",
+        "ghost"
+      ],
+      "color": "white",
+      "shape": "arms",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "froslass",
+          "isDefault": true
+        },
+        {
+          "name": "froslass-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "froslass"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/froslass",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/478/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Roserade",
+      "slug": "roserade",
+      "nationalDex": 407,
+      "generation": "generation-iv",
+      "genus": "Bouquet Pokémon",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "color": "green",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "roserade",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "roserade"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/roserade",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/407/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gastrodon",
+      "slug": "gastrodon",
+      "nationalDex": 423,
+      "generation": "generation-iv",
+      "genus": "Sea Slug Pokémon",
+      "types": [
+        "water",
+        "ground"
+      ],
+      "color": "purple",
+      "shape": "squiggle",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "gastrodon",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "gastrodon-west",
+        "gastrodon-east"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/gastrodon",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/423/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chandelure",
+      "slug": "chandelure",
+      "nationalDex": 609,
+      "generation": "generation-v",
+      "genus": "Luring Pokémon",
+      "types": [
+        "ghost",
+        "fire"
+      ],
+      "color": "black",
+      "shape": "arms",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "chandelure",
+          "isDefault": true
+        },
+        {
+          "name": "chandelure-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "chandelure"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/chandelure",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/609/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Galvantula",
+      "slug": "galvantula",
+      "nationalDex": 596,
+      "generation": "generation-v",
+      "genus": "EleSpider Pokémon",
+      "types": [
+        "bug",
+        "electric"
+      ],
+      "color": "yellow",
+      "shape": "armor",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "galvantula",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "galvantula"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/galvantula",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/596/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Whimsicott",
+      "slug": "whimsicott",
+      "nationalDex": 547,
+      "generation": "generation-v",
+      "genus": "Windveiled Pokémon",
+      "types": [
+        "grass",
+        "fairy"
+      ],
+      "color": "green",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "whimsicott",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "whimsicott"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/whimsicott",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/547/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Krookodile",
+      "slug": "krookodile",
+      "nationalDex": 553,
+      "generation": "generation-v",
+      "genus": "Intimidation Pokémon",
+      "types": [
+        "ground",
+        "dark"
+      ],
+      "color": "red",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "krookodile",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "krookodile"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/krookodile",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/553/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Volcarona",
+      "slug": "volcarona",
+      "nationalDex": 637,
+      "generation": "generation-v",
+      "genus": "Sun Pokémon",
+      "types": [
+        "bug",
+        "fire"
+      ],
+      "color": "white",
+      "shape": "bug-wings",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "volcarona",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "volcarona"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/volcarona",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/637/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Aegislash",
+      "slug": "aegislash",
+      "nationalDex": 681,
+      "generation": "generation-vi",
+      "genus": "Royal Sword Pokémon",
+      "types": [
+        "steel",
+        "ghost"
+      ],
+      "color": "brown",
+      "shape": "blob",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "aegislash-shield",
+          "isDefault": true
+        },
+        {
+          "name": "aegislash-blade",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "aegislash-shield"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/aegislash",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/681/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sylveon",
+      "slug": "sylveon",
+      "nationalDex": 700,
+      "generation": "generation-vi",
+      "genus": "Intertwining Pokémon",
+      "types": [
+        "fairy"
+      ],
+      "color": "pink",
+      "shape": "quadruped",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "sylveon",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "sylveon"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/sylveon",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/700/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Noivern",
+      "slug": "noivern",
+      "nationalDex": 715,
+      "generation": "generation-vi",
+      "genus": "Sound Wave Pokémon",
+      "types": [
+        "flying",
+        "dragon"
+      ],
+      "color": "purple",
+      "shape": "wings",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "noivern",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "noivern"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/noivern",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/715/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Goodra",
+      "slug": "goodra",
+      "nationalDex": 706,
+      "generation": "generation-vi",
+      "genus": "Dragon Pokémon",
+      "types": [
+        "dragon"
+      ],
+      "color": "purple",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "goodra",
+          "isDefault": true
+        },
+        {
+          "name": "goodra-hisui",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "goodra"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/goodra",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/706/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rowlet",
+      "slug": "rowlet",
+      "nationalDex": 722,
+      "generation": "generation-vii",
+      "genus": "Grass Quill Pokémon",
+      "types": [
+        "grass",
+        "flying"
+      ],
+      "color": "brown",
+      "shape": "wings",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "rowlet",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "rowlet"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/rowlet",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/722/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lycanroc",
+      "slug": "lycanroc",
+      "nationalDex": 745,
+      "generation": "generation-vii",
+      "genus": "Wolf Pokémon",
+      "types": [
+        "rock"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "lycanroc-midday",
+          "isDefault": true
+        },
+        {
+          "name": "lycanroc-midnight",
+          "isDefault": false
+        },
+        {
+          "name": "lycanroc-dusk",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "lycanroc-midday"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/lycanroc",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/745/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toxapex",
+      "slug": "toxapex",
+      "nationalDex": 748,
+      "generation": "generation-vii",
+      "genus": "Brutal Star Pokémon",
+      "types": [
+        "poison",
+        "water"
+      ],
+      "color": "blue",
+      "shape": "tentacles",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "toxapex",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "toxapex"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/toxapex",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/748/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Komala",
+      "slug": "komala",
+      "nationalDex": 775,
+      "generation": "generation-vii",
+      "genus": "Drowsing Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "blue",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "komala",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "komala"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/komala",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/775/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Corviknight",
+      "slug": "corviknight",
+      "nationalDex": 823,
+      "generation": "generation-viii",
+      "genus": "Raven Pokémon",
+      "types": [
+        "flying",
+        "steel"
+      ],
+      "color": "purple",
+      "shape": "wings",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "corviknight",
+          "isDefault": true
+        },
+        {
+          "name": "corviknight-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "corviknight"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/corviknight",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/823/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dragapult",
+      "slug": "dragapult",
+      "nationalDex": 887,
+      "generation": "generation-viii",
+      "genus": "Stealth Pokémon",
+      "types": [
+        "dragon",
+        "ghost"
+      ],
+      "color": "green",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "dragapult",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "dragapult"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/dragapult",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/887/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Snom",
+      "slug": "snom",
+      "nationalDex": 872,
+      "generation": "generation-viii",
+      "genus": "Worm Pokémon",
+      "types": [
+        "ice",
+        "bug"
+      ],
+      "color": "white",
+      "shape": "squiggle",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "snom",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "snom"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/snom",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/872/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Appletun",
+      "slug": "appletun",
+      "nationalDex": 842,
+      "generation": "generation-viii",
+      "genus": "Apple Nectar Pokémon",
+      "types": [
+        "grass",
+        "dragon"
+      ],
+      "color": "green",
+      "shape": "quadruped",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "appletun",
+          "isDefault": true
+        },
+        {
+          "name": "appletun-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "appletun"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/appletun",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/842/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toxtricity",
+      "slug": "toxtricity",
+      "nationalDex": 849,
+      "generation": "generation-viii",
+      "genus": "Punk Pokémon",
+      "types": [
+        "electric",
+        "poison"
+      ],
+      "color": "purple",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "toxtricity-amped",
+          "isDefault": true
+        },
+        {
+          "name": "toxtricity-low-key",
+          "isDefault": false
+        },
+        {
+          "name": "toxtricity-amped-gmax",
+          "isDefault": false
+        },
+        {
+          "name": "toxtricity-low-key-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "toxtricity-amped"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/toxtricity",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/849/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tinkaton",
+      "slug": "tinkaton",
+      "nationalDex": 959,
+      "generation": "generation-ix",
+      "genus": "Hammer Pokémon",
+      "types": [
+        "fairy",
+        "steel"
+      ],
+      "color": "pink",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "tinkaton",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "tinkaton"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/tinkaton",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/959/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clodsire",
+      "slug": "clodsire",
+      "nationalDex": 980,
+      "generation": "generation-ix",
+      "genus": "Spiny Fish Pokémon",
+      "types": [
+        "poison",
+        "ground"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "clodsire",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "clodsire"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/clodsire",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/980/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ceruledge",
+      "slug": "ceruledge",
+      "nationalDex": 937,
+      "generation": "generation-ix",
+      "genus": "Fire Blades Pokémon",
+      "types": [
+        "fire",
+        "ghost"
+      ],
+      "color": "blue",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "ceruledge",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "ceruledge"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/ceruledge",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/937/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Farigiraf",
+      "slug": "farigiraf",
+      "nationalDex": 981,
+      "generation": "generation-ix",
+      "genus": "Long Neck Pokémon",
+      "types": [
+        "normal",
+        "psychic"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "farigiraf",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "farigiraf"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/farigiraf",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/981/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plusle",
+      "slug": "plusle",
+      "nationalDex": 311,
+      "generation": "generation-iii",
+      "genus": "Cheering Pokémon",
+      "types": [
+        "electric"
+      ],
+      "color": "yellow",
+      "shape": "upright",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "plusle",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "plusle"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/plusle",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/311/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Minun",
+      "slug": "minun",
+      "nationalDex": 312,
+      "generation": "generation-iii",
+      "genus": "Cheering Pokémon",
+      "types": [
+        "electric"
+      ],
+      "color": "yellow",
+      "shape": "upright",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "minun",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "minun"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/minun",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/312/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Solrock",
+      "slug": "solrock",
+      "nationalDex": 338,
+      "generation": "generation-iii",
+      "genus": "Meteorite Pokémon",
+      "types": [
+        "rock",
+        "psychic"
+      ],
+      "color": "red",
+      "shape": "ball",
+      "habitat": "cave",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "solrock",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "solrock"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/solrock",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/338/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lunatone",
+      "slug": "lunatone",
+      "nationalDex": 337,
+      "generation": "generation-iii",
+      "genus": "Meteorite Pokémon",
+      "types": [
+        "rock",
+        "psychic"
+      ],
+      "color": "yellow",
+      "shape": "ball",
+      "habitat": "cave",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "lunatone",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "lunatone"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/lunatone",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/337/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zangoose",
+      "slug": "zangoose",
+      "nationalDex": 335,
+      "generation": "generation-iii",
+      "genus": "Cat Ferret Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "white",
+      "shape": "upright",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "zangoose",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "zangoose"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/zangoose",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/335/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Seviper",
+      "slug": "seviper",
+      "nationalDex": 336,
+      "generation": "generation-iii",
+      "genus": "Fang Snake Pokémon",
+      "types": [
+        "poison"
+      ],
+      "color": "black",
+      "shape": "squiggle",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "seviper",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "seviper"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/seviper",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/336/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vulpix",
+      "slug": "vulpix",
+      "nationalDex": 37,
+      "generation": "generation-i",
+      "genus": "Fox Pokémon",
+      "types": [
+        "fire"
+      ],
+      "color": "brown",
+      "shape": "quadruped",
+      "habitat": "grassland",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "vulpix",
+          "isDefault": true
+        },
+        {
+          "name": "vulpix-alola",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "vulpix"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/vulpix",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/37/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rotom",
+      "slug": "rotom",
+      "nationalDex": 479,
+      "generation": "generation-iv",
+      "genus": "Plasma Pokémon",
+      "types": [
+        "electric",
+        "ghost"
+      ],
+      "color": "red",
+      "shape": "ball",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "rotom",
+          "isDefault": true
+        },
+        {
+          "name": "rotom-heat",
+          "isDefault": false
+        },
+        {
+          "name": "rotom-wash",
+          "isDefault": false
+        },
+        {
+          "name": "rotom-frost",
+          "isDefault": false
+        },
+        {
+          "name": "rotom-fan",
+          "isDefault": false
+        },
+        {
+          "name": "rotom-mow",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "rotom"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/rotom",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/479/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Meowth",
+      "slug": "meowth",
+      "nationalDex": 52,
+      "generation": "generation-i",
+      "genus": "Scratch Cat Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "yellow",
+      "shape": "quadruped",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "meowth",
+          "isDefault": true
+        },
+        {
+          "name": "meowth-alola",
+          "isDefault": false
+        },
+        {
+          "name": "meowth-galar",
+          "isDefault": false
+        },
+        {
+          "name": "meowth-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "meowth"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/meowth",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/52/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zygarde",
+      "slug": "zygarde",
+      "nationalDex": 718,
+      "generation": "generation-vi",
+      "genus": "Order Pokémon",
+      "types": [
+        "dragon",
+        "ground"
+      ],
+      "color": "green",
+      "shape": "squiggle",
+      "habitat": null,
+      "legendary": true,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "zygarde-50",
+          "isDefault": true
+        },
+        {
+          "name": "zygarde-10-power-construct",
+          "isDefault": false
+        },
+        {
+          "name": "zygarde-50-power-construct",
+          "isDefault": false
+        },
+        {
+          "name": "zygarde-complete",
+          "isDefault": false
+        },
+        {
+          "name": "zygarde-10",
+          "isDefault": false
+        },
+        {
+          "name": "zygarde-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "zygarde-50"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/zygarde",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/718/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unown",
+      "slug": "unown",
+      "nationalDex": 201,
+      "generation": "generation-ii",
+      "genus": "Symbol Pokémon",
+      "types": [
+        "psychic"
+      ],
+      "color": "black",
+      "shape": "ball",
+      "habitat": "rare",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "unown",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "unown-a",
+        "unown-b",
+        "unown-c",
+        "unown-d",
+        "unown-e",
+        "unown-f",
+        "unown-g",
+        "unown-h",
+        "unown-i",
+        "unown-j",
+        "unown-k",
+        "unown-l",
+        "unown-m",
+        "unown-n",
+        "unown-o",
+        "unown-p",
+        "unown-q",
+        "unown-r",
+        "unown-s",
+        "unown-t",
+        "unown-u",
+        "unown-v",
+        "unown-w",
+        "unown-x",
+        "unown-y",
+        "unown-z",
+        "unown-exclamation",
+        "unown-question"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/unown",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/201/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sigilyph",
+      "slug": "sigilyph",
+      "nationalDex": 561,
+      "generation": "generation-v",
+      "genus": "Avianoid Pokémon",
+      "types": [
+        "psychic",
+        "flying"
+      ],
+      "color": "black",
+      "shape": "wings",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "sigilyph",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "sigilyph"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/sigilyph",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/561/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elgyem",
+      "slug": "elgyem",
+      "nationalDex": 605,
+      "generation": "generation-v",
+      "genus": "Cerebral Pokémon",
+      "types": [
+        "psychic"
+      ],
+      "color": "blue",
+      "shape": "upright",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "elgyem",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "elgyem"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/elgyem",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/605/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dhelmise",
+      "slug": "dhelmise",
+      "nationalDex": 781,
+      "generation": "generation-vii",
+      "genus": "Sea Creeper Pokémon",
+      "types": [
+        "ghost",
+        "grass"
+      ],
+      "color": "green",
+      "shape": "blob",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "dhelmise",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "dhelmise"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/dhelmise",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/781/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Darkrai",
+      "slug": "darkrai",
+      "nationalDex": 491,
+      "generation": "generation-iv",
+      "genus": "Pitch-Black Pokémon",
+      "types": [
+        "dark"
+      ],
+      "color": "black",
+      "shape": "humanoid",
+      "habitat": null,
+      "legendary": false,
+      "mythical": true,
+      "varieties": [
+        {
+          "name": "darkrai",
+          "isDefault": true
+        },
+        {
+          "name": "darkrai-mega",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "darkrai"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/darkrai",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/491/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mimikyu",
+      "slug": "mimikyu",
+      "nationalDex": 778,
+      "generation": "generation-vii",
+      "genus": "Disguise Pokémon",
+      "types": [
+        "ghost",
+        "fairy"
+      ],
+      "color": "yellow",
+      "shape": "squiggle",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "mimikyu-disguised",
+          "isDefault": true
+        },
+        {
+          "name": "mimikyu-busted",
+          "isDefault": false
+        },
+        {
+          "name": "mimikyu-totem-disguised",
+          "isDefault": false
+        },
+        {
+          "name": "mimikyu-totem-busted",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "mimikyu-disguised"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/mimikyu",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/778/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Absol",
+      "slug": "absol",
+      "nationalDex": 359,
+      "generation": "generation-iii",
+      "genus": "Disaster Pokémon",
+      "types": [
+        "dark"
+      ],
+      "color": "white",
+      "shape": "quadruped",
+      "habitat": "mountain",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "absol",
+          "isDefault": true
+        },
+        {
+          "name": "absol-mega",
+          "isDefault": false
+        },
+        {
+          "name": "absol-mega-z",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "absol"
+      ],
+      "formsSwitchable": true,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/absol",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/359/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hatterene",
+      "slug": "hatterene",
+      "nationalDex": 858,
+      "generation": "generation-viii",
+      "genus": "Silent Pokémon",
+      "types": [
+        "psychic",
+        "fairy"
+      ],
+      "color": "pink",
+      "shape": "blob",
+      "habitat": null,
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "hatterene",
+          "isDefault": true
+        },
+        {
+          "name": "hatterene-gmax",
+          "isDefault": false
+        }
+      ],
+      "defaultForms": [
+        "hatterene"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/hatterene",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/858/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ditto",
+      "slug": "ditto",
+      "nationalDex": 132,
+      "generation": "generation-i",
+      "genus": "Transform Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "purple",
+      "shape": "ball",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "ditto",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "ditto"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/ditto",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/132/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Smeargle",
+      "slug": "smeargle",
+      "nationalDex": 235,
+      "generation": "generation-ii",
+      "genus": "Painter Pokémon",
+      "types": [
+        "normal"
+      ],
+      "color": "white",
+      "shape": "upright",
+      "habitat": "urban",
+      "legendary": false,
+      "mythical": false,
+      "varieties": [
+        {
+          "name": "smeargle",
+          "isDefault": true
+        }
+      ],
+      "defaultForms": [
+        "smeargle"
+      ],
+      "formsSwitchable": false,
+      "sources": [
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon-species/smeargle",
+          "fields": [
+            "nationalDex",
+            "generation",
+            "genus",
+            "color",
+            "shape",
+            "habitat",
+            "legendary",
+            "mythical",
+            "varieties",
+            "formsSwitchable"
+          ]
+        },
+        {
+          "url": "https://pokeapi.co/api/v2/pokemon/235/",
+          "fields": [
+            "types",
+            "defaultForms"
+          ]
+        }
+      ]
+    }
+  ]
+}

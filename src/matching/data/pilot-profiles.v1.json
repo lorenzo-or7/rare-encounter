@@ -1,0 +1,6006 @@
+{
+  "version": "pilot-profiles-0.1-draft",
+  "registryVersion": "registry-0",
+  "note": "Editorial pilot, Draft. Canonical facts only (PokéAPI snapshot); no interpretations, visual readings or trait mappings; no profile is reviewed or approved.",
+  "sources": [
+    {
+      "id": "pokeapi:pokemon-species/bulbasaur",
+      "kind": "game-data",
+      "title": "PokéAPI species record: bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/bulbasaur",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/bulbasaur",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/arcanine",
+      "kind": "game-data",
+      "title": "PokéAPI species record: arcanine",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/arcanine",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/arcanine",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: arcanine",
+      "url": "https://pokeapi.co/api/v2/pokemon/59/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/lapras",
+      "kind": "game-data",
+      "title": "PokéAPI species record: lapras",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/lapras",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/lapras",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: lapras",
+      "url": "https://pokeapi.co/api/v2/pokemon/131/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/snorlax",
+      "kind": "game-data",
+      "title": "PokéAPI species record: snorlax",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/snorlax",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/snorlax",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: snorlax",
+      "url": "https://pokeapi.co/api/v2/pokemon/143/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/dragonite",
+      "kind": "game-data",
+      "title": "PokéAPI species record: dragonite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/dragonite",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/dragonite",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: dragonite",
+      "url": "https://pokeapi.co/api/v2/pokemon/149/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/ampharos",
+      "kind": "game-data",
+      "title": "PokéAPI species record: ampharos",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/ampharos",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/ampharos",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: ampharos",
+      "url": "https://pokeapi.co/api/v2/pokemon/181/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/espeon",
+      "kind": "game-data",
+      "title": "PokéAPI species record: espeon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/espeon",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/espeon",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: espeon",
+      "url": "https://pokeapi.co/api/v2/pokemon/196/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/umbreon",
+      "kind": "game-data",
+      "title": "PokéAPI species record: umbreon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/umbreon",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/umbreon",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: umbreon",
+      "url": "https://pokeapi.co/api/v2/pokemon/197/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/heracross",
+      "kind": "game-data",
+      "title": "PokéAPI species record: heracross",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/heracross",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/heracross",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: heracross",
+      "url": "https://pokeapi.co/api/v2/pokemon/214/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/gardevoir",
+      "kind": "game-data",
+      "title": "PokéAPI species record: gardevoir",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/gardevoir",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/gardevoir",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: gardevoir",
+      "url": "https://pokeapi.co/api/v2/pokemon/282/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/flygon",
+      "kind": "game-data",
+      "title": "PokéAPI species record: flygon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/flygon",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/flygon",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: flygon",
+      "url": "https://pokeapi.co/api/v2/pokemon/330/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/milotic",
+      "kind": "game-data",
+      "title": "PokéAPI species record: milotic",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/milotic",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/milotic",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: milotic",
+      "url": "https://pokeapi.co/api/v2/pokemon/350/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/torkoal",
+      "kind": "game-data",
+      "title": "PokéAPI species record: torkoal",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/torkoal",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/torkoal",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: torkoal",
+      "url": "https://pokeapi.co/api/v2/pokemon/324/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/altaria",
+      "kind": "game-data",
+      "title": "PokéAPI species record: altaria",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/altaria",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/altaria",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: altaria",
+      "url": "https://pokeapi.co/api/v2/pokemon/334/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/lucario",
+      "kind": "game-data",
+      "title": "PokéAPI species record: lucario",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/lucario",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/lucario",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: lucario",
+      "url": "https://pokeapi.co/api/v2/pokemon/448/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/froslass",
+      "kind": "game-data",
+      "title": "PokéAPI species record: froslass",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/froslass",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/froslass",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: froslass",
+      "url": "https://pokeapi.co/api/v2/pokemon/478/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/roserade",
+      "kind": "game-data",
+      "title": "PokéAPI species record: roserade",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/roserade",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/roserade",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: roserade",
+      "url": "https://pokeapi.co/api/v2/pokemon/407/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/gastrodon",
+      "kind": "game-data",
+      "title": "PokéAPI species record: gastrodon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/gastrodon",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/gastrodon",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: gastrodon",
+      "url": "https://pokeapi.co/api/v2/pokemon/423/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/chandelure",
+      "kind": "game-data",
+      "title": "PokéAPI species record: chandelure",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/chandelure",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/chandelure",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: chandelure",
+      "url": "https://pokeapi.co/api/v2/pokemon/609/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/galvantula",
+      "kind": "game-data",
+      "title": "PokéAPI species record: galvantula",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/galvantula",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/galvantula",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: galvantula",
+      "url": "https://pokeapi.co/api/v2/pokemon/596/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/whimsicott",
+      "kind": "game-data",
+      "title": "PokéAPI species record: whimsicott",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/whimsicott",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/whimsicott",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: whimsicott",
+      "url": "https://pokeapi.co/api/v2/pokemon/547/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/krookodile",
+      "kind": "game-data",
+      "title": "PokéAPI species record: krookodile",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/krookodile",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/krookodile",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: krookodile",
+      "url": "https://pokeapi.co/api/v2/pokemon/553/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/volcarona",
+      "kind": "game-data",
+      "title": "PokéAPI species record: volcarona",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/volcarona",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/volcarona",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: volcarona",
+      "url": "https://pokeapi.co/api/v2/pokemon/637/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/aegislash",
+      "kind": "game-data",
+      "title": "PokéAPI species record: aegislash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/aegislash",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/aegislash-shield",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: aegislash",
+      "url": "https://pokeapi.co/api/v2/pokemon/681/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/sylveon",
+      "kind": "game-data",
+      "title": "PokéAPI species record: sylveon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/sylveon",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/sylveon",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: sylveon",
+      "url": "https://pokeapi.co/api/v2/pokemon/700/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/noivern",
+      "kind": "game-data",
+      "title": "PokéAPI species record: noivern",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/noivern",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/noivern",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: noivern",
+      "url": "https://pokeapi.co/api/v2/pokemon/715/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/goodra",
+      "kind": "game-data",
+      "title": "PokéAPI species record: goodra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/goodra",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/goodra",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: goodra",
+      "url": "https://pokeapi.co/api/v2/pokemon/706/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/rowlet",
+      "kind": "game-data",
+      "title": "PokéAPI species record: rowlet",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/rowlet",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/rowlet",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: rowlet",
+      "url": "https://pokeapi.co/api/v2/pokemon/722/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/lycanroc",
+      "kind": "game-data",
+      "title": "PokéAPI species record: lycanroc",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/lycanroc",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/lycanroc-midday",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: lycanroc",
+      "url": "https://pokeapi.co/api/v2/pokemon/745/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/toxapex",
+      "kind": "game-data",
+      "title": "PokéAPI species record: toxapex",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/toxapex",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/toxapex",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: toxapex",
+      "url": "https://pokeapi.co/api/v2/pokemon/748/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/komala",
+      "kind": "game-data",
+      "title": "PokéAPI species record: komala",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/komala",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/komala",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: komala",
+      "url": "https://pokeapi.co/api/v2/pokemon/775/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/corviknight",
+      "kind": "game-data",
+      "title": "PokéAPI species record: corviknight",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/corviknight",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/corviknight",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: corviknight",
+      "url": "https://pokeapi.co/api/v2/pokemon/823/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/dragapult",
+      "kind": "game-data",
+      "title": "PokéAPI species record: dragapult",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/dragapult",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/dragapult",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: dragapult",
+      "url": "https://pokeapi.co/api/v2/pokemon/887/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/snom",
+      "kind": "game-data",
+      "title": "PokéAPI species record: snom",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/snom",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/snom",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: snom",
+      "url": "https://pokeapi.co/api/v2/pokemon/872/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/appletun",
+      "kind": "game-data",
+      "title": "PokéAPI species record: appletun",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/appletun",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/appletun",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: appletun",
+      "url": "https://pokeapi.co/api/v2/pokemon/842/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/toxtricity",
+      "kind": "game-data",
+      "title": "PokéAPI species record: toxtricity",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/toxtricity",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/toxtricity-amped",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: toxtricity",
+      "url": "https://pokeapi.co/api/v2/pokemon/849/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/tinkaton",
+      "kind": "game-data",
+      "title": "PokéAPI species record: tinkaton",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/tinkaton",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/tinkaton",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: tinkaton",
+      "url": "https://pokeapi.co/api/v2/pokemon/959/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/clodsire",
+      "kind": "game-data",
+      "title": "PokéAPI species record: clodsire",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/clodsire",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/clodsire",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: clodsire",
+      "url": "https://pokeapi.co/api/v2/pokemon/980/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/ceruledge",
+      "kind": "game-data",
+      "title": "PokéAPI species record: ceruledge",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/ceruledge",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/ceruledge",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: ceruledge",
+      "url": "https://pokeapi.co/api/v2/pokemon/937/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/farigiraf",
+      "kind": "game-data",
+      "title": "PokéAPI species record: farigiraf",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/farigiraf",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/farigiraf",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: farigiraf",
+      "url": "https://pokeapi.co/api/v2/pokemon/981/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/plusle",
+      "kind": "game-data",
+      "title": "PokéAPI species record: plusle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/plusle",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/plusle",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: plusle",
+      "url": "https://pokeapi.co/api/v2/pokemon/311/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/minun",
+      "kind": "game-data",
+      "title": "PokéAPI species record: minun",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/minun",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/minun",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: minun",
+      "url": "https://pokeapi.co/api/v2/pokemon/312/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/solrock",
+      "kind": "game-data",
+      "title": "PokéAPI species record: solrock",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/solrock",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/solrock",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: solrock",
+      "url": "https://pokeapi.co/api/v2/pokemon/338/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/lunatone",
+      "kind": "game-data",
+      "title": "PokéAPI species record: lunatone",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/lunatone",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/lunatone",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: lunatone",
+      "url": "https://pokeapi.co/api/v2/pokemon/337/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/zangoose",
+      "kind": "game-data",
+      "title": "PokéAPI species record: zangoose",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/zangoose",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/zangoose",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: zangoose",
+      "url": "https://pokeapi.co/api/v2/pokemon/335/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/seviper",
+      "kind": "game-data",
+      "title": "PokéAPI species record: seviper",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/seviper",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/seviper",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: seviper",
+      "url": "https://pokeapi.co/api/v2/pokemon/336/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/vulpix",
+      "kind": "game-data",
+      "title": "PokéAPI species record: vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/vulpix",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/vulpix",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon/37/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/rotom",
+      "kind": "game-data",
+      "title": "PokéAPI species record: rotom",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/rotom",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/rotom",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: rotom",
+      "url": "https://pokeapi.co/api/v2/pokemon/479/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/meowth",
+      "kind": "game-data",
+      "title": "PokéAPI species record: meowth",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/meowth",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/meowth",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: meowth",
+      "url": "https://pokeapi.co/api/v2/pokemon/52/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/zygarde",
+      "kind": "game-data",
+      "title": "PokéAPI species record: zygarde",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/zygarde",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/zygarde-50",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: zygarde",
+      "url": "https://pokeapi.co/api/v2/pokemon/718/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/unown",
+      "kind": "game-data",
+      "title": "PokéAPI species record: unown",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/unown",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/unown",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: unown",
+      "url": "https://pokeapi.co/api/v2/pokemon/201/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/sigilyph",
+      "kind": "game-data",
+      "title": "PokéAPI species record: sigilyph",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/sigilyph",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/sigilyph",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: sigilyph",
+      "url": "https://pokeapi.co/api/v2/pokemon/561/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/elgyem",
+      "kind": "game-data",
+      "title": "PokéAPI species record: elgyem",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/elgyem",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/elgyem",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: elgyem",
+      "url": "https://pokeapi.co/api/v2/pokemon/605/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/dhelmise",
+      "kind": "game-data",
+      "title": "PokéAPI species record: dhelmise",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/dhelmise",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/dhelmise",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: dhelmise",
+      "url": "https://pokeapi.co/api/v2/pokemon/781/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/darkrai",
+      "kind": "game-data",
+      "title": "PokéAPI species record: darkrai",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/darkrai",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/darkrai",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: darkrai",
+      "url": "https://pokeapi.co/api/v2/pokemon/491/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/mimikyu",
+      "kind": "game-data",
+      "title": "PokéAPI species record: mimikyu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/mimikyu",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/mimikyu-disguised",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: mimikyu",
+      "url": "https://pokeapi.co/api/v2/pokemon/778/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/absol",
+      "kind": "game-data",
+      "title": "PokéAPI species record: absol",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/absol",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/absol",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: absol",
+      "url": "https://pokeapi.co/api/v2/pokemon/359/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/hatterene",
+      "kind": "game-data",
+      "title": "PokéAPI species record: hatterene",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/hatterene",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/hatterene",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: hatterene",
+      "url": "https://pokeapi.co/api/v2/pokemon/858/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/ditto",
+      "kind": "game-data",
+      "title": "PokéAPI species record: ditto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/ditto",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/ditto",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: ditto",
+      "url": "https://pokeapi.co/api/v2/pokemon/132/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon-species/smeargle",
+      "kind": "game-data",
+      "title": "PokéAPI species record: smeargle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/smeargle",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    },
+    {
+      "id": "pokeapi:pokemon/smeargle",
+      "kind": "game-data",
+      "title": "PokéAPI default form record: smeargle",
+      "url": "https://pokeapi.co/api/v2/pokemon/235/",
+      "retrievedAt": "2026-10-29T01:17:47.766Z"
+    }
+  ],
+  "profiles": [
+    {
+      "speciesId": "bulbasaur",
+      "nationalDex": 1,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "bulbasaur.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 1.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Grass / Poison.",
+          "sourceIds": [
+            "pokeapi:pokemon/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Seed Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "bulbasaur.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/bulbasaur"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "arcanine",
+      "nationalDex": 59,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "arcanine.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 59.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fire.",
+          "sourceIds": [
+            "pokeapi:pokemon/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Legendary Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "arcanine.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/arcanine"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "arcanine-hisui",
+          "kind": "regional",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "lapras",
+      "nationalDex": 131,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "lapras.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 131.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Water / Ice.",
+          "sourceIds": [
+            "pokeapi:pokemon/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Transport Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: fish.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lapras.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: sea.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lapras"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "lapras-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "snorlax",
+      "nationalDex": 143,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "snorlax.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 143.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sleeping Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snorlax.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: mountain.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snorlax"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "snorlax-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "dragonite",
+      "nationalDex": 149,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "dragonite.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 149.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dragon / Flying.",
+          "sourceIds": [
+            "pokeapi:pokemon/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Dragon Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragonite.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: waters-edge.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragonite"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "dragonite-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "ampharos",
+      "nationalDex": 181,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "ampharos.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 181.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Electric.",
+          "sourceIds": [
+            "pokeapi:pokemon/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Light Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ampharos.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ampharos"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "ampharos-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "espeon",
+      "nationalDex": 196,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "espeon.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 196.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sun Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "espeon.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/espeon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "umbreon",
+      "nationalDex": 197,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "umbreon.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 197.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dark.",
+          "sourceIds": [
+            "pokeapi:pokemon/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Moonlight Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "umbreon.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/umbreon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "heracross",
+      "nationalDex": 214,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "heracross.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 214.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Bug / Fighting.",
+          "sourceIds": [
+            "pokeapi:pokemon/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Single Horn Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "heracross.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: forest.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/heracross"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "heracross-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "gardevoir",
+      "nationalDex": 282,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "gardevoir.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 282.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic / Fairy.",
+          "sourceIds": [
+            "pokeapi:pokemon/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Embrace Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gardevoir.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gardevoir"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "gardevoir-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "flygon",
+      "nationalDex": 330,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "flygon.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 330.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ground / Dragon.",
+          "sourceIds": [
+            "pokeapi:pokemon/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Mystic Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "flygon.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: rough-terrain.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/flygon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "milotic",
+      "nationalDex": 350,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "milotic.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 350.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Water.",
+          "sourceIds": [
+            "pokeapi:pokemon/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Tender Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: pink.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "milotic.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: waters-edge.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/milotic"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "torkoal",
+      "nationalDex": 324,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "torkoal.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 324.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fire.",
+          "sourceIds": [
+            "pokeapi:pokemon/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Coal Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "torkoal.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: mountain.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/torkoal"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "altaria",
+      "nationalDex": 334,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "altaria.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 334.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dragon / Flying.",
+          "sourceIds": [
+            "pokeapi:pokemon/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Humming Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "altaria.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: forest.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/altaria"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "altaria-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "lucario",
+      "nationalDex": 448,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "lucario.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 448.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lucario.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lucario.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fighting / Steel.",
+          "sourceIds": [
+            "pokeapi:pokemon/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lucario.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Aura Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lucario.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lucario.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lucario"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "lucario-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        },
+        {
+          "formId": "lucario-mega-z",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "froslass",
+      "nationalDex": 478,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "froslass.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 478.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "froslass.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "froslass.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ice / Ghost.",
+          "sourceIds": [
+            "pokeapi:pokemon/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "froslass.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Snow Land Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "froslass.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "froslass.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: arms.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/froslass"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "froslass-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "roserade",
+      "nationalDex": 407,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "roserade.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 407.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "roserade.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "roserade.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Grass / Poison.",
+          "sourceIds": [
+            "pokeapi:pokemon/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "roserade.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Bouquet Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "roserade.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "roserade.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/roserade"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "gastrodon",
+      "nationalDex": 423,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "gastrodon.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 423.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gastrodon.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gastrodon.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Water / Ground.",
+          "sourceIds": [
+            "pokeapi:pokemon/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gastrodon.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sea Slug Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gastrodon.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "gastrodon.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/gastrodon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "gastrodon-east",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "chandelure",
+      "nationalDex": 609,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "chandelure.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 609.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "chandelure.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "chandelure.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ghost / Fire.",
+          "sourceIds": [
+            "pokeapi:pokemon/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "chandelure.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Luring Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "chandelure.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "chandelure.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: arms.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/chandelure"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "chandelure-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "galvantula",
+      "nationalDex": 596,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "galvantula.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 596.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "galvantula.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "galvantula.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Bug / Electric.",
+          "sourceIds": [
+            "pokeapi:pokemon/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "galvantula.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: EleSpider Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "galvantula.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "galvantula.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: armor.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/galvantula"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "whimsicott",
+      "nationalDex": 547,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "whimsicott.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 547.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "whimsicott.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "whimsicott.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Grass / Fairy.",
+          "sourceIds": [
+            "pokeapi:pokemon/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "whimsicott.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Windveiled Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "whimsicott.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "whimsicott.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/whimsicott"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "krookodile",
+      "nationalDex": 553,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "krookodile.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 553.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "krookodile.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "krookodile.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ground / Dark.",
+          "sourceIds": [
+            "pokeapi:pokemon/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "krookodile.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Intimidation Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "krookodile.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: red.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "krookodile.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/krookodile"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "volcarona",
+      "nationalDex": 637,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "volcarona.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 637.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "volcarona.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "volcarona.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Bug / Fire.",
+          "sourceIds": [
+            "pokeapi:pokemon/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "volcarona.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sun Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "volcarona.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "volcarona.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: bug-wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/volcarona"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "aegislash",
+      "nationalDex": 681,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "aegislash.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 681.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/aegislash"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "aegislash.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VI.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/aegislash"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "aegislash.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Steel / Ghost.",
+          "sourceIds": [
+            "pokeapi:pokemon/aegislash-shield"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "aegislash.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Royal Sword Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/aegislash"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "aegislash.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/aegislash"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "aegislash.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: blob.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/aegislash"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "aegislash-blade",
+          "kind": "other",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "sylveon",
+      "nationalDex": 700,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "sylveon.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 700.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sylveon.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VI.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sylveon.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fairy.",
+          "sourceIds": [
+            "pokeapi:pokemon/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sylveon.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Intertwining Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sylveon.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: pink.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sylveon.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sylveon"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "noivern",
+      "nationalDex": 715,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "noivern.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 715.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "noivern.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VI.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "noivern.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Flying / Dragon.",
+          "sourceIds": [
+            "pokeapi:pokemon/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "noivern.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sound Wave Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "noivern.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "noivern.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/noivern"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "goodra",
+      "nationalDex": 706,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "goodra.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 706.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "goodra.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VI.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "goodra.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dragon.",
+          "sourceIds": [
+            "pokeapi:pokemon/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "goodra.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Dragon Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "goodra.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "goodra.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/goodra"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "goodra-hisui",
+          "kind": "regional",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "rowlet",
+      "nationalDex": 722,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "rowlet.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 722.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rowlet.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rowlet.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Grass / Flying.",
+          "sourceIds": [
+            "pokeapi:pokemon/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rowlet.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Grass Quill Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rowlet.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rowlet.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rowlet"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "lycanroc",
+      "nationalDex": 745,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "lycanroc.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 745.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lycanroc"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lycanroc.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lycanroc"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lycanroc.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Rock.",
+          "sourceIds": [
+            "pokeapi:pokemon/lycanroc-midday"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lycanroc.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Wolf Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lycanroc"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lycanroc.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lycanroc"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lycanroc.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lycanroc"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "lycanroc-midnight",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "lycanroc-dusk",
+          "kind": "other",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "toxapex",
+      "nationalDex": 748,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "toxapex.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 748.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxapex.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxapex.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Poison / Water.",
+          "sourceIds": [
+            "pokeapi:pokemon/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxapex.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Brutal Star Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxapex.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxapex.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: tentacles.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxapex"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "komala",
+      "nationalDex": 775,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "komala.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 775.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "komala.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "komala.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "komala.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Drowsing Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "komala.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "komala.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/komala"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "corviknight",
+      "nationalDex": 823,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "corviknight.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 823.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "corviknight.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "corviknight.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Flying / Steel.",
+          "sourceIds": [
+            "pokeapi:pokemon/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "corviknight.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Raven Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "corviknight.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "corviknight.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/corviknight"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "corviknight-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "dragapult",
+      "nationalDex": 887,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "dragapult.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 887.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragapult.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragapult.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dragon / Ghost.",
+          "sourceIds": [
+            "pokeapi:pokemon/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragapult.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Stealth Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragapult.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dragapult.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dragapult"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "snom",
+      "nationalDex": 872,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "snom.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 872.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snom.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snom.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ice / Bug.",
+          "sourceIds": [
+            "pokeapi:pokemon/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snom.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Worm Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snom.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "snom.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/snom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "appletun",
+      "nationalDex": 842,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "appletun.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 842.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "appletun.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "appletun.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Grass / Dragon.",
+          "sourceIds": [
+            "pokeapi:pokemon/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "appletun.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Apple Nectar Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "appletun.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "appletun.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/appletun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "appletun-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "toxtricity",
+      "nationalDex": 849,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "toxtricity.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 849.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxtricity"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxtricity.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxtricity"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxtricity.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Electric / Poison.",
+          "sourceIds": [
+            "pokeapi:pokemon/toxtricity-amped"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxtricity.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Punk Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxtricity"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxtricity.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxtricity"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "toxtricity.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/toxtricity"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "toxtricity-low-key",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "toxtricity-amped-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        },
+        {
+          "formId": "toxtricity-low-key-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "tinkaton",
+      "nationalDex": 959,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "tinkaton.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 959.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "tinkaton.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IX.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "tinkaton.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fairy / Steel.",
+          "sourceIds": [
+            "pokeapi:pokemon/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "tinkaton.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Hammer Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "tinkaton.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: pink.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "tinkaton.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/tinkaton"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "clodsire",
+      "nationalDex": 980,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "clodsire.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 980.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "clodsire.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IX.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "clodsire.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Poison / Ground.",
+          "sourceIds": [
+            "pokeapi:pokemon/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "clodsire.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Spiny Fish Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "clodsire.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "clodsire.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/clodsire"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "ceruledge",
+      "nationalDex": 937,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "ceruledge.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 937.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ceruledge.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IX.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ceruledge.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fire / Ghost.",
+          "sourceIds": [
+            "pokeapi:pokemon/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ceruledge.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Fire Blades Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ceruledge.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ceruledge.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ceruledge"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "farigiraf",
+      "nationalDex": 981,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "farigiraf.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 981.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "farigiraf.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IX.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "farigiraf.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal / Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "farigiraf.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Long Neck Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "farigiraf.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "farigiraf.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/farigiraf"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "plusle",
+      "nationalDex": 311,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "plusle.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 311.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Electric.",
+          "sourceIds": [
+            "pokeapi:pokemon/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Cheering Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "plusle.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/plusle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "minun",
+      "nationalDex": 312,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "minun.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 312.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Electric.",
+          "sourceIds": [
+            "pokeapi:pokemon/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Cheering Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "minun.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/minun"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "solrock",
+      "nationalDex": 338,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "solrock.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 338.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Rock / Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Meteorite Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: red.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: ball.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "solrock.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: cave.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/solrock"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "lunatone",
+      "nationalDex": 337,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "lunatone.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 337.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Rock / Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Meteorite Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: ball.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "lunatone.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: cave.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/lunatone"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "zangoose",
+      "nationalDex": 335,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "zangoose.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 335.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Cat Ferret Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zangoose.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zangoose"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "seviper",
+      "nationalDex": 336,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "seviper.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 336.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Poison.",
+          "sourceIds": [
+            "pokeapi:pokemon/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Fang Snake Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "seviper.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/seviper"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "vulpix",
+      "nationalDex": 37,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "vulpix.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 37.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Fire.",
+          "sourceIds": [
+            "pokeapi:pokemon/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Fox Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: brown.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "vulpix.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: grassland.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/vulpix"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "vulpix-alola",
+          "kind": "regional",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "rotom",
+      "nationalDex": 479,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "rotom.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 479.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rotom.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rotom.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Electric / Ghost.",
+          "sourceIds": [
+            "pokeapi:pokemon/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rotom.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Plasma Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rotom.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: red.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "rotom.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: ball.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/rotom"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "rotom-heat",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "rotom-wash",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "rotom-frost",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "rotom-fan",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "rotom-mow",
+          "kind": "other",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "meowth",
+      "nationalDex": 52,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "meowth.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 52.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Scratch Cat Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "meowth.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/meowth"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "meowth-alola",
+          "kind": "regional",
+          "evidenceIds": []
+        },
+        {
+          "formId": "meowth-galar",
+          "kind": "regional",
+          "evidenceIds": []
+        },
+        {
+          "formId": "meowth-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "zygarde",
+      "nationalDex": 718,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "zygarde.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 718.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VI.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dragon / Ground.",
+          "sourceIds": [
+            "pokeapi:pokemon/zygarde-50"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Order Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "zygarde.legendary",
+          "kind": "canonical-fact",
+          "statement": "Classified as a Legendary Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/zygarde"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "zygarde-10-power-construct",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "zygarde-50-power-construct",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "zygarde-complete",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "zygarde-10",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "zygarde-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "unown",
+      "nationalDex": 201,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "unown.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 201.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Symbol Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: ball.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "unown.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: rare.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/unown"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "unown-b",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-c",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-d",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-e",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-f",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-g",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-h",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-i",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-j",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-k",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-l",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-m",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-n",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-o",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-p",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-q",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-r",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-s",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-t",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-u",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-v",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-w",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-x",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-y",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-z",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-exclamation",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        },
+        {
+          "formId": "unown-question",
+          "kind": "cosmetic",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "sigilyph",
+      "nationalDex": 561,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "sigilyph.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 561.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sigilyph.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sigilyph.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic / Flying.",
+          "sourceIds": [
+            "pokeapi:pokemon/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sigilyph.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Avianoid Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sigilyph.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "sigilyph.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: wings.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/sigilyph"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "elgyem",
+      "nationalDex": 605,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "elgyem.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 605.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "elgyem.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation V.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "elgyem.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic.",
+          "sourceIds": [
+            "pokeapi:pokemon/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "elgyem.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Cerebral Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "elgyem.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: blue.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "elgyem.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/elgyem"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "dhelmise",
+      "nationalDex": 781,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "dhelmise.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 781.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dhelmise.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dhelmise.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ghost / Grass.",
+          "sourceIds": [
+            "pokeapi:pokemon/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dhelmise.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Sea Creeper Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dhelmise.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: green.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "dhelmise.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: blob.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/dhelmise"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "darkrai",
+      "nationalDex": 491,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "darkrai.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 491.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation IV.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dark.",
+          "sourceIds": [
+            "pokeapi:pokemon/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Pitch-Black Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: black.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: humanoid.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "darkrai.mythical",
+          "kind": "canonical-fact",
+          "statement": "Classified as a Mythical Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/darkrai"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "darkrai-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "mimikyu",
+      "nationalDex": 778,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "mimikyu.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 778.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/mimikyu"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "mimikyu.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/mimikyu"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "mimikyu.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Ghost / Fairy.",
+          "sourceIds": [
+            "pokeapi:pokemon/mimikyu-disguised"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "mimikyu.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Disguise Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/mimikyu"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "mimikyu.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: yellow.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/mimikyu"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "mimikyu.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: squiggle.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/mimikyu"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "mimikyu-busted",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "mimikyu-totem-disguised",
+          "kind": "other",
+          "evidenceIds": []
+        },
+        {
+          "formId": "mimikyu-totem-busted",
+          "kind": "other",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "absol",
+      "nationalDex": 359,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "absol.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 359.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation III.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Dark.",
+          "sourceIds": [
+            "pokeapi:pokemon/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Disaster Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: quadruped.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "absol.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: mountain.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/absol"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "absol-mega",
+          "kind": "mega",
+          "evidenceIds": []
+        },
+        {
+          "formId": "absol-mega-z",
+          "kind": "mega",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "hatterene",
+      "nationalDex": 858,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "hatterene.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 858.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "hatterene.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation VIII.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "hatterene.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Psychic / Fairy.",
+          "sourceIds": [
+            "pokeapi:pokemon/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "hatterene.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Silent Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "hatterene.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: pink.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "hatterene.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: blob.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/hatterene"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [
+        {
+          "formId": "hatterene-gmax",
+          "kind": "gigantamax",
+          "evidenceIds": []
+        }
+      ],
+      "review": null
+    },
+    {
+      "speciesId": "ditto",
+      "nationalDex": 132,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "ditto.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 132.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation I.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Transform Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: purple.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: ball.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "ditto.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/ditto"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    },
+    {
+      "speciesId": "smeargle",
+      "nationalDex": 235,
+      "profileVersion": "profile-0.1-draft",
+      "editorialState": "draft",
+      "evidence": [
+        {
+          "id": "smeargle.dex",
+          "kind": "canonical-fact",
+          "statement": "National Pokédex number 235.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.generation",
+          "kind": "canonical-fact",
+          "statement": "Introduced in Generation II.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.types",
+          "kind": "canonical-fact",
+          "statement": "Type of the default form: Normal.",
+          "sourceIds": [
+            "pokeapi:pokemon/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.genus",
+          "kind": "canonical-fact",
+          "statement": "Genus: Painter Pokémon.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.color",
+          "kind": "canonical-fact",
+          "statement": "Pokédex colour category: white.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.shape",
+          "kind": "canonical-fact",
+          "statement": "Pokédex body shape category: upright.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        },
+        {
+          "id": "smeargle.habitat",
+          "kind": "canonical-fact",
+          "statement": "Pokédex habitat category: urban.",
+          "sourceIds": [
+            "pokeapi:pokemon-species/smeargle"
+          ],
+          "scope": "species",
+          "basedOn": []
+        }
+      ],
+      "traitMappings": [],
+      "evidenceBoundaries": [
+        "Game classification data (type, colour, shape, habitat, genus) describes the species, not a temperament: no personality trait may be inferred from it.",
+        "No editorial reading has been sourced or reviewed yet; nothing about behaviour, values or personality may be stated for this species."
+      ],
+      "forms": [],
+      "review": null
+    }
+  ]
+}
