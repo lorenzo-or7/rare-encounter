@@ -1,15 +1,15 @@
-import type { AnswerId, QuestionId } from '../../domain/questions';
-import { walkJourney } from '../audit/journey';
+import type { AnswerId, QuestionId } from '../domain/questions';
+import { walkJourney } from './audit/journey';
 import {
   FIXTURE_PROFILES,
   FIXTURE_REGISTRY,
   FIXTURE_SOURCE,
   fixtureProfile,
-} from '../fixtures/synthetic';
-import pilotJson from '../data/pilot-profiles.v1.json';
-import { loadProfileDataset } from '../dataset';
-import { EMPTY_REGISTRY } from '../registry';
-import type { VersionStamp } from '../versions';
+} from './fixtures/synthetic';
+import pilotJson from './data/pilot-profiles.v1.json';
+import { loadProfileDataset } from './dataset';
+import { EMPTY_REGISTRY } from './registry';
+import type { VersionStamp } from './versions';
 import {
   answerFingerprint,
   rank,
@@ -42,9 +42,16 @@ const engine = (answered: readonly AnsweredQuestion[], profiles = FIXTURE_PROFIL
   });
 
 describe('experimental engine: components', () => {
-  it('reads person signals as mean signed effects per trait', () => {
+  it('reads answers as leanings against the alternatives offered', () => {
     const signals = personSignals(always('a'), FIXTURE_REGISTRY);
-    expect(signals.every((s) => s.traitId.endsWith('fixture-a') && s.value > 0)).toBe(true);
+    // "a" raises trait a every time: a clear lean toward it.
+    for (const s of signals.filter((x) => x.traitId.endsWith('fixture-a'))) expect(s.value).toBeGreaterThan(0.7);
+    // Trait b sat in options never picked, one raising it and one lowering it: no lean.
+    for (const s of signals.filter((x) => x.traitId.endsWith('fixture-b'))) expect(Math.abs(s.value)).toBeLessThan(1e-9);
+    // Always picking "b" (which lowers trait a) is a lean away from it.
+    for (const s of personSignals(always('b'), FIXTURE_REGISTRY).filter((x) => x.traitId.endsWith('fixture-a'))) {
+      expect(s.value).toBeLessThan(-0.7);
+    }
   });
 
   it('missing evidence is unknown, not incompatible: it lowers coverage, never affinity', () => {

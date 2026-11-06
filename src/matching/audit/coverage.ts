@@ -8,8 +8,8 @@ import {
   type AnsweredQuestion,
   type EngineOutput,
   type TieBreakReason,
-} from '../experimental/engine';
-import type { EngineParams } from '../experimental/params';
+} from '../engine';
+import type { EngineParams } from '../params';
 import type { SpeciesProfile } from '../profile';
 import type { TraitRegistry } from '../registry';
 import { sameVersions, type VersionStamp } from '../versions';

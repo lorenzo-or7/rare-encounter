@@ -2,7 +2,7 @@ import type { ModeId } from '../../domain/modes';
 import type { QuestionSource } from '../../domain/question-source';
 import type { AnswerId, Question, QuestionId } from '../../domain/questions';
 import type { AnswerRecord, QuizSession } from '../../domain/session';
-import type { AnsweredQuestion } from '../experimental/engine';
+import type { AnsweredQuestion } from '../engine';
 
 /** Deterministic PRNG (mulberry32): the same seed always replays the same journey. */
 export function seededRandom(seed: number): () => number {

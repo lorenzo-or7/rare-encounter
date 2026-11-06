@@ -76,7 +76,7 @@ export function createSession(
     updatedAt: now,
     catalogVersion: source.catalogVersion,
     bankVersion: source.bankVersion,
-    questionIds: source.start(mode),
+    questionIds: source.start(mode, id),
     answers: {},
     cursor: 0,
     revision: 0,

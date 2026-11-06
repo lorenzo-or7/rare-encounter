@@ -15,7 +15,22 @@ export const fullShot = async (page: Page, name: string) => {
   await page.screenshot({ path: shot(name), fullPage: true });
 };
 
+/**
+ * The question bank picks each session's questions from its id, so tests fix the id to get
+ * a known journey on the real bank: for 30 questions, `e2e-session-391` opens with text
+ * (pe-028), icon + text second (ae-041) and images fourth (en-002, a fundamental question
+ * the adaptive picks never move).
+ */
+export const E2E_SESSION_ID = 'e2e-session-391';
+
+export async function fixSessionId(page: Page, id = E2E_SESSION_ID) {
+  await page.addInitScript((value) => {
+    crypto.randomUUID = () => value as `${string}-${string}-${string}-${string}-${string}`;
+  }, id);
+}
+
 export async function startQuiz(page: Page, depth = 0) {
+  await fixSessionId(page);
   await page.goto('/encounter');
   await page.locator('.mode-option').nth(depth).click();
   await page.getByRole('button', { name: 'Confirm depth' }).click();

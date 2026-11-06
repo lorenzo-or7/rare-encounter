@@ -7,8 +7,10 @@ import type { ModeId } from '../../domain/modes';
 import type { QuizSession } from '../../domain/session';
 import { PreparationScreen } from '../../features/preparation/PreparationScreen';
 import { answeredCount, createSession, totalQuestions } from '../../features/quiz/flow';
-import { PREVIEW_SOURCE } from '../../features/quiz/preview/preview-bank';
 import { QuizScreen } from '../../features/quiz/QuizScreen';
+import { ResultsPhase } from '../../features/results/ResultsPhase';
+import { BANK_SOURCE } from '../../content/questions/bank';
+import type { EncounterResult } from '../../domain/results';
 import { useEncounterStore } from '../../features/quiz/useEncounterStore';
 import { markSession } from '../../features/quiz/useQuiz';
 import { loadStoredState, type RecoveryReason } from '../../features/resume/resume';
@@ -17,8 +19,8 @@ import { encounterStoreExists, type EncounterStore } from '../../storage/encount
 import { clearSessionMarker, readSessionMarker } from '../../storage/session-marker';
 import { MODE_NAMES } from '../../features/preparation/mode-names';
 
-/** Until the Phase 04 bank exists, every session runs on the labelled preview questions. */
-const SOURCE = PREVIEW_SOURCE;
+/** Every new session runs on the question bank (v1 candidate). */
+const SOURCE = BANK_SOURCE;
 
 type View =
   | { readonly kind: 'loading' }
@@ -30,7 +32,15 @@ type View =
       readonly reason: RecoveryReason;
       readonly sessionId: string | null;
     }
-  | { readonly kind: 'quiz'; readonly store: EncounterStore; readonly session: QuizSession };
+  | { readonly kind: 'quiz'; readonly store: EncounterStore; readonly session: QuizSession }
+  | {
+      readonly kind: 'result';
+      readonly store: EncounterStore;
+      /** Just finished: compute and store the result. */
+      readonly session: QuizSession | null;
+      /** Already stored: show it as is. */
+      readonly stored: EncounterResult | null;
+    };
 
 /**
  * The encounter at `/encounter`. On arrival it reads what this browser holds:
@@ -59,6 +69,16 @@ export default function EncounterPage() {
         );
       } else if (state.kind === 'recovery' && store) {
         setView({ kind: 'recovery', store, reason: state.reason, sessionId: state.sessionId });
+      } else if (state.kind === 'none' && store && intent === 'result') {
+        // Reload (or Back) onto the results: show the stored result, never recompute it.
+        void store.getLatestResult().then((latest) => {
+          if (!active) return;
+          if (latest && latest.status !== 'needs-restart' && latest.value.bankVersion === SOURCE.bankVersion) {
+            setView({ kind: 'result', store, session: null, stored: latest.value });
+          } else {
+            setView({ kind: 'prepare', unreachable: false });
+          }
+        });
       } else {
         // Nothing stored: a leftover pointer is only a pointer, so it can go.
         if (state.kind === 'none') clearSessionMarker();
@@ -106,8 +126,34 @@ export default function EncounterPage() {
             window.history.replaceState(null, '');
             setView({ kind: 'prepare', unreachable: false });
           }}
+          onComplete={(finished) => {
+            // The results take over this history entry, so a reload shows them again.
+            window.history.replaceState({ encounter: 'result' }, '');
+            setView({ kind: 'result', store: view.store, session: finished, stored: null });
+          }}
         />
       </motion.div>
+    );
+  }
+
+  if (view.kind === 'result') {
+    return (
+      <SiteLayout sections={[]} brandHref="/">
+        <ResultsPhase
+          store={view.store}
+          source={SOURCE}
+          session={view.session}
+          stored={view.stored}
+          onNewEncounter={() => {
+            window.history.replaceState(null, '');
+            window.scrollTo({ top: 0 });
+            setView({ kind: 'prepare', unreachable: false });
+          }}
+          onHome={() => {
+            navigate('/');
+          }}
+        />
+      </SiteLayout>
     );
   }
 

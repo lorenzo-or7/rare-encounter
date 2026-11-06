@@ -1,0 +1,186 @@
+import { q, type QuestionDef } from './define';
+
+/** Instinct: 30 questions (21 fundamental, 9 adaptive). Candidate content, v1. */
+export const INSTINCT: readonly QuestionDef[] = [
+  q('in-001', 'f', ['Você ouve um som no escuro. Você…', 'You hear a sound in the dark. You…', 'Oyes un ruido en la oscuridad. Tú…'], [
+    ['vigilant', 'Fica imóvel, ouvindo com atenção', 'Freeze and listen closely', 'Te quedas inmóvil, escuchando con atención'],
+    ['fierce', 'Vai na direção dele', 'Walk toward it', 'Vas hacia él'],
+    ['elusive', 'Se afasta em silêncio', 'Quietly move away', 'Te alejas en silencio'],
+    ['intuitive', 'Sente se é perigo antes de pensar', 'Sense whether it’s danger before thinking', 'Sientes si es peligro antes de pensar'],
+  ]),
+  q('in-002', 'f', ['Alguém tenta passar na sua frente na fila. Você…', 'Someone tries to cut in front of you in line. You…', 'Alguien intenta colarse delante de ti en la fila. Tú…'], [
+    ['fierce', 'Fala na hora, firme', 'Speak up at once, firmly', 'Lo dices en el acto, con firmeza'],
+    ['resilient', 'Deixa para lá, já passei por coisa pior', 'Let it go; you’ve been through worse', 'Lo dejas pasar, ya pasaste por cosas peores'],
+    ['intuitive', 'Percebe que a pessoa está com algum problema', 'Sense they are going through something', 'Percibes que la persona tiene algún problema'],
+    ['vigilant', 'Já tinha notado a manobra antes', 'You’d already spotted the move coming', 'Ya habías notado la maniobra antes'],
+  ]),
+  q('in-003', 'f', ['Numa trilha, o tempo começa a fechar. Primeiro você…', 'On a trail, the weather starts to turn. First, you…', 'En un sendero, el tiempo empieza a cerrarse. Primero…'], [
+    ['vigilant', 'Repara no vento e nas nuvens', 'Read the wind and the clouds', 'Observas el viento y las nubes'],
+    ['resilient', 'Segue mesmo assim, preparado para a chuva', 'Keep going anyway, ready for rain', 'Sigues igual, preparado para la lluvia'],
+    ['elusive', 'Procura um abrigo escondido', 'Look for a hidden shelter', 'Buscas un refugio escondido'],
+    ['intuitive', 'Já sabia, sentiu no ar desde cedo', 'You knew: you felt it in the air all morning', 'Ya lo sabías, lo sentiste en el aire desde temprano'],
+  ]),
+  q('in-004', 'f', ['Numa sala cheia de desconhecidos, seu instinto é…', 'In a room full of strangers, your instinct is to…', 'En una sala llena de desconocidos, tu instinto es…'], [
+    ['elusive', 'Ficar num canto sem chamar atenção', 'Stay in a corner, unnoticed', 'Quedarte en un rincón sin llamar la atención'],
+    ['vigilant', 'Mapear quem é quem', 'Map out who is who', 'Identificar quién es quién'],
+    ['intuitive', 'Sentir o clima antes de falar', 'Feel the mood before speaking', 'Sentir el ambiente antes de hablar'],
+    ['fierce', 'Ir direto até o centro da conversa', 'Head straight for the center of things', 'Ir directo al centro de la conversación'],
+  ]),
+  q('in-005', 'f', ['Algo dá muito errado de repente. Sua primeira reação é…', 'Something suddenly goes badly wrong. Your first reaction is…', 'Algo sale muy mal de repente. Tu primera reacción es…'], [
+    ['resilient', 'Respirar e aguentar firme', 'Breathe and hold steady', 'Respirar y aguantar firme'],
+    ['fierce', 'Partir para cima do problema', 'Go straight at the problem', 'Ir directo contra el problema'],
+    ['vigilant', 'Avaliar tudo o que mudou', 'Take stock of everything that changed', 'Evaluar todo lo que cambió'],
+    ['elusive', 'Sair de cena e pensar sozinho', 'Step out of sight and think alone', 'Salir de escena y pensar solo'],
+  ]),
+  q('in-006', 'f', ['Quando conhece alguém, você confia mais em…', 'When you meet someone, you trust most in…', 'Cuando conoces a alguien, confías más en…'], [
+    ['intuitive', 'A primeira impressão que sente', 'The first feeling you get', 'La primera impresión que sientes'],
+    ['vigilant', 'Os detalhes que você observa', 'The details you observe', 'Los detalles que observas'],
+    ['resilient', 'O tempo: ele mostra quem a pessoa é', 'Time: it shows who they are', 'El tiempo: muestra quién es la persona'],
+    ['elusive', 'Ficar na sua até entender melhor', 'Keeping to yourself until you know more', 'Mantenerte reservado hasta entender mejor'],
+  ]),
+  q('in-007', 'f', ['Num jogo de esconde-esconde, você é…', 'In a game of hide-and-seek, you are…', 'En el escondite, tú eres…'], [
+    ['elusive', 'Quem nunca é encontrado', 'The one never found', 'Quien nunca es encontrado'],
+    ['vigilant', 'Quem encontra todo mundo', 'The one who finds everyone', 'Quien encuentra a todos'],
+    ['fierce', 'Quem corre para o pique sem medo', 'The one who sprints for base, fearless', 'Quien corre a la base sin miedo'],
+    ['intuitive', 'Quem adivinha onde os outros estão', 'The one who guesses where the others are', 'Quien adivina dónde están los demás'],
+  ]),
+  q('in-008', 'f', ['Depois de uma grande decepção, você…', 'After a big disappointment, you…', 'Después de una gran decepción, tú…'], [
+    ['resilient', 'Levanta e segue, mesmo devagar', 'Get up and keep going, even slowly', 'Te levantas y sigues, aunque sea despacio'],
+    ['intuitive', 'Precisa entender o que sentiu', 'Need to understand what you felt', 'Necesitas entender lo que sentiste'],
+    ['elusive', 'Some um tempo até se recompor', 'Disappear for a while to pull yourself together', 'Desapareces un tiempo hasta recomponerte'],
+    ['fierce', 'Transforma em combustível', 'Turn it into fuel', 'Lo conviertes en combustible'],
+  ]),
+  q('in-009', 'f', ['Você está num lugar desconhecido à noite. O que faz?', 'You are somewhere unfamiliar at night. What do you do?', 'Estás en un lugar desconocido de noche. ¿Qué haces?'], [
+    ['vigilant', 'Fica atento a cada movimento', 'Stay alert to every movement', 'Estás atento a cada movimiento'],
+    ['elusive', 'Anda pelas sombras sem ser notado', 'Move through the shadows unnoticed', 'Caminas por las sombras sin que te noten'],
+    ['resilient', 'Segue firme até achar um lugar seguro', 'Press on until you find somewhere safe', 'Sigues firme hasta encontrar un lugar seguro'],
+    ['intuitive', 'Confia no instinto para escolher o caminho', 'Trust your gut to pick the way', 'Confías en el instinto para elegir el camino'],
+  ]),
+  q('in-010', 'f', ['Qual destas qualidades salvaria você numa floresta?', 'Which of these would save you in a wild forest?', '¿Cuál de estas cualidades te salvaría en un bosque salvaje?'], [
+    ['vigilant', 'Ouvidos atentos', 'Sharp ears', 'Oídos atentos'],
+    ['elusive', 'Saber se camuflar', 'Knowing how to blend in', 'Saber camuflarse'],
+    ['resilient', 'Aguentar fome e frio', 'Withstanding hunger and cold', 'Aguantar hambre y frío'],
+    ['fierce', 'Enfrentar o que aparecer', 'Facing whatever shows up', 'Enfrentar lo que aparezca'],
+  ], { format: 'icon-text', media: ['ear', 'leaf', 'mountain', 'fire'] }),
+  q('in-011', 'f', ['Quando alguém próximo está triste mas não diz nada, você…', 'When someone close is sad but says nothing, you…', 'Cuando alguien cercano está triste pero no dice nada, tú…'], [
+    ['intuitive', 'Percebe na hora', 'Notice at once', 'Lo notas enseguida'],
+    ['vigilant', 'Nota pelos pequenos sinais', 'Pick it up from small signs', 'Lo notas por pequeñas señales'],
+    ['resilient', 'Fica por perto, firme, até passar', 'Stay close and steady until it passes', 'Te quedas cerca, firme, hasta que pase'],
+    ['fierce', 'Quer ir atrás de quem causou isso', 'Want to go after whoever caused it', 'Quieres ir tras quien lo causó'],
+  ]),
+  q('in-012', 'f', ['Numa competição, o que move você?', 'In a competition, what drives you?', 'En una competencia, ¿qué te mueve?'], [
+    ['fierce', 'A vontade de vencer', 'The will to win', 'Las ganas de ganar'],
+    ['resilient', 'Aguentar até o fim', 'Lasting to the end', 'Aguantar hasta el final'],
+    ['vigilant', 'Ler o adversário', 'Reading the opponent', 'Leer al rival'],
+    ['elusive', 'Surpreender quando ninguém espera', 'Surprising them when no one expects it', 'Sorprender cuando nadie lo espera'],
+  ]),
+  q('in-013', 'f', ['Se você fosse um animal fugindo de uma tempestade, você…', 'If you were an animal escaping a storm, you would…', 'Si fueras un animal huyendo de una tormenta, tú…'], [
+    ['elusive', 'Se enfiaria numa toca escondida', 'Burrow into a hidden den', 'Te meterías en una madriguera escondida'],
+    ['resilient', 'Enfrentaria o vento até passar', 'Weather the wind until it passed', 'Aguantarías el viento hasta que pase'],
+    ['intuitive', 'Já teria saído antes de começar', 'Have left before it began', 'Ya te habrías ido antes de que empezara'],
+    ['vigilant', 'Subiria alto para ver para onde ir', 'Climb high to see where to go', 'Subirías alto para ver adónde ir'],
+  ]),
+  q('in-014', 'f', ['Um amigo está sendo provocado. Você…', 'A friend is being picked on. You…', 'Están molestando a un amigo. Tú…'], [
+    ['fierce', 'Entra na frente na hora', 'Step in front at once', 'Te pones delante enseguida'],
+    ['intuitive', 'Sente o que o amigo precisa naquele momento', 'Sense what your friend needs right then', 'Sientes lo que tu amigo necesita en ese momento'],
+    ['elusive', 'Tira o amigo de lá discretamente', 'Quietly get your friend out of there', 'Sacas a tu amigo de ahí con discreción'],
+    ['vigilant', 'Observa quem começou e por quê', 'Watch who started it and why', 'Observas quién empezó y por qué'],
+  ]),
+  q('in-015', 'f', ['Que tipo de sexto sentido você acha que tem?', 'What kind of sixth sense do you think you have?', '¿Qué tipo de sexto sentido crees que tienes?'], [
+    ['intuitive', 'Sentir as emoções dos outros', 'Feeling other people’s emotions', 'Sentir las emociones de los demás'],
+    ['vigilant', 'Perceber perigo antes de todo mundo', 'Spotting danger before anyone else', 'Percibir el peligro antes que nadie'],
+    ['elusive', 'Saber a hora de sumir', 'Knowing when to disappear', 'Saber cuándo desaparecer'],
+    ['resilient', 'Saber que vou dar conta', 'Knowing I’ll manage', 'Saber que voy a poder'],
+  ]),
+  q('in-016', 'f', ['Numa negociação difícil, você…', 'In a tough negotiation, you…', 'En una negociación difícil, tú…'], [
+    ['fierce', 'Não recua', 'Don’t back down', 'No retrocedes'],
+    ['intuitive', 'Lê o que o outro quer de verdade', 'Read what the other side really wants', 'Lees lo que el otro quiere de verdad'],
+    ['resilient', 'Vence pelo cansaço', 'Outlast them', 'Ganas por cansancio'],
+    ['elusive', 'Mostra pouco e escuta muito', 'Show little and listen a lot', 'Muestras poco y escuchas mucho'],
+  ]),
+  q('in-017', 'f', ['O que você faz quando sente que está sendo observado?', 'What do you do when you feel you are being watched?', '¿Qué haces cuando sientes que te observan?'], [
+    ['vigilant', 'Procura de onde vem o olhar', 'Look for where the gaze is coming from', 'Buscas de dónde viene la mirada'],
+    ['elusive', 'Muda de caminho sem dar sinal', 'Change course without a sign', 'Cambias de camino sin dar señales'],
+    ['fierce', 'Encara de volta', 'Stare right back', 'Devuelves la mirada'],
+    ['resilient', 'Continua como se nada fosse', 'Carry on as if nothing were happening', 'Sigues como si nada'],
+  ]),
+  q('in-018', 'f', ['Que tipo de força você tem?', 'What kind of strength do you have?', '¿Qué tipo de fuerza tienes?'], [
+    ['resilient', 'A de aguentar', 'The strength to endure', 'La de aguantar'],
+    ['fierce', 'A de reagir', 'The strength to strike back', 'La de reaccionar'],
+    ['intuitive', 'A de entender sem palavras', 'The strength to understand without words', 'La de entender sin palabras'],
+    ['vigilant', 'A de nunca ser pego de surpresa', 'The strength never to be caught off guard', 'La de que nunca te tomen por sorpresa'],
+  ]),
+  q('in-019', 'f', ['Você se perde da turma num lugar lotado. Primeiro você…', 'You lose your group in a crowded place. First, you…', 'Pierdes a tu grupo en un lugar lleno de gente. Primero…'], [
+    ['vigilant', 'Procura um ponto alto para enxergar', 'Find a high spot to see from', 'Buscas un punto alto para ver'],
+    ['intuitive', 'Vai para onde sente que eles estão', 'Head where you feel they are', 'Vas adonde sientes que están'],
+    ['resilient', 'Segue o plano sozinho, sem pânico', 'Carry on with the plan alone, no panic', 'Sigues el plan solo, sin pánico'],
+    ['elusive', 'Espera num canto discreto até passar', 'Wait in a quiet corner until it clears', 'Esperas en un rincón discreto hasta que pase'],
+  ]),
+  q('in-020', 'f', ['O que acontece quando alguém ameaça o que você ama?', 'What happens when someone threatens what you love?', '¿Qué pasa cuando alguien amenaza lo que amas?'], [
+    ['fierce', 'Viro outra pessoa', 'I become someone else', 'Me convierto en otra persona'],
+    ['vigilant', 'Fico de olho em cada passo dela', 'I watch their every move', 'Vigilo cada uno de sus pasos'],
+    ['elusive', 'Tiro o que amo de vista', 'I move what I love out of sight', 'Pongo lo que amo fuera de su vista'],
+    ['resilient', 'Aguento o que vier, sem soltar', 'I take whatever comes, without letting go', 'Aguanto lo que venga, sin soltar'],
+  ]),
+  q('in-021', 'f', ['Qual destes instintos mais combina com você?', 'Which of these instincts suits you best?', '¿Cuál de estos instintos va más contigo?'], [
+    ['intuitive', 'Pressentir', 'To foresee', 'Presentir'],
+    ['elusive', 'Desaparecer', 'To vanish', 'Desaparecer'],
+    ['fierce', 'Avançar', 'To charge', 'Avanzar'],
+    ['resilient', 'Resistir', 'To endure', 'Resistir'],
+  ]),
+  // ---- Adaptive --------------------------------------------------------------------------
+  q('in-022', 'a', ['Quando o perigo é real, o que vem primeiro?', 'When the danger is real, what comes first?', 'Cuando el peligro es real, ¿qué viene primero?'], [
+    ['fierce', 'Enfrentar', 'Facing it', 'Enfrentarlo'],
+    ['elusive', 'Sumir', 'Disappearing', 'Desaparecer'],
+    ['vigilant', 'Observar', 'Watching', 'Observar'],
+    ['resilient', 'Resistir', 'Holding out', 'Resistir'],
+  ]),
+  q('in-023', 'a', ['O que você sente antes de uma grande mudança?', 'What do you feel before a big change?', '¿Qué sientes antes de un gran cambio?'], [
+    ['intuitive', 'Um pressentimento difícil de explicar', 'A hunch that is hard to explain', 'Un presentimiento difícil de explicar'],
+    ['vigilant', 'Atenção total aos sinais', 'Full attention to the signs', 'Atención total a las señales'],
+    ['resilient', 'Calma: vou me adaptar', 'Calm: I’ll adapt', 'Calma: me voy a adaptar'],
+    ['fierce', 'Vontade de ir com tudo', 'An urge to go all in', 'Ganas de ir con todo'],
+  ]),
+  q('in-024', 'a', ['Se tivesse que atravessar um território hostil, você…', 'If you had to cross hostile ground, you would…', 'Si tuvieras que cruzar un territorio hostil, tú…'], [
+    ['elusive', 'Iria à noite, sem ser visto', 'Go at night, unseen', 'Irías de noche, sin ser visto'],
+    ['fierce', 'Abriria caminho na força', 'Force your way through', 'Te abrirías paso a la fuerza'],
+    ['resilient', 'Iria devagar, aguentando o que viesse', 'Go slowly, enduring whatever came', 'Irías despacio, aguantando lo que viniera'],
+    ['intuitive', 'Seguiria o que o instinto mandasse', 'Follow wherever your instinct told you', 'Seguirías lo que dijera tu instinto'],
+  ]),
+  q('in-025', 'a', ['Qual destas cenas descreve você sob pressão?', 'Which scene describes you under pressure?', '¿Qué escena te describe bajo presión?'], [
+    ['resilient', 'Uma árvore que verga mas não quebra', 'A tree that bends but doesn’t break', 'Un árbol que se dobla pero no se quiebra'],
+    ['fierce', 'Uma onda batendo na rocha', 'A wave crashing on rock', 'Una ola rompiendo contra la roca'],
+    ['elusive', 'Uma sombra que muda de lugar', 'A shadow that shifts away', 'Una sombra que cambia de lugar'],
+    ['vigilant', 'Um farol varrendo o mar', 'A lighthouse sweeping the sea', 'Un faro barriendo el mar'],
+  ]),
+  q('in-026', 'a', ['Como você sabe que algo vai dar errado?', 'How do you know something is about to go wrong?', '¿Cómo sabes que algo va a salir mal?'], [
+    ['intuitive', 'Simplesmente sinto', 'I just feel it', 'Simplemente lo siento'],
+    ['vigilant', 'Notei um detalhe fora do lugar', 'I noticed a detail out of place', 'Noté un detalle fuera de lugar'],
+    ['resilient', 'Não sei, mas estou pronto mesmo assim', 'I don’t, but I’m ready anyway', 'No lo sé, pero estoy listo igual'],
+    ['elusive', 'Já me afastei antes de descobrir', 'I’ve stepped away before finding out', 'Ya me alejé antes de saberlo'],
+  ]),
+  q('in-027', 'a', ['Que tipo de defesa você usaria?', 'What kind of defence would you use?', '¿Qué tipo de defensa usarías?'], [
+    ['elusive', 'Camuflagem', 'Camouflage', 'Camuflaje'],
+    ['resilient', 'Uma casca resistente', 'A tough shell', 'Un caparazón resistente'],
+    ['fierce', 'Garras e coragem', 'Claws and nerve', 'Garras y valor'],
+    ['vigilant', 'Ver tudo antes de chegar perto', 'Seeing everything before it gets close', 'Verlo todo antes de que se acerque'],
+  ]),
+  q('in-028', 'a', ['Qual destes momentos mais testaria você?', 'Which of these moments would test you most?', '¿Cuál de estos momentos te pondría más a prueba?'], [
+    ['resilient', 'Uma longa espera sem respostas', 'A long wait with no answers', 'Una larga espera sin respuestas'],
+    ['fierce', 'Ter que ficar parado diante de uma injustiça', 'Having to stand still before an injustice', 'Tener que quedarte quieto ante una injusticia'],
+    ['intuitive', 'Não conseguir ler o que alguém sente', 'Being unable to read what someone feels', 'No poder leer lo que alguien siente'],
+    ['elusive', 'Não ter onde me esconder', 'Having nowhere to hide', 'No tener dónde esconderme'],
+  ]),
+  q('in-029', 'a', ['Numa estação lotada, com o trem atrasado, para onde vai a sua atenção?', 'In a packed station with the train running late, where does your attention go?', 'En una estación llena, con el tren atrasado, ¿adónde va tu atención?'], [
+    ['vigilant', 'Para o painel e cada aviso que muda', 'To the board and every notice that changes', 'Al panel y a cada aviso que cambia'],
+    ['intuitive', 'Para a tensão que cresce entre as pessoas', 'To the tension building between people', 'A la tensión que crece entre la gente'],
+    ['elusive', 'Para um canto onde esperar sem ser notado', 'To a corner where you can wait unnoticed', 'A un rincón donde esperar sin que te noten'],
+    ['fierce', 'Para o guichê, onde vou cobrar uma resposta', 'To the desk, where you’ll demand an answer', 'A la ventanilla, donde vas a exigir una respuesta'],
+  ]),
+  q('in-030', 'a', ['Que instinto você gostaria de ter mais forte?', 'Which instinct would you like to have stronger?', '¿Qué instinto te gustaría tener más fuerte?'], [
+    ['intuitive', 'Saber o que os outros sentem', 'Knowing what others feel', 'Saber lo que sienten los demás'],
+    ['resilient', 'Nunca desistir', 'Never giving up', 'No rendirme nunca'],
+    ['vigilant', 'Nunca ser surpreendido', 'Never being surprised', 'Que nunca me sorprendan'],
+    ['fierce', 'Nunca hesitar', 'Never hesitating', 'No dudar nunca'],
+  ]),
+];

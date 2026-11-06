@@ -116,9 +116,23 @@ export function useQuiz(
     (questionId: QuestionId, answerId: AnswerId) => {
       const { session: current, index } = stateRef.current;
       const answer = { questionId, answerId, answeredAt: new Date().toISOString() };
+      // Adaptive sources decide what follows from the answers so far. If this answer changes
+      // an upcoming pick, the new sequence is stored with it in the same write; the
+      // reconcile contract keeps every question up to this one in place.
+      const draft: QuizSession = { ...current, answers: { ...current.answers, [questionId]: answer } };
+      const ids = source.reconcile ? [...source.reconcile(draft)] : null;
+      if (ids && ids.some((id, i) => id !== current.questionIds[i])) {
+        run(() =>
+          store.updateSession(
+            { ...draft, status: 'in-progress', questionIds: ids, cursor: index + 1, updatedAt: answer.answeredAt },
+            current.revision,
+          ),
+        );
+        return;
+      }
       run(() => store.recordAnswer(current.id, answer, index + 1, current.revision));
     },
-    [run, store],
+    [run, source, store],
   );
 
   const select = useCallback(

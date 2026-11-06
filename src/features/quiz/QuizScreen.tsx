@@ -25,6 +25,8 @@ interface QuizScreenProps {
   readonly onLeave: () => void;
   /** After a confirmed Start over: back to Preparation. */
   readonly onRestart: () => void;
+  /** The last answer is saved (real bank only): the page moves on to the results. */
+  readonly onComplete?: (session: QuizSession) => void;
 }
 
 /**
@@ -35,7 +37,7 @@ interface QuizScreenProps {
  * Browser Back: one extra history entry lets the first Back open Pause instead of leaving.
  * A second Back while Pause is open leaves (the session stays saved), so nobody is trapped.
  */
-export function QuizScreen({ store, source, session, onLeave, onRestart }: QuizScreenProps) {
+export function QuizScreen({ store, source, session, onLeave, onRestart, onComplete }: QuizScreenProps) {
   const { t, locale } = usePreferences();
   const quiz = useQuiz(store, source, session);
   const { state } = quiz;
@@ -65,6 +67,11 @@ export function QuizScreen({ store, source, session, onLeave, onRestart }: QuizS
   const canGoBack = state.status === 'answering' && state.index > 0;
   const unsaved =
     state.status === 'saving' || state.status === 'save-error' || state.status === 'confirm-edit';
+
+  // Every answer is stored: hand the finished session to the results (never for the preview).
+  useEffect(() => {
+    if (state.status === 'complete' && !source.preview) onComplete?.(state.session);
+  }, [state.status, state.session, source.preview, onComplete]);
 
   useEffect(() => {
     document.title = t('quiz.documentTitle');

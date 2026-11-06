@@ -1,47 +1,37 @@
-import { CATEGORY_WEIGHTS } from '../../domain/categories';
-import type { AnswerId, Question } from '../../domain/questions';
-import type { TraitId } from '../../domain/traits';
-import type { SpeciesProfile, SupportLevel } from '../profile';
-import type { Dimension, TraitRegistry } from '../registry';
-import type { VersionStamp } from '../versions';
+import { CATEGORY_WEIGHTS } from '../domain/categories';
+import type { TraitId } from '../domain/traits';
 import type { EngineParams } from './params';
+import type { SpeciesProfile, SupportLevel } from './profile';
+import type { Dimension, TraitRegistry } from './registry';
+import { preferenceSignals, type AnsweredQuestion, type PersonSignal } from './signals';
+import type { VersionStamp } from './versions';
+
+export type { AnsweredQuestion, PersonSignal } from './signals';
 
 /**
- * EXPERIMENTAL MATCHING CORE (ME-03). Isolated research code: the app never imports it, and
- * its numbers are uncalibrated (see params.ts). It exists to make the approved architecture
- * testable before calibration:
+ * MATCHING ENGINE v1 (promoted from the ME-03 experimental core; parameters calibrated by
+ * simulation, see params.ts and MATCHING_CALIBRATION in the reports):
  *
- * - Evidence-Aware Hybrid: affinity (how close the person's signals are to the species'
- *   mapped traits) is kept apart from coverage (how much of the person's signal the species
- *   has evidence for). Uncertainty is applied once, by shrinking toward a neutral 0.5 in
- *   proportion to missing coverage; reliability and source diversity are never added to the
- *   score, they only order equivalent scores. No double penalty, no repeated bonus.
+ * - Evidence-Aware Hybrid: affinity (how well the species' mapped traits agree with the
+ *   person's leanings) is kept apart from coverage (how much of the person's signal the
+ *   species has evidence for). Uncertainty is applied once, by shrinking toward a neutral
+ *   0.5 in proportion to missing coverage; reliability and source diversity are never added
+ *   to the score, they only order equivalent scores. No double penalty, no repeated bonus.
  * - Missing evidence is unknown, not incompatible: unmapped traits are left out of affinity.
- * - Adaptive Confidence Gate: well / partially supported / insufficient, from coverage.
+ * - Adaptive Confidence Gate: well / partially supported / insufficient, from how many
+ *   of the person's clear leanings the species has evidence for.
  * - Evidence Equivalence Band + Evidence-Based Tie Break, ending in a neutral key derived from
  *   the answers and the species id (stable on refresh, no Pokédex-order or popularity bias).
  * - Species First: one candidate per profile; forms never become candidates.
+ * Journey length changes how much evidence there is, never the scale of the score.
  */
-
-export interface AnsweredQuestion {
-  readonly question: Question;
-  readonly answerId: AnswerId;
-}
-
-export interface PersonSignal {
-  readonly traitId: TraitId;
-  readonly dimension: Dimension;
-  /** Mean signed effect in [-1, 1] over the answers that touched this trait. */
-  readonly value: number;
-  readonly observations: number;
-}
 
 export interface Contribution {
   readonly traitId: TraitId;
   readonly dimension: Dimension;
   readonly person: number;
   readonly species: number;
-  /** 1 when person and species agree exactly, 0 at opposite poles. */
+  /** 0.5 + 0.5 × person × species: 1 for a strong shared trait, 0 for one the person avoids. */
   readonly closeness: number;
   readonly evidenceIds: readonly string[];
 }
@@ -108,29 +98,12 @@ export function answerFingerprint(answered: readonly AnsweredQuestion[]): string
   return fnv1a(parts.join('|')).toString(16).padStart(8, '0');
 }
 
+/** The person's leanings, read as preferences against the alternatives offered. */
 export function personSignals(
   answered: readonly AnsweredQuestion[],
   registry: TraitRegistry,
 ): PersonSignal[] {
-  const dims = new Map(registry.traits.map((t) => [t.id as string, t.dimension]));
-  const acc = new Map<string, { sum: number; n: number }>();
-  for (const { question, answerId } of answered) {
-    const option = question.options.find((o) => o.id === answerId);
-    if (!option) continue;
-    for (const [trait, value] of Object.entries(option.effects) as [string, number][]) {
-      if (!dims.has(trait)) continue;
-      const a = acc.get(trait) ?? { sum: 0, n: 0 };
-      acc.set(trait, { sum: a.sum + value, n: a.n + 1 });
-    }
-  }
-  return [...acc.entries()]
-    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
-    .map(([trait, { sum, n }]) => ({
-      traitId: trait as TraitId,
-      dimension: dims.get(trait) as Dimension,
-      value: Math.max(-1, Math.min(1, sum / n)),
-      observations: n,
-    }));
+  return preferenceSignals(answered, registry);
 }
 
 const SUPPORT_WEIGHT: Readonly<Record<SupportLevel, number>> = {
@@ -157,7 +130,7 @@ export function scoreSpecies(
         dimension: s.dimension,
         person: s.value,
         species: m.affinity,
-        closeness: 1 - Math.abs(s.value - m.affinity) / 2,
+        closeness: 0.5 + 0.5 * s.value * m.affinity,
         evidenceIds: m.evidenceIds,
       });
     }
@@ -182,10 +155,12 @@ export function scoreSpecies(
   const coverage = coverDen > 0 ? coverNum / coverDen : 0;
   const affinity = affDen > 0 ? affNum / affDen : 0.5;
   const score = coverage * affinity + (1 - coverage) * 0.5;
+  // The gate counts the person's clear leanings (either way) that this species has evidence for.
+  const salient = contributions.filter((c) => Math.abs(c.person) >= params.salience).length;
   const gate: SupportLevel =
-    coverage >= params.gate.wellSupported
+    salient >= params.gate.wellSupported
       ? 'well-supported'
-      : coverage >= params.gate.partiallySupported && contributions.length > 0
+      : salient >= params.gate.partiallySupported
         ? 'partially-supported'
         : 'insufficient-evidence';
 
@@ -238,7 +213,10 @@ export function rank(scored: readonly Scored[], params: EngineParams, fingerprin
     const leader = sorted[i];
     if (!leader) break;
     let j = i;
-    while (j < sorted.length && leader.score - (sorted[j]?.score ?? -Infinity) <= params.equivalenceBand) j++;
+    // The band is relative to how far the leader stands above neutral (0.5), so "practically
+    // tied" means the same thing whatever the scale of the scores.
+    const width = params.equivalenceBand * Math.max(leader.score - 0.5, 1e-9);
+    while (j < sorted.length && leader.score - (sorted[j]?.score ?? -Infinity) <= width) j++;
     const group = sorted.slice(i, j).sort((a, b) => tieBreak(a, b, fingerprint)[0]);
     group.forEach((entry, k) => {
       const next = group[k + 1];
@@ -320,9 +298,21 @@ export function runExperimentalEngine(input: EngineInput): EngineOutput {
       params,
       fingerprint,
     );
-    const h = hiddenRanking.find(eligible);
-    if (h) hidden = { role: 'hidden', speciesId: h.speciesId, gate: h.gate, drivers: drivers(h, params.driverCount) };
-    else notes.push('hidden: no species has enough evidence on the complementary signals');
+    // Complementary leanings are quieter by definition, so few of them reach the gate's
+    // salience. If none does, the Hidden Match may rest on one observed positive leaning
+    // (never on a trait the person did not show), and the note records it.
+    const relaxed = (r: Scored) => r.contributions.some((c) => c.person > 0 && c.closeness > 0.5);
+    const strict = hiddenRanking.find(eligible);
+    const h = strict ?? hiddenRanking.find(relaxed);
+    if (h) {
+      hidden = {
+        role: 'hidden',
+        speciesId: h.speciesId,
+        gate: h.gate,
+        drivers: drivers(h, params.driverCount).filter((d) => d.person > 0),
+      };
+      if (!strict) notes.push('hidden: relaxed gate (one observed complementary leaning)');
+    } else notes.push('hidden: no species has evidence on the complementary signals');
   }
 
   // Alternative: another strong global correspondence with a different set of drivers.

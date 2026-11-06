@@ -215,7 +215,10 @@ test('going back and changing an answer keeps the sequence and progress consiste
   const after = (await storedSessions(page)).at(0);
   const second = before?.data.questionIds[1] ?? '';
   expect(after?.data.answers[second]?.answerId).not.toBe(before?.data.answers[second]?.answerId);
-  expect(after?.data.questionIds).toEqual(before?.data.questionIds);
+  // The answered part of the sequence never moves; later, unanswered adaptive picks may
+  // follow the changed answer (that is the adaptive selection at work, nothing is cleared).
+  expect(after?.data.questionIds.slice(0, 3)).toEqual(before?.data.questionIds.slice(0, 3));
+  expect(after?.data.questionIds).toHaveLength(30);
   expect(Object.keys(after?.data.answers ?? {})).toHaveLength(3);
 });
 

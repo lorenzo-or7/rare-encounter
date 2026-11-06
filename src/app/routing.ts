@@ -29,10 +29,12 @@ export function hasNavigatedInApp(): boolean {
  * What the encounter keeps in its history entries:
  * - `encounter: 'quiz'` marks an entry where questions were on screen, so a reload resumes them;
  * - `encounter: 'resume'` asks the encounter to continue the saved session directly;
+ * - `encounter: 'result'` marks the entry where the three matches are shown, so a reload
+ *   shows the stored result again;
  * - `guard` is the one extra entry that lets browser Back open Pause instead of leaving.
  */
 export interface EncounterHistoryState {
-  readonly encounter?: 'quiz' | 'resume';
+  readonly encounter?: 'quiz' | 'resume' | 'result';
   readonly guard?: boolean;
 }
 

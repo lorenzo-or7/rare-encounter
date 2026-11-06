@@ -3,12 +3,14 @@ import {
   EarIcon,
   FastWindIcon,
   FireIcon,
+  Home01Icon,
   FlashIcon,
   Leaf01Icon,
   Moon02Icon,
   MountainIcon,
   Route01Icon,
   Sun03Icon,
+  SnowIcon,
   SunriseIcon,
   SunsetIcon,
   WaveIcon,
@@ -30,6 +32,8 @@ const ICONS: Readonly<Record<string, IconSvgElement>> = {
   leaf: Leaf01Icon,
   ear: EarIcon,
   route: Route01Icon,
+  home: Home01Icon,
+  snow: SnowIcon,
 };
 
 export function optionIcon(src: string): IconSvgElement | undefined {

@@ -48,9 +48,9 @@ export default function ResumeBannerContent() {
     const marker = readSessionMarker();
     if (!marker) return;
     let active = true;
-    // The preview questions load only when there is something to check them against.
-    void import('../quiz/preview/preview-bank')
-      .then(({ PREVIEW_SOURCE }) => loadStoredState(openEncounterStore, PREVIEW_SOURCE))
+    // The question bank loads only when there is something to check it against.
+    void import('../../content/questions/bank')
+      .then(({ BANK_SOURCE }) => loadStoredState(openEncounterStore, BANK_SOURCE))
       .then(({ state, store }) => {
         store?.close();
         if (!active) return;

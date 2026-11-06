@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.audit.tsbuildinfo",
+    "types": ["vite/client", "vitest/globals", "node"]
+  },
+  "include": ["src/**/*.audit.ts", "src/vite-env.d.ts"],
+  "exclude": ["src/vendor"]
+}

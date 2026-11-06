@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { fixSessionId } from './helpers';
 
 test.use({ locale: 'en-US' });
 
@@ -20,6 +21,7 @@ const fullShot = async (page: Page, name: string) => {
 };
 
 async function startQuiz(page: Page, depth = 0) {
+  await fixSessionId(page);
   await page.goto('/encounter');
   await page.locator('.mode-option').nth(depth).click();
   await page.getByRole('button', { name: 'Confirm depth' }).click();
@@ -55,9 +57,10 @@ const storedAnswers = (page: Page) =>
       }),
   );
 
-test('header, preview notice and the three formats', async ({ page }) => {
+test('header, the real question bank and the three formats', async ({ page }) => {
   await startQuiz(page);
-  await expect(page.getByText('Preview: sample questions, not the final question bank.')).toBeVisible();
+  // The question bank is real: no preview notice.
+  await expect(page.getByText(/Preview: sample questions/)).toHaveCount(0);
   await expect(progress(page)).toHaveAttribute('aria-valuenow', '0');
   await expect(progress(page)).toHaveAttribute('aria-valuemax', '30');
   await expect(page.getByRole('button', { name: 'Pause' })).toHaveAttribute('aria-haspopup', 'dialog');
@@ -65,23 +68,24 @@ test('header, preview notice and the three formats', async ({ page }) => {
   await expect(prompt(page)).toBeFocused();
 
   await expect(page.locator('.question')).toHaveAttribute('data-format', 'text');
-  await expect(page.getByRole('group', { name: 'Plans change at the last minute. What do you do?' })).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Which of these afternoons would you choose?' })).toBeVisible();
   await fullShot(page, 'quiz-text');
 
   await answer(page, 0);
-  await expect(page.locator('.question')).toHaveAttribute('data-format', 'photo');
-  await expect(page.locator('.answer-art__image')).toHaveCount(4);
+  await expect(page.locator('.question')).toHaveAttribute('data-format', 'icon-text');
+  await expect(page.locator('.answer__icon svg')).toHaveCount(4);
   await expect(progress(page)).toHaveAttribute('aria-valuenow', '1');
   await expect(page.locator('.quiz-header__count')).toHaveText('1/30');
   await page.waitForTimeout(400);
-  await fullShot(page, 'quiz-photo');
-
-  for (let i = 0; i < 4; i++) await answer(page, i % 4);
-  await expect(page.locator('.question')).toHaveAttribute('data-format', 'icon-text');
-  await expect(page.locator('.answer__icon svg')).toHaveCount(4);
-  await expect(progress(page)).toHaveAttribute('aria-valuenow', '5');
-  await page.waitForTimeout(400);
   await fullShot(page, 'quiz-icon');
+
+  await answer(page, 1);
+  await answer(page, 2);
+  await expect(page.locator('.question')).toHaveAttribute('data-format', 'photo');
+  await expect(page.locator('.answer-art__image')).toHaveCount(4);
+  await expect(progress(page)).toHaveAttribute('aria-valuenow', '3');
+  await page.waitForTimeout(400);
+  await fullShot(page, 'quiz-photo');
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth),
   ).toBeLessThanOrEqual(0);
@@ -172,7 +176,7 @@ test('keyboard: Enter chooses, focus moves to the next prompt', async ({ page })
   await page.keyboard.press('Enter');
   await expect(step(page)).toHaveText(/^Question 2 of 30$/);
   await expect(prompt(page)).toBeFocused();
-  await expect(prompt(page)).toHaveText('Which landscape draws you in?');
+  await expect(prompt(page)).toHaveText('Which palette would you choose for a creature?');
 });
 
 test('changing language mid-quiz keeps the answers', async ({ page }) => {
@@ -184,9 +188,8 @@ test('changing language mid-quiz keeps the answers', async ({ page }) => {
   await dialog.getByRole('radio', { name: 'Português (Brasil)' }).check();
   // The dialog itself is now in Portuguese.
   await page.getByRole('dialog', { name: 'Configurações' }).getByRole('button', { name: 'Fechar' }).click();
-  await expect(prompt(page)).toHaveText('O que mais importa em uma amizade?');
+  await expect(prompt(page)).toHaveText('Qual destes conselhos você daria a alguém mais novo?');
   await expect(step(page)).toHaveText('Pergunta 3 de 30');
-  await expect(page.getByText('Prévia: perguntas de exemplo, não o banco final.')).toBeVisible();
   await expect(progress(page)).toHaveAttribute('aria-valuenow', '2');
   expect(await storedAnswers(page)).toBe(2);
   await fullShot(page, 'quiz-pt-BR');
@@ -210,17 +213,42 @@ test('storage that cannot save stops the start, honestly', async ({ page }) => {
   await fullShot(page, 'quiz-storage-blocked');
 });
 
-test('a whole preview run ends without a result', async ({ page }) => {
-  test.skip(!isDesktop(page), 'Long run checked once, on desktop');
-  test.setTimeout(90_000);
+test('a whole journey ends in three distinct Pokémon, kept after a reload', async ({ page }) => {
+  test.setTimeout(150_000);
   await startQuiz(page);
   for (let i = 0; i < 29; i++) await answer(page, i % 4);
   await answers(page).nth(0).click();
-  await expect(page.getByRole('heading', { level: 1, name: 'Your 30 answers are saved' })).toBeVisible();
-  await expect(page.getByText('Sample questions never produce a result.')).toBeVisible();
-  await expect(progress(page)).toHaveAttribute('aria-valuenow', '30');
-  expect(await storedAnswers(page)).toBe(30);
-  await fullShot(page, 'quiz-complete');
+  await expect(page.getByRole('heading', { level: 1, name: 'Your three encounters' })).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByText('Drawn from your 30 answers in A Glimpse.')).toBeVisible();
+  for (const role of ['Soul Match', 'Hidden Match', 'Alternative Match']) {
+    await expect(page.getByText(role, { exact: true }).first()).toBeVisible();
+  }
+  // Soul and Alternative are named; the Hidden Match stays veiled until asked.
+  const named = await page.locator('.match-name').allTextContents();
+  expect(named).toHaveLength(2);
+  await page.getByRole('button', { name: 'Reveal your Hidden Match' }).click();
+  const all = await page.locator('.match-name').allTextContents();
+  expect(new Set(all).size).toBe(3);
+  // Every explanation cites recorded evidence and never invents a percentage.
+  await expect(page.locator('.why__reasons li').first()).toBeVisible();
+  expect(await page.locator('.results').innerText()).not.toMatch(/\d+\s?%/);
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth),
+  ).toBeLessThanOrEqual(0);
+  // Let the reveal settle and the lazy images below the fold load before the capture.
+  await page.evaluate(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+  await expect(page.locator('.species-art[data-state="loading"]')).toHaveCount(0, { timeout: 20_000 });
+  await page.waitForTimeout(1500);
+  await fullShot(page, 'results');
+  // The flip is a real, accessible control.
+  await page.getByRole('button', { name: 'Turn the card over' }).click();
+  await expect(page.getByRole('button', { name: 'Show the front' })).toHaveAttribute('aria-pressed', 'true');
+  // Reload: the stored result comes back as it was, revealed veil included.
+  await page.reload();
+  await expect(page.getByRole('heading', { level: 1, name: 'Your three encounters' })).toBeVisible({ timeout: 30_000 });
+  expect(await page.locator('.match-name').allTextContents()).toEqual(all);
 });
 
 test.describe('reduced motion', () => {
@@ -261,10 +289,10 @@ test.describe('narrow phones', () => {
 });
 
 test.describe('Visual Answer Art', () => {
-  /** The first image question is question 2 of every preview session. */
+  /** In the fixed e2e session the first image question is question 4 (en-002). */
   async function toImageQuestion(page: Page) {
     await startQuiz(page);
-    await answer(page, 0);
+    for (let i = 0; i < 3; i++) await answer(page, i);
     await expect(page.locator('.question')).toHaveAttribute('data-format', 'photo');
   }
 
@@ -332,7 +360,7 @@ test.describe('Visual Answer Art', () => {
     expect(new Set(sizes).size).toBe(1);
     expect(sizes[0]).toBeGreaterThan(40);
     await fullShot(page, 'answer-art-fallback');
-    await page.getByRole('button', { name: 'Forest' }).click();
-    await expect(step(page)).toHaveText(/^Question 3 of /);
+    await page.getByRole('button', { name: 'In the woods' }).click();
+    await expect(step(page)).toHaveText(/^Question 5 of /);
   });
 });

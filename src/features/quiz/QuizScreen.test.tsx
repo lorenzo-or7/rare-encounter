@@ -114,3 +114,42 @@ describe('QuizScreen: editing an answer that later questions depend on', () => {
     });
   });
 });
+
+describe('QuizScreen: answering forward updates adaptive picks', () => {
+  beforeAll(() => {
+    MotionGlobalConfig.skipAnimations = true;
+  });
+  afterAll(() => {
+    MotionGlobalConfig.skipAnimations = false;
+  });
+
+  it('stores the new sequence with the answer that changes it, clearing nothing', async () => {
+    const store = await openEncounterStore(new IDBFactory());
+    const fresh = createSession(30, ADAPTIVE_FIXTURE, 's2', NOW);
+    await store.putSession(fresh);
+    render(
+      <PreferencesProvider>
+        <QuizScreen store={store} source={ADAPTIVE_FIXTURE} session={fresh} onLeave={vi.fn()} onRestart={vi.fn()} />
+      </PreferencesProvider>,
+    );
+    // f01 → a, then f02 → b: the pair after f06 must become xb1/xb2.
+    for (const [name, next] of [
+      ['Answer a', 'Fixture question f02'],
+      ['Answer b', 'Fixture question f03'],
+    ] as const) {
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name }));
+        await new Promise((r) => setTimeout(r, 400));
+      });
+      await waitFor(() => {
+        expect(screen.getByRole('heading', { level: 1, name: next })).toBeVisible();
+      });
+    }
+    const outcome = await store.getUnfinishedSession();
+    if (outcome?.status !== 'current') throw new Error('expected a readable session');
+    expect(outcome.value.questionIds.slice(6, 8)).toEqual(['xb1', 'xb2']);
+    expect(Object.keys(outcome.value.answers).sort()).toEqual(['f01', 'f02']);
+    expect(outcome.value.revision).toBe(2);
+    store.close();
+  });
+});

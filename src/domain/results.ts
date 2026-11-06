@@ -22,6 +22,8 @@ export interface Ranking {
 export interface MatchExplanation {
   /** Categories that contributed most, strongest first. */
   readonly drivers: readonly CategoryId[];
+  /** Trait ids behind the match, strongest first; the explanation text is rebuilt from them. */
+  readonly traits?: readonly string[];
 }
 
 /** Affinity is an explainable similarity, never a probability. */

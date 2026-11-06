@@ -1,0 +1,438 @@
+/*
+ * Results Experience (Design Locked v1). Species names in DM Serif Display (results only);
+ * interface text in Inter; colour from the active theme's tokens, so every palette and both
+ * modes follow. One authored moment (the Soul Match reveal); everything else answers the
+ * person's own actions.
+ */
+.results {
+  display: grid;
+  gap: var(--space-16);
+  width: min(100% - 2 * var(--gutter), var(--content-max));
+  margin-inline: auto;
+  padding-block: calc(var(--nav-offset) + var(--space-8)) var(--space-16);
+}
+
+.results__head {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 40rem;
+}
+
+.results__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.results__summary {
+  color: var(--color-text-muted);
+}
+
+.match-role {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+
+.match-name {
+  font-family: var(--font-card);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.match-facts {
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+/* ---- Why this Pokémon ------------------------------------------------------------------ */
+
+.why {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure);
+  margin-top: var(--space-5);
+}
+
+.why__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.why__lead {
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.why__reasons {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+}
+
+.why__reasons li {
+  position: relative;
+  padding-inline-start: var(--space-4);
+}
+
+.why__reasons li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.7em;
+  width: 0.375rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.why__cautious {
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+/* ---- Species art ----------------------------------------------------------------------- */
+
+.species-art {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.species-art__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.species-art[data-state='loading'] .species-art__image {
+  opacity: 0;
+}
+
+.species-art[data-silhouette='true'] .species-art__image {
+  filter: brightness(0);
+  opacity: 0.88;
+}
+
+.species-art__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-subtle);
+  font-family: var(--font-card);
+  font-size: var(--text-2xl);
+}
+
+/* ---- Soul Match: Holo Card + Editorial Split --------------------------------------------- */
+
+.soul {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 56em) {
+  .soul {
+    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    gap: var(--space-16);
+  }
+}
+
+.holo-wrap {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  perspective: 1100px;
+}
+
+.holo {
+  width: min(100%, 20rem);
+  aspect-ratio: 5 / 7;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 520ms var(--ease-out);
+  touch-action: pan-y;
+}
+
+.holo:hover {
+  transition-duration: 120ms;
+}
+
+.holo__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.holo__face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(90% 60% at 50% 30%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 70%),
+    var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  backface-visibility: hidden;
+}
+
+.holo__back {
+  display: grid;
+  place-items: center;
+  transform: rotateY(180deg);
+}
+
+/* Reduced motion: no turn; the faces simply swap. */
+.holo[data-still='true'] .holo__back {
+  transform: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.holo[data-still='true'][data-face='back'] .holo__back {
+  opacity: 1;
+  visibility: visible;
+}
+
+.holo[data-still='true'][data-face='back'] .holo__front {
+  visibility: hidden;
+}
+
+/* Ethereal Frame: two hairlines, the inner one in the iris. */
+.holo__frame {
+  position: absolute;
+  inset: var(--space-2);
+  border: 1px solid color-mix(in oklab, var(--color-text) 22%, transparent);
+  border-radius: calc(var(--radius-lg) - var(--space-2));
+  pointer-events: none;
+}
+
+.holo__frame::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius-lg) - var(--space-2) - 5px);
+  background: var(--iris) border-box;
+  mask:
+    linear-gradient(#000 0 0) padding-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0.8;
+}
+
+.holo__art {
+  position: absolute;
+  inset: 10% 8% 22%;
+}
+
+/* Restrained foil: a soft spectral sheen that follows the pointer. */
+.holo__foil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(40% 35% at var(--fx, 50%) var(--fy, 50%), rgb(255 255 255 / 0.22), transparent 70%),
+    linear-gradient(115deg, transparent 30%, color-mix(in oklab, var(--accent-2) 22%, transparent) 48%, transparent 66%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.holo__dex {
+  position: absolute;
+  inset: var(--space-5) auto auto var(--space-6);
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+}
+
+.holo__name {
+  position: absolute;
+  inset: auto var(--space-5) var(--space-6);
+  font-family: var(--font-card);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  line-height: 1.05;
+  text-align: center;
+}
+
+.holo__flip {
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.holo__flip:hover {
+  background: var(--color-surface-hover);
+}
+
+.holo__flip:focus-visible,
+.veil:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.celestial {
+  width: 72%;
+  height: auto;
+}
+
+/* ---- Hidden Match: Chromatic Veil ------------------------------------------------------- */
+
+.hidden-match {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.veil {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-8) var(--space-5);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: center;
+  cursor: pointer;
+}
+
+.veil__art {
+  position: relative;
+  display: block;
+  width: min(60%, 14rem);
+}
+
+/*
+ * Chromatic light passing over the silhouette (one slow sweep, repeated). The element is
+ * masked by the species art, so the light never leaves the silhouette; the gradient moves,
+ * the mask stays put.
+ */
+.veil__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      100deg,
+      transparent 40%,
+      var(--accent) 48%,
+      var(--accent-2) 52%,
+      transparent 60%
+    )
+    0 0 / 300% 100% no-repeat;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  opacity: 0.75;
+  animation: veil-sweep 4.5s var(--ease-in-out) infinite;
+}
+
+@keyframes veil-sweep {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+.veil__hint {
+  max-width: 28rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.veil__cta {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: var(--weight-semibold);
+}
+
+.veil:hover .veil__cta {
+  background: var(--accent-hover);
+}
+
+.hidden-match__open,
+.connection {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.hidden-match__art,
+.connection__art {
+  width: min(100%, 14rem);
+}
+
+@media (min-width: 48em) {
+  .hidden-match__open,
+  .connection {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+}
+
+/* ---- Alternative Match: Connection Panel ------------------------------------------------ */
+
+.connection {
+  padding: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-raised);
+}
+
+/* ---- Footer ----------------------------------------------------------------------------- */
+
+.results__foot {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.results__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.results__note {
+  max-width: var(--measure);
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+}
+
+.results-status {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  width: min(100% - 2 * var(--gutter), 40rem);
+  margin-inline: auto;
+  padding-block: calc(var(--nav-offset) + var(--space-16)) var(--space-16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .veil__light {
+    animation: none;
+    background-position: 50% 0;
+  }
+
+  .holo,
+  .species-art__image {
+    transition: none;
+  }
+}

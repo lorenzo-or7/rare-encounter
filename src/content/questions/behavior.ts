@@ -1,0 +1,186 @@
+import { q, type QuestionDef } from './define';
+
+/** Behavior: 30 questions (21 fundamental, 9 adaptive). Candidate content, v1. */
+export const BEHAVIOR: readonly QuestionDef[] = [
+  q('be-001', 'f', ['Em que hora do dia você rende mais?', 'At what time of day are you at your best?', '¿A qué hora del día rindes más?'], [
+    ['nocturnal', 'Depois que todo mundo foi dormir', 'After everyone has gone to bed', 'Cuando todos se han ido a dormir'],
+    ['swift', 'De manhã cedo, a mil por hora', 'Early morning, at full speed', 'Temprano por la mañana, a mil por hora'],
+    ['unhurried', 'Quando ninguém está me apressando', 'Whenever nobody is rushing me', 'Cuando nadie me apura'],
+    ['gregarious', 'Quando estou trabalhando com outras pessoas', 'When I’m working alongside others', 'Cuando trabajo con otras personas'],
+  ]),
+  q('be-002', 'f', ['Num grupo, você costuma ser quem…', 'In a group, you are usually the one who…', 'En un grupo, sueles ser quien…'], [
+    ['gregarious', 'Junta todo mundo', 'Gets everyone together', 'Junta a todos'],
+    ['maker', 'Monta as coisas e resolve o prático', 'Sets things up and sorts out the practical side', 'Arma las cosas y resuelve lo práctico'],
+    ['swift', 'Chega primeiro e já começa', 'Gets there first and starts right away', 'Llega primero y empieza enseguida'],
+    ['unhurried', 'Vai no seu tempo, sem se estressar', 'Goes at their own pace, unstressed', 'Va a su ritmo, sin estresarse'],
+  ]),
+  q('be-003', 'f', ['O que você faz com um fim de semana sem planos?', 'What do you do with a weekend with no plans?', '¿Qué haces con un fin de semana sin planes?'], [
+    ['maker', 'Começo um projeto com as mãos', 'Start a hands-on project', 'Empiezo un proyecto con las manos'],
+    ['unhurried', 'Durmo até tarde e não me arrependo', 'Sleep in and regret nothing', 'Duermo hasta tarde y no me arrepiento'],
+    ['gregarious', 'Chamo os amigos para algo de última hora', 'Round up friends for something last-minute', 'Llamo a los amigos para algo de último momento'],
+    ['nocturnal', 'Guardo a energia para a noite', 'Save my energy for the night', 'Guardo la energía para la noche'],
+  ]),
+  q('be-004', 'f', ['Como você costuma andar pela rua?', 'How do you usually walk down the street?', '¿Cómo sueles caminar por la calle?'], [
+    ['swift', 'Rápido, desviando de todo mundo', 'Fast, weaving past everyone', 'Rápido, esquivando a todos'],
+    ['unhurried', 'Devagar, parando para olhar as coisas', 'Slowly, stopping to look at things', 'Despacio, parando a mirar las cosas'],
+    ['gregarious', 'Em grupo, conversando', 'In a group, chatting', 'En grupo, conversando'],
+    ['maker', 'Catando coisas que podem ser úteis', 'Picking up things that might be useful', 'Recogiendo cosas que pueden servir'],
+  ]),
+  q('be-005', 'f', ['O que você guarda que outras pessoas jogariam fora?', 'What do you keep that others would throw away?', '¿Qué guardas que otros tirarían?'], [
+    ['maker', 'Peças, potes, retalhos: tudo pode virar algo', 'Parts, jars, scraps: everything can become something', 'Piezas, frascos, retazos: todo puede servir'],
+    ['nocturnal', 'Cadernos rabiscados de madrugada', 'Notebooks scribbled in the small hours', 'Cuadernos garabateados de madrugada'],
+    ['gregarious', 'Ingressos de cada saída com amigos', 'Tickets from every outing with friends', 'Entradas de cada salida con amigos'],
+    ['unhurried', 'Nada: deixo as coisas virem e irem', 'Nothing: I let things come and go', 'Nada: dejo que las cosas vengan y se vayan'],
+  ]),
+  q('be-006', 'f', ['Numa viagem, como é o seu ritmo?', 'On a trip, what is your pace like?', 'En un viaje, ¿cómo es tu ritmo?'], [
+    ['swift', 'Ver o máximo possível em pouco tempo', 'See as much as possible in little time', 'Ver lo máximo posible en poco tiempo'],
+    ['unhurried', 'Um lugar por dia, com calma', 'One place a day, calmly', 'Un lugar por día, con calma'],
+    ['nocturnal', 'Dias tranquilos e noites longas', 'Easy days and long nights', 'Días tranquilos y noches largas'],
+    ['gregarious', 'O ritmo do grupo, seja qual for', 'The group’s pace, whatever it is', 'El ritmo del grupo, sea cual sea'],
+  ]),
+  q('be-007', 'f', ['Quando chega uma tarefa nova, você…', 'When a new task arrives, you…', 'Cuando llega una tarea nueva, tú…'], [
+    ['swift', 'Resolve na hora para tirar da frente', 'Do it at once to get it out of the way', 'La resuelves en el acto para quitártela'],
+    ['maker', 'Organiza as ferramentas antes de começar', 'Lay out your tools before starting', 'Organizas las herramientas antes de empezar'],
+    ['gregarious', 'Divide com quem estiver por perto', 'Share it with whoever is around', 'La repartes con quien esté cerca'],
+    ['unhurried', 'Deixa amadurecer um pouco', 'Let it settle for a while', 'Dejas que madure un poco'],
+  ]),
+  q('be-008', 'f', ['Que tipo de cansaço é bom para você?', 'What kind of tiredness feels good to you?', '¿Qué tipo de cansancio te sienta bien?'], [
+    ['swift', 'O de uma corrida', 'After a run', 'El de una carrera'],
+    ['maker', 'O de construir algo o dia inteiro', 'After building something all day', 'El de construir algo todo el día'],
+    ['gregarious', 'O de uma festa que acabou tarde', 'After a party that ended late', 'El de una fiesta que terminó tarde'],
+    ['nocturnal', 'O de uma madrugada produtiva', 'After a productive late night', 'El de una madrugada productiva'],
+  ]),
+  q('be-009', 'f', ['Como você monta o seu canto de trabalho?', 'How do you set up your workspace?', '¿Cómo armas tu rincón de trabajo?'], [
+    ['maker', 'Cheio de coisas que eu mesmo fiz', 'Full of things I made myself', 'Lleno de cosas que hice yo mismo'],
+    ['unhurried', 'Com uma poltrona confortável no meio', 'With a comfy armchair at the center', 'Con un sillón cómodo en el medio'],
+    ['nocturnal', 'Com uma luminária boa para a noite', 'With a good lamp for the night', 'Con una buena lámpara para la noche'],
+    ['gregarious', 'Numa mesa grande onde cabe mais gente', 'At a big table with room for others', 'En una mesa grande donde cabe más gente'],
+  ]),
+  q('be-010', 'f', ['Quando você está esperando alguém, você…', 'When you are waiting for someone, you…', 'Cuando esperas a alguien, tú…'], [
+    ['unhurried', 'Espera tranquilo, sem olhar o relógio', 'Wait calmly, not checking the time', 'Esperas tranquilo, sin mirar el reloj'],
+    ['swift', 'Vai fazendo outras coisas enquanto isso', 'Get other things done in the meantime', 'Vas haciendo otras cosas mientras tanto'],
+    ['maker', 'Conserta alguma coisinha por perto', 'Fix some little thing nearby', 'Arreglas alguna cosita cerca'],
+    ['gregarious', 'Puxa conversa com quem está do lado', 'Chat to whoever is next to you', 'Hablas con quien está al lado'],
+  ]),
+  q('be-011', 'f', ['Qual destes jogos você escolheria?', 'Which of these games would you choose?', '¿Cuál de estos juegos elegirías?'], [
+    ['swift', 'Um de reflexo rápido', 'One of quick reflexes', 'Uno de reflejos rápidos'],
+    ['maker', 'Um de construir mundos', 'One about building worlds', 'Uno de construir mundos'],
+    ['gregarious', 'Um cooperativo, com muita gente', 'A co-op one, with lots of people', 'Uno cooperativo, con mucha gente'],
+    ['nocturnal', 'Um de mistério que se joga à noite', 'A mystery best played at night', 'Uno de misterio que se juega de noche'],
+  ]),
+  q('be-012', 'f', ['Como você descansa de verdade?', 'How do you really rest?', '¿Cómo descansas de verdad?'], [
+    ['unhurried', 'Um cochilo longo no meio da tarde', 'A long afternoon nap', 'Una siesta larga a media tarde'],
+    ['nocturnal', 'Uma noite inteira só para mim', 'A whole night to myself', 'Una noche entera solo para mí'],
+    ['gregarious', 'Rindo com os amigos', 'Laughing with friends', 'Riéndome con los amigos'],
+    ['maker', 'Mexendo num projeto sem pressa', 'Puttering with a project', 'Trasteando con un proyecto sin prisa'],
+  ]),
+  q('be-013', 'f', ['Num acampamento, qual é a sua função?', 'At a campsite, what is your job?', 'En un campamento, ¿cuál es tu función?'], [
+    ['maker', 'Montar as barracas e a fogueira', 'Pitching tents and building the fire', 'Armar las carpas y la fogata'],
+    ['nocturnal', 'Ficar de vigia à noite', 'Keeping watch at night', 'Hacer guardia por la noche'],
+    ['gregarious', 'Animar as rodas de conversa', 'Livening up the circle', 'Animar las rondas de charla'],
+    ['swift', 'Buscar o que estiver faltando, rapidinho', 'Fetching whatever is missing, fast', 'Ir a buscar lo que falte, rapidito'],
+  ]),
+  q('be-014', 'f', ['Como você reage a uma mudança de última hora?', 'How do you react to a last-minute change?', '¿Cómo reaccionas a un cambio de último momento?'], [
+    ['swift', 'Me adapto na hora e sigo', 'Adapt on the spot and carry on', 'Me adapto al instante y sigo'],
+    ['unhurried', 'Preciso de um tempo para digerir', 'I need time to take it in', 'Necesito un tiempo para asimilarlo'],
+    ['gregarious', 'Converso com o grupo para decidir juntos', 'Talk it through with the group', 'Lo hablo con el grupo para decidir juntos'],
+    ['maker', 'Refaço o plano do zero', 'Rebuild the plan from scratch', 'Rehago el plan desde cero'],
+  ]),
+  q('be-015', 'f', ['O que você faz quando não consegue dormir?', 'What do you do when you can’t sleep?', '¿Qué haces cuando no puedes dormir?'], [
+    ['nocturnal', 'Aproveito: a noite é minha', 'Make the most of it: the night is mine', 'Lo aprovecho: la noche es mía'],
+    ['maker', 'Organizo uma gaveta ou conserto algo', 'Tidy a drawer or fix something', 'Ordeno un cajón o arreglo algo'],
+    ['unhurried', 'Fico deitado, sem pressa, até o sono vir', 'Lie there, unhurried, until sleep comes', 'Me quedo acostado, sin prisa, hasta que llegue el sueño'],
+    ['swift', 'Levanto e começo o dia mais cedo', 'Get up and start the day early', 'Me levanto y empiezo el día antes'],
+  ]),
+  q('be-016', 'f', ['Que tipo de festa você daria?', 'What kind of party would you throw?', '¿Qué tipo de fiesta darías?'], [
+    ['gregarious', 'Uma enorme, com amigos de amigos', 'A huge one, friends of friends included', 'Una enorme, con amigos de amigos'],
+    ['nocturnal', 'Uma que só começa à meia-noite', 'One that only starts at midnight', 'Una que empieza a medianoche'],
+    ['maker', 'Uma com decoração toda feita por mim', 'One with decorations I made myself', 'Una con decoración hecha por mí'],
+    ['unhurried', 'Um almoço longo que vira jantar', 'A long lunch that turns into dinner', 'Un almuerzo largo que se vuelve cena'],
+  ]),
+  q('be-017', 'f', ['Como você costuma aprender algo novo?', 'How do you usually learn something new?', '¿Cómo sueles aprender algo nuevo?'], [
+    ['maker', 'Fazendo com as mãos até dar certo', 'By doing it with my hands until it works', 'Haciéndolo con las manos hasta que salga'],
+    ['swift', 'Testando rápido e corrigindo depois', 'Testing fast and fixing later', 'Probando rápido y corrigiendo después'],
+    ['gregarious', 'Com alguém me mostrando', 'With someone showing me', 'Con alguien que me muestre'],
+    ['unhurried', 'Devagar, no meu tempo', 'Slowly, in my own time', 'Despacio, a mi ritmo'],
+  ]),
+  q('be-018', 'f', ['Quando há um problema em casa, você…', 'When something goes wrong at home, you…', 'Cuando algo falla en casa, tú…'], [
+    ['maker', 'Pega a caixa de ferramentas', 'Grab the toolbox', 'Agarras la caja de herramientas'],
+    ['swift', 'Resolve antes que alguém perceba', 'Fix it before anyone notices', 'Lo resuelves antes de que alguien lo note'],
+    ['gregarious', 'Chama todo mundo para ajudar', 'Call everyone in to help', 'Llamas a todos para ayudar'],
+    ['nocturnal', 'Resolve de madrugada, em silêncio', 'Sort it out quietly in the small hours', 'Lo resuelves de madrugada, en silencio'],
+  ]),
+  q('be-019', 'f', ['Qual destes animais tem o seu ritmo?', 'Which of these animals has your rhythm?', '¿Cuál de estos animales tiene tu ritmo?'], [
+    ['nocturnal', 'Uma coruja', 'An owl', 'Un búho'],
+    ['swift', 'Um beija-flor', 'A hummingbird', 'Un colibrí'],
+    ['unhurried', 'Uma tartaruga', 'A tortoise', 'Una tortuga'],
+    ['gregarious', 'Um bando de pássaros', 'A flock of birds', 'Una bandada de pájaros'],
+  ]),
+  q('be-020', 'f', ['Como você organiza as suas coisas?', 'How do you organize your things?', '¿Cómo organizas tus cosas?'], [
+    ['maker', 'Em caixas e prateleiras que eu montei', 'In boxes and shelves I put together', 'En cajas y estantes que armé yo'],
+    ['unhurried', 'Do jeito que ficar mais confortável', 'Whichever way is most comfortable', 'De la forma más cómoda'],
+    ['swift', 'Tudo à mão, para pegar rápido', 'Everything within reach, to grab fast', 'Todo a mano, para agarrarlo rápido'],
+    ['gregarious', 'Divido com quem mora comigo', 'Shared with the people I live with', 'Las comparto con quienes viven conmigo'],
+  ]),
+  q('be-021', 'f', ['Qual destes momentos tem mais a sua cara?', 'Which of these moments is most you?', '¿Cuál de estos momentos va más contigo?'], [
+    ['nocturnal', 'A cidade dormindo e eu acordado', 'The city asleep and me awake', 'La ciudad dormida y yo despierto'],
+    ['gregarious', 'Uma mesa cheia falando ao mesmo tempo', 'A full table, everyone talking at once', 'Una mesa llena hablando a la vez'],
+    ['maker', 'Terminar de montar algo complicado', 'Finishing building something tricky', 'Terminar de armar algo complicado'],
+    ['swift', 'Pegar o trem no último segundo', 'Catching the train at the last second', 'Alcanzar el tren en el último segundo'],
+  ]),
+  // ---- Adaptive --------------------------------------------------------------------------
+  q('be-022', 'a', ['Quando você tem energia sobrando, ela vai para…', 'When you have energy to spare, it goes into…', 'Cuando te sobra energía, la usas en…'], [
+    ['swift', 'Movimento: correr, pular, ir', 'Movement: running, jumping, going', 'Movimiento: correr, saltar, ir'],
+    ['maker', 'Fazer alguma coisa nova', 'Making something new', 'Hacer algo nuevo'],
+    ['gregarious', 'Juntar pessoas', 'Bringing people together', 'Juntar gente'],
+    ['nocturnal', 'Uma noite longa e criativa', 'A long, creative night', 'Una noche larga y creativa'],
+  ]),
+  q('be-023', 'a', ['Sozinho ou em bando?', 'Alone or in a pack?', '¿Solo o en manada?'], [
+    ['gregarious', 'Em bando, sempre', 'In a pack, always', 'En manada, siempre'],
+    ['nocturnal', 'Sozinho, de preferência à noite', 'Alone, ideally at night', 'Solo, de preferencia de noche'],
+    ['maker', 'Sozinho, mas fazendo algo para todos', 'Alone, but making something for everyone', 'Solo, pero haciendo algo para todos'],
+    ['unhurried', 'Tanto faz, desde que sem pressa', 'Either, as long as there’s no rush', 'Da igual, mientras no haya prisa'],
+  ]),
+  q('be-024', 'a', ['O que você faria com uma tarde de chuva inteira?', 'What would you do with a whole rainy afternoon?', '¿Qué harías con una tarde de lluvia entera?'], [
+    ['unhurried', 'Nada, e isso já seria ótimo', 'Nothing, and that would be great', 'Nada, y eso ya estaría genial'],
+    ['maker', 'Construiria um forte de cobertores', 'Build a blanket fort', 'Construiría un fuerte de mantas'],
+    ['gregarious', 'Chamaria gente para um jogo', 'Invite people over for a game', 'Invitaría gente para un juego'],
+    ['swift', 'Sairia correndo na chuva', 'Go running in the rain', 'Saldría a correr bajo la lluvia'],
+  ]),
+  q('be-025', 'a', ['Qual destas rotinas parece mais natural?', 'Which of these routines feels most natural?', '¿Cuál de estas rutinas te parece más natural?'], [
+    ['nocturnal', 'Acordar tarde, dormir tarde', 'Late to rise, late to bed', 'Despertar tarde, dormir tarde'],
+    ['swift', 'Acordar cedo e fazer tudo rápido', 'Up early and doing everything fast', 'Despertar temprano y hacer todo rápido'],
+    ['unhurried', 'Sem horários fixos', 'No fixed hours', 'Sin horarios fijos'],
+    ['maker', 'Um horário para cada projeto', 'A slot for each project', 'Un horario para cada proyecto'],
+  ]),
+  q('be-026', 'a', ['O que você coleciona com mais prazer?', 'What do you most enjoy collecting?', '¿Qué disfrutas más coleccionar?'], [
+    ['maker', 'Materiais para projetos futuros', 'Materials for future projects', 'Materiales para proyectos futuros'],
+    ['gregarious', 'Fotos com pessoas queridas', 'Photos with people I love', 'Fotos con gente querida'],
+    ['nocturnal', 'Lembranças de noites marcantes', 'Keepsakes from memorable nights', 'Recuerdos de noches memorables'],
+    ['swift', 'Medalhas e recordes', 'Medals and personal bests', 'Medallas y récords'],
+  ]),
+  q('be-027', 'a', ['Se você fosse um ninho, seria…', 'If you were a nest, you would be…', 'Si fueras un nido, serías…'], [
+    ['maker', 'Trançado com cuidado, galho por galho', 'Carefully woven, twig by twig', 'Tejido con cuidado, rama por rama'],
+    ['gregarious', 'Parte de uma colônia enorme', 'Part of a huge colony', 'Parte de una colonia enorme'],
+    ['unhurried', 'Macio e quentinho para dormir muito', 'Soft and warm for long sleeps', 'Suave y calentito para dormir mucho'],
+    ['nocturnal', 'Escondido, ativo só à noite', 'Hidden, busy only at night', 'Escondido, activo solo de noche'],
+  ]),
+  q('be-028', 'a', ['Qual destas frases é mais você?', 'Which of these sentences is most you?', '¿Cuál de estas frases te representa más?'], [
+    ['swift', '“Já fiz.”', '“Already done.”', '“Ya lo hice.”'],
+    ['unhurried', '“Uma coisa de cada vez.”', '“One thing at a time.”', '“Una cosa a la vez.”'],
+    ['gregarious', '“Quem vem junto?”', '“Who’s coming with me?”', '“¿Quién viene conmigo?”'],
+    ['maker', '“Deixa que eu monto.”', '“Leave it to me, I’ll build it.”', '“Déjamelo, yo lo armo.”'],
+  ]),
+  q('be-029', 'a', ['Quando o dia termina, o que você faz com as horas que sobram?', 'When the day is done, what do you do with the hours left?', 'Cuando termina el día, ¿qué haces con las horas que quedan?'], [
+    ['nocturnal', 'Começo a minha parte favorita do dia', 'Start my favorite part of the day', 'Empiezo mi parte favorita del día'],
+    ['gregarious', 'Saio para encontrar gente', 'Head out to meet people', 'Salgo a encontrarme con gente'],
+    ['unhurried', 'Durmo cedo e bem', 'Go to bed early and sleep well', 'Me acuesto temprano y duermo bien'],
+    ['maker', 'Termino o que comecei de manhã', 'Finish what I started in the morning', 'Termino lo que empecé por la mañana'],
+  ]),
+  q('be-030', 'a', ['Como você chega a um lugar novo?', 'How do you arrive somewhere new?', '¿Cómo llegas a un lugar nuevo?'], [
+    ['swift', 'Correndo, para não perder nada', 'Rushing, so as not to miss anything', 'Corriendo, para no perderme nada'],
+    ['unhurried', 'Devagar, sentindo o lugar', 'Slowly, feeling the place out', 'Despacio, sintiendo el lugar'],
+    ['gregarious', 'Com a turma toda', 'With the whole gang', 'Con toda la pandilla'],
+    ['nocturnal', 'À noite, quando está mais calmo', 'At night, when it is calmer', 'De noche, cuando está más tranquilo'],
+  ]),
+];

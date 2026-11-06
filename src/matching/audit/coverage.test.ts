@@ -1,5 +1,5 @@
 import type { AnswerId } from '../../domain/questions';
-import { EXPERIMENTAL_ENGINE_VERSION, EXPERIMENTAL_PARAMS } from '../experimental/params';
+import { EXPERIMENTAL_ENGINE_VERSION, EXPERIMENTAL_PARAMS } from '../params';
 import { FIXTURE_PROFILES, FIXTURE_REGISTRY, FIXTURE_SOURCE, fixtureProfile } from '../fixtures/synthetic';
 import type { VersionStamp } from '../versions';
 import { replayWitness, runCoverageAudit, splitCalibrationHoldout, type AuditConfig } from './coverage';
@@ -46,10 +46,8 @@ describe('coverage audit (synthetic fixture)', () => {
   it('separates reached, not yet found and proven unreachable', () => {
     expect(status('fixture-north', 30)).toBe('reached');
     expect(status('fixture-unmapped', 30)).toBe('proven-unreachable');
-    // One mapped trait: random journeys never let it pass the gate, but the targeted search
-    // finds a valid journey where it does. Lack of random discovery proved nothing.
+    // A single mapped trait is enough to be reached once the person leans on it clearly.
     expect(status('fixture-sparse', 30)).toBe('reached');
-    expect(report.witnesses.find((w) => w.speciesId === 'fixture-sparse')?.method).toBe('targeted');
   });
 
   it('every witness replays independently to the same result', () => {
@@ -75,10 +73,12 @@ describe('coverage audit (synthetic fixture)', () => {
     expect(report.calibrated).toBe(false);
   });
 
-  it('without the targeted search the sparse species is not yet found, never "unreachable"', () => {
-    const randomOnly = runCoverageAudit({ ...cfg, targeted: false });
-    const s = randomOnly.species.find((x) => x.speciesId === 'fixture-sparse');
-    expect(s?.byMode['30']).toBe('not-yet-found');
+  it('without any search, mapped species are "not yet found", never "unreachable"', () => {
+    const none = runCoverageAudit({ ...cfg, randomJourneys: 0, targeted: false });
+    for (const s of none.species) {
+      expect(s.byMode['30']).toBe(s.speciesId === 'fixture-unmapped' ? 'proven-unreachable' : 'not-yet-found');
+    }
+    expect(none.witnesses).toEqual([]);
   });
 
   it('the same config gives the same report', () => {

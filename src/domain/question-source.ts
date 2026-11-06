@@ -13,8 +13,12 @@ export interface QuestionSource {
   readonly catalogVersion: CatalogVersion;
   /** Temporary content: the UI must present it as a preview, never as the question bank. */
   readonly preview: boolean;
-  /** Question ids for a new session of this length, in presentation order. */
-  start(mode: ModeId): readonly QuestionId[];
+  /**
+   * Question ids for a new session of this length, in presentation order. `seed` is the
+   * session id: sources that vary the selection per session must use it, so `reconcile`
+   * (which sees the session) rebuilds the same sequence.
+   */
+  start(mode: ModeId, seed?: string): readonly QuestionId[];
   question(id: QuestionId): Question | undefined;
   /**
    * After an answer changes, returns the sequence that is valid for the answers given so

@@ -19,3 +19,6 @@ public/fonts/
 
 # Presentation mockup kept locally only (Or7: remove from the public repo, keep history)
 design-references/rare-encounter-visual-reference.png
+
+# Raw PokéAPI responses (rebuilt by scripts/pokedex/fetch.mjs)
+.cache/
