@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
-import { hasNavigatedInApp } from '../../app/routing';
+import { appHref, hasNavigatedInApp } from '../../app/routing';
 import { Button } from '../../components/button/Button';
 import type { MessageKey } from '../../i18n/messages';
 import type { RecoveryReason } from './resume';
@@ -116,7 +116,7 @@ export function SavedEncounterPanel(props: SavedEncounterPanelProps) {
               {t('resume.continue')}
             </Button>
           ) : (
-            <a className="button button--secondary button--lg" href="/">
+            <a className="button button--secondary button--lg" href={appHref('/')}>
               <span>{t('recovery.later')}</span>
             </a>
           )}

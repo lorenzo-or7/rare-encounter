@@ -9,8 +9,24 @@ export const ENCOUNTER_PATH = '/encounter';
 
 export type Route = 'landing' | 'encounter' | 'foundation';
 
+/**
+ * Where the app is served from: `/` locally, `/rare-encounter/` on GitHub Pages (set at
+ * build time with `--base`). App paths stay root-relative (`/`, `/encounter`); these two
+ * helpers translate them to and from real URLs.
+ */
+const BASE = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+/** A real URL path for an app path, e.g. `/encounter` → `/rare-encounter/encounter`. */
+export const appHref = (path: string): string => `${BASE}${path}` || '/';
+
+/** The app path of a real URL path (the base removed). */
+export function appPath(pathname: string): string {
+  const rest = BASE && pathname.startsWith(BASE) ? pathname.slice(BASE.length) : pathname;
+  return rest.startsWith('/') ? rest : `/${rest}`;
+}
+
 export function routeFromPath(pathname: string, dev: boolean): Route {
-  const path = pathname.replace(/\/+$/, '') || '/';
+  const path = appPath(pathname).replace(/\/+$/, '') || '/';
   if (path === ENCOUNTER_PATH) return 'encounter';
   if (dev && path === '/foundation') return 'foundation';
   return 'landing';
@@ -45,8 +61,8 @@ export function encounterHistoryState(): EncounterHistoryState {
 
 /** Pushes a new history entry and starts the new screen at the top. */
 export function navigate(path: string, state: EncounterHistoryState | null = null): void {
-  if (window.location.pathname === path) return;
-  window.history.pushState(state, '', path);
+  if (appPath(window.location.pathname) === path) return;
+  window.history.pushState(state, '', appHref(path));
   navigatedInApp = true;
   window.scrollTo(0, 0);
   window.dispatchEvent(new Event(CHANGE));

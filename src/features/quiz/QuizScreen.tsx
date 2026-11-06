@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'motion/react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
-import { encounterHistoryState } from '../../app/routing';
+import { appHref, encounterHistoryState } from '../../app/routing';
 import { Button } from '../../components/button/Button';
 import { SettingsPanel } from '../../components/settings/SettingsPanel';
 import { Sheet } from '../../components/sheet/Sheet';
@@ -158,7 +158,7 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
           <section className="quiz__complete">
             <h1 className="question__prompt">{t('quiz.complete.title', { total })}</h1>
             <p className="quiz__complete-body">{t('quiz.complete.body')}</p>
-            <a className="button button--secondary button--lg" href="/">
+            <a className="button button--secondary button--lg" href={appHref('/')}>
               <span>{t('quiz.complete.home')}</span>
             </a>
           </section>

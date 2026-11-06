@@ -1,0 +1,61 @@
+# Preview of Rare Encounter on GitHub Pages: https://lorenzo-or7.github.io/rare-encounter/
+#
+# Runs on every push to feature/complete-experience, or by hand (Actions → "Deploy preview to
+# GitHub Pages" → Run workflow). Requires Settings → Pages → Source: "GitHub Actions".
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: [feature/complete-experience]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push replaces a run still in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Clash Display is licensed (ITF FFL v2.0): self-hosting on our own site is allowed,
+      # publishing it through the repository is not. It is fetched from Fontshare at build
+      # time, goes into the site only, and never enters Git.
+      - run: npm run fonts:setup
+
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run check:vendor
+
+      - run: npm run build:pages
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

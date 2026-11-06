@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
-import { encounterHistoryState, navigate } from '../../app/routing';
+import { appHref, encounterHistoryState, navigate } from '../../app/routing';
 import { SiteLayout } from '../../components/layout/SiteLayout';
 import type { ModeId } from '../../domain/modes';
 import type { QuizSession } from '../../domain/session';
@@ -138,7 +138,7 @@ export default function EncounterPage() {
 
   if (view.kind === 'result') {
     return (
-      <SiteLayout sections={[]} brandHref="/">
+      <SiteLayout sections={[]} brandHref={appHref('/')}>
         <ResultsPhase
           store={view.store}
           source={SOURCE}
@@ -158,7 +158,7 @@ export default function EncounterPage() {
   }
 
   return (
-    <SiteLayout sections={[]} brandHref="/">
+    <SiteLayout sections={[]} brandHref={appHref('/')}>
       {view.kind === 'prepare' && (
         <PreparationScreen onConfirm={start} storageUnreachable={view.unreachable} />
       )}

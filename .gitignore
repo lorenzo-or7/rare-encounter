@@ -22,3 +22,6 @@ design-references/rare-encounter-visual-reference.png
 
 # Raw PokéAPI responses (rebuilt by scripts/pokedex/fetch.mjs)
 .cache/
+
+# Local Claude Code settings (never published)
+.claude/
