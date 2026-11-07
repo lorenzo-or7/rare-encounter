@@ -37,12 +37,38 @@ jobs:
       # time, goes into the site only, and never enters Git.
       - run: npm run fonts:setup
 
+      # The loading video (9.1 MB) is too large for the repository (check:safety keeps files
+      # over 5 MB and video out of Git), so it lives as an asset of a pinned GitHub Release.
+      # The release tag and the file's name, size and SHA-256 are fixed in
+      # scripts/media-manifest.json; nothing here ever follows "latest". If the asset is
+      # missing or differs in any way, the job stops: no deploy goes out without the video.
+      - name: Download loading video from its pinned release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG=$(node -p "require('./scripts/media-manifest.json').release")
+          ASSET=$(node -p "require('./scripts/media-manifest.json').asset")
+          mkdir -p public/media
+          if ! gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$ASSET" --dir public/media --clobber; then
+            echo "::error title=Loading video unavailable::Could not download $ASSET from release $TAG of $GITHUB_REPOSITORY. Upload the original file to that release (docs/DEPLOY_PAGES.md, 'Loading video') and run the workflow again. Nothing was deployed."
+            exit 1
+          fi
+          if ! npm run --silent media:verify; then
+            echo "::error title=Loading video does not match::$ASSET in release $TAG is not the approved file (name, size or SHA-256 differ from scripts/media-manifest.json). Nothing was deployed."
+            exit 1
+          fi
+
       - run: npm run typecheck
       - run: npm run lint
       - run: npm test
       - run: npm run check:vendor
 
       - run: npm run build:pages
+
+      # The video must be in the published artifact, byte for byte.
+      - name: Check the video is in the Pages artifact
+        run: node scripts/verify-media.mjs --file dist/media/encounter-loading.mp4
 
       - uses: actions/configure-pages@v5
 

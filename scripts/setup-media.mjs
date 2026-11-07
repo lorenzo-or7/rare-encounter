@@ -8,6 +8,8 @@
  * loading screen shows its static cosmic fallback, so every build still works.
  *
  * Source: the path in RARE_ENCOUNTER_VIDEO, or the file as delivered by Or7 in Downloads.
+ * The copy is then checked against scripts/media-manifest.json (the same check the Pages
+ * workflow runs on the Release asset), so local and published builds use the same bytes.
  */
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -27,7 +29,8 @@ if (!existsSync(SOURCE)) {
 
 const sha = (file) => createHash('sha256').update(readFileSync(file)).digest('hex');
 if (existsSync(OUT) && sha(OUT) === sha(SOURCE)) {
-  console.log(`${OUT} is already the approved video.`);
+  console.log(`${OUT} is already the source video.`);
+  await import('./verify-media.mjs');
   process.exit(0);
 }
 
@@ -35,3 +38,4 @@ mkdirSync(OUT_DIR, { recursive: true });
 copyFileSync(SOURCE, OUT);
 if (sha(OUT) !== sha(SOURCE)) throw new Error('Copied video differs from the source');
 console.log(`Copied ${SOURCE} -> ${OUT} (${(statSync(OUT).size / 1048576).toFixed(1)} MB, unchanged).`);
+await import('./verify-media.mjs');
