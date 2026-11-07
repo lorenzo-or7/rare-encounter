@@ -74,12 +74,12 @@ export const INSTINCT: readonly QuestionDef[] = [
     ['vigilant', 'Ler o adversário', 'Reading the opponent', 'Leer al rival'],
     ['elusive', 'Surpreender quando ninguém espera', 'Surprising them when no one expects it', 'Sorprender cuando nadie lo espera'],
   ]),
-  q('in-013', 'f', ['Se você fosse um animal fugindo de uma tempestade, você…', 'If you were an animal escaping a storm, you would…', 'Si fueras un animal huyendo de una tormenta, tú…'], [
-    ['elusive', 'Se enfiaria numa toca escondida', 'Burrow into a hidden den', 'Te meterías en una madriguera escondida'],
-    ['resilient', 'Enfrentaria o vento até passar', 'Weather the wind until it passed', 'Aguantarías el viento hasta que pase'],
-    ['intuitive', 'Já teria saído antes de começar', 'Have left before it began', 'Ya te habrías ido antes de que empezara'],
-    ['vigilant', 'Subiria alto para ver para onde ir', 'Climb high to see where to go', 'Subirías alto para ver adónde ir'],
-  ]),
+  q('in-013', 'f', ['Num lugar cheio, algo cai e faz um barulho alto. Você…', 'In a crowded place, something falls with a loud crash. You…', 'En un lugar lleno, algo se cae con un ruido fuerte. Tú…'], [
+    ['elusive', 'Se afasta discretamente', 'Quietly step away', 'Te apartas con discreción'],
+    ['resilient', 'Segue o que estava fazendo, sem se abalar', 'Carry on with what you were doing, unshaken', 'Sigues con lo que hacías, sin inmutarte'],
+    ['intuitive', 'Sente na hora se foi algo sério', 'Sense right away whether it was serious', 'Sientes enseguida si fue algo serio'],
+    ['vigilant', 'Já está olhando de onde veio', 'Are already looking at where it came from', 'Ya estás mirando de dónde vino'],
+  ], { revision: 2 }),
   q('in-014', 'f', ['Um amigo está sendo provocado. Você…', 'A friend is being picked on. You…', 'Están molestando a un amigo. Tú…'], [
     ['fierce', 'Entra na frente na hora', 'Step in front at once', 'Te pones delante enseguida'],
     ['intuitive', 'Sente o que o amigo precisa naquele momento', 'Sense what your friend needs right then', 'Sientes lo que tu amigo necesita en ese momento'],
@@ -141,12 +141,12 @@ export const INSTINCT: readonly QuestionDef[] = [
     ['resilient', 'Calma: vou me adaptar', 'Calm: I’ll adapt', 'Calma: me voy a adaptar'],
     ['fierce', 'Vontade de ir com tudo', 'An urge to go all in', 'Ganas de ir con todo'],
   ]),
-  q('in-024', 'a', ['Se tivesse que atravessar um território hostil, você…', 'If you had to cross hostile ground, you would…', 'Si tuvieras que cruzar un territorio hostil, tú…'], [
-    ['elusive', 'Iria à noite, sem ser visto', 'Go at night, unseen', 'Irías de noche, sin ser visto'],
-    ['fierce', 'Abriria caminho na força', 'Force your way through', 'Te abrirías paso a la fuerza'],
-    ['resilient', 'Iria devagar, aguentando o que viesse', 'Go slowly, enduring whatever came', 'Irías despacio, aguantando lo que viniera'],
-    ['intuitive', 'Seguiria o que o instinto mandasse', 'Follow wherever your instinct told you', 'Seguirías lo que dijera tu instinto'],
-  ]),
+  q('in-024', 'a', ['Você precisa resolver algo difícil num lugar onde não conhece ninguém. Você…', 'You have to sort out something hard somewhere you know nobody. You…', 'Tienes que resolver algo difícil en un lugar donde no conoces a nadie. Tú…'], [
+    ['elusive', 'Observa em silêncio antes de aparecer', 'Watch quietly before making yourself known', 'Observas en silencio antes de dejarte ver'],
+    ['fierce', 'Vai direto ao ponto, sem rodeios', 'Go straight to the point, no detours', 'Vas directo al grano, sin rodeos'],
+    ['resilient', 'Insiste até resolver, mesmo que demore', 'Keep at it until it’s solved, however long it takes', 'Insistes hasta resolverlo, aunque tarde'],
+    ['intuitive', 'Confia no instinto para saber com quem falar', 'Trust your gut about who to talk to', 'Confías en tu instinto para saber con quién hablar'],
+  ], { revision: 2 }),
   q('in-025', 'a', ['Qual destas cenas descreve você sob pressão?', 'Which scene describes you under pressure?', '¿Qué escena te describe bajo presión?'], [
     ['resilient', 'Uma árvore que verga mas não quebra', 'A tree that bends but doesn’t break', 'Un árbol que se dobla pero no se quiebra'],
     ['fierce', 'Uma onda batendo na rocha', 'A wave crashing on rock', 'Una ola rompiendo contra la roca'],

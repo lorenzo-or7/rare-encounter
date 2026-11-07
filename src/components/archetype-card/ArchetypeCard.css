@@ -29,6 +29,51 @@
   transition: filter var(--duration-slow) var(--ease-out);
 }
 
+/*
+ * Discovery, in the art's window (where the question mark is). The geometry follows the
+ * three approved arts, which share one frame: window from 8.6% to 63.5% of the height.
+ */
+.archetype-card__window {
+  position: absolute;
+  inset: 8.6% 14% 36.5%;
+  border-radius: 9% / 6%;
+  background:
+    radial-gradient(65% 50% at 50% 45%, color-mix(in oklab, var(--card-hue) 46%, transparent), transparent 72%),
+    radial-gradient(120% 90% at 50% 100%, color-mix(in oklab, var(--card-hue) 20%, transparent), transparent 70%),
+    #0c0817;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--card-hue) 32%, transparent);
+  pointer-events: none;
+}
+
+/* A copy of the window lifting away: the question mark dissolving into light. */
+.archetype-card__dissolve {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(8.6% 14% 36.5% round 9% / 6%);
+  pointer-events: none;
+}
+
+.archetype-card__dissolve img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.archetype-card__reveal {
+  position: absolute;
+  inset: 11% 18% 39%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4cqi;
+  text-align: center;
+}
+
+.archetype-card__sigil {
+  color: var(--card-hue);
+  filter: drop-shadow(0 0 10px color-mix(in oklab, var(--card-hue) 70%, transparent));
+}
+
 /* Reflection: masked by the art's own alpha so it lights the card, never the page */
 .archetype-card__glare {
   position: absolute;
@@ -78,7 +123,7 @@
 }
 
 .archetype-card__phrase {
-  max-width: 24ch;
+  max-width: 22ch;
   color: var(--color-text);
   font-size: max(0.875rem, 4.6cqi);
   line-height: var(--leading-snug);

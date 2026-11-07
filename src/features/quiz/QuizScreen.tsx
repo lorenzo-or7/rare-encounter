@@ -13,6 +13,7 @@ import { PauseSheet } from './PauseSheet';
 import { QuestionView } from './QuestionView';
 import { QuizHeader } from './QuizHeader';
 import { canMoveForward, useQuiz } from './useQuiz';
+import { markNoticeShown, readShownNotices, voidRunBefore } from './void-notice';
 import './QuizScreen.css';
 import { MODE_NAMES } from '../preparation/mode-names';
 
@@ -57,6 +58,16 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
   const leaving = useRef(false);
 
   const total = totalQuestions(state.session);
+
+  // Three voided questions in a row bring a gentle, non-blocking notice, once per run. Runs
+  // already shown (this visit or before a reload) stay quiet; a real answer ends the run.
+  const [shownBefore] = useState(() => readShownNotices(session.id));
+  const [dismissed, setDismissed] = useState<string | null>(null);
+  const voidRun = state.status === 'answering' ? voidRunBefore(state.session, state.index) : null;
+  const voidNotice = voidRun !== null && voidRun !== dismissed && !shownBefore.has(voidRun) ? voidRun : null;
+  useEffect(() => {
+    if (voidNotice) markNoticeShown(session.id, voidNotice);
+  }, [voidNotice, session.id]);
   const answered = answeredCount(state.session);
   const questionId = currentQuestionId(state);
   const question = questionId ? source.question(questionId) : undefined;
@@ -182,8 +193,26 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
                     onChoose={(answerId) => {
                       quiz.select(question.id, answerId);
                     }}
+                    voidLabel={t('quiz.void')}
                   />
                 </AnimatePresence>
+              </div>
+
+              <div className="quiz__notice-slot" role="status" aria-live="polite">
+                {voidNotice && (
+                  <div className="quiz__notice">
+                    <p className="quiz__notice-title">{t('quiz.voidNotice.title')}</p>
+                    <p>{t('quiz.voidNotice.body')}</p>
+                    <Button
+                      variant="secondary"
+                      onClick={() => {
+                        setDismissed(voidNotice);
+                      }}
+                    >
+                      {t('quiz.voidNotice.action')}
+                    </Button>
+                  </div>
+                )}
               </div>
 
               {state.status === 'save-error' && (

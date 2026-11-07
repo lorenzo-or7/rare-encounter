@@ -134,267 +134,182 @@
   font-size: var(--text-2xl);
 }
 
-/* ---- Soul Match: Holo Card + Editorial Split --------------------------------------------- */
+/* ---- Encounters: official cards, face down until revealed ------------------------------- */
 
-.soul {
+.encounter {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--space-8);
   align-items: center;
 }
 
 @media (min-width: 56em) {
-  .soul {
-    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  .encounter {
+    grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
     gap: var(--space-16);
   }
 }
 
-.holo-wrap {
+.encounter__text {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.encounter__waiting {
+  color: var(--color-text-muted);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+}
+
+.encounter__locked,
+.mystery__title {
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+.mystery__title {
+  margin-top: var(--space-4);
+  color: var(--color-text);
+  font-family: var(--font-card);
+  font-size: var(--text-xl);
+}
+
+.rcard-wrap {
+  --card-hue: var(--archetype-ethereal);
+
   display: grid;
   justify-items: center;
   gap: var(--space-4);
-  perspective: 1100px;
+  perspective: 1200px;
 }
 
-.holo {
-  width: min(100%, 20rem);
-  aspect-ratio: 5 / 7;
-  transform-style: preserve-3d;
-  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 520ms var(--ease-out);
-  touch-action: pan-y;
+.rcard-wrap[data-tone='radiant'] {
+  --card-hue: var(--archetype-radiant);
 }
 
-.holo:hover {
-  transition-duration: 120ms;
+.rcard-wrap[data-tone='instinctive'] {
+  --card-hue: var(--archetype-instinctive);
 }
 
-.holo__inner {
+/* The official art is 2:3; the card never exceeds the column or the screen. */
+.rcard {
+  position: relative;
+  width: min(100%, 18rem);
+  aspect-ratio: 2 / 3;
+  container-type: inline-size;
+}
+
+/* Light and shade of the discovery, kept off the 3D container (a filter would flatten it). */
+.rcard__shade,
+.rcard__light {
+  position: absolute;
+  inset: 4%;
+  border-radius: 10% / 7%;
+  pointer-events: none;
+}
+
+.rcard__shade {
+  background: #05030b;
+}
+
+.rcard__light {
+  background: radial-gradient(60% 50% at 50% 45%, color-mix(in oklab, var(--card-hue) 70%, white), transparent 75%);
+  mix-blend-mode: screen;
+}
+
+.rcard__inner {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
 }
 
-.holo__face {
+.rcard__face {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(90% 60% at 50% 30%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 70%),
-    var(--color-surface);
-  box-shadow: var(--shadow-lg);
   backface-visibility: hidden;
 }
 
-.holo__back {
-  display: grid;
-  place-items: center;
+.rcard__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rcard__front {
   transform: rotateY(180deg);
 }
 
-/* Reduced motion: no turn; the faces simply swap. */
-.holo[data-still='true'] .holo__back {
+/* Reduced motion: no turn, the faces swap. */
+.rcard[data-still='true'] .rcard__front {
   transform: none;
-  opacity: 0;
   visibility: hidden;
 }
 
-.holo[data-still='true'][data-face='back'] .holo__back {
-  opacity: 1;
+.rcard[data-still='true'][data-face='front'] .rcard__front {
   visibility: visible;
 }
 
-.holo[data-still='true'][data-face='back'] .holo__front {
+.rcard[data-still='true'][data-face='front'] .rcard__back {
   visibility: hidden;
 }
 
-/* Ethereal Frame: two hairlines, the inner one in the iris. */
-.holo__frame {
+/*
+ * The front keeps the official frame and clears its window: a field of light in the card's
+ * hue covers the question mark entirely, and the Pokémon stands inside it. The art itself is
+ * never distorted or cropped.
+ */
+.rcard__window {
   position: absolute;
-  inset: var(--space-2);
-  border: 1px solid color-mix(in oklab, var(--color-text) 22%, transparent);
-  border-radius: calc(var(--radius-lg) - var(--space-2));
-  pointer-events: none;
-}
-
-.holo__frame::after {
-  content: '';
-  position: absolute;
-  inset: 5px;
-  border: 1px solid transparent;
-  border-radius: calc(var(--radius-lg) - var(--space-2) - 5px);
-  background: var(--iris) border-box;
-  mask:
-    linear-gradient(#000 0 0) padding-box exclude,
-    linear-gradient(#000 0 0);
-  opacity: 0.8;
-}
-
-.holo__art {
-  position: absolute;
-  inset: 10% 8% 22%;
-}
-
-/* Restrained foil: a soft spectral sheen that follows the pointer. */
-.holo__foil {
-  position: absolute;
-  inset: 0;
+  inset: 8.6% 14% 36.5%;
+  border-radius: 9% / 6%;
   background:
-    radial-gradient(40% 35% at var(--fx, 50%) var(--fy, 50%), rgb(255 255 255 / 0.22), transparent 70%),
-    linear-gradient(115deg, transparent 30%, color-mix(in oklab, var(--accent-2) 22%, transparent) 48%, transparent 66%);
-  mix-blend-mode: soft-light;
-  pointer-events: none;
+    radial-gradient(70% 55% at 50% 45%, color-mix(in oklab, var(--card-hue) 42%, transparent), transparent 72%),
+    radial-gradient(120% 90% at 50% 100%, color-mix(in oklab, var(--card-hue) 18%, transparent), transparent 70%),
+    #0c0817;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--card-hue) 30%, transparent);
 }
 
-.holo__dex {
+.rcard__species {
   position: absolute;
-  inset: var(--space-5) auto auto var(--space-6);
-  color: var(--color-text-subtle);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-label);
+  inset: 13% 18% 39%;
+  display: grid;
+  place-items: center;
 }
 
-.holo__name {
+.rcard__species .species-art {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.rcard__species .species-art__image {
+  filter: drop-shadow(0 0.5rem 1.25rem color-mix(in oklab, var(--card-hue) 45%, transparent));
+}
+
+.rcard__dex {
   position: absolute;
-  inset: auto var(--space-5) var(--space-6);
+  inset-block-start: 13.7%;
+  inset-inline-start: 50%;
+  translate: -50% -50%;
+  z-index: 1;
+  color: color-mix(in oklab, var(--card-hue) 55%, white);
+  font-size: max(0.75rem, 5cqi);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px color-mix(in oklab, var(--card-hue) 60%, transparent);
+}
+
+.rcard__name {
+  position: absolute;
+  inset: 68% 14% 14%;
+  display: grid;
+  place-items: center;
+  color: #f4effc;
   font-family: var(--font-card);
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  font-size: max(1.25rem, 10cqi);
   line-height: 1.05;
   text-align: center;
-}
-
-.holo__flip {
-  min-height: 2.75rem;
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-pill);
-  color: var(--color-text);
-  font-size: var(--text-sm);
-}
-
-.holo__flip:hover {
-  background: var(--color-surface-hover);
-}
-
-.holo__flip:focus-visible,
-.veil:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 3px;
-}
-
-.celestial {
-  width: 72%;
-  height: auto;
-}
-
-/* ---- Hidden Match: Chromatic Veil ------------------------------------------------------- */
-
-.hidden-match {
-  display: grid;
-  gap: var(--space-5);
-}
-
-.veil {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: var(--space-3);
-  width: 100%;
-  padding: var(--space-8) var(--space-5);
-  overflow: hidden;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-align: center;
-  cursor: pointer;
-}
-
-.veil__art {
-  position: relative;
-  display: block;
-  width: min(60%, 14rem);
-}
-
-/*
- * Chromatic light passing over the silhouette (one slow sweep, repeated). The element is
- * masked by the species art, so the light never leaves the silhouette; the gradient moves,
- * the mask stays put.
- */
-.veil__light {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      100deg,
-      transparent 40%,
-      var(--accent) 48%,
-      var(--accent-2) 52%,
-      transparent 60%
-    )
-    0 0 / 300% 100% no-repeat;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  opacity: 0.75;
-  animation: veil-sweep 4.5s var(--ease-in-out) infinite;
-}
-
-@keyframes veil-sweep {
-  from {
-    background-position: 100% 0;
-  }
-  to {
-    background-position: 0% 0;
-  }
-}
-
-.veil__hint {
-  max-width: 28rem;
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-}
-
-.veil__cta {
-  padding: var(--space-2) var(--space-5);
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-  color: var(--on-accent);
-  font-weight: var(--weight-semibold);
-}
-
-.veil:hover .veil__cta {
-  background: var(--accent-hover);
-}
-
-.hidden-match__open,
-.connection {
-  display: grid;
-  gap: var(--space-6);
-  align-items: start;
-}
-
-.hidden-match__art,
-.connection__art {
-  width: min(100%, 14rem);
-}
-
-@media (min-width: 48em) {
-  .hidden-match__open,
-  .connection {
-    grid-template-columns: 14rem minmax(0, 1fr);
-    gap: var(--space-10);
-  }
-}
-
-/* ---- Alternative Match: Connection Panel ------------------------------------------------ */
-
-.connection {
-  padding: var(--space-6);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-raised);
+  overflow-wrap: anywhere;
 }
 
 /* ---- Footer ----------------------------------------------------------------------------- */
@@ -426,12 +341,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .veil__light {
-    animation: none;
-    background-position: 50% 0;
-  }
-
-  .holo,
   .species-art__image {
     transition: none;
   }

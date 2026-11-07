@@ -34,14 +34,47 @@ export interface Match {
   readonly explanation: MatchExplanation;
 }
 
-export interface EncounterResult {
+/** How the journey was answered: valid answers count as evidence, voided ones do not. */
+export interface AnswerCounts {
+  readonly answered: number;
+  readonly voided: number;
+}
+
+interface ResultBase {
   readonly sessionId: string;
   readonly mode: ModeId;
   readonly completedAt: string;
   readonly catalogVersion: CatalogVersion;
   readonly bankVersion: QuestionBankVersion;
   readonly engineVersion: string;
+  /** Absent on results stored before voiding existed. */
+  readonly counts?: AnswerCounts;
+}
+
+/** Three distinct species from the engine (results stored earlier have no `outcome`). */
+export interface MatchesResult extends ResultBase {
+  readonly outcome?: 'matches';
   readonly soul: Match;
   readonly hidden: Match;
   readonly alternatives: readonly Match[];
 }
+
+/**
+ * Every question was voided: there is no evidence at all, so no affinity was computed.
+ * Unown stands for the mystery as a secret discovery; it is not a Soul Match and says
+ * nothing about Unown's own place in the normal ranking.
+ */
+export interface MysteryResult extends ResultBase {
+  readonly outcome: 'mystery';
+  readonly speciesId: SpeciesId;
+}
+
+/** Some answers, but not enough evidence for three defensible matches: none are invented. */
+export interface InsufficientResult extends ResultBase {
+  readonly outcome: 'insufficient';
+}
+
+export type EncounterResult = MatchesResult | MysteryResult | InsufficientResult;
+
+export const isMatchesResult = (r: EncounterResult): r is MatchesResult =>
+  r.outcome === undefined || r.outcome === 'matches';

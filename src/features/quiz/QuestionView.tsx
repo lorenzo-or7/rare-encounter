@@ -1,7 +1,7 @@
 import { motion, useIsPresent } from 'motion/react';
 import { useEffect, useId, useRef } from 'react';
 import type { Locale } from '../../i18n/locales';
-import type { AnswerId, Question } from '../../domain/questions';
+import { VOID_ANSWER, type AnswerId, type Question } from '../../domain/questions';
 import { AnswerButton } from './AnswerButton';
 import type { Direction } from './flow';
 
@@ -27,6 +27,8 @@ interface QuestionViewProps {
   /** Move focus to the prompt when this view appears (every step after the first render). */
   readonly focusOnEnter: boolean;
   readonly onChoose: (answerId: AnswerId) => void;
+  /** Label of the "none of these" action, in the current language. */
+  readonly voidLabel: string;
 }
 
 export function QuestionView({
@@ -37,6 +39,7 @@ export function QuestionView({
   busy,
   focusOnEnter,
   onChoose,
+  voidLabel,
 }: QuestionViewProps) {
   const present = useIsPresent();
   const promptId = useId();
@@ -80,6 +83,19 @@ export function QuestionView({
           />
         ))}
       </div>
+      {/* The fifth action: pass on a question none of whose options fit. Not an answer. */}
+      <button
+        type="button"
+        className="question__void"
+        aria-pressed={chosen === VOID_ANSWER}
+        data-selected={chosen === VOID_ANSWER}
+        disabled={busy || !present}
+        onClick={() => {
+          onChoose(VOID_ANSWER);
+        }}
+      >
+        {voidLabel}
+      </button>
     </motion.div>
   );
 }

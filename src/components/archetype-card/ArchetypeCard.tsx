@@ -119,28 +119,69 @@ export function ArchetypeCard({
           />
         )}
 
+        {/*
+         * Discovery happens in the art's window, where the question mark lives: the mark
+         * dissolves into light (a copy of the window lifting away), a field of the card's
+         * hue opens from the centre, and the sigil and phrase appear in its place. The
+         * plate below keeps the title and the button only, so nothing below moves.
+         */}
+        <AnimatePresence initial={false}>
+          {revealed && (
+            <motion.div
+              key="window"
+              className="archetype-card__window"
+              aria-hidden="true"
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, clipPath: 'circle(0% at 50% 45%)' }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, clipPath: 'circle(120% at 50% 45%)' }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, clipPath: 'circle(0% at 50% 45%)' }}
+              transition={{ duration: reduceMotion ? 0.15 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+            />
+          )}
+        </AnimatePresence>
+
+        {archetype.art && !reduceMotion && (
+          <AnimatePresence initial={false}>
+            {revealed && (
+              <motion.div
+                key="dissolve"
+                className="archetype-card__dissolve"
+                aria-hidden="true"
+                initial={{ opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)' }}
+                animate={{ opacity: 0, scale: 1.18, filter: 'blur(14px) brightness(1.8)' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <img src={archetype.art.src} srcSet={archetype.art.srcSet} sizes="(min-width: 48em) 20rem, 80vw" alt="" width={1024} height={1536} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
+
+        <AnimatePresence initial={false}>
+          {revealed && (
+            <motion.div
+              key="phrase"
+              className="archetype-card__reveal"
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 10, filter: 'blur(6px)' }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 4, filter: 'blur(4px)' }}
+              transition={{ duration: reduceMotion ? 0.15 : 0.45, delay: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="archetype-card__sigil" aria-hidden="true">
+                <Icon name="sparkle" size={28} />
+              </span>
+              <p id={phraseId} className="archetype-card__phrase">
+                {phrase}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <p className="archetype-card__number">{archetype.number}</p>
 
         <div className="archetype-card__content">
           <h3 id={titleId} className="archetype-card__title">
             {name}
           </h3>
-
-          <AnimatePresence initial={false}>
-            {revealed && (
-              <motion.p
-                key="phrase"
-                id={phraseId}
-                className="archetype-card__phrase"
-                initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: 4, filter: 'blur(4px)' }}
-                transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {phrase}
-              </motion.p>
-            )}
-          </AnimatePresence>
 
           <button
             type="button"

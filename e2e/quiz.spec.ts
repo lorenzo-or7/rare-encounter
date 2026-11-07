@@ -213,42 +213,122 @@ test('storage that cannot save stops the start, honestly', async ({ page }) => {
   await fullShot(page, 'quiz-storage-blocked');
 });
 
-test('a whole journey ends in three distinct Pokémon, kept after a reload', async ({ page }) => {
+test('a whole journey ends in three face-down cards, revealed in order and kept after a reload', async ({ page }) => {
   test.setTimeout(150_000);
   await startQuiz(page);
   for (let i = 0; i < 29; i++) await answer(page, i % 4);
   await answers(page).nth(0).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Your three encounters' })).toBeVisible({ timeout: 30_000 });
   await expect(page.getByText('Drawn from your 30 answers in A Glimpse.')).toBeVisible();
-  for (const role of ['Soul Match', 'Hidden Match', 'Alternative Match']) {
-    await expect(page.getByText(role, { exact: true }).first()).toBeVisible();
+  // Order: Soul, Alternative, Hidden. All three face down, nothing of a species on the page.
+  await expect(page.locator('.encounter .match-role')).toHaveText(['Soul Match', 'Alternative Match', 'Hidden Match']);
+  await expect(page.locator('.match-name')).toHaveCount(0);
+  await expect(page.locator('.rcard__front')).toHaveCount(0);
+  await expect(page.getByRole('img', { name: 'Soul Match card, not revealed yet' })).toBeVisible();
+  // Each reveal waits for the one before it.
+  await expect(page.getByRole('button', { name: 'Reveal Alternative Match' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Reveal Hidden Match' })).toBeDisabled();
+  const names: string[] = [];
+  for (const role of ['Soul Match', 'Alternative Match', 'Hidden Match']) {
+    await page.getByRole('button', { name: `Reveal ${role}` }).click();
+    await expect(page.locator('.match-name')).toHaveCount(names.length + 1);
+    names.push((await page.locator('.match-name').nth(names.length).textContent()) ?? '');
   }
-  // Soul and Alternative are named; the Hidden Match stays veiled until asked.
-  const named = await page.locator('.match-name').allTextContents();
-  expect(named).toHaveLength(2);
-  await page.getByRole('button', { name: 'Reveal your Hidden Match' }).click();
-  const all = await page.locator('.match-name').allTextContents();
-  expect(new Set(all).size).toBe(3);
+  expect(new Set(names).size).toBe(3);
+  await expect(page.getByRole('img', { name: `${names[0] ?? ''} card, No. ` , exact: false }).first()).toBeVisible();
   // Every explanation cites recorded evidence and never invents a percentage.
   await expect(page.locator('.why__reasons li').first()).toBeVisible();
   expect(await page.locator('.results').innerText()).not.toMatch(/\d+\s?%/);
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth),
   ).toBeLessThanOrEqual(0);
-  // Let the reveal settle and the lazy images below the fold load before the capture.
+  // Let the reveals settle and the images below the fold load before the capture.
   await page.evaluate(() => {
     window.scrollTo(0, document.body.scrollHeight);
   });
   await expect(page.locator('.species-art[data-state="loading"]')).toHaveCount(0, { timeout: 20_000 });
   await page.waitForTimeout(1500);
   await fullShot(page, 'results');
-  // The flip is a real, accessible control.
-  await page.getByRole('button', { name: 'Turn the card over' }).click();
-  await expect(page.getByRole('button', { name: 'Show the front' })).toHaveAttribute('aria-pressed', 'true');
-  // Reload: the stored result comes back as it was, revealed veil included.
+  // Turning a discovered card back over does not forget the discovery.
+  await page.getByRole('button', { name: 'Turn the card over' }).first().click();
+  await expect(page.getByRole('button', { name: 'Show the front' })).toHaveCount(1);
+  await expect(page.locator('.match-name')).toHaveCount(3);
+  // Reload: the stored result comes back as it was, all three discoveries included.
   await page.reload();
   await expect(page.getByRole('heading', { level: 1, name: 'Your three encounters' })).toBeVisible({ timeout: 30_000 });
-  expect(await page.locator('.match-name').allTextContents()).toEqual(all);
+  await expect(page.locator('.match-name')).toHaveText(names);
+  await expect(page.getByRole('button', { name: /^Reveal/ })).toHaveCount(0);
+});
+
+test.describe('None of these', () => {
+  const pass = async (page: Page) => {
+    const before = (await step(page).textContent()) ?? '';
+    await page.locator('.question:not([inert]) .question__void').click();
+    await expect(step(page)).not.toHaveText(before);
+    await expect(page.locator('.question')).toHaveCount(1);
+  };
+  const voidButton = (page: Page) =>
+    page.locator('.question:not([inert])').getByRole('button', { name: 'None of these' });
+
+  test('passes a question, can be changed both ways, and is stored as a pass', async ({ page }) => {
+    await startQuiz(page);
+    await pass(page);
+    await expect(step(page)).toHaveText('Question 2 of 30');
+    await expect(progress(page)).toHaveAttribute('aria-valuenow', '1');
+    // Back: the pass shows as chosen; an answer can replace it, and the other way round.
+    await page.getByRole('button', { name: 'Previous question' }).click();
+    await expect(voidButton(page)).toHaveAttribute('aria-pressed', 'true');
+    await answer(page, 1);
+    await page.getByRole('button', { name: 'Previous question' }).click();
+    await expect(answers(page).nth(1)).toHaveAttribute('aria-pressed', 'true');
+    await expect(voidButton(page)).toHaveAttribute('aria-pressed', 'false');
+    await voidButton(page).click();
+    await expect(step(page)).toHaveText('Question 2 of 30');
+    expect(await storedAnswers(page)).toBe(1);
+    await page.reload();
+    await expect(step(page)).toHaveText('Question 2 of 30');
+  });
+
+  test('three passes in a row bring one gentle notice; it does not come back after a reload', async ({ page }) => {
+    await startQuiz(page);
+    await pass(page);
+    await pass(page);
+    await expect(page.locator('.quiz__notice')).toHaveCount(0);
+    await pass(page);
+    await expect(page.locator('.quiz__notice')).toContainText('Your connection is getting mysterious');
+    // Non-blocking: answering still works with the notice on screen.
+    await expect(answers(page).first()).toBeEnabled();
+    await pass(page);
+    await expect(page.locator('.quiz__notice')).toHaveCount(1);
+    await page.getByRole('button', { name: 'Continue the journey' }).click();
+    await expect(page.locator('.quiz__notice')).toHaveCount(0);
+    await page.reload();
+    await expect(step(page)).toHaveText('Question 5 of 30');
+    await expect(page.locator('.quiz__notice')).toHaveCount(0);
+    // A real answer ends the run; three new passes are a new run with its own notice.
+    await answer(page, 0);
+    await pass(page);
+    await pass(page);
+    await pass(page);
+    await expect(page.locator('.quiz__notice')).toBeVisible();
+  });
+
+  test('passing on every question reveals the secret Unown encounter', async ({ page }) => {
+    test.skip(!isDesktop(page), 'Long run checked once, on desktop');
+    test.setTimeout(150_000);
+    await startQuiz(page);
+    for (let i = 0; i < 29; i++) await pass(page);
+    await page.locator('.question:not([inert]) .question__void').click();
+    await expect(page.getByRole('heading', { level: 1, name: 'A secret encounter' })).toBeVisible({ timeout: 30_000 });
+    await expect(page.getByText('0 answered and 30 passed in A Glimpse.')).toBeVisible();
+    await expect(page.locator('.match-name')).toHaveCount(0);
+    await page.getByRole('button', { name: 'Reveal the secret encounter' }).click();
+    await expect(page.locator('.match-name')).toHaveText(['Unown']);
+    await expect(page.getByText('You stayed a mystery even to the Pokémon world.')).toBeVisible();
+    await expect(page.getByText(/not as a calculated Soul Match/)).toBeVisible();
+    await page.reload();
+    await expect(page.locator('.match-name')).toHaveText(['Unown']);
+  });
 });
 
 test.describe('reduced motion', () => {

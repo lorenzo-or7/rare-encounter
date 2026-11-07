@@ -56,16 +56,27 @@ export function isQuizSession(v: unknown): v is QuizSession {
 }
 
 export function isEncounterResult(v: unknown): v is EncounterResult {
-  return (
-    isRecord(v) &&
-    typeof v['sessionId'] === 'string' &&
-    isModeId(v['mode']) &&
-    typeof v['completedAt'] === 'string' &&
-    typeof v['engineVersion'] === 'string' &&
-    isRecord(v['soul']) &&
-    isRecord(v['hidden']) &&
-    Array.isArray(v['alternatives'])
-  );
+  if (
+    !isRecord(v) ||
+    typeof v['sessionId'] !== 'string' ||
+    !isModeId(v['mode']) ||
+    typeof v['completedAt'] !== 'string' ||
+    typeof v['engineVersion'] !== 'string'
+  ) {
+    return false;
+  }
+  // Results stored before special outcomes existed have no `outcome`: they are matches.
+  switch (v['outcome']) {
+    case undefined:
+    case 'matches':
+      return isRecord(v['soul']) && isRecord(v['hidden']) && Array.isArray(v['alternatives']);
+    case 'mystery':
+      return typeof v['speciesId'] === 'string';
+    case 'insufficient':
+      return true;
+    default:
+      return false;
+  }
 }
 
 const sessionPlan: MigrationPlan<QuizSession> = {

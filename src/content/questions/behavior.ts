@@ -159,12 +159,12 @@ export const BEHAVIOR: readonly QuestionDef[] = [
     ['nocturnal', 'Lembranças de noites marcantes', 'Keepsakes from memorable nights', 'Recuerdos de noches memorables'],
     ['swift', 'Medalhas e recordes', 'Medals and personal bests', 'Medallas y récords'],
   ]),
-  q('be-027', 'a', ['Se você fosse um ninho, seria…', 'If you were a nest, you would be…', 'Si fueras un nido, serías…'], [
-    ['maker', 'Trançado com cuidado, galho por galho', 'Carefully woven, twig by twig', 'Tejido con cuidado, rama por rama'],
-    ['gregarious', 'Parte de uma colônia enorme', 'Part of a huge colony', 'Parte de una colonia enorme'],
-    ['unhurried', 'Macio e quentinho para dormir muito', 'Soft and warm for long sleeps', 'Suave y calentito para dormir mucho'],
-    ['nocturnal', 'Escondido, ativo só à noite', 'Hidden, busy only at night', 'Escondido, activo solo de noche'],
-  ]),
+  q('be-027', 'a', ['Como seria o seu canto ideal para descansar?', 'What would your ideal spot for resting be like?', '¿Cómo sería tu rincón ideal para descansar?'], [
+    ['maker', 'Algo que eu mesmo montei, peça por peça', 'Something I put together myself, piece by piece', 'Algo que armé yo mismo, pieza por pieza'],
+    ['gregarious', 'Um lugar onde cabe a turma toda', 'A place with room for the whole crew', 'Un lugar donde cabe toda la pandilla'],
+    ['unhurried', 'Macio e quentinho, para dormir muito', 'Soft and warm, for a long sleep', 'Suave y calentito, para dormir mucho'],
+    ['nocturnal', 'Escondido e silencioso, perfeito à noite', 'Tucked away and quiet, perfect at night', 'Escondido y silencioso, perfecto de noche'],
+  ], { revision: 2 }),
   q('be-028', 'a', ['Qual destas frases é mais você?', 'Which of these sentences is most you?', '¿Cuál de estas frases te representa más?'], [
     ['swift', '“Já fiz.”', '“Already done.”', '“Ya lo hice.”'],
     ['unhurried', '“Uma coisa de cada vez.”', '“One thing at a time.”', '“Una cosa a la vez.”'],

@@ -37,6 +37,8 @@ export interface QuestionDef {
   readonly art?: QuestionArt;
   /** Questions in the same group are never shown together in one journey. */
   readonly group?: string;
+  /** Content revision: raised when the wording changes (same id, same traits per option). */
+  readonly revision?: number;
 }
 
 export const q = (
@@ -74,7 +76,7 @@ export function build(category: CategoryId, defs: readonly QuestionDef[]): BankQ
     });
     return {
       id: d.id as QuestionId,
-      revision: 1,
+      revision: d.revision ?? 1,
       category,
       role: d.role === 'f' ? 'fundamental' : 'adaptive',
       format,

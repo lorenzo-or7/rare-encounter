@@ -41,3 +41,13 @@ export interface QuestionBank {
   readonly version: QuestionBankVersion;
   readonly questions: readonly Question[];
 }
+
+/**
+ * "None of these": the person passed on the question. Stored like an answer (the question
+ * counts as gone through, and stays in the session) but it is not one: it adds no evidence
+ * for or against any trait, and it never enters a denominator. Option ids never take this
+ * value (they are `<question>-a…d`).
+ */
+export const VOID_ANSWER = 'void' as AnswerId;
+
+export const isVoided = (answerId: AnswerId | undefined): boolean => answerId === VOID_ANSWER;
