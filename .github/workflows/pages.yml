@@ -1,12 +1,17 @@
 # Preview of Rare Encounter on GitHub Pages: https://lorenzo-or7.github.io/rare-encounter/
 #
-# Runs on every push to feature/complete-experience, or by hand (Actions → "Deploy preview to
-# GitHub Pages" → Run workflow). Requires Settings → Pages → Source: "GitHub Actions".
+# Runs on every push to feature/complete-experience or feature/cosmic-experience, or by hand
+# (Actions → "Deploy preview to GitHub Pages" → Run workflow, once this file is on the default
+# branch). Requires Settings → Pages → Source: "GitHub Actions", and each branch allowed in
+# Settings → Environments → github-pages → Deployment branches.
+#
+# Both branches publish to the SAME address: whichever deploy finishes last is what the site
+# shows. There is one Pages site per repository, not one per branch.
 name: Deploy preview to GitHub Pages
 
 on:
   push:
-    branches: [feature/complete-experience]
+    branches: [feature/complete-experience, feature/cosmic-experience]
   workflow_dispatch:
 
 permissions:
@@ -14,10 +19,12 @@ permissions:
   pages: write
   id-token: write
 
-# One deployment at a time; a newer push replaces a run still in progress.
+# One deployment at a time, across both branches (one shared group, not one per branch).
+# A run in progress is never cancelled halfway, so a deploy is never cut off mid-upload;
+# a newer run waits, and if several pile up only the most recent one runs next.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:

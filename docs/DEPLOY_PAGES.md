@@ -21,7 +21,15 @@ Address: **https://lorenzo-or7.github.io/rare-encounter/**
 5. `build:pages`, then check the video is in `dist/media/`, byte for byte.
 6. Publish `dist/` to Pages.
 
-It runs on every push to `feature/complete-experience`, or by hand: Actions → "Deploy preview to GitHub Pages" → Run workflow.
+## When it runs
+- **On push** to `feature/complete-experience` or `feature/cosmic-experience`.
+- **By hand** (`workflow_dispatch`): Actions → "Deploy preview to GitHub Pages" → Run workflow, choosing the branch. GitHub only shows this button once the workflow file is on the default branch (`main`); until then, a push is the way to run it.
+
+## Both branches share one address
+- A repository has **one** Pages site. Both branches publish to https://lorenzo-or7.github.io/rare-encounter/, and the site shows **whichever deploy finished last**. A push to `feature/complete-experience` after a Cosmic Experience deploy puts the older experience back online.
+- **No concurrent deploys:** every run joins the same concurrency group (`pages`), whichever branch started it. A run in progress is never cancelled halfway; a newer one waits, and if several pile up only the most recent runs next.
+- **To know what is online:** Actions shows the branch and commit of the last successful run; Settings → Environments → github-pages lists the deployments.
+- To keep the Cosmic Experience online, avoid pushing to `feature/complete-experience` (or remove it from the trigger and from the environment's branch rules).
 
 ## Loading video (Release asset)
 - **Pinned:** the tag (`media-v1`), the asset name (`encounter-loading.mp4`), the size (9,137,638 bytes) and the SHA-256 (`4f7a3323…e639607`) are in `scripts/media-manifest.json`. The workflow never uses "latest".
@@ -34,8 +42,9 @@ It runs on every push to `feature/complete-experience`, or by hand: Actions → 
 - **Replacing the video later:** upload it as a new release (`media-v2`) and update `release`, `bytes` and `sha256` in the manifest in the same commit. Never replace the asset of an existing tag.
 - **In the browser:** the static fallback stays for playback failures and for reduced motion (the video is not even requested then).
 
-## One-time setting
-Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+## One-time settings
+- Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+- Settings → Environments → **github-pages** → Deployment branches and tags: the environment uses custom rules, and **every branch that deploys must be listed**. As of 2026-11-07 only `feature/complete-experience` is listed (checked through the public API); add `feature/cosmic-experience` there (Add deployment branch or tag rule → Ref type: Branch → Name pattern: `feature/cosmic-experience`). Without it, the build succeeds and the deploy job is rejected by the environment's protection rules.
 
 ## Checking a Pages build locally
 ```bash
