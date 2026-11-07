@@ -94,7 +94,7 @@ export function QuestionView({
           onChoose(VOID_ANSWER);
         }}
       >
-        {voidLabel}
+        <span className="question__void-label">{voidLabel}</span>
       </button>
     </motion.div>
   );

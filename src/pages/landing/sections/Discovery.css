@@ -1,14 +1,34 @@
 /*
- * A full-bleed band, one step lighter than the night, so the process reads as its own
- * chapter. Title and lead on the left; the Stepper is the working surface on the right.
+ * How Discovery Works (Prompt 02): an open chapter on the cosmos. The original React Bits
+ * Stepper stays the working component (unmodified); this section only restyles its parts:
+ * the indicator row becomes a progression line with three luminous numbered markers, the
+ * glider becomes the light under the active step, and each pane carries a small traced
+ * drawing beside its text.
  */
 .discovery {
+  position: relative;
   display: grid;
   gap: var(--space-10);
   padding: clamp(var(--space-16), 10vw, var(--space-24))
     max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter)));
-  border-block: 1px solid var(--color-line);
-  background: var(--color-bg-raised);
+}
+
+/* Two hairlines of light frame the chapter instead of a filled band. */
+.discovery::before,
+.discovery::after {
+  content: '';
+  position: absolute;
+  inset-inline: var(--gutter);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cosmos-line) 20%, color-mix(in oklab, var(--accent) 40%, transparent) 50%, var(--cosmos-line) 80%, transparent);
+}
+
+.discovery::before {
+  top: 0;
+}
+
+.discovery::after {
+  bottom: 0;
 }
 
 .discovery__intro {
@@ -34,7 +54,173 @@
   min-width: 0;
 }
 
-/* Step content: written inside the Stepper's own pane */
+/* ---- The progression line ----------------------------------------------------------- */
+
+.discovery .stepper__track {
+  gap: 0;
+  padding: 0;
+  background: none;
+}
+
+/* The line all three markers sit on, through their centres. */
+.discovery .stepper__track::before {
+  content: '';
+  position: absolute;
+  inset: 1.125rem 16% auto;
+  height: 1px;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 60%, transparent), color-mix(in oklab, var(--accent-2) 40%, transparent) 60%, var(--cosmos-line));
+}
+
+/* The active step's light: a short luminous line under it (moves with the original glider). */
+.discovery .stepper__glider {
+  background: none;
+  box-shadow: none;
+}
+
+.discovery .stepper__glider::after {
+  content: '';
+  position: absolute;
+  inset: auto 20% -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--iris);
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+/* Marker above, title below: the line runs through the markers only. */
+.discovery .stepper__segment {
+  flex-direction: column;
+  height: auto;
+  padding: 0 var(--space-1) var(--space-3);
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  background: none;
+}
+
+.discovery .stepper__segment:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.discovery .stepper__text {
+  text-align: center;
+}
+
+.discovery .stepper__title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.discovery .stepper__badge {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-bg);
+  box-shadow: inset 0 0 0 1px var(--color-line-strong);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition:
+    box-shadow var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.discovery .stepper__badge[data-status='active'] {
+  box-shadow:
+    inset 0 0 0 1.5px var(--accent),
+    0 0 0 4px color-mix(in oklab, var(--accent) 14%, transparent),
+    0 0 22px color-mix(in oklab, var(--accent) 55%, transparent);
+  color: var(--color-text);
+}
+
+.discovery .stepper__badge[data-status='complete'] {
+  background: color-mix(in oklab, var(--accent) 22%, var(--color-bg));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 60%, transparent);
+  color: var(--accent);
+}
+
+/* ---- One step ------------------------------------------------------------------------ */
+
+.discovery .stepper__body {
+  padding-inline: 0;
+}
+
+.discovery__step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-6) var(--space-2);
+}
+
+.step-glyph {
+  width: clamp(4.5rem, 10vw, 7rem);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px color-mix(in oklab, var(--accent) 35%, transparent));
+}
+
+/* Traced in light when the step opens (pathLength 1 keeps every shape on one scale). */
+.step-glyph__trace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: step-trace 900ms var(--ease-out) forwards;
+}
+
+/* The dotted orbit fades in instead (CSS would otherwise override its dash pattern). */
+.step-glyph__trace[stroke-dasharray] {
+  stroke-dasharray: 0.02 0.03;
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation: step-appear 600ms 300ms var(--ease-out) forwards;
+}
+
+.step-glyph__trace--late {
+  animation-delay: 160ms;
+}
+
+.step-glyph__trace--last {
+  animation-delay: 320ms;
+}
+
+.step-glyph__core {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: step-core 700ms 380ms var(--ease-out) forwards;
+}
+
+@keyframes step-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes step-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes step-core {
+  from {
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.discovery__step-text {
+  display: grid;
+  gap: var(--space-3);
+}
+
 .discovery__step-title {
   font-size: var(--text-xl);
   font-weight: var(--weight-medium);
@@ -43,10 +229,21 @@
 
 .discovery__step-body {
   max-width: 46ch;
-  margin-block-start: var(--space-3);
   color: var(--color-text-muted);
   font-size: var(--text-md);
   line-height: var(--leading-body);
+}
+
+/* Phones: the drawing sits above the words so the text keeps its full measure. */
+@media (max-width: 29.99em) {
+  .discovery__step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .step-glyph {
+    width: 4rem;
+  }
 }
 
 @media (min-width: 56.25em) {
@@ -58,5 +255,16 @@
 
   .discovery__title {
     max-width: 12ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-glyph__trace,
+  .step-glyph__trace[stroke-dasharray],
+  .step-glyph__core {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: none;
   }
 }

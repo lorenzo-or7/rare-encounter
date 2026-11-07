@@ -5,6 +5,8 @@ import { useThemeColors } from '../../../hooks/useThemeColors';
 import { MODES, MODE_IDS } from '../../../domain/modes';
 import type { MessageKey } from '../../../i18n/messages';
 import StarBorder from '../../../vendor/react-bits/StarBorder/StarBorder';
+import { Icon } from '../../../components/icon/Icon';
+import { PortalGlyph } from '../../../features/preparation/PortalGlyph';
 import './Begin.css';
 
 const MODE_NAMES: Readonly<Record<(typeof MODE_IDS)[number], MessageKey>> = {
@@ -14,7 +16,9 @@ const MODE_NAMES: Readonly<Record<(typeof MODE_IDS)[number], MessageKey>> = {
 };
 
 /**
- * Begin Your Journey: closing statement, the three depths, and the start control.
+ * Begin Your Journey: closing statement, the three depths as portals (a preview: the real
+ * choice is made on the Preparation Screen, so nothing here reacts as if it were selectable),
+ * and the start control.
  * The control runs the Liquid Flow transition toward the Preparation Screen. Until that
  * screen registers itself (Phase 02) the control is aria-disabled: it stays focusable so
  * keyboard and screen-reader users reach it and hear why it is unavailable, and it never
@@ -43,7 +47,10 @@ export function Begin() {
 
       <ul className="begin__modes">
         {MODE_IDS.map((id) => (
-          <li key={id} className="begin__mode">
+          <li key={id} className="begin__mode" data-depth={id}>
+            <span className="begin__portal">
+              <PortalGlyph mode={id} />
+            </span>
             <span className="begin__mode-count">{MODES[id].id}</span>
             <span className="begin__mode-name">{t(MODE_NAMES[id])}</span>
             <span className="visually-hidden">{t('landing.mode.questions', { n: id })}</span>
@@ -65,7 +72,8 @@ export function Begin() {
           aria-describedby={ready ? undefined : noteId}
           onClick={onBegin}
         >
-          {t('landing.begin.cta')}
+          <span>{t('landing.begin.cta')}</span>
+          <Icon className="begin__cta-icon" name="arrowRight" size={18} />
         </StarBorder>
         {!ready && (
           <p id={noteId} className="begin__note">

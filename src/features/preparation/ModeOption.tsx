@@ -4,6 +4,7 @@ import type { ModeId } from '../../domain/modes';
 import type { ThemeColors } from '../../hooks/useThemeColors';
 import BorderGlow from '../../vendor/react-bits/BorderGlow/BorderGlow';
 import { hexToHslTriplet } from './glow-color';
+import { PortalGlyph } from './PortalGlyph';
 
 interface ModeOptionProps {
   readonly mode: ModeId;
@@ -24,7 +25,10 @@ interface ModeOptionProps {
  * One depth on the Preparation Screen: a native radio inside the original React Bits
  * Border Glow. The glow is a pointer affordance only, so everything it does not cover is
  * handled here, outside the vendored file:
- * - selection: an accent border, a tinted surface and a check mark (shape, not color alone);
+ * - selection: an accent border, a tinted surface, the portal opening and a check mark
+ *   (shape, not color alone);
+ * - depth: each depth is a portal (one, two or three rings); hovering leans into it, and
+ *   nothing starts until the choice is confirmed;
  * - keyboard focus: a ring drawn around the whole card;
  * - reduced motion: pointer movement never reaches the glow, which stays dark.
  */
@@ -53,6 +57,7 @@ export function ModeOption({
   return (
     <div
       className="mode-option"
+      data-depth={mode}
       data-checked={checked}
       data-locked={locked}
       onPointerMoveCapture={reduceMotion ? holdGlow : undefined}
@@ -84,8 +89,11 @@ export function ModeOption({
               onSelect(mode);
             }}
           />
-          <span className="mode-option__number" aria-hidden="true">
-            {mode}
+          <span className="mode-option__visual" aria-hidden="true">
+            <span className="mode-option__portal">
+              <PortalGlyph mode={mode} active={checked} />
+            </span>
+            <span className="mode-option__number">{mode}</span>
           </span>
           <span className="mode-option__text">
             <span id={nameId} className="mode-option__name">

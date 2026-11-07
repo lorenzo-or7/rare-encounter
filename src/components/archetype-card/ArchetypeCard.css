@@ -75,6 +75,25 @@
 }
 
 /* Reflection: masked by the art's own alpha so it lights the card, never the page */
+/* Holographic foil, masked to the art: spectral light that moves with the pointer. */
+.archetype-card__holo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in oklab, var(--archetype-ethereal) 70%, white) 42%,
+    color-mix(in oklab, var(--archetype-instinctive) 70%, white) 50%,
+    color-mix(in oklab, var(--archetype-radiant) 70%, white) 58%,
+    transparent 70%
+  );
+  background-size: 260% 260%;
+  mix-blend-mode: color-dodge;
+  mask-image: var(--card-mask, none);
+  mask-size: 100% 100%;
+}
+
 .archetype-card__glare {
   position: absolute;
   inset: 0;

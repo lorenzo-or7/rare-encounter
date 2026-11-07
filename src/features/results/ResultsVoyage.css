@@ -1,0 +1,229 @@
+/*
+ * Cinematic loading. Always night (data-mode="dark"): it is a scene in space whichever mode
+ * the site is in, and its text sits on the video. Above everything, including the nav.
+ */
+.voyage {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-sheet) + 10);
+  display: grid;
+  align-content: end;
+  overflow: hidden;
+  background: var(--cosmos-deep);
+  color: var(--color-text);
+  isolation: isolate;
+}
+
+/* The cosmos inside the voyage belongs to it (the page's own sits under the overlay). */
+.voyage .cosmos {
+  position: absolute;
+}
+
+/* ---- Video and its static stand-in -------------------------------------------------------- */
+
+/*
+ * Wide screens: the video fills the screen (cover). Portrait: it is shown whole (contain),
+ * its upper and lower edges dissolving into the cosmos, so none of the three cards is cut.
+ * The aspect ratio is never altered.
+ */
+.voyage__video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out);
+}
+
+.voyage[data-video='playing'] .voyage__video {
+  opacity: 1;
+}
+
+@media (orientation: portrait) {
+  .voyage__video {
+    inset: 8% 0 auto;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    scale: 1.35;
+    mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent),
+      linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-composite: intersect;
+  }
+}
+
+/* The three official card backs, floating: shown until (or instead of) the video. */
+.voyage__still {
+  position: absolute;
+  inset: 0 0 34%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 3vw, 2.5rem);
+  transition: opacity 900ms var(--ease-out);
+}
+
+.voyage[data-video='playing'] .voyage__still {
+  opacity: 0;
+}
+
+.voyage__card {
+  width: clamp(4.5rem, 14vw, 9.5rem);
+  height: auto;
+  filter: drop-shadow(0 0 22px color-mix(in oklab, var(--accent) 40%, transparent));
+  animation: voyage-float 6s var(--ease-in-out) infinite alternate;
+}
+
+.voyage__card[data-card='ethereal'] {
+  width: clamp(5.25rem, 17vw, 11rem);
+  animation-delay: -2s;
+}
+
+.voyage__card[data-card='instinctive'] {
+  rotate: -8deg;
+  filter: drop-shadow(0 0 22px color-mix(in oklab, var(--archetype-instinctive) 45%, transparent));
+}
+
+.voyage__card[data-card='radiant'] {
+  rotate: 8deg;
+  animation-delay: -4s;
+  filter: drop-shadow(0 0 22px color-mix(in oklab, var(--archetype-radiant) 45%, transparent));
+}
+
+@keyframes voyage-float {
+  to {
+    transform: translateY(-12px);
+  }
+}
+
+/* Legibility: the lower part of the screen darkens toward the text. */
+.voyage__scrim {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 55%;
+  background: linear-gradient(180deg, transparent, color-mix(in oklab, var(--cosmos-deep) 70%, transparent) 45%, var(--cosmos-deep));
+  pointer-events: none;
+}
+
+/* ---- Copy and progress ------------------------------------------------------------------- */
+
+.voyage__copy {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  width: min(100% - 2 * var(--gutter), 34rem);
+  margin-inline: auto;
+  padding-block-end: max(var(--space-12), 9vh);
+  text-align: center;
+}
+
+.voyage__title {
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 0.6);
+}
+
+.voyage__title:focus {
+  outline: none;
+}
+
+.voyage__status {
+  min-height: 1.6em;
+  color: var(--color-text-muted);
+  font-size: var(--text-md);
+}
+
+.voyage__meter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  margin-block-start: var(--space-2);
+}
+
+/* Holographic bar: a hairline track, an iridescent fill, a sheen that travels along it. */
+.voyage__bar {
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+.voyage__fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--archetype-instinctive),
+    var(--archetype-ethereal) 50%,
+    var(--archetype-radiant)
+  );
+  box-shadow: 0 0 12px color-mix(in oklab, var(--archetype-ethereal) 70%, transparent);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.voyage__bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 40%, rgb(255 255 255 / 0.7) 50%, transparent 60%);
+  background-size: 250% 100%;
+  mix-blend-mode: overlay;
+  animation: voyage-sheen 2.2s linear infinite;
+}
+
+/* Waiting longer than usual: the sheen slows, so the bar visibly rests instead of racing. */
+.voyage__bar[data-slow='true']::after {
+  animation-duration: 3.6s;
+}
+
+@keyframes voyage-sheen {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -20% 0;
+  }
+}
+
+.voyage__pct {
+  min-width: 3.5ch;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+
+.voyage__error {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voyage__card,
+  .voyage__bar::after {
+    animation: none;
+  }
+
+  .voyage__video,
+  .voyage__still {
+    transition: none;
+  }
+}

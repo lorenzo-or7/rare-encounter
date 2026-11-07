@@ -41,11 +41,13 @@ const EASE = [0.22, 1, 0.36, 1] as const;
  * Light and shade play on a separate layer: a filter on the 3D container would flatten it
  * and show the back through the front.
  */
-const TURN: Readonly<Record<RevealStyle, { duration: number; scale: number[]; shade: number[]; light: number[] }>> = {
-  soul: { duration: 0.9, scale: [1, 1.06, 1], shade: [0, 0, 0], light: [0, 0.55, 0] },
-  alternative: { duration: 0.75, scale: [1, 1.03, 1], shade: [0, 0, 0], light: [0, 0.35, 0] },
-  hidden: { duration: 1.15, scale: [1, 0.97, 1.02, 1], shade: [0, 0.6, 0, 0], light: [0, 0, 0.5, 0] },
-  mystery: { duration: 1.4, scale: [1, 0.96, 1.04, 1], shade: [0, 0.7, 0, 0], light: [0, 0, 0.6, 0] },
+const TURN: Readonly<
+  Record<RevealStyle, { duration: number; scale: number[]; shade: number[]; light: number[]; burst: number }>
+> = {
+  soul: { duration: 0.9, scale: [1, 1.06, 1], shade: [0, 0, 0], light: [0, 0.55, 0], burst: 0.85 },
+  alternative: { duration: 0.75, scale: [1, 1.03, 1], shade: [0, 0, 0], light: [0, 0.35, 0], burst: 0.6 },
+  hidden: { duration: 1.15, scale: [1, 0.97, 1.02, 1], shade: [0, 0.6, 0, 0], light: [0, 0, 0.5, 0], burst: 0.75 },
+  mystery: { duration: 1.4, scale: [1, 0.96, 1.04, 1], shade: [0, 0.7, 0, 0], light: [0, 0, 0.6, 0], burst: 0.75 },
 };
 
 /**
@@ -78,7 +80,7 @@ export function ResultCard({
   const showingFront = revealed && faceUp;
 
   return (
-    <div className="rcard-wrap" data-tone={tone}>
+    <div className="rcard-wrap" data-tone={tone} data-style={style} data-revealed={revealed}>
       <div
         className="rcard"
         role="img"
@@ -107,9 +109,19 @@ export function ResultCard({
             <div className="rcard__face rcard__front" aria-hidden="true">
               <img className="rcard__frame" src={back.src} srcSet={back.srcSet} sizes="(min-width: 56em) 20rem, 72vw" alt="" width={1024} height={1536} />
               <span className="rcard__window" />
+              <span className="rcard__aura" />
+              <span className="rcard__motes">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="rcard__floor" />
               <span className="rcard__species">
                 <SpeciesArt src={front.art} alt={front.artAlt} dex={front.dex} eager />
               </span>
+              <span className="rcard__foil" />
               <span className="rcard__dex">{front.dexLabel}</span>
               <span className="rcard__name">{front.name}</span>
             </div>
@@ -117,6 +129,16 @@ export function ResultCard({
         </motion.div>
         {turned && !reduce && (
           <>
+            {/* The moment of discovery: a ring of light opens behind the card (chromatic
+                for the Hidden Match and the secret encounter). Opacity and scale only. */}
+            <motion.span
+              className="rcard__burst"
+              data-style={style}
+              aria-hidden="true"
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: [0, turn.burst, 0], scale: [0.6, 1.15, 1.45] }}
+              transition={{ duration: turn.duration * 1.2, times: [0, 0.55, 1], ease: EASE }}
+            />
             <motion.span
               className="rcard__shade"
               aria-hidden="true"

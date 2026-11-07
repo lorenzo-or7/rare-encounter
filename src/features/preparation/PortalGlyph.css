@@ -1,0 +1,77 @@
+.portal {
+  --portal-core: color-mix(in oklab, var(--accent) 35%, white);
+  --portal-eclipse: var(--cosmos-deep);
+
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+[data-mode='light'] .portal {
+  --portal-core: var(--accent);
+}
+
+.portal__halo {
+  opacity: 0.55;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.portal__spin {
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+}
+
+.portal__spin--a {
+  animation: portal-spin 22s linear infinite;
+}
+
+.portal__spin--b {
+  animation: portal-spin 34s linear infinite reverse;
+}
+
+.portal[data-depth='30'] .portal__halo {
+  animation: portal-breathe 6s var(--ease-in-out) infinite alternate;
+}
+
+.portal[data-depth='90'] .portal__rim {
+  filter: drop-shadow(0 0 4px var(--accent-2));
+}
+
+/* Chosen: the portal opens a little further and its light comes up. */
+.portal[data-active='true'] .portal__halo {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.portal[data-active='true'] .portal__spin--a {
+  animation-duration: 9s;
+}
+
+.portal[data-active='true'] .portal__spin--b {
+  animation-duration: 14s;
+}
+
+@keyframes portal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portal-breathe {
+  to {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal__spin,
+  .portal__halo {
+    animation: none !important;
+  }
+}

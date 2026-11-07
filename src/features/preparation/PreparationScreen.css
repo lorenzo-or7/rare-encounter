@@ -18,19 +18,6 @@
   overflow-x: clip;
 }
 
-.preparation::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(
-    120% 80% at 50% 0%,
-    color-mix(in oklab, var(--accent) 14%, transparent),
-    transparent 60%
-  );
-  pointer-events: none;
-}
-
 .preparation__header {
   display: grid;
   gap: var(--space-4);
@@ -102,10 +89,42 @@
   position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
+  overflow: hidden;
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-5) var(--space-4) var(--space-5) var(--space-5);
   cursor: pointer;
+}
+
+/* Each depth carries its own light inside the card: calm, energetic, intense. */
+.mode-option__body::before {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 16%, transparent), transparent);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.mode-option[data-depth='60'] .mode-option__body::before {
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent-2) 22%, transparent), transparent);
+  opacity: 0.65;
+}
+
+.mode-option[data-depth='90'] .mode-option__body::before {
+  inset: auto auto -45% -25%;
+  width: 90%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 30%, transparent), color-mix(in oklab, var(--cosmos-deep) 40%, transparent) 70%, transparent);
+  opacity: 0.8;
+}
+
+.mode-option[data-checked='true'] .mode-option__body::before,
+.mode-option:hover .mode-option__body::before {
+  opacity: 1;
 }
 
 .mode-option[data-locked='true'] .mode-option__body {
@@ -121,6 +140,39 @@
   margin: 0;
   opacity: 0;
   cursor: inherit;
+}
+
+/* The portal and its numeral: the face of the depth. */
+.mode-option__visual {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mode-option__portal {
+  display: block;
+  flex: none;
+  width: 3.75rem;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+/* Hover leans into the portal: deeper depths pull a little further. Nothing starts here. */
+@media (hover: hover) and (pointer: fine) {
+  .mode-option:hover:not([data-locked='true']) .mode-option__portal {
+    transform: scale(1.06);
+  }
+
+  .mode-option[data-depth='60']:hover:not([data-locked='true']) .mode-option__portal {
+    transform: scale(1.09) rotate(-6deg);
+  }
+
+  .mode-option[data-depth='90']:hover:not([data-locked='true']) .mode-option__portal {
+    transform: scale(1.12) rotate(8deg);
+  }
+}
+
+.mode-option[data-checked='true'] .mode-option__portal {
+  transform: scale(1.1);
 }
 
 .mode-option__number {
@@ -187,6 +239,14 @@
   color: var(--on-accent);
 }
 
+/* Narrow phones: the portal and its numeral form one row, the words take the full width. */
+@media (max-width: 29.99em) {
+  .mode-option__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+}
+
 @media (min-width: 30em) {
   .mode-option__body {
     gap: var(--space-6);
@@ -210,8 +270,26 @@
     padding: var(--space-8);
   }
 
+  .mode-option__visual {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .mode-option__portal {
+    width: 6.5rem;
+  }
+
+  .mode-option[data-depth='60'] .mode-option__portal {
+    width: 7.25rem;
+  }
+
+  .mode-option[data-depth='90'] .mode-option__portal {
+    width: 8rem;
+  }
+
   .mode-option__number {
-    font-size: clamp(4.5rem, 1.5rem + 5vw, 6.5rem);
+    font-size: clamp(3.5rem, 1.5rem + 4vw, 5rem);
   }
 
   .mode-option__text {

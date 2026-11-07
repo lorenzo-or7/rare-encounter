@@ -1,46 +1,193 @@
 /*
- * Results Experience (Design Locked v1). Species names in DM Serif Display (results only);
- * interface text in Inter; colour from the active theme's tokens, so every palette and both
- * modes follow. One authored moment (the Soul Match reveal); everything else answers the
- * person's own actions.
+ * Results Experience (Prompt 02: cosmic redesign). The page sits in the deepest scene of the
+ * cosmos; the Soul Match is the protagonist (card left, interpretive panel right with a
+ * luminous outline); Alternative and Hidden share the row beneath. Species names in DM Serif
+ * Display (results only); interface text in Inter; colour from the theme tokens and each
+ * card's fixed hue, so every palette and both modes follow.
  */
 .results {
   display: grid;
-  gap: var(--space-16);
+  gap: clamp(var(--space-12), 7vw, var(--space-24));
   width: min(100% - 2 * var(--gutter), var(--content-max));
   margin-inline: auto;
-  padding-block: calc(var(--nav-offset) + var(--space-8)) var(--space-16);
+  padding-block: calc(var(--nav-offset) + var(--space-6)) var(--space-16);
+  /* The light around the cards (breath, discovery ring) may reach past narrow screens; it
+     is clipped there instead of widening the page. clip creates no scroll container. */
+  overflow-x: clip;
+  overflow-clip-margin: var(--gutter);
 }
+
+/* ---- Header ------------------------------------------------------------------------------ */
 
 .results__head {
   display: grid;
-  gap: var(--space-3);
-  max-width: 40rem;
+  gap: var(--space-4);
+  max-width: 46rem;
 }
 
 .results__title {
-  font-size: var(--text-3xl);
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.75rem);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  word-spacing: 0.06em;
 }
 
 .results__summary {
+  position: relative;
+  padding-block-start: var(--space-4);
   color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+/* A short line of light between the title and the journey it came from. */
+.results__summary::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 4.5rem;
+  height: 1px;
+  background: var(--iris);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+/* ---- Encounter layout -------------------------------------------------------------------- */
+
+.encounter {
+  --card-hue: var(--archetype-ethereal);
+  --hue-text: color-mix(in oklab, var(--card-hue) 55%, var(--color-text));
+
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.encounter[data-kind='alternative'] {
+  --card-hue: var(--archetype-radiant);
+}
+
+.encounter[data-kind='hidden'] {
+  --card-hue: var(--archetype-instinctive);
+}
+
+[data-mode='light'] .encounter {
+  --hue-text: color-mix(in oklab, var(--card-hue) 35%, var(--color-text));
+}
+
+@media (min-width: 56em) {
+  .encounter[data-kind='soul'],
+  .encounter[data-kind='mystery'] {
+    grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr);
+    gap: clamp(var(--space-10), 5vw, var(--space-16));
+  }
+}
+
+.results__pair {
+  display: grid;
+  gap: clamp(var(--space-12), 6vw, var(--space-16));
+}
+
+@media (min-width: 64em) {
+  .results__pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .results__pair .encounter {
+    grid-template-columns: minmax(9rem, 11.5rem) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-8);
+  }
+}
+
+/* ---- The interpretive panel -------------------------------------------------------------- */
+
+.encounter__text {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/*
+ * The Soul panel: open night with a luminous outline (a gradient hairline drawn by a masked
+ * layer, so the corners keep their shape) and a soft light from its upper corner.
+ */
+.encounter[data-kind='soul'] .encounter__text,
+.encounter[data-kind='mystery'] .encounter__text {
+  padding: clamp(var(--space-6), 4vw, var(--space-10));
+  border-radius: var(--radius-xs) var(--radius-lg) var(--radius-xs) var(--radius-lg);
+  background:
+    radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--card-hue) 12%, transparent), transparent 70%),
+    color-mix(in oklab, var(--color-bg) 62%, transparent);
+  box-shadow: 0 30px 80px -40px color-mix(in oklab, var(--card-hue) 55%, transparent);
+}
+
+.encounter[data-kind='soul'] .encounter__text::before,
+.encounter[data-kind='mystery'] .encounter__text::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--card-hue) 80%, transparent),
+    color-mix(in oklab, var(--accent-2) 30%, transparent) 40%,
+    var(--cosmos-line) 70%,
+    color-mix(in oklab, var(--card-hue) 45%, transparent)
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Alternative and Hidden: a single line of their light above the text. */
+.results__pair .encounter__text {
+  padding-block-start: var(--space-5);
+}
+
+.results__pair .encounter__text::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, var(--card-hue), transparent 80%);
+  opacity: 0.7;
 }
 
 .match-role {
-  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--hue-text);
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-label);
 }
 
+.match-role::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--card-hue);
+  box-shadow: 0 0 10px var(--card-hue);
+}
+
 .match-name {
   font-family: var(--font-card);
-  font-size: var(--text-3xl);
+  font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.results__pair .match-name {
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 2.75rem);
 }
 
 .match-facts {
@@ -48,13 +195,33 @@
   font-size: var(--text-sm);
 }
 
-/* ---- Why this Pokémon ------------------------------------------------------------------ */
+/* The leanings both share: fine-lined tags with the card's light. */
+.match-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.match-traits li {
+  padding: 0.25rem var(--space-3);
+  border: 1px solid color-mix(in oklab, var(--card-hue) 45%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--card-hue) 8%, transparent);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+/* ---- Why this Pokémon: three layers ------------------------------------------------------- */
 
 .why {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
   max-width: var(--measure);
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
 }
 
 .why__title {
@@ -62,14 +229,44 @@
   font-weight: var(--weight-semibold);
 }
 
+.arrive > .why__title + .why__lead {
+  margin-top: var(--space-2);
+}
+
+/* Layer 1: the reading in a paragraph. */
 .why__lead {
   font-size: var(--text-md);
   line-height: var(--leading-body);
 }
 
+/* Layer 2: the interpretation, set apart by the card's light on its edge. */
+.why__reading {
+  padding-inline-start: var(--space-4);
+  border-inline-start: 2px solid color-mix(in oklab, var(--card-hue) 70%, transparent);
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+/* Layer 3: the evidence, discreet. */
+.why__evidence {
+  display: grid;
+  gap: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--cosmos-line);
+}
+
+.why__evidence-title {
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+
 .why__reasons {
   display: grid;
   gap: var(--space-2);
+  margin: 0;
   padding: 0;
   list-style: none;
   color: var(--color-text-muted);
@@ -89,13 +286,78 @@
   inset-block-start: 0.7em;
   width: 0.375rem;
   height: 1px;
-  background: var(--accent);
+  background: var(--card-hue);
 }
 
 .why__cautious {
   color: var(--color-text-subtle);
   font-size: var(--text-sm);
   font-style: italic;
+}
+
+/* ---- Waiting (before the reveal) ---------------------------------------------------------- */
+
+.encounter__waiting {
+  color: var(--color-text-muted);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+}
+
+.encounter__locked,
+.mystery__title {
+  color: var(--color-text-subtle);
+  font-size: var(--text-sm);
+}
+
+/* Faint lines where the reading will appear: the panel waits, it does not tell. */
+.encounter__veil {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.encounter__veil span {
+  display: block;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, color-mix(in oklab, var(--card-hue) 18%, transparent), color-mix(in oklab, var(--color-text) 6%, transparent));
+  animation: veil-breathe 2.8s var(--ease-in-out) infinite alternate;
+}
+
+.encounter__veil span:nth-child(1) {
+  width: 88%;
+}
+
+.encounter__veil span:nth-child(2) {
+  width: 72%;
+  animation-delay: -0.9s;
+}
+
+.encounter__veil span:nth-child(3) {
+  width: 54%;
+  animation-delay: -1.8s;
+}
+
+/* The Hidden Match keeps more of its suspense: slower, dimmer. */
+.encounter[data-kind='hidden'] .encounter__veil span {
+  animation-duration: 4.2s;
+  opacity: 0.7;
+}
+
+@keyframes veil-breathe {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mystery__title {
+  margin-top: var(--space-4);
+  color: var(--color-text);
+  font-family: var(--font-card);
+  font-size: var(--text-xl);
 }
 
 /* ---- Species art ----------------------------------------------------------------------- */
@@ -134,44 +396,7 @@
   font-size: var(--text-2xl);
 }
 
-/* ---- Encounters: official cards, face down until revealed ------------------------------- */
-
-.encounter {
-  display: grid;
-  gap: var(--space-8);
-  align-items: center;
-}
-
-@media (min-width: 56em) {
-  .encounter {
-    grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-    gap: var(--space-16);
-  }
-}
-
-.encounter__text {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.encounter__waiting {
-  color: var(--color-text-muted);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-medium);
-}
-
-.encounter__locked,
-.mystery__title {
-  color: var(--color-text-subtle);
-  font-size: var(--text-sm);
-}
-
-.mystery__title {
-  margin-top: var(--space-4);
-  color: var(--color-text);
-  font-family: var(--font-card);
-  font-size: var(--text-xl);
-}
+/* ---- Cards ------------------------------------------------------------------------------- */
 
 .rcard-wrap {
   --card-hue: var(--archetype-ethereal);
@@ -193,9 +418,38 @@
 /* The official art is 2:3; the card never exceeds the column or the screen. */
 .rcard {
   position: relative;
-  width: min(100%, 18rem);
+  isolation: isolate;
+  width: min(100%, 72vw, 16.5rem);
   aspect-ratio: 2 / 3;
   container-type: inline-size;
+}
+
+.results__pair .rcard {
+  width: min(100%, 60vw, 13rem);
+}
+
+/* A breath of the card's light behind it while it waits face down. */
+.rcard::before {
+  content: '';
+  position: absolute;
+  inset: 6% -8%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--card-hue) 32%, transparent), transparent);
+  opacity: 0.6;
+  animation: card-breathe 4s var(--ease-in-out) infinite alternate;
+}
+
+.rcard-wrap[data-style='hidden'] .rcard::before {
+  opacity: 0.35;
+  animation-duration: 6s;
+}
+
+@keyframes card-breathe {
+  to {
+    opacity: 1;
+    transform: scale(1.06);
+  }
 }
 
 /* Light and shade of the discovery, kept off the 3D container (a filter would flatten it). */
@@ -214,6 +468,29 @@
 .rcard__light {
   background: radial-gradient(60% 50% at 50% 45%, color-mix(in oklab, var(--card-hue) 70%, white), transparent 75%);
   mix-blend-mode: screen;
+}
+
+/* The ring of light that opens behind the card on discovery. */
+.rcard__burst {
+  position: absolute;
+  inset: -14% -22%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--card-hue) 55%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+/* Hidden and secret: a chromatic ring, the three card hues turning into each other. */
+.rcard__burst[data-style='hidden'],
+.rcard__burst[data-style='mystery'] {
+  background: conic-gradient(
+    from 30deg,
+    var(--archetype-instinctive),
+    var(--archetype-ethereal),
+    var(--archetype-radiant),
+    var(--archetype-instinctive)
+  );
+  mask: radial-gradient(closest-side, transparent 58%, #000 62%, #000 68%, transparent 74%);
 }
 
 .rcard__inner {
@@ -236,6 +513,8 @@
 }
 
 .rcard__front {
+  overflow: hidden;
+  border-radius: 6% / 4%;
   transform: rotateY(180deg);
 }
 
@@ -255,18 +534,93 @@
 
 /*
  * The front keeps the official frame and clears its window: a field of light in the card's
- * hue covers the question mark entirely, and the Pokémon stands inside it. The art itself is
- * never distorted or cropped.
+ * hue covers the question mark, and the Pokémon stands inside it on a pool of light, lit at
+ * its rim, with a few motes around it and a holographic sheen across the glass. The art
+ * itself is never distorted or cropped.
  */
 .rcard__window {
   position: absolute;
   inset: 8.6% 14% 36.5%;
   border-radius: 9% / 6%;
   background:
-    radial-gradient(70% 55% at 50% 45%, color-mix(in oklab, var(--card-hue) 42%, transparent), transparent 72%),
-    radial-gradient(120% 90% at 50% 100%, color-mix(in oklab, var(--card-hue) 18%, transparent), transparent 70%),
-    #0c0817;
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--card-hue) 30%, transparent);
+    radial-gradient(70% 55% at 50% 42%, color-mix(in oklab, var(--card-hue) 46%, transparent), transparent 72%),
+    radial-gradient(120% 90% at 50% 100%, color-mix(in oklab, var(--card-hue) 22%, transparent), transparent 70%),
+    linear-gradient(180deg, #120c24, #07050f);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--card-hue) 34%, transparent),
+    inset 0 0 24px color-mix(in oklab, var(--card-hue) 30%, transparent);
+}
+
+/* Volumetric core: the brightest light sits just behind the Pokémon. */
+.rcard__aura {
+  position: absolute;
+  inset: 16% 22% 44%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--card-hue) 55%, white), transparent);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+/* The pool of light it stands on. */
+.rcard__floor {
+  position: absolute;
+  inset: 52% 24% 39%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--card-hue) 60%, transparent), transparent);
+  opacity: 0.8;
+}
+
+.rcard__motes span {
+  position: absolute;
+  width: 2.5cqi;
+  height: 2.5cqi;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--card-hue) 60%, white);
+  box-shadow: 0 0 2cqi var(--card-hue);
+  opacity: 0.7;
+  animation: mote-rise 5s var(--ease-in-out) infinite alternate;
+}
+
+.rcard__motes span:nth-child(1) {
+  top: 20%;
+  left: 22%;
+}
+
+.rcard__motes span:nth-child(2) {
+  top: 32%;
+  right: 20%;
+  animation-delay: -1.5s;
+}
+
+.rcard__motes span:nth-child(3) {
+  top: 50%;
+  left: 19%;
+  width: 1.6cqi;
+  height: 1.6cqi;
+  animation-delay: -3s;
+}
+
+.rcard__motes span:nth-child(4) {
+  top: 14%;
+  right: 30%;
+  width: 1.6cqi;
+  height: 1.6cqi;
+  animation-delay: -2.2s;
+}
+
+.rcard__motes span:nth-child(5) {
+  top: 44%;
+  right: 18%;
+  width: 1.8cqi;
+  height: 1.8cqi;
+  animation-delay: -4s;
+}
+
+@keyframes mote-rise {
+  to {
+    opacity: 0.25;
+    transform: translateY(-6cqi);
+  }
 }
 
 .rcard__species {
@@ -282,8 +636,38 @@
   aspect-ratio: auto;
 }
 
+/* Rim light (a thin white edge) and the card's glow beneath: the Pokémon belongs to the scene. */
 .rcard__species .species-art__image {
-  filter: drop-shadow(0 0.5rem 1.25rem color-mix(in oklab, var(--card-hue) 45%, transparent));
+  filter: drop-shadow(0 0 0.5px rgb(255 255 255 / 0.85))
+    drop-shadow(0 0.5rem 1.25rem color-mix(in oklab, var(--card-hue) 55%, transparent));
+}
+
+/* Holographic sheen across the glass of the window, passing every few seconds. */
+.rcard__foil {
+  position: absolute;
+  inset: 8.6% 14% 36.5%;
+  border-radius: 9% / 6%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.16) 45%,
+    color-mix(in oklab, var(--card-hue) 25%, transparent) 50%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  mix-blend-mode: screen;
+  animation: foil-pass 7s var(--ease-in-out) infinite;
+  pointer-events: none;
+}
+
+@keyframes foil-pass {
+  0%,
+  55% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -20% 0;
+  }
 }
 
 .rcard__dex {
@@ -293,7 +677,7 @@
   translate: -50% -50%;
   z-index: 1;
   color: color-mix(in oklab, var(--card-hue) 55%, white);
-  font-size: max(0.75rem, 5cqi);
+  font-size: max(0.7rem, 5cqi);
   font-weight: var(--weight-medium);
   letter-spacing: 0.04em;
   text-shadow: 0 0 10px color-mix(in oklab, var(--card-hue) 60%, transparent);
@@ -306,9 +690,10 @@
   place-items: center;
   color: #f4effc;
   font-family: var(--font-card);
-  font-size: max(1.25rem, 10cqi);
+  font-size: max(1.05rem, 10cqi);
   line-height: 1.05;
   text-align: center;
+  text-shadow: 0 0 14px color-mix(in oklab, var(--card-hue) 60%, transparent);
   overflow-wrap: anywhere;
 }
 
@@ -317,6 +702,8 @@
 .results__foot {
   display: grid;
   gap: var(--space-6);
+  padding-block-start: var(--space-10);
+  border-block-start: 1px solid var(--cosmos-line);
 }
 
 .results__actions {
@@ -340,8 +727,21 @@
   padding-block: calc(var(--nav-offset) + var(--space-16)) var(--space-16);
 }
 
+@media (max-width: 29.99em) {
+  .results__actions > .button {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .species-art__image {
     transition: none;
+  }
+
+  .rcard::before,
+  .rcard__motes span,
+  .rcard__foil,
+  .encounter__veil span {
+    animation: none;
   }
 }

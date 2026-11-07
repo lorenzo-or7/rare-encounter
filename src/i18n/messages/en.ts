@@ -211,6 +211,27 @@ export const en = {
   'results.mystery.body': 'You passed on every question, so there was nothing to measure an affinity with. Unown appears here as a symbol of that mystery, not as a calculated Soul Match.',
   'results.insufficient.title': 'Not enough clues yet',
   'results.insufficient.body': 'With so few answers, no connection was well enough supported, so none was made up. A new journey with more answers can bring your encounters to light.',
+  // Prompt 02: notice mark, cinematic loading, layered explanations
+  'quiz.voidNotice.eyebrow': 'Attention',
+  'loading.title': 'Preparing your encounter…',
+  'loading.subtitle': 'Your universe is connecting.',
+  'loading.slow': 'This is taking a little longer than usual. Your answers are saved.',
+  'loading.ready': 'Your encounter is ready.',
+  'loading.progress': 'Preparing your encounter',
+  'results.evidence.title': 'What this reading rests on',
+  'results.traits.title': 'Leanings you share',
+  'results.tie': 'In what the games record about {name}, the same leanings show up: {traits}.',
+  'results.drivers': 'Most of that agreement came from your answers about {categories}.',
+  'results.category.personality': 'personality',
+  'results.category.aesthetics': 'aesthetics',
+  'results.category.values': 'values',
+  'results.category.environments': 'places',
+  'results.category.behavior': 'behavior',
+  'results.category.instinct': 'instinct',
+  'results.reading.soul': '{trait} is what brings you closest: {definition} Of your three encounters, this is the one where most of your answers agree at once.',
+  'results.reading.alternative': 'What sets {name} apart from your {soulRole} is {trait}: {definition} It reads the same answers from another angle.',
+  'results.reading.alternativeShared': '{name} shares much of your {soulRole}’s reading, with a different balance between the same leanings.',
+  'results.reading.hidden': 'Hidden encounters come from leanings that showed up in your answers with less weight than your main ones. Here, that quieter side is {trait}: {definition}',
 } as const;
 
 export type MessageKey = keyof typeof en;

@@ -55,6 +55,9 @@ export function ArchetypeCard({
   const glareY = useSpring(useTransform(py, [-0.5, 0.5], [0, 100]), GLARE_SPRING);
   const glareOpacity = useSpring(0, GLARE_SPRING);
   const glare = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgb(255 255 255 / 0.22), transparent 55%)`;
+  // Holographic foil: a band of spectral light that slides across the art with the pointer.
+  const holoPosition = useMotionTemplate`${glareX}% ${glareY}%`;
+  const holoOpacity = useTransform(glareOpacity, [0, 1], [0, 0.32]);
 
   const onPointerMove = (e: PointerEvent<HTMLElement>) => {
     if (reduceMotion || e.pointerType !== 'mouse') return;
@@ -112,11 +115,18 @@ export function ArchetypeCard({
         </div>
 
         {!reduceMotion && (
-          <motion.div
-            className="archetype-card__glare"
-            style={{ backgroundImage: glare, opacity: glareOpacity }}
-            aria-hidden="true"
-          />
+          <>
+            <motion.div
+              className="archetype-card__holo"
+              style={{ backgroundPosition: holoPosition, opacity: holoOpacity }}
+              aria-hidden="true"
+            />
+            <motion.div
+              className="archetype-card__glare"
+              style={{ backgroundImage: glare, opacity: glareOpacity }}
+              aria-hidden="true"
+            />
+          </>
         )}
 
         {/*
