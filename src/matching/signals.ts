@@ -34,6 +34,9 @@ export function preferenceSignals(
   // pick would give on average, and the highest and lowest values the options allowed.
   const acc = new Map<string, { chosen: number; mean: number; max: number; min: number; seen: number }>();
   for (const { question, answerId } of answered) {
+    // A voided question (or any id that is not one of its options) is no evidence at all:
+    // it is skipped entirely, so it neither lowers the traits it offered nor counts as seen.
+    if (!question.options.some((o) => o.id === answerId)) continue;
     const traits = new Set(
       question.options.flatMap((o) => Object.keys(o.effects).filter((t) => dims.has(t))),
     );

@@ -74,12 +74,12 @@ export const VALUES: readonly QuestionDef[] = [
     ['harmony', 'Quem une pessoas diferentes', 'One who brings different people together', 'Quien une a personas distintas'],
     ['growth', 'Quem faz cada um dar o melhor', 'One who brings out everyone’s best', 'Quien hace que cada uno dé lo mejor'],
   ]),
-  q('va-013', 'f', ['O que você levaria de uma casa em chamas, além das pessoas?', 'What would you save from a burning house, people aside?', '¿Qué salvarías de una casa en llamas, además de las personas?'], [
+  q('va-013', 'f', ['Se precisasse mudar de casa às pressas, o que levaria primeiro?', 'If you had to move house in a hurry, what would you take first?', 'Si tuvieras que mudarte de prisa, ¿qué llevarías primero?'], [
     ['loyalty', 'Um presente de alguém que amo', 'A gift from someone I love', 'Un regalo de alguien que quiero'],
-    ['wisdom', 'Cadernos com tudo o que aprendi', 'Notebooks with everything I learned', 'Cuadernos con todo lo que aprendí'],
-    ['protection', 'Os animais da casa, primeiro', 'The pets, first', 'Los animales de la casa, primero'],
-    ['freedom', 'Nada: recomeço do zero', 'Nothing: I’d start from scratch', 'Nada: empiezo de cero'],
-  ]),
+    ['wisdom', 'Cadernos com tudo o que aprendi', 'Notebooks with everything I’ve learned', 'Cuadernos con todo lo que aprendí'],
+    ['protection', 'Os bichos da casa, antes de tudo', 'The pets, before anything else', 'Los animales de la casa, antes que nada'],
+    ['freedom', 'Quase nada: gosto de recomeçar leve', 'Almost nothing: I like starting over light', 'Casi nada: me gusta empezar de nuevo liviano'],
+  ], { revision: 2 }),
   q('va-014', 'f', ['Qual destes mundos seria melhor para viver?', 'Which of these worlds would be best to live in?', '¿En cuál de estos mundos sería mejor vivir?'], [
     ['harmony', 'Um onde todos convivem em equilíbrio', 'One where everyone lives in balance', 'Uno donde todos conviven en equilibrio'],
     ['freedom', 'Um sem fronteiras', 'One with no borders', 'Uno sin fronteras'],
@@ -104,12 +104,12 @@ export const VALUES: readonly QuestionDef[] = [
     ['harmony', 'Viver em paz comigo mesmo', 'To live at peace with myself', 'Vivir en paz conmigo mismo'],
     ['wisdom', 'Continuar aprendendo até o fim', 'To keep learning to the end', 'Seguir aprendiendo hasta el final'],
   ]),
-  q('va-018', 'f', ['Uma criatura ferida aparece na sua porta. Você…', 'An injured creature turns up at your door. You…', 'Una criatura herida aparece en tu puerta. Tú…'], [
-    ['protection', 'Abriga e cuida até ela se recuperar', 'Shelter it and care for it until it recovers', 'La resguardas y la cuidas hasta que se recupere'],
-    ['freedom', 'Cuida e devolve à natureza assim que der', 'Care for it and return it to the wild as soon as possible', 'La cuidas y la devuelves a la naturaleza en cuanto puedas'],
-    ['wisdom', 'Pesquisa o que ela precisa antes de agir', 'Research what it needs before acting', 'Investigas qué necesita antes de actuar'],
-    ['loyalty', 'Ela vira parte da família', 'It becomes part of the family', 'Pasa a ser parte de la familia'],
-  ]),
+  q('va-018', 'f', ['Um animal machucado aparece na sua porta. Você…', 'An injured animal turns up at your door. You…', 'Un animal herido aparece en tu puerta. Tú…'], [
+    ['protection', 'Abriga e cuida até ele se recuperar', 'Take it in and care for it until it recovers', 'Lo resguardas y lo cuidas hasta que se recupere'],
+    ['freedom', 'Cuida e devolve à natureza assim que der', 'Care for it and let it go as soon as you can', 'Lo cuidas y lo devuelves a la naturaleza en cuanto puedas'],
+    ['wisdom', 'Procura saber do que ele precisa antes de agir', 'Find out what it needs before doing anything', 'Averiguas qué necesita antes de actuar'],
+    ['loyalty', 'Ele acaba virando parte da família', 'It ends up part of the family', 'Termina siendo parte de la familia'],
+  ], { revision: 2 }),
   q('va-019', 'f', ['O que você mais admira numa pessoa mais velha?', 'What do you admire most in an older person?', '¿Qué admiras más en una persona mayor?'], [
     ['wisdom', 'O que ela sabe e não precisa provar', 'What they know and don’t need to prove', 'Lo que sabe y no necesita demostrar'],
     ['loyalty', 'Os amigos que ela manteve a vida toda', 'The friends they kept all their life', 'Los amigos que mantuvo toda la vida'],

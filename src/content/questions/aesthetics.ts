@@ -176,12 +176,12 @@ export const AESTHETICS: readonly QuestionDef[] = [
     ['organic', 'Uma de cera de abelha artesanal', 'A handmade beeswax one', 'Una de cera de abeja artesanal'],
     ['sleek', 'Uma longa e fina, sem enfeites', 'A long, thin one, no decoration', 'Una larga y fina, sin adornos'],
   ]),
-  q('ae-030', 'f', ['Qual destes sons parece ter forma?', 'Which of these sounds seems to have a shape?', '¿Cuál de estos sonidos parece tener forma?'], [
-    ['soft', 'Um ronronar abafado', 'A muffled purr', 'Un ronroneo apagado'],
-    ['sleek', 'O assobio do vento numa lâmina', 'Wind whistling past a blade', 'El silbido del viento en una hoja de metal'],
+  q('ae-030', 'f', ['Qual destes sons você gostaria de ouvir agora?', 'Which of these sounds would you like to hear right now?', '¿Cuál de estos sonidos te gustaría oír ahora?'], [
+    ['soft', 'Um ronronar baixinho', 'A soft, low purr', 'Un ronroneo bajito'],
+    ['sleek', 'O vento passando rápido', 'Wind rushing past', 'El viento pasando rápido'],
     ['mineral', 'Gotas pingando numa caverna', 'Drops falling in a cave', 'Gotas cayendo en una cueva'],
     ['organic', 'Folhas secas sendo pisadas', 'Dry leaves underfoot', 'Hojas secas bajo los pies'],
-  ]),
+  ], { revision: 2 }),
   q('ae-031', 'f', ['Qual destes reflexos você ficaria olhando?', 'Which of these reflections would you keep staring at?', '¿Cuál de estos reflejos te quedarías mirando?'], [
     ['luminous', 'O sol dançando na água', 'Sunlight dancing on water', 'El sol bailando en el agua'],
     ['mineral', 'Arco-íris num prisma', 'A rainbow in a prism', 'Un arcoíris en un prisma'],
@@ -276,12 +276,12 @@ export const AESTHETICS: readonly QuestionDef[] = [
     ['organic', 'Uma flor brotando no concreto', 'A flower pushing through concrete', 'Una flor brotando del concreto'],
     ['sleek', 'Uma linha reta no meio de curvas', 'A straight line among curves', 'Una línea recta entre curvas'],
   ]),
-  q('ae-046', 'a', ['Se pudesse morar dentro de um material, seria…', 'If you could live inside a material, it would be…', 'Si pudieras vivir dentro de un material, sería…'], [
-    ['soft', 'Uma nuvem de algodão', 'A cotton cloud', 'Una nube de algodón'],
-    ['mineral', 'Um cristal gigante', 'A giant crystal', 'Un cristal gigante'],
-    ['organic', 'Um tronco oco', 'A hollow trunk', 'Un tronco hueco'],
-    ['luminous', 'Uma bolha de luz', 'A bubble of light', 'Una burbuja de luz'],
-  ]),
+  q('ae-046', 'a', ['Se pudesse montar um cantinho só seu, ele seria feito de…', 'If you could make a little corner all your own, it would be made of…', 'Si pudieras armar un rincón solo tuyo, estaría hecho de…'], [
+    ['soft', 'Tecidos macios e almofadas', 'Soft fabrics and cushions', 'Telas suaves y cojines'],
+    ['mineral', 'Pedras e cristais', 'Stones and crystals', 'Piedras y cristales'],
+    ['organic', 'Madeira e plantas', 'Wood and plants', 'Madera y plantas'],
+    ['luminous', 'Vidro e muita luz', 'Glass and lots of light', 'Vidrio y mucha luz'],
+  ], { revision: 2 }),
   q('ae-047', 'a', ['O que você prefere num desenho?', 'What do you prefer in a drawing?', '¿Qué prefieres en un dibujo?'], [
     ['sleek', 'Traços firmes e precisos', 'Firm, precise strokes', 'Trazos firmes y precisos'],
     ['soft', 'Contornos suaves e esfumados', 'Soft, blurred outlines', 'Contornos suaves y difuminados'],
@@ -306,12 +306,12 @@ export const AESTHETICS: readonly QuestionDef[] = [
     ['organic', 'Natural, com veios', 'Natural, with grain', 'Natural, con vetas'],
     ['shadowed', 'Fosco e escuro', 'Matte and dark', 'Mate y oscuro'],
   ]),
-  q('ae-051', 'a', ['Escolha uma onda.', 'Choose a wave.', 'Elige una ola.'], [
-    ['sleek', 'Uma onda tubular perfeita', 'A perfect barrel wave', 'Una ola tubular perfecta'],
+  q('ae-051', 'a', ['Qual destas ondas você ficaria olhando por mais tempo?', 'Which of these waves would you watch the longest?', '¿Cuál de estas olas te quedarías mirando más tiempo?'], [
+    ['sleek', 'Uma onda alta, de curva perfeita', 'A tall wave with a perfect curl', 'Una ola alta, de curva perfecta'],
     ['soft', 'Uma marola que mal se ouve', 'A ripple you can barely hear', 'Una olita que apenas se oye'],
-    ['luminous', 'Uma onda brilhando com plâncton', 'A wave glowing with plankton', 'Una ola brillando con plancton'],
+    ['luminous', 'Uma onda brilhando com a luz do sol', 'A wave sparkling in the sunlight', 'Una ola brillando con la luz del sol'],
     ['shadowed', 'Uma onda escura numa noite de tempestade', 'A dark wave on a stormy night', 'Una ola oscura en una noche de tormenta'],
-  ]),
+  ], { revision: 2 }),
   q('ae-052', 'a', ['Qual destes jardins secretos você abriria?', 'Which secret garden would you open?', '¿Qué jardín secreto abrirías?'], [
     ['organic', 'Um tomado por flores selvagens', 'One overrun with wildflowers', 'Uno invadido por flores silvestres'],
     ['mineral', 'Um de pedras que brilham', 'One of glittering stones', 'Uno de piedras que brillan'],

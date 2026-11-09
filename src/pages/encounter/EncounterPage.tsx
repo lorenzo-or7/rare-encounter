@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
 import { appHref, encounterHistoryState, navigate } from '../../app/routing';
+import { CosmicBackdrop } from '../../components/cosmos/CosmicBackdrop';
 import { SiteLayout } from '../../components/layout/SiteLayout';
 import type { ModeId } from '../../domain/modes';
 import type { QuizSession } from '../../domain/session';
@@ -159,6 +160,7 @@ export default function EncounterPage() {
 
   return (
     <SiteLayout sections={[]} brandHref={appHref('/')}>
+      <CosmicBackdrop variant="landing" />
       {view.kind === 'prepare' && (
         <PreparationScreen onConfirm={start} storageUnreachable={view.unreachable} />
       )}

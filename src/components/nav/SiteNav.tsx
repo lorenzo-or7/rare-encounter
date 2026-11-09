@@ -28,9 +28,9 @@ interface SiteNavProps {
 const SPRING = { type: 'spring', stiffness: 420, damping: 36, mass: 0.9 } as const;
 
 /**
- * Floating Liquid Nav (desktop): a pill that condenses once the page scrolls, with an
- * active-section indicator that flows between links.
- * Floating Top Bar (mobile): brand + menu, opening the bottom sheet.
+ * Editorial floating nav (desktop): an open row that condenses once the page scrolls, with
+ * a luminous active-section line that flows between links.
+ * Top bar (mobile): brand + menu, opening the bottom sheet.
  * Both render; CSS shows one per breakpoint so there is no layout flash on load.
  * Without in-page sections (the encounter screen) only the brand and settings remain.
  */

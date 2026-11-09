@@ -1,8 +1,10 @@
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { usePreferences } from '../../app/preferences-context';
 import { appHref, encounterHistoryState } from '../../app/routing';
 import { Button } from '../../components/button/Button';
+import { CosmicBackdrop } from '../../components/cosmos/CosmicBackdrop';
+import { Icon } from '../../components/icon/Icon';
 import { SettingsPanel } from '../../components/settings/SettingsPanel';
 import { Sheet } from '../../components/sheet/Sheet';
 import type { QuestionSource } from '../../domain/question-source';
@@ -13,6 +15,7 @@ import { PauseSheet } from './PauseSheet';
 import { QuestionView } from './QuestionView';
 import { QuizHeader } from './QuizHeader';
 import { canMoveForward, useQuiz } from './useQuiz';
+import { markNoticeShown, readShownNotices, voidRunBefore } from './void-notice';
 import './QuizScreen.css';
 import { MODE_NAMES } from '../preparation/mode-names';
 
@@ -39,6 +42,7 @@ interface QuizScreenProps {
  */
 export function QuizScreen({ store, source, session, onLeave, onRestart, onComplete }: QuizScreenProps) {
   const { t, locale } = usePreferences();
+  const reduceMotion = useReducedMotion() ?? false;
   const quiz = useQuiz(store, source, session);
   const { state } = quiz;
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -57,6 +61,16 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
   const leaving = useRef(false);
 
   const total = totalQuestions(state.session);
+
+  // Three voided questions in a row bring a gentle, non-blocking notice, once per run. Runs
+  // already shown (this visit or before a reload) stay quiet; a real answer ends the run.
+  const [shownBefore] = useState(() => readShownNotices(session.id));
+  const [dismissed, setDismissed] = useState<string | null>(null);
+  const voidRun = state.status === 'answering' ? voidRunBefore(state.session, state.index) : null;
+  const voidNotice = voidRun !== null && voidRun !== dismissed && !shownBefore.has(voidRun) ? voidRun : null;
+  useEffect(() => {
+    if (voidNotice) markNoticeShown(session.id, voidNotice);
+  }, [voidNotice, session.id]);
   const answered = answeredCount(state.session);
   const questionId = currentQuestionId(state);
   const question = questionId ? source.question(questionId) : undefined;
@@ -119,6 +133,7 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
 
   return (
     <div className="quiz">
+      <CosmicBackdrop variant="quiz" />
       <a className="site__skip" href="#main">
         {t('shell.skipToContent')}
       </a>
@@ -182,8 +197,24 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
                     onChoose={(answerId) => {
                       quiz.select(question.id, answerId);
                     }}
+                    voidLabel={t('quiz.void')}
                   />
                 </AnimatePresence>
+              </div>
+
+              <div className="quiz__notice-slot" role="status" aria-live="polite">
+                {voidNotice && (
+                  <VoidNotice
+                    eyebrow={t('quiz.voidNotice.eyebrow')}
+                    title={t('quiz.voidNotice.title')}
+                    body={t('quiz.voidNotice.body')}
+                    action={t('quiz.voidNotice.action')}
+                    still={reduceMotion}
+                    onContinue={() => {
+                      setDismissed(voidNotice);
+                    }}
+                  />
+                )}
               </div>
 
               {state.status === 'save-error' && (
@@ -269,5 +300,60 @@ export function QuizScreen({ store, source, session, onLeave, onRestart, onCompl
         <SettingsPanel />
       </Sheet>
     </div>
+  );
+}
+
+interface VoidNoticeProps {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly body: string;
+  readonly action: string;
+  readonly still: boolean;
+  readonly onContinue: () => void;
+}
+
+/**
+ * The notice after three passes in a row: a premium aside in the flow of the page, not an
+ * error, toast or modal. A gold frame lit along its edge, an "Attention" mark with its sign,
+ * the title whose last word carries the light, and one way on. It enters gently and never
+ * blocks the answers.
+ */
+function VoidNotice({ eyebrow, title, body, action, still, onContinue }: VoidNoticeProps) {
+  // The last word of the title ("mysterious…") carries the gold in every language.
+  const cut = title.lastIndexOf(' ');
+  const lead = cut > 0 ? title.slice(0, cut + 1) : '';
+  const accent = cut > 0 ? title.slice(cut + 1) : title;
+  return (
+    <motion.aside
+      className="quiz__notice"
+      {...(still
+        ? {}
+        : {
+            initial: { opacity: 0, y: 14 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+          })}
+    >
+      <span className="quiz__notice-edge" aria-hidden="true" />
+      <span className="quiz__notice-sign" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
+          <path d="M12 3.5 21.5 20h-19L12 3.5Z" />
+          <path d="M12 10v4.5" />
+          <circle cx="12" cy="17.25" r="0.6" fill="currentColor" />
+        </svg>
+      </span>
+      <div className="quiz__notice-content">
+        <p className="quiz__notice-eyebrow">{eyebrow}</p>
+        <p className="quiz__notice-title">
+          {lead}
+          <span className="quiz__notice-accent">{accent}</span>
+        </p>
+        <p className="quiz__notice-body">{body}</p>
+        <button type="button" className="quiz__notice-action" onClick={onContinue}>
+          <span>{action}</span>
+          <Icon name="arrowRight" size={18} />
+        </button>
+      </div>
+    </motion.aside>
   );
 }

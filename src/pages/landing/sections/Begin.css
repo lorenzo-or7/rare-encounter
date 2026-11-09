@@ -1,7 +1,7 @@
 /*
  * Closing: centered and spacious, a bookend to the left-aligned hero. The three depths are
- * set as large numerals (they are the real question counts; gradient text stays reserved
- * for the hero), and the start control closes the page.
+ * three portals that deepen from left to right (one ring, two, three around an eclipse),
+ * each over its real question count; the start control closes the page.
  */
 .begin {
   display: grid;
@@ -12,7 +12,6 @@
   margin-inline: auto;
   padding: clamp(var(--space-16), 11vw, var(--space-32)) var(--gutter)
     clamp(var(--space-24), 14vw, 10rem);
-  border-block-start: 1px solid var(--color-line);
   text-align: center;
 }
 
@@ -33,7 +32,8 @@
 .begin__modes {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 40rem);
+  align-items: end;
+  width: min(100%, 44rem);
   margin: var(--space-4) 0 0;
   padding: 0;
   list-style: none;
@@ -46,8 +46,19 @@
   padding-inline: var(--space-2);
 }
 
-.begin__mode + .begin__mode {
-  border-inline-start: 1px solid var(--color-line-strong);
+/* The portals grow with depth, so the row itself reads as going deeper. */
+.begin__portal {
+  display: block;
+  width: clamp(4rem, 14vw, 6rem);
+  margin-block-end: var(--space-3);
+}
+
+.begin__mode[data-depth='60'] .begin__portal {
+  width: clamp(4.75rem, 17vw, 7.25rem);
+}
+
+.begin__mode[data-depth='90'] .begin__portal {
+  width: clamp(5.5rem, 20vw, 8.5rem);
 }
 
 .begin__mode-count {
@@ -79,6 +90,18 @@
   font-weight: var(--weight-semibold);
 }
 
+.begin__cta-icon {
+  display: inline-block;
+  margin-inline-start: var(--space-3);
+  vertical-align: -0.2em;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.begin .begin__cta:hover .begin__cta-icon,
+.begin .begin__cta:focus-visible .begin__cta-icon {
+  transform: translateX(4px);
+}
+
 .begin .begin__cta:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 4px;
@@ -96,12 +119,11 @@
 }
 
 /*
- * Below 360 px the original Star Border light, which reaches 48 px past the CTA, went beyond
- * the screen edge and scrolled the page sideways. Clipping it here hides only what was already
- * off screen; `clip` creates no scroll container. 360 px and up are unchanged.
+ * The original Star Border light reaches 48 px past the CTA. On narrow screens it went past
+ * the screen edge and scrolled the page sideways: below 360 px since Phase 01B, and at
+ * 375 px once the CTA gained its arrow. Clipping hides only what was already off screen;
+ * `clip` creates no scroll container.
  */
-@media (max-width: 22.49em) {
-  .begin {
-    overflow-x: clip;
-  }
+.begin {
+  overflow-x: clip;
 }

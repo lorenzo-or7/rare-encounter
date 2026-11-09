@@ -1,6 +1,6 @@
-import { motion } from 'motion/react';
-import { IconButton } from '../../components/button/Button';
-import { LOGO_ASSET } from '../../components/logo/logo-asset';
+import { motion, useReducedMotion } from "motion/react";
+import { IconButton } from "../../components/button/Button";
+import { LOGO_ASSET } from "../../components/logo/logo-asset";
 
 interface QuizHeaderProps {
   readonly brand: string;
@@ -15,11 +15,17 @@ interface QuizHeaderProps {
   readonly onOpenSettings: () => void;
 }
 
-const FILL = { type: 'spring', stiffness: 140, damping: 26, mass: 0.9 } as const;
+const FILL = {
+  type: "spring",
+  stiffness: 140,
+  damping: 26,
+  mass: 0.9,
+} as const;
 
 /**
  * Focused header for the questions (Or7, E8 A): the compact symbol, one continuous progress
- * bar with its counter, Pause and Settings. The symbol is not a link here: leaving goes
+ * line with its counter, Pause and Settings. The line is holographic: a gradient fill with
+ * a comet head of light at its tip and a sweep each time it grows (Prompt 02). The symbol is not a link here: leaving goes
  * through Pause, so nobody drops out of a session by accident.
  */
 export function QuizHeader({
@@ -35,6 +41,11 @@ export function QuizHeader({
   onOpenSettings,
 }: QuizHeaderProps) {
   const symbol = LOGO_ASSET.symbol;
+  const reduce = useReducedMotion() ?? false;
+  const share = total > 0 ? answered / total : 0;
+  // Fill and comet head move together, by transform only: each is a full-width layer
+  // shifted left by what is still to go.
+  const shift = { x: `${String((share - 1) * 100)}%` };
 
   return (
     <header className="quiz-header">
@@ -49,21 +60,37 @@ export function QuizHeader({
         />
 
         <div className="quiz-header__progress">
-          <div
-            className="quiz-progress"
-            role="progressbar"
-            aria-label={progressLabel}
-            aria-valuemin={0}
-            aria-valuemax={total}
-            aria-valuenow={answered}
-            aria-valuetext={`${String(answered)} / ${String(total)}`}
-          >
-            <motion.span
-              className="quiz-progress__fill"
-              initial={false}
-              animate={{ scaleX: total > 0 ? answered / total : 0 }}
-              transition={FILL}
-            />
+          <div className="quiz-progress__wrap">
+            <div
+              className="quiz-progress"
+              role="progressbar"
+              aria-label={progressLabel}
+              aria-valuemin={0}
+              aria-valuemax={total}
+              aria-valuenow={answered}
+              aria-valuetext={`${String(answered)} / ${String(total)}`}
+            >
+              <motion.span
+                className="quiz-progress__fill"
+                initial={false}
+                animate={shift}
+                transition={FILL}
+              >
+                {/* A sweep of light runs along the fill each time it grows. */}
+                {!reduce && answered > 0 && (
+                  <span key={answered} className="quiz-progress__sweep" />
+                )}
+              </motion.span>
+            </div>
+            <span className="quiz-progress__rail" aria-hidden="true">
+              <motion.span
+                className="quiz-progress__head"
+                data-empty={answered === 0}
+                initial={false}
+                animate={shift}
+                transition={FILL}
+              />
+            </span>
           </div>
           <span className="quiz-header__count" aria-hidden="true">
             {answered}

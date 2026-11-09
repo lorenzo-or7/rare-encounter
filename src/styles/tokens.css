@@ -117,6 +117,19 @@
 
   /* Interactive states move toward the light: hover brightens an accent fill. */
   --accent-hover-toward: white;
+
+  /*
+   * Cosmos (Prompt 02): the deep space every screen sits in. The night is shared; the
+   * nebulae take the palette's own accents, so each theme keeps its colour of space.
+   */
+  --cosmos-deep: #05030d;
+  --cosmos-haze: #0d0a24;
+  --cosmos-star: 255 255 255;
+  --cosmos-nebula-strength: 1;
+  --cosmos-line: rgb(214 204 255 / 0.14);
+  /* Attention (the void notice): the Radiant card's gold, kept readable on the night */
+  --signal-gold: #f4c46c;
+  --signal-gold-text: #f8d48e;
 }
 
 /*
@@ -151,6 +164,15 @@
 
   /* Hover deepens an accent fill, so text on it keeps its contrast. */
   --accent-hover-toward: black;
+
+  /* Cosmos in daylight: pale washes of the same accents and fine ink specks, not a night. */
+  --cosmos-deep: color-mix(in oklab, var(--accent) 6%, #f3f1f6);
+  --cosmos-haze: color-mix(in oklab, var(--accent) 10%, #ebe8f2);
+  --cosmos-star: 54 42 96;
+  --cosmos-nebula-strength: 0.55;
+  --cosmos-line: rgb(36 28 64 / 0.14);
+  --signal-gold: #b07a14;
+  --signal-gold-text: #7d5208;
 }
 
 /* Restrained iridescence, re-derived wherever a theme scope changes the accents */

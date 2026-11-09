@@ -2,12 +2,12 @@ import { q, type QuestionDef } from './define';
 
 /** Personality: 75 questions (52 fundamental, 23 adaptive). Candidate content, v1. */
 export const PERSONALITY: readonly QuestionDef[] = [
-  q('pe-001', 'f', ['Uma porta que você nunca viu aparece no seu caminho de sempre. Você…', 'A door you have never seen appears on your usual route. You…', 'Una puerta que nunca habías visto aparece en tu camino de siempre. Tú…'], [
-    ['curious', 'Abre devagar, só para espiar', 'Open it slowly, just to peek', 'La abres despacio, solo para echar un vistazo'],
-    ['serene', 'Anota mentalmente e segue em frente', 'Make a mental note and keep going', 'Tomas nota mental y sigues adelante'],
-    ['playful', 'Bate três vezes, como num jogo', 'Knock three times, like in a game', 'Tocas tres veces, como en un juego'],
-    ['daring', 'Entra sem pensar duas vezes', 'Walk in without thinking twice', 'Entras sin pensarlo dos veces'],
-  ]),
+  q('pe-001', 'f', ['Um lugar novo abriu perto da sua casa. Você…', 'A new place has opened near your home. You…', 'Abrió un lugar nuevo cerca de tu casa. Tú…'], [
+    ['curious', 'Vai logo no primeiro dia, para conhecer', 'Go on the very first day, just to see it', 'Vas el primer día, solo para conocerlo'],
+    ['serene', 'Espera a novidade passar e vai com calma', 'Wait for the buzz to die down, then go', 'Esperas a que pase la novedad y vas con calma'],
+    ['playful', 'Chama alguém e transforma a visita num programa', 'Bring someone along and make an outing of it', 'Llamas a alguien y lo conviertes en un plan'],
+    ['daring', 'Pede a coisa mais diferente do cardápio', 'Order the most unusual thing on the menu', 'Pides lo más raro del menú'],
+  ], { revision: 2 }),
   q('pe-002', 'f', ['Num fim de tarde livre, o que mais combina com você?', 'On a free late afternoon, what fits you best?', 'En una tarde libre, ¿qué va más contigo?'], [
     ['reserved', 'Um canto silencioso e um bom livro', 'A quiet corner and a good book', 'Un rincón silencioso y un buen libro'],
     ['warm', 'Ligar para alguém de quem sente falta', 'Calling someone you miss', 'Llamar a alguien que extrañas'],
@@ -86,12 +86,12 @@ export const PERSONALITY: readonly QuestionDef[] = [
     ['warm', 'Vozes conhecidas na sala ao lado', 'Familiar voices in the next room', 'Voces conocidas en la habitación de al lado'],
     ['curious', 'Uma língua que você não entende', 'A language you don’t understand', 'Un idioma que no entiendes'],
   ]),
-  q('pe-015', 'f', ['Você encontra um mapa antigo numa gaveta. O que faz?', 'You find an old map in a drawer. What do you do?', 'Encuentras un mapa antiguo en un cajón. ¿Qué haces?'], [
-    ['curious', 'Tenta descobrir de onde ele veio', 'Try to work out where it came from', 'Intentas descubrir de dónde viene'],
-    ['daring', 'Planeja ir até o X marcado', 'Plan a trip to the marked X', 'Planeas ir hasta la X marcada'],
-    ['playful', 'Transforma numa caça ao tesouro para os amigos', 'Turn it into a treasure hunt for friends', 'Lo conviertes en una búsqueda del tesoro para tus amigos'],
-    ['serene', 'Emoldura e deixa à vista', 'Frame it and keep it on display', 'Lo enmarcas y lo dejas a la vista'],
-  ]),
+  q('pe-015', 'f', ['Você encontra uma caixa de fotos e objetos antigos da família. O que faz?', 'You find a box of old family photos and keepsakes. What do you do?', 'Encuentras una caja con fotos y objetos antiguos de la familia. ¿Qué haces?'], [
+    ['curious', 'Quer saber a história de cada coisa', 'Want to know the story behind each thing', 'Quieres saber la historia de cada cosa'],
+    ['daring', 'Decide visitar os lugares que aparecem nas fotos', 'Decide to visit the places in the photos', 'Decides visitar los lugares de las fotos'],
+    ['playful', 'Faz todo mundo adivinhar quem é quem', 'Get everyone guessing who is who', 'Haces que todos adivinen quién es quién'],
+    ['serene', 'Organiza tudo com calma e guarda com cuidado', 'Sort it all calmly and put it away with care', 'Lo ordenas todo con calma y lo guardas con cuidado'],
+  ], { revision: 2 }),
   q('pe-016', 'f', ['Quando conhece alguém, o que você nota primeiro?', 'When you meet someone, what do you notice first?', 'Cuando conoces a alguien, ¿qué notas primero?'], [
     ['warm', 'Se a pessoa parece à vontade', 'Whether they seem at ease', 'Si la persona parece cómoda'],
     ['curious', 'O que ela tem de diferente', 'What makes them different', 'Lo que tiene de diferente'],
@@ -116,12 +116,12 @@ export const PERSONALITY: readonly QuestionDef[] = [
     ['daring', 'Começar o dia com algo desafiador', 'Starting the day with a challenge', 'Empezar el día con algo desafiante'],
     ['playful', 'Uma música alta enquanto se arruma', 'Loud music while you get ready', 'Música fuerte mientras te arreglas'],
   ]),
-  q('pe-020', 'f', ['Alguém conta um segredo que muda tudo o que você sabia. Você…', 'Someone tells you a secret that changes everything you knew. You…', 'Alguien te cuenta un secreto que cambia todo lo que sabías. Tú…'], [
-    ['curious', 'Quer entender cada detalhe', 'Want to understand every detail', 'Quieres entender cada detalle'],
-    ['reserved', 'Guarda para si e pensa em silêncio', 'Keep it to yourself and think it over quietly', 'Te lo guardas y lo piensas en silencio'],
+  q('pe-020', 'f', ['Você descobre algo surpreendente sobre um assunto que achava conhecer bem. Você…', 'You find out something surprising about a subject you thought you knew well. You…', 'Descubres algo sorprendente sobre un tema que creías conocer bien. Tú…'], [
+    ['curious', 'Vai atrás de entender cada detalhe', 'Dig in to understand every detail', 'Buscas entender cada detalle'],
+    ['reserved', 'Guarda para si e pensa no assunto em silêncio', 'Keep it to yourself and mull it over quietly', 'Te lo guardas y lo piensas en silencio'],
     ['serene', 'Recebe com calma, sem drama', 'Take it in calmly, without drama', 'Lo recibes con calma, sin drama'],
-    ['warm', 'Pensa primeiro em quem pode sair magoado', 'Think first about who might get hurt', 'Piensas primero en quién puede salir herido'],
-  ]),
+    ['warm', 'Pensa em quem mais gostaria de saber disso', 'Think of who else would want to know', 'Piensas en quién más querría saberlo'],
+  ], { revision: 2 }),
   q('pe-021', 'f', ['Que papel você teria numa expedição?', 'What role would you take on an expedition?', '¿Qué papel tendrías en una expedición?'], [
     ['daring', 'Quem vai na frente abrindo caminho', 'The one up front clearing the way', 'Quien va adelante abriendo camino'],
     ['curious', 'Quem anota tudo o que encontra', 'The one who records everything found', 'Quien anota todo lo que encuentra'],
@@ -200,12 +200,12 @@ export const PERSONALITY: readonly QuestionDef[] = [
     ['serene', 'Seguir no seu ritmo, sem se agitar', 'Keep your own pace, unbothered', 'Seguir a tu ritmo, sin agitarte'],
     ['warm', 'Ficar de olho em quem está com você', 'Keep an eye on whoever is with you', 'Estar pendiente de quien va contigo'],
   ]),
-  q('pe-034', 'f', ['Você recebe uma carta sem remetente. Você…', 'You receive a letter with no sender. You…', 'Recibes una carta sin remitente. Tú…'], [
-    ['curious', 'Examina cada detalhe à procura de pistas', 'Study every detail for clues', 'Examinas cada detalle buscando pistas'],
-    ['daring', 'Abre na hora, aconteça o que acontecer', 'Open it at once, whatever happens', 'La abres enseguida, pase lo que pase'],
-    ['reserved', 'Deixa para abrir quando estiver sozinho', 'Save it for when you are alone', 'La dejas para abrirla cuando estés solo'],
-    ['playful', 'Inventa teorias absurdas sobre quem mandou', 'Come up with absurd theories about who sent it', 'Inventas teorías absurdas sobre quién la mandó'],
-  ]),
+  q('pe-034', 'f', ['Chega uma mensagem de um número desconhecido dizendo só “oi”. Você…', 'A message arrives from an unknown number that just says “hi”. You…', 'Llega un mensaje de un número desconocido que solo dice “hola”. Tú…'], [
+    ['curious', 'Tenta descobrir quem é pela foto ou pelo número', 'Try to work out who it is from the photo or number', 'Intentas averiguar quién es por la foto o el número'],
+    ['daring', 'Responde direto e puxa conversa', 'Reply straight away and start chatting', 'Respondes enseguida y sacas conversación'],
+    ['reserved', 'Deixa sem resposta até ter certeza', 'Leave it unanswered until you’re sure', 'Lo dejas sin responder hasta estar seguro'],
+    ['playful', 'Responde com uma brincadeira para ver no que dá', 'Reply with a joke and see what happens', 'Respondes con una broma a ver qué pasa'],
+  ], { revision: 2 }),
   q('pe-035', 'f', ['Qual destas viagens mais combina com você?', 'Which of these trips suits you best?', '¿Cuál de estos viajes va más contigo?'], [
     ['daring', 'Uma travessia que poucos fizeram', 'A crossing few people have made', 'Una travesía que pocos han hecho'],
     ['serene', 'Uma semana num lugar onde nada acontece', 'A week somewhere nothing happens', 'Una semana en un lugar donde no pasa nada'],
@@ -218,12 +218,12 @@ export const PERSONALITY: readonly QuestionDef[] = [
     ['warm', 'Agradece a quem ajudou', 'Thank whoever helped', 'Agradeces a quien ayudó'],
     ['daring', 'Já pensa num desafio maior', 'Already think about a bigger challenge', 'Ya piensas en un reto mayor'],
   ]),
-  q('pe-037', 'f', ['Você está perdido numa trilha ao entardecer. O que vem primeiro?', 'You are lost on a trail at dusk. What comes first?', 'Te perdiste en un sendero al atardecer. ¿Qué viene primero?'], [
-    ['serene', 'Parar, respirar e pensar', 'Stop, breathe and think', 'Parar, respirar y pensar'],
-    ['daring', 'Escolher uma direção e ir com firmeza', 'Pick a direction and go for it', 'Elegir una dirección e ir con firmeza'],
-    ['curious', 'Observar o sol, o musgo, os sinais', 'Read the sun, the moss, the signs', 'Observar el sol, el musgo, las señales'],
-    ['reserved', 'Achar um abrigo e esperar a manhã', 'Find shelter and wait for morning', 'Buscar refugio y esperar la mañana'],
-  ]),
+  q('pe-037', 'f', ['Você se perde numa cidade que não conhece. O que vem primeiro?', 'You get lost in a city you don’t know. What comes first?', 'Te pierdes en una ciudad que no conoces. ¿Qué viene primero?'], [
+    ['serene', 'Parar e se localizar com calma', 'Stop and get your bearings calmly', 'Detenerte y ubicarte con calma'],
+    ['daring', 'Escolher uma direção e seguir em frente', 'Pick a direction and keep going', 'Elegir una dirección y seguir'],
+    ['curious', 'Aproveitar para conhecer por onde estiver', 'Make the most of it and explore where you are', 'Aprovechar para conocer donde estés'],
+    ['reserved', 'Achar um canto tranquilo até a cabeça clarear', 'Find a quiet spot until your head clears', 'Buscar un rincón tranquilo hasta despejarte'],
+  ], { revision: 2 }),
   q('pe-038', 'f', ['Que tipo de anfitrião você seria?', 'What kind of host would you be?', '¿Qué tipo de anfitrión serías?'], [
     ['warm', 'O que lembra do prato favorito de cada um', 'The one who remembers everyone’s favorite dish', 'El que recuerda el plato favorito de cada uno'],
     ['playful', 'O que inventa brincadeiras a noite toda', 'The one who invents games all night', 'El que inventa juegos toda la noche'],
@@ -266,12 +266,12 @@ export const PERSONALITY: readonly QuestionDef[] = [
     ['curious', 'Quer entender a estratégia de cada um', 'Wants to understand everyone’s strategy', 'Quiere entender la estrategia de cada uno'],
     ['serene', 'Joga tranquilo, ganhe ou perca', 'Plays calmly, win or lose', 'Juega tranquilo, gane o pierda'],
   ]),
-  q('pe-045', 'f', ['Uma ponte velha atravessa um rio. Você…', 'An old bridge crosses a river. You…', 'Un puente viejo cruza un río. Tú…'], [
-    ['daring', 'Atravessa sem olhar para baixo', 'Cross without looking down', 'Cruzas sin mirar abajo'],
-    ['curious', 'Examina como ela foi construída', 'Study how it was built', 'Examinas cómo fue construido'],
-    ['reserved', 'Prefere contornar pelo caminho longo', 'Take the long way around', 'Prefieres rodear por el camino largo'],
-    ['warm', 'Atravessa segurando a mão de alguém', 'Cross holding someone’s hand', 'Cruzas tomando la mano de alguien'],
-  ]),
+  q('pe-045', 'f', ['Um brinquedo radical do parque parece um pouco assustador. Você…', 'A thrill ride at the fair looks a little scary. You…', 'Una atracción extrema del parque da un poco de miedo. Tú…'], [
+    ['daring', 'Vai primeiro, antes de pensar demais', 'Go first, before you overthink it', 'Te subes primero, antes de pensarlo demasiado'],
+    ['curious', 'Observa como funciona antes de decidir', 'Watch how it works before deciding', 'Observas cómo funciona antes de decidir'],
+    ['reserved', 'Prefere ver de fora, sem pressão', 'Would rather watch from the side, no pressure', 'Prefieres mirar desde afuera, sin presión'],
+    ['warm', 'Vai, se for de mãos dadas com alguém', 'Go, if you can hold someone’s hand', 'Te subes si es de la mano de alguien'],
+  ], { revision: 2 }),
   q('pe-046', 'f', ['Quando você está muito feliz, isso aparece como…', 'When you are very happy, it shows as…', 'Cuando estás muy feliz, se nota en…'], [
     ['playful', 'Bobeira e risada fácil', 'Silliness and easy laughter', 'Tonterías y risa fácil'],
     ['serene', 'Uma calma boa que todos notam', 'A good calm everyone notices', 'Una calma buena que todos notan'],

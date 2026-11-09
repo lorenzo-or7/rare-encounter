@@ -1,0 +1,8 @@
+{
+  "description": "Approved loading video (Google Flow, made for Rare Encounter). Kept out of Git (9.1 MB > 5 MB safety limit); published as a GitHub Release asset and downloaded by the Pages workflow. Never re-encoded: the hash below is the original file's.",
+  "release": "media-v1",
+  "asset": "encounter-loading.mp4",
+  "target": "public/media/encounter-loading.mp4",
+  "bytes": 9137638,
+  "sha256": "4f7a3323835416e3989a6ec00fa9ae8bf8ee0fc9178ee1ff213de1307e639607"
+}
